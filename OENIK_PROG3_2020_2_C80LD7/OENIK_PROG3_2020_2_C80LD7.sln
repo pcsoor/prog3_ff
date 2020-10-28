@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NationalBasketballAssociation", "NationalBasketballAssociation\NationalBasketballAssociation.csproj", "{B40395C9-8E49-41AD-8CF8-8B9D15D2D766}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NationalBasketballAssociation.Program", "NationalBasketballAssociation\NationalBasketballAssociation.Program.csproj", "{B40395C9-8E49-41AD-8CF8-8B9D15D2D766}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NationalBasketballAssociation.Data", "NationalBasketballAssociation.Data\NationalBasketballAssociation.Data.csproj", "{75943EA1-C324-47EF-B6C0-964F2FBFD5FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NationalBasketballAssociation.Repository", "NationalBasketballAssociation.Repository\NationalBasketballAssociation.Repository.csproj", "{A87553A6-813D-4977-987A-4D4486DF4C46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NationalBasketballAssociation.Logic", "NationalBasketballAssociation.Logic\NationalBasketballAssociation.Logic.csproj", "{6BB09880-CA33-4DB5-BD8E-40F69D473341}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NationalBasketballAssociation.Logic.Tests", "NationalBasketballAssociation.Logic.Tests\NationalBasketballAssociation.Logic.Tests.csproj", "{B0B4CA01-1E8B-48B2-8F64-AFBF78AC4EFF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,22 @@ Global
 		{B40395C9-8E49-41AD-8CF8-8B9D15D2D766}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B40395C9-8E49-41AD-8CF8-8B9D15D2D766}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B40395C9-8E49-41AD-8CF8-8B9D15D2D766}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75943EA1-C324-47EF-B6C0-964F2FBFD5FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75943EA1-C324-47EF-B6C0-964F2FBFD5FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75943EA1-C324-47EF-B6C0-964F2FBFD5FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75943EA1-C324-47EF-B6C0-964F2FBFD5FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A87553A6-813D-4977-987A-4D4486DF4C46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A87553A6-813D-4977-987A-4D4486DF4C46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A87553A6-813D-4977-987A-4D4486DF4C46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A87553A6-813D-4977-987A-4D4486DF4C46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BB09880-CA33-4DB5-BD8E-40F69D473341}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BB09880-CA33-4DB5-BD8E-40F69D473341}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BB09880-CA33-4DB5-BD8E-40F69D473341}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BB09880-CA33-4DB5-BD8E-40F69D473341}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0B4CA01-1E8B-48B2-8F64-AFBF78AC4EFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0B4CA01-1E8B-48B2-8F64-AFBF78AC4EFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0B4CA01-1E8B-48B2-8F64-AFBF78AC4EFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0B4CA01-1E8B-48B2-8F64-AFBF78AC4EFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
