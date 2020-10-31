@@ -7,47 +7,52 @@ using System.Text;
 namespace NBA.Data.Model
 {
     [Table("PlayerStats")]
-    class PlayerStats
+    public class PlayerStats
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PlayerStatID { get; set; }
 
+        [ForeignKey(nameof(Player))]
         public int PlayerID { get; set; }
 
         /// <summary>
         /// games played.
         /// </summary>
-        public int GP { get; set; }
+        [Required]
+        public double GP { get; set; }
 
         /// <summary>
         /// points per game.
         /// </summary>
-        public int PPG { get; set; }
+        public double PPG { get; set; }
 
         /// <summary>
         /// field goals made.
         /// </summary>
-        public int FGM { get; set; }
+        public double FGM { get; set; }
 
         /// <summary>
         /// assist.
         /// </summary>
-        public int AST { get; set; }
+        public double AST { get; set; }
 
         /// <summary>
         /// rebound.
         /// </summary>
-        public int REB { get; set; }
+        public double REB { get; set; }
 
         /// <summary>
         /// block.
         /// </summary>
-        public int BLK { get; set; }
+        public double BLK { get; set; }
 
         /// <summary>
         /// steal.
         /// </summary>
-        public int STL { get; set; }
+        public double STL { get; set; }
+
+        [NotMapped]
+        public virtual Player Player { get; }
     }
 }

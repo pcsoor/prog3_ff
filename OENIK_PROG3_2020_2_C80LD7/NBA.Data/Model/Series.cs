@@ -7,15 +7,21 @@ using System.Text;
 namespace NBA.Data.Model
 {
     [Table("Series")]
-    class Series
+    public class Series
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Year { get; set; }
+
+        [ForeignKey(nameof(Teams))]
         public int WinnerID { get; set; }
 
+        [ForeignKey(nameof(Teams))]
         public int LoserID { get; set; }
 
         public string Result { get; set; }
+
+        [NotMapped]
+        public virtual Teams Teams { get; set; }
     }
 }

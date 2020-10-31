@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 using System.Text;
 
 namespace NBA.Data.Model
 {
     [Table("Teams")]
-    class Teams
+    public class Teams
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -24,5 +25,16 @@ namespace NBA.Data.Model
         [Required]
         [MaxLength(20)]
         public string Region { get; set; }
+
+        [NotMapped]
+        public virtual TeamStats TeamStats { get; set; }
+
+        [NotMapped]
+        public virtual ICollection<Series> Series { get; set; }
+
+        public Teams()
+        {
+            Series = new HashSet<Series>();
+        }
     }
 }
