@@ -4,5 +4,109 @@
         <name>NBA.Data</name>
     </assembly>
     <members>
+        <member name="P:NBA.Data.Model.NBADbContext.Player">
+            <summary>
+            Gets or sets each player.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.NBADbContext.Teams">
+            <summary>
+            Gets or sets nba teams.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.NBADbContext.Series">
+            <summary>
+            Gets or sets an nba series.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.NBADbContext.TeamStats">
+            <summary>
+            Gets or sets team statistics.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.NBADbContext.PlayerStats">
+            <summary>
+            Gets or sets player statistics.
+            </summary>
+        </member>
+        <member name="M:NBA.Data.Model.NBADbContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:NBA.Data.Model.NBADbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            OnModelCreating.
+            </summary>
+            <param name="modelBuilder">modelBuilder</param>
+        </member>
+        <member name="P:NBA.Data.Model.PlayerStats.GP">
+            <summary>
+            games played.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.PlayerStats.PPG">
+            <summary>
+            points per game.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.PlayerStats.FGM">
+            <summary>
+            field goals made.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.PlayerStats.AST">
+            <summary>
+            assist.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.PlayerStats.REB">
+            <summary>
+            rebound.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.PlayerStats.BLK">
+            <summary>
+            block.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.PlayerStats.STL">
+            <summary>
+            steal.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.TeamStats.GP">
+            <summary>
+            games played.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.TeamStats.PPG">
+            <summary>
+            points per game.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.TeamStats.FGM">
+            <summary>
+            field goals made.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.TeamStats.AST">
+            <summary>
+            assist.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.TeamStats.REB">
+            <summary>
+            rebound.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.TeamStats.BLK">
+            <summary>
+            block.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.TeamStats.STL">
+            <summary>
+            steal.
+            </summary>
+        </member>
     </members>
 </doc>
