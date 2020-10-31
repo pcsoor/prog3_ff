@@ -9,5 +9,10 @@ namespace NBA.Repository
     class TeamsStatsRepository : Repository<TeamStats>, ITeamsStatsRepository
     {
         public TeamsStatsRepository(DbContext ctx) : base(ctx) { }
+
+        public override TeamStats GetOne(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

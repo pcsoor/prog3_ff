@@ -9,5 +9,10 @@ namespace NBA.Repository
     class PlayerStatsRepository : Repository<PlayerStats>, IPlayerStatsRepository
     {
         public PlayerStatsRepository(DbContext ctx) : base(ctx) { }
+
+        public override PlayerStats GetOne(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

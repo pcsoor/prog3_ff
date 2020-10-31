@@ -20,5 +20,7 @@ namespace NBA.Repository
         {
             return ctx.Set<T>();
         }
+
+        public abstract T GetOne(int id);
     }
 }

@@ -10,6 +10,8 @@ namespace NBA.Data.Model
     [Table("Player")]
     public class Player
     {
+        
+        [Range(1, int.MaxValue, ErrorMessage = "Please enter a value bigger than {1}")]
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PlayerID { get; set; }
