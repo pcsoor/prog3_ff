@@ -21,4 +21,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\NBA.Data\NBA.Data.csproj" />
+    <ProjectReference Include="..\NBA.Logic\NBA.Logic.csproj" />
+    <ProjectReference Include="..\NBA.Repository\NBA.Repository.csproj" />
+  </ItemGroup>
+
 </Project>

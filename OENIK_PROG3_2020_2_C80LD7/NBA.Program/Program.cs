@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NBA.Data.Model;
+using System;
+using System.Linq;
 
 namespace NBA.Program
 {
@@ -6,7 +8,9 @@ namespace NBA.Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            NBADbContext ctx = new NBADbContext();
+            Console.WriteLine(ctx.Player.Count());
+            Console.ReadLine();
            
         }
     }
