@@ -5,7 +5,7 @@ using System.Text;
 
 namespace NBA.Repository
 {
-    interface ISeriesRepository : IRepository<Series>
+    public interface ISeriesRepository : IRepository<Series>
     {
     }
 }

@@ -5,7 +5,8 @@ using System.Text;
 
 namespace NBA.Repository
 {
-    interface ITeamsRepository : IRepository<Teams>
+    public interface ITeamsRepository : IRepository<Teams>
     {
+       
     }
 }

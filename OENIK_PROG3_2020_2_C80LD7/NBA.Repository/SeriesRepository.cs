@@ -6,7 +6,7 @@ using System.Text;
 
 namespace NBA.Repository
 {
-    class SeriesRepository : Repository<Series>, ISeriesRepository
+    public class SeriesRepository : Repository<Series>, ISeriesRepository
     {
         public SeriesRepository(DbContext ctx) : base(ctx) { }
 

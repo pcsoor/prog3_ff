@@ -5,7 +5,7 @@ using System.Text;
 
 namespace NBA.Repository
 {
-    interface IPlayerStatsRepository : IRepository<PlayerStats>
+    public interface IPlayerStatsRepository : IRepository<PlayerStats>
     {
     }
 }

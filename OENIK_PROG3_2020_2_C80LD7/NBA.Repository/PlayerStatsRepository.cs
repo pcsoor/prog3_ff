@@ -6,7 +6,7 @@ using System.Text;
 
 namespace NBA.Repository
 {
-    class PlayerStatsRepository : Repository<PlayerStats>, IPlayerStatsRepository
+    public class PlayerStatsRepository : Repository<PlayerStats>, IPlayerStatsRepository
     {
         public PlayerStatsRepository(DbContext ctx) : base(ctx) { }
 
