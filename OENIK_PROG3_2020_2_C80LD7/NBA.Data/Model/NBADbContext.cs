@@ -5,6 +5,9 @@ using System.Text;
 
 namespace NBA.Data.Model
 {
+    /// <summary>
+    /// Thic class made for creating database.
+    /// </summary>
     public class NBADbContext : DbContext
     {
         /// <summary>

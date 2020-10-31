@@ -1,4 +1,5 @@
-﻿using NBA.Data.Model;
+﻿using ConsoleTools;
+using NBA.Data.Model;
 using NBA.Repository;
 using System;
 using System.Linq;
@@ -14,8 +15,11 @@ namespace NBA.Program
             Player p = new Player();
             PlayerRepository pr = new PlayerRepository(ctx);
             Console.WriteLine(pr.GetOne(4).Name);
-            Console.ReadLine();
-           
+
+            var menu = new ConsoleMenu().
+                Add("Delete Player", () => Console.WriteLine("Ez még nincs kész")).
+                Add("Exit", ConsoleMenu.Close);
+            menu.Show();
         }
     }
 }
