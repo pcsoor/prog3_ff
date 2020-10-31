@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NBA.Repository</name>
+    </assembly>
+    <members>
+        <member name="T:NBA.Repository.IRepository`1">
+            <summary>
+            IRepository osztály.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+    </members>
+</doc>
