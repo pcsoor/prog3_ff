@@ -12,23 +12,30 @@ namespace NBA.Repository
         protected DbContext ctx;
         protected DbSet<T> dbSet;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Repository{T}"/> class.
+        /// </summary>
+        /// <param name="ctx">dbcontext.</param>
         public Repository(DbContext ctx)
         {
             this.ctx = ctx;
-            this.dbSet = ctx.Set<T>();
+            this.dbSet = this.ctx.Set<T>();
         }
 
+        /// <inheritdoc/>
         public IQueryable<T> GetAll()
         {
-            return ctx.Set<T>();
+            return this.ctx.Set<T>();
         }
 
+        /// <inheritdoc/>
         public abstract T GetOne(int id);
 
+        /// <inheritdoc/>
         public void Insert(T obj)
         {
-            dbSet.Add(obj);
-            ctx.SaveChanges();
+            this.dbSet.Add(obj);
+            this.ctx.SaveChanges();
         }
     }
 }

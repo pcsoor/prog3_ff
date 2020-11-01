@@ -65,7 +65,7 @@
         /// <summary>
         /// OnModelCreating.
         /// </summary>
-        /// <param name="modelBuilder">modelBuilder</param>
+        /// <param name="modelBuilder">modelBuilder.</param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             Player p1 = new Player() { PlayerID = 1, Name = "Lebron James", Birth = new DateTime(1984, 12, 20), Height = 206, Weight = 113, Number = 23, Post = "SF/PF", Salary = 37436858 };
