@@ -4,5 +4,30 @@
         <name>NBA.Program</name>
     </assembly>
     <members>
+        <member name="T:NBA.Program.Factory">
+            <summary>
+            Class for implementation.
+            </summary>
+        </member>
+        <member name="M:NBA.Program.Factory.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.Program.Factory"/> class.
+            </summary>
+        </member>
+        <member name="P:NBA.Program.Factory.PlayerLogic">
+            <summary>
+            Gets or sets the PlayerLogic object.
+            </summary>
+        </member>
+        <member name="P:NBA.Program.Factory.TeamLogic">
+            <summary>
+            Gets or sets the PlayerLogic object.
+            </summary>
+        </member>
+        <member name="P:NBA.Program.Factory.Menu">
+            <summary>
+            Gets or sets the PlayerLogic object.
+            </summary>
+        </member>
     </members>
 </doc>
