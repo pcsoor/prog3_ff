@@ -4,6 +4,22 @@
         <name>NBA.Data</name>
     </assembly>
     <members>
+        <member name="T:NBA.Data.Model.NBADbContext">
+            <summary>
+            Thic class made for creating database.
+            </summary>
+        </member>
+        <member name="M:NBA.Data.Model.NBADbContext.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.Data.Model.NBADbContext"/> class.
+            </summary>
+        </member>
+        <member name="M:NBA.Data.Model.NBADbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{NBA.Data.Model.NBADbContext})">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.Data.Model.NBADbContext"/> class.
+            </summary>
+            <param name="options">instance of dbcontext.</param>
+        </member>
         <member name="P:NBA.Data.Model.NBADbContext.Player">
             <summary>
             Gets or sets each player.

@@ -1,15 +1,31 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace NBA.Data.Model
+﻿namespace NBA.Data.Model
 {
+    using System;
+    using Microsoft.EntityFrameworkCore;
+
     /// <summary>
     /// Thic class made for creating database.
     /// </summary>
     public class NBADbContext : DbContext
     {
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NBADbContext"/> class.
+        /// </summary>
+        public NBADbContext()
+        {
+            this.Database.EnsureCreated();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NBADbContext"/> class.
+        /// </summary>
+        /// <param name="options">instance of dbcontext.</param>
+        public NBADbContext(DbContextOptions<NBADbContext> options)
+            : base(options)
+        {
+        }
+
         /// <summary>
         /// Gets or sets each player.
         /// </summary>
@@ -34,16 +50,6 @@ namespace NBA.Data.Model
         /// Gets or sets player statistics.
         /// </summary>
         public virtual DbSet<PlayerStats> PlayerStats { get; set; }
-
-        public NBADbContext()
-        {
-            this.Database.EnsureCreated();
-        }
-
-        public NBADbContext(DbContextOptions<NBADbContext> options)
-            : base(options)
-        {
-        }
 
         /// <inheritdoc/>
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

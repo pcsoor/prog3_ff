@@ -4,11 +4,44 @@
         <name>NBA.Repository</name>
     </assembly>
     <members>
+        <member name="T:NBA.Repository.IPlayerRepository">
+            <summary>
+            Player specific methods.
+            </summary>
+        </member>
+        <member name="M:NBA.Repository.IPlayerRepository.ChangeNumber(System.Int32,System.Int32)">
+            <summary>
+            Change the player's number.
+            </summary>
+            <param name="id">player's id.</param>
+            <param name="number">player's number.</param>
+        </member>
         <member name="T:NBA.Repository.IRepository`1">
             <summary>
             IRepository osztály.
             </summary>
             <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:NBA.Repository.PlayerRepository">
+            <summary>
+            Player specific methods made in this class.
+            </summary>
+        </member>
+        <member name="M:NBA.Repository.PlayerRepository.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.Repository.PlayerRepository"/> class.
+            </summary>
+            <param name="ctx">database.</param>
+        </member>
+        <member name="M:NBA.Repository.PlayerRepository.GetOne(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:NBA.Repository.PlayerRepository.ChangeNumber(System.Int32,System.Int32)">
+            <summary>
+            Change the player's number.
+            </summary>
+            <param name="id">id of the player.</param>
+            <param name="number">player's number.</param>
         </member>
     </members>
 </doc>

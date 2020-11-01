@@ -10,10 +10,12 @@ namespace NBA.Repository
     public abstract class Repository<T> : IRepository<T> where T : class
     {
         protected DbContext ctx;
+        protected DbSet<T> dbSet;
 
         public Repository(DbContext ctx)
         {
             this.ctx = ctx;
+            this.dbSet = ctx.Set<T>();
         }
 
         public IQueryable<T> GetAll()
@@ -22,5 +24,11 @@ namespace NBA.Repository
         }
 
         public abstract T GetOne(int id);
+
+        public void Insert(T obj)
+        {
+            dbSet.Add(obj);
+            ctx.SaveChanges();
+        }
     }
 }
