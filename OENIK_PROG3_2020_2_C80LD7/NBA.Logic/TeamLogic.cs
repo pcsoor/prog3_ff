@@ -1,11 +1,8 @@
-﻿using NBA.Data.Model;
-using NBA.Repository;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace NBA.Logic
+﻿namespace NBA.Logic
 {
+    using NBA.Data.Model;
+    using NBA.Repository;
+
     public class TeamLogic : ITeamLogic
     {
         ITeamsRepository teamRepo;
