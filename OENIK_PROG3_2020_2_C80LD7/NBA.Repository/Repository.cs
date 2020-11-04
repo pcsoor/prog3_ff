@@ -3,6 +3,8 @@ using NBA.Data.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 
 namespace NBA.Repository
@@ -10,7 +12,6 @@ namespace NBA.Repository
     public abstract class Repository<T> : IRepository<T> where T : class
     {
         protected DbContext ctx;
-        protected DbSet<T> dbSet;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Repository{T}"/> class.
@@ -19,7 +20,6 @@ namespace NBA.Repository
         public Repository(DbContext ctx)
         {
             this.ctx = ctx;
-            this.dbSet = this.ctx.Set<T>();
         }
 
         /// <inheritdoc/>
@@ -31,10 +31,9 @@ namespace NBA.Repository
         /// <inheritdoc/>
         public abstract T GetOne(int id);
 
-        /// <inheritdoc/>
-        public void Insert(T obj)
+        public void Insert(T attr)
         {
-            this.dbSet.Add(obj);
+            this.ctx.Set<T>().Add(attr);
             this.ctx.SaveChanges();
         }
     }

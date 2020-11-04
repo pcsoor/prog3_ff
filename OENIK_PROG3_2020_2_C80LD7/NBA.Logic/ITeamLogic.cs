@@ -7,6 +7,6 @@ namespace NBA.Logic
 {
     public interface ITeamLogic
     {
-        Teams GetOneTeam(int id);
+        IList<Teams> GetAllTeams();
     }
 }

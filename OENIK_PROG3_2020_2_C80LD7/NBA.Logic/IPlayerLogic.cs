@@ -9,5 +9,6 @@ namespace NBA.Logic
     {
         IList<Player> GetAllPlayers();
 
+        void AddNewPlayer(Player player);
     }
 }

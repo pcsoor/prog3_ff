@@ -33,9 +33,6 @@
             var player = this.GetOne(id);
         }
 
-        public void AddPlayer(Player player)
-        {
-            Insert(player);
-        }
+        
     }
 }

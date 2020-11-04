@@ -10,6 +10,7 @@ namespace NBA.Repository
     {
         public SeriesRepository(DbContext ctx) : base(ctx) { }
 
+        
         public override Series GetOne(int id)
         {
             throw new NotImplementedException();

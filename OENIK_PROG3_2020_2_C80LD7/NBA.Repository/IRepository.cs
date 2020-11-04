@@ -15,6 +15,7 @@ namespace NBA.Repository
 
         IQueryable<T> GetAll();
 
-        void Insert(T obj);
+        void Insert(T attr);
+
     }
 }

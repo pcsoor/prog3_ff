@@ -43,5 +43,17 @@
             <param name="id">id of the player.</param>
             <param name="number">player's number.</param>
         </member>
+        <member name="M:NBA.Repository.Repository`1.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.Repository.Repository`1"/> class.
+            </summary>
+            <param name="ctx">dbcontext.</param>
+        </member>
+        <member name="M:NBA.Repository.Repository`1.GetAll">
+            <inheritdoc/>
+        </member>
+        <member name="M:NBA.Repository.Repository`1.GetOne(System.Int32)">
+            <inheritdoc/>
+        </member>
     </members>
 </doc>

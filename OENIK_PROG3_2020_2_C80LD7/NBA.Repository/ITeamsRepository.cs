@@ -7,6 +7,5 @@ namespace NBA.Repository
 {
     public interface ITeamsRepository : IRepository<Teams>
     {
-       
     }
 }

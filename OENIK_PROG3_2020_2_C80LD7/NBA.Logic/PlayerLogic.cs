@@ -20,6 +20,14 @@ namespace NBA.Logic
             return playerRepo.GetAll().ToList();
         }
 
-        
+        public void AddNewPlayer(Player player)
+        {
+            playerRepo.Insert(player);
+        }
+
+        public Player GetOnePlayerByID(int id)
+        {
+            return playerRepo.GetOne(id);
+        }
     }
 }
