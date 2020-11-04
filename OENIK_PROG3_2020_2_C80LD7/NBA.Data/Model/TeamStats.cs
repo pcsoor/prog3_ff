@@ -53,5 +53,12 @@ namespace NBA.Data.Model
 
         [NotMapped]
         public virtual Teams Teams { get; set; }
+
+        public override string ToString()
+        {
+            string context = string.Format("{0,-6} {1,-6} {2,-6} {3,-6} {4,-6} {5,-6} {6,-6} {7,-6}",
+                this.TeamStatID, this.GP, this.PPG, this.REB, this.STL, this.AST, this.BLK, this.FGM);
+            return context;
+        }
     }
 }

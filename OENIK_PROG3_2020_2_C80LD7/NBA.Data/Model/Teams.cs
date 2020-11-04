@@ -36,5 +36,12 @@ namespace NBA.Data.Model
         {
             Series = new HashSet<Series>();
         }
+
+        public override string ToString()
+        {
+            
+            string tartalom = string.Format("{0,-4} {1,-25} {2,-20} {3,-1}", this.TeamID, this.Name, this.Coach, this.Region);
+            return tartalom;
+        }
     }
 }

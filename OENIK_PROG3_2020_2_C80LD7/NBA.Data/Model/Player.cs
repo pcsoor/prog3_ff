@@ -34,5 +34,16 @@ namespace NBA.Data.Model
 
         [NotMapped]
         public virtual PlayerStats PlayerStats { get; set; }
+
+        public override string ToString()
+        {
+            
+            string context = string.Format
+                (
+                "{0,-4} {1,-20} {2,-15} {3,-8} {4,-8} {5,-8} {6,-12} {7:n0}",
+                this.PlayerID ,this.Name, this.Birth.ToShortDateString(), this.Height, this.Weight, this.Post, this.Number, this.Salary
+                );
+            return context;
+        }
     }
 }
