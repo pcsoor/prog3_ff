@@ -23,7 +23,7 @@ namespace NBA.Program
 
 
             Factory f = new Factory();
-            f.Menu.Show();
+            f.Kiir();
         }
     }
 }

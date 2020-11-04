@@ -26,9 +26,8 @@
         public Factory()
         {
             this.PlayerLogic = new PlayerLogic(playerRepo);
-            this.TeamLogic = new TeamLogic(teamRepo);
+            this.TeamLogic = new TeamLogic(teamRepo, teamStatsRepo);
             this.Menu = new ConsoleMenu();
-            this.Kiir();
         }
 
         /// <summary>
@@ -48,7 +47,30 @@
 
         public void Kiir()
         {
-            this.Menu.Add("Insert Player", () => this.AddPlayer());
+            var sm = new SimpleMenu();
+            var menu = new ConsoleMenu();
+
+            menu.Add("LIST METHODS >", m => new ConsoleMenu()
+            .Add("List all player", () => sm.ListAllPlayer(PlayerLogic))
+            .Add("List all team", () => sm.ListAllTeams(TeamLogic))
+            .Add("List all team statistics", () => sm.ListAllTeamStat(TeamLogic))
+            .Add("Back", ConsoleMenu.Close).Show())
+            .Add("LIST ONE OF THEM >", m => new ConsoleMenu()
+            .Add("List one player", () => sm.GetOnePlayer(PlayerLogic))
+            .Add("Back", ConsoleMenu.Close).Show())
+            .Add("INSERT METHODS >", m => new ConsoleMenu()
+            .Add("Insert new player", () => this.AddPlayer())
+            .Add("Back", ConsoleMenu.Close).Show())
+            .Add("UPDATE METHODS >", m => new ConsoleMenu()
+            .Add("List all player", () => sm.ListAllPlayer(PlayerLogic))
+            .Add("List all team", () => sm.ListAllTeams(TeamLogic))
+            .Add("Back", ConsoleMenu.Close).Show())
+            .Add("REMOVE METHODS >", m => new ConsoleMenu()
+            .Add("List all player", () => sm.ListAllPlayer(PlayerLogic))
+            .Add("List all team", () => sm.ListAllTeams(TeamLogic))
+            .Add("Back", ConsoleMenu.Close).Show())
+            .Add("EXIT", ConsoleMenu.Close);
+            menu.Show();
         }
 
         private void AddPlayer()
@@ -68,7 +90,7 @@
             string post = Console.ReadLine();
             Console.WriteLine("\nEnter new player's salary");
             int salary = int.Parse(Console.ReadLine());
-            playerRepo.AddPlayer(new Player()
+            PlayerLogic?.AddNewPlayer(new Player()
             {
                 Name = name,
                 Birth = dob,

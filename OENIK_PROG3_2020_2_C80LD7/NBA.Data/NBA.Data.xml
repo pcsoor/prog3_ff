@@ -52,7 +52,7 @@
             <summary>
             OnModelCreating.
             </summary>
-            <param name="modelBuilder">modelBuilder</param>
+            <param name="modelBuilder">modelBuilder.</param>
         </member>
         <member name="P:NBA.Data.Model.PlayerStats.GP">
             <summary>
