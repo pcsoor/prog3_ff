@@ -1,16 +1,18 @@
-﻿using Microsoft.EntityFrameworkCore;
-using NBA.Data.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices.ComTypes;
-using System.Text;
-
-namespace NBA.Repository
+﻿namespace NBA.Repository
 {
-    public abstract class Repository<T> : IRepository<T> where T : class
+    using System.Linq;
+    using Microsoft.EntityFrameworkCore;
+
+    /// <summary>
+    /// This class includes all the common methods that all of the entities can have.
+    /// </summary>
+    /// <typeparam name="T">T represents the type of the entity.</typeparam>
+    public abstract class Repository<T> : IRepository<T>
+        where T : class
     {
+        /// <summary>
+        /// Represents the database.
+        /// </summary>
         protected DbContext ctx;
 
         /// <summary>
@@ -31,6 +33,7 @@ namespace NBA.Repository
         /// <inheritdoc/>
         public abstract T GetOne(int id);
 
+        /// <inheritdoc/>
         public void Insert(T attr)
         {
             this.ctx.Set<T>().Add(attr);

@@ -29,5 +29,21 @@
             Gets or sets the PlayerLogic object.
             </summary>
         </member>
+        <member name="M:NBA.Program.Factory.Kiir">
+            <summary>
+            This method prints out the menu, and called by program.cs.
+            </summary>
+        </member>
+        <member name="T:NBA.Program.Program">
+            <summary>
+            Top layer of the project.
+            </summary>
+        </member>
+        <member name="M:NBA.Program.Program.Main(System.String[])">
+            <summary>
+            This method implements the factory class and call its methods.
+            </summary>
+            <param name="args">Array of string objects.</param>
+        </member>
     </members>
 </doc>

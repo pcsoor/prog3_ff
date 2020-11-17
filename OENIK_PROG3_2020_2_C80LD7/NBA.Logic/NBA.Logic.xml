@@ -4,5 +4,68 @@
         <name>NBA.Logic</name>
     </assembly>
     <members>
+        <member name="T:NBA.Logic.ITeamLogic">
+            <summary>
+            Implements Team specific methods.
+            </summary>
+        </member>
+        <member name="M:NBA.Logic.ITeamLogic.GetAllTeams">
+            <summary>
+            Returns list of teams.
+            </summary>
+            <returns>Collection.</returns>
+        </member>
+        <member name="T:NBA.Logic.PlayerLogic">
+            <summary>
+            Implements player specific methods.
+            </summary>
+        </member>
+        <member name="M:NBA.Logic.PlayerLogic.#ctor(NBA.Repository.IPlayerRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.Logic.PlayerLogic"/> class.
+            </summary>
+            <param name="repo">player specific methods.</param>
+        </member>
+        <member name="M:NBA.Logic.PlayerLogic.GetAllPlayers">
+            <inheritdoc/>
+        </member>
+        <member name="M:NBA.Logic.PlayerLogic.AddNewPlayer(NBA.Data.Model.Player)">
+            <inheritdoc/>
+        </member>
+        <member name="M:NBA.Logic.PlayerLogic.GetOnePlayerByID(System.Int32)">
+            <summary>
+            Gives you one player.
+            </summary>
+            <param name="id">id of the player.</param>
+            <returns>Player entity</returns>
+        </member>
+        <member name="T:NBA.Logic.TeamLogic">
+            <summary>
+            This class implements team specific methods.
+            </summary>
+        </member>
+        <member name="M:NBA.Logic.TeamLogic.#ctor(NBA.Repository.ITeamsRepository,NBA.Repository.ITeamsStatsRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.Logic.TeamLogic"/> class.
+            </summary>
+            <param name="teamRepo">This is teamrepository.</param>
+            <param name="teamStatsRepo">this is team stat repository.</param>
+        </member>
+        <member name="M:NBA.Logic.TeamLogic.GetAllTeams">
+            <inheritdoc/>
+        </member>
+        <member name="M:NBA.Logic.TeamLogic.GetOneTeam(System.Int32)">
+            <summary>
+            Returns one team.
+            </summary>
+            <param name="id">id of the team.</param>
+            <returns>reeturn one team.</returns>
+        </member>
+        <member name="M:NBA.Logic.TeamLogic.GetAllTeamStat">
+            <summary>
+            Returns all of the team statistics.
+            </summary>
+            <returns>collection.</returns>
+        </member>
     </members>
 </doc>

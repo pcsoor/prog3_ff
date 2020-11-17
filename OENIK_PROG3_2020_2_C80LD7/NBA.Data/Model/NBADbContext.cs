@@ -54,6 +54,11 @@
         /// <inheritdoc/>
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            if (optionsBuilder == null)
+            {
+                throw new ArgumentNullException(nameof(optionsBuilder));
+            }
+
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.
@@ -185,6 +190,11 @@
             ps3.PlayerID = p3.PlayerID;
             ps4.PlayerID = p14.PlayerID;
             ps5.PlayerID = p5.PlayerID;
+
+            if (modelBuilder == null)
+            {
+                throw new ArgumentNullException(nameof(modelBuilder));
+            }
 
             modelBuilder.Entity<Player>(entity =>
             {

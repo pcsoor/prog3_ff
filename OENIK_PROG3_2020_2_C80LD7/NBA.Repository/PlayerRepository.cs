@@ -1,4 +1,8 @@
-﻿namespace NBA.Repository
+﻿// <copyright file="PlayerRepository.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace NBA.Repository
 {
     using System.Linq;
     using Microsoft.EntityFrameworkCore;
@@ -9,13 +13,14 @@
     /// </summary>
     public class PlayerRepository : Repository<Player>, IPlayerRepository
     {
-
         /// <summary>
         /// Initializes a new instance of the <see cref="PlayerRepository"/> class.
         /// </summary>
         /// <param name="ctx">database.</param>
-        public PlayerRepository(DbContext ctx) 
-            : base(ctx) { }
+        public PlayerRepository(DbContext ctx)
+            : base(ctx)
+        {
+        }
 
         /// <inheritdoc/>
         public override Player GetOne(int id)
@@ -32,7 +37,5 @@
         {
             var player = this.GetOne(id);
         }
-
-        
     }
 }

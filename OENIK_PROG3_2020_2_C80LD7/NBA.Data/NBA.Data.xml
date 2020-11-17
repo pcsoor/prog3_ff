@@ -54,6 +54,62 @@
             </summary>
             <param name="modelBuilder">modelBuilder.</param>
         </member>
+        <member name="T:NBA.Data.Model.Player">
+            <summary>
+            This class represents the player entity.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.Player.PlayerID">
+            <summary>
+            Gets or sets unique identitication of player.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.Player.Name">
+            <summary>
+            Gets or sets the name of the player.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.Player.Birth">
+            <summary>
+            Gets or sets the player's date of birth.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.Player.Height">
+            <summary>
+            Gets or sets the height of the player.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.Player.Weight">
+            <summary>
+            Gets or sets the weight of the player.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.Player.Post">
+            <summary>
+            Gets or sets the position where the player plays.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.Player.Salary">
+            <summary>
+            Gets or sets the avarage salary.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.Player.Number">
+            <summary>
+            Gets or sets the player's number.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.Player.PlayerStats">
+            <summary>
+            Gets or sets the player's statistics in the current season.
+            </summary>
+        </member>
+        <member name="M:NBA.Data.Model.Player.ToString">
+            <summary>
+            Returns the player's data.
+            </summary>
+            <returns>string.</returns>
+        </member>
         <member name="P:NBA.Data.Model.PlayerStats.GP">
             <summary>
             games played.
@@ -89,40 +145,106 @@
             steal.
             </summary>
         </member>
+        <member name="T:NBA.Data.Model.Teams">
+            <summary>
+            Creates ant sets the team table.
+            </summary>
+        </member>
+        <member name="M:NBA.Data.Model.Teams.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.Data.Model.Teams"/> class.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.Teams.TeamID">
+            <summary>
+            Gets or sets the id of the team.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.Teams.Name">
+            <summary>
+            Gets or sets the name of the team.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.Teams.Coach">
+            <summary>
+            Gets or sets the team's coach.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.Teams.Region">
+            <summary>
+            Gets or sets the team's region.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.Teams.TeamStats">
+            <summary>
+            Gets or sets the team's stats.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.Teams.Series">
+            <summary>
+            Gets or sets the collection of series.
+            </summary>
+        </member>
+        <member name="M:NBA.Data.Model.Teams.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:NBA.Data.Model.TeamStats">
+            <summary>
+            Creates team statistics table.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.TeamStats.TeamStatID">
+            <summary>
+            Gets or sets player id.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.TeamStats.TeamID">
+            <summary>
+            Gets or sets teams id.
+            </summary>
+        </member>
         <member name="P:NBA.Data.Model.TeamStats.GP">
             <summary>
-            games played.
+            Gets or sets games played.
             </summary>
         </member>
         <member name="P:NBA.Data.Model.TeamStats.PPG">
             <summary>
-            points per game.
+            Gets or sets points per game.
             </summary>
         </member>
         <member name="P:NBA.Data.Model.TeamStats.FGM">
             <summary>
-            field goals made.
+            Gets or sets field goals made.
             </summary>
         </member>
         <member name="P:NBA.Data.Model.TeamStats.AST">
             <summary>
-            assist.
+            Gets or sets assist.
             </summary>
         </member>
         <member name="P:NBA.Data.Model.TeamStats.REB">
             <summary>
-            rebound.
+            Gets or sets rebound.
             </summary>
         </member>
         <member name="P:NBA.Data.Model.TeamStats.BLK">
             <summary>
-            block.
+            Gets or sets block.
             </summary>
         </member>
         <member name="P:NBA.Data.Model.TeamStats.STL">
             <summary>
-            steal.
+            Gets or sets steal.
             </summary>
+        </member>
+        <member name="P:NBA.Data.Model.TeamStats.Teams">
+            <summary>
+            Gets or sets one team.
+            </summary>
+        </member>
+        <member name="M:NBA.Data.Model.TeamStats.ToString">
+            <inheritdoc/>
         </member>
     </members>
 </doc>

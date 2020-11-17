@@ -20,7 +20,31 @@
             <summary>
             IRepository osztály.
             </summary>
-            <typeparam name="T"></typeparam>
+            <typeparam name="T">T represents the type of entity.</typeparam>
+        </member>
+        <member name="M:NBA.Repository.IRepository`1.GetOne(System.Int32)">
+            <summary>
+            Returns one entity.
+            </summary>
+            <param name="id">the entity' id.</param>
+            <returns>entity specific value.</returns>
+        </member>
+        <member name="M:NBA.Repository.IRepository`1.GetAll">
+            <summary>
+            Returns an IQueryable collection of entities.
+            </summary>
+            <returns>Entity specific value.</returns>
+        </member>
+        <member name="M:NBA.Repository.IRepository`1.Insert(`0)">
+            <summary>
+            Inserts data into database.
+            </summary>
+            <param name="attr">Entity specific attribute.</param>
+        </member>
+        <member name="T:NBA.Repository.ITeamsRepository">
+            <summary>
+            Implements team specific operations.
+            </summary>
         </member>
         <member name="T:NBA.Repository.PlayerRepository">
             <summary>
@@ -43,6 +67,17 @@
             <param name="id">id of the player.</param>
             <param name="number">player's number.</param>
         </member>
+        <member name="T:NBA.Repository.Repository`1">
+            <summary>
+            This class includes all the common methods that all of the entities can have.
+            </summary>
+            <typeparam name="T">T represents the type of the entity.</typeparam>
+        </member>
+        <member name="F:NBA.Repository.Repository`1.ctx">
+            <summary>
+            Represents the database.
+            </summary>
+        </member>
         <member name="M:NBA.Repository.Repository`1.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
             <summary>
             Initializes a new instance of the <see cref="T:NBA.Repository.Repository`1"/> class.
@@ -53,6 +88,41 @@
             <inheritdoc/>
         </member>
         <member name="M:NBA.Repository.Repository`1.GetOne(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:NBA.Repository.Repository`1.Insert(`0)">
+            <inheritdoc/>
+        </member>
+        <member name="T:NBA.Repository.TeamsRepository">
+            <summary>
+            Colection of team specific operations.
+            </summary>
+        </member>
+        <member name="M:NBA.Repository.TeamsRepository.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.Repository.TeamsRepository"/> class.
+            </summary>
+            <param name="ctx">implements the database.</param>
+        </member>
+        <member name="M:NBA.Repository.TeamsRepository.GetOne(System.Int32)">
+            <summary>
+            Returns one team.
+            </summary>
+            <param name="id">id of the team.</param>
+            <returns>Team entity.</returns>
+        </member>
+        <member name="T:NBA.Repository.TeamsStatsRepository">
+            <summary>
+            this class contains Team Statistics.
+            </summary>
+        </member>
+        <member name="M:NBA.Repository.TeamsStatsRepository.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.Repository.TeamsStatsRepository"/> class.
+            </summary>
+            <param name="ctx">this param represents the database.</param>
+        </member>
+        <member name="M:NBA.Repository.TeamsStatsRepository.GetOne(System.Int32)">
             <inheritdoc/>
         </member>
     </members>

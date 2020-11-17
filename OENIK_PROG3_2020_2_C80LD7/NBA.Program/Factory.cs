@@ -1,11 +1,15 @@
-﻿namespace NBA.Program
+﻿// <copyright file="Factory.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace NBA.Program
 {
+    using System;
+    using System.Linq;
     using ConsoleTools;
     using NBA.Data.Model;
     using NBA.Logic;
     using NBA.Repository;
-    using System;
-    using System.Linq;
 
     /// <summary>
     /// Class for implementation.
@@ -16,9 +20,11 @@
         private static NBADbContext ctx = new NBADbContext();
         private static PlayerRepository playerRepo = new PlayerRepository(ctx);
         private static TeamsRepository teamRepo = new TeamsRepository(ctx);
-        private static PlayerStatsRepository playerStatsRepo = new PlayerStatsRepository(ctx);
+
+        // private static PlayerStatsRepository playerStatsRepo = new PlayerStatsRepository(ctx);
         private static TeamsStatsRepository teamStatsRepo = new TeamsStatsRepository(ctx);
-        private static SeriesRepository seriesRepo = new SeriesRepository(ctx);
+
+        // private static SeriesRepository seriesRepo = new SeriesRepository(ctx);
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Factory"/> class.
@@ -45,29 +51,32 @@
         /// </summary>
         public ConsoleMenu Menu { get; set; }
 
+        /// <summary>
+        /// This method prints out the menu, and called by program.cs.
+        /// </summary>
         public void Kiir()
         {
             var sm = new SimpleMenu();
             var menu = new ConsoleMenu();
 
             menu.Add("LIST METHODS >", m => new ConsoleMenu()
-            .Add("List all player", () => sm.ListAllPlayer(PlayerLogic))
-            .Add("List all team", () => sm.ListAllTeams(TeamLogic))
-            .Add("List all team statistics", () => sm.ListAllTeamStat(TeamLogic))
+            .Add("List all player", () => SimpleMenu.ListAllPlayer(this.PlayerLogic))
+            .Add("List all team", () => SimpleMenu.ListAllTeams(this.TeamLogic))
+            .Add("List all team statistics", () => SimpleMenu.ListAllTeamStat(this.TeamLogic))
             .Add("Back", ConsoleMenu.Close).Show())
             .Add("LIST ONE OF THEM >", m => new ConsoleMenu()
-            .Add("List one player", () => sm.GetOnePlayer(PlayerLogic))
+            .Add("List one player", () => SimpleMenu.GetOnePlayer(this.PlayerLogic))
             .Add("Back", ConsoleMenu.Close).Show())
             .Add("INSERT METHODS >", m => new ConsoleMenu()
             .Add("Insert new player", () => this.AddPlayer())
             .Add("Back", ConsoleMenu.Close).Show())
             .Add("UPDATE METHODS >", m => new ConsoleMenu()
-            .Add("List all player", () => sm.ListAllPlayer(PlayerLogic))
-            .Add("List all team", () => sm.ListAllTeams(TeamLogic))
+            .Add("List all player", () => SimpleMenu.ListAllPlayer(this.PlayerLogic))
+            .Add("List all team", () => SimpleMenu.ListAllTeams(this.TeamLogic))
             .Add("Back", ConsoleMenu.Close).Show())
             .Add("REMOVE METHODS >", m => new ConsoleMenu()
-            .Add("List all player", () => sm.ListAllPlayer(PlayerLogic))
-            .Add("List all team", () => sm.ListAllTeams(TeamLogic))
+            .Add("List all player", () => SimpleMenu.ListAllPlayer(this.PlayerLogic))
+            .Add("List all team", () => SimpleMenu.ListAllTeams(this.TeamLogic))
             .Add("Back", ConsoleMenu.Close).Show())
             .Add("EXIT", ConsoleMenu.Close);
             menu.Show();
@@ -90,7 +99,7 @@
             string post = Console.ReadLine();
             Console.WriteLine("\nEnter new player's salary");
             int salary = int.Parse(Console.ReadLine());
-            PlayerLogic?.AddNewPlayer(new Player()
+            this.PlayerLogic?.AddNewPlayer(new Player()
             {
                 Name = name,
                 Birth = dob,
@@ -100,7 +109,9 @@
                 Post = post,
                 Salary = salary,
             });
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(">>> Player added to the database!");
+            Console.ResetColor();
             Console.ReadKey();
         }
     }
