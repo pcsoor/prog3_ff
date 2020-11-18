@@ -1,4 +1,8 @@
-﻿namespace NBA.Data.Model
+﻿// <copyright file="NBADbContext.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace NBA.Data.Model
 {
     using System;
     using Microsoft.EntityFrameworkCore;
@@ -8,7 +12,6 @@
     /// </summary>
     public class NBADbContext : DbContext
     {
-
         /// <summary>
         /// Initializes a new instance of the <see cref="NBADbContext"/> class.
         /// </summary>
@@ -131,22 +134,22 @@
             Series s11 = new Series() { Year = 2010, Result = "4-3" };
             Series s12 = new Series() { Year = 2011, Result = "4-2" };
 
-            TeamStats ts1 = new TeamStats() { TeamStatID = 1, AST = 23.0, BLK = 5.1, FGM = 40.6, GP = 72, PPG = 113.7, REB = 43.3, STL = 7.8};
-            TeamStats ts2 = new TeamStats() { TeamStatID = 2, AST = 24.5, BLK = 4.5, FGM = 40.4, GP = 72, PPG = 111.8, REB = 47.9, STL = 6.4};
-            TeamStats ts3 = new TeamStats() { TeamStatID = 3, AST = 23.8, BLK = 4.1, FGM = 37.3, GP = 65, PPG = 102.9, REB = 42.8, STL = 6.6};
-            TeamStats ts4 = new TeamStats() { TeamStatID = 4, AST = 23.2, BLK = 4.1, FGM = 39.6, GP = 65, PPG = 106.8, REB = 41.9, STL = 10.0};
-            TeamStats ts5 = new TeamStats() { TeamStatID = 5, AST = 23.1, BLK = 3.2, FGM = 40.3, GP = 65, PPG = 106.9, REB = 44.2, STL = 6.9};
-            TeamStats ts6 = new TeamStats() { TeamStatID = 6, AST = 24.7, BLK = 4.8, FGM = 41.7, GP = 75, PPG = 117.0, REB = 46.9, STL = 6.1};
-            TeamStats ts7 = new TeamStats() { TeamStatID = 7, AST = 26.7, BLK = 4.6, FGM = 42.0, GP = 73, PPG = 111.3, REB = 44.1, STL = 8.0};
-            TeamStats ts8 = new TeamStats() { TeamStatID = 8, AST = 24.1, BLK = 4.5, FGM = 39.3, GP = 66, PPG = 107.2, REB = 41.7, STL = 7.4};
-            TeamStats ts9 = new TeamStats() { TeamStatID = 9, AST = 25.6, BLK = 4.6, FGM = 38.6, GP = 65, PPG = 106.3, REB = 42.8, STL = 8.2};
-            TeamStats ts10 = new TeamStats() { TeamStatID = 10, AST = 21.6, BLK = 5.2, FGM = 40.8, GP = 72, PPG = 117.8, REB = 44.3, STL = 8.7};
+            TeamStats ts1 = new TeamStats() { TeamStatID = 1, AST = 23.0, BLK = 5.1, FGM = 40.6, GP = 72, PPG = 113.7, REB = 43.3, STL = 7.8 };
+            TeamStats ts2 = new TeamStats() { TeamStatID = 2, AST = 24.5, BLK = 4.5, FGM = 40.4, GP = 72, PPG = 111.8, REB = 47.9, STL = 6.4 };
+            TeamStats ts3 = new TeamStats() { TeamStatID = 3, AST = 23.8, BLK = 4.1, FGM = 37.3, GP = 65, PPG = 102.9, REB = 42.8, STL = 6.6 };
+            TeamStats ts4 = new TeamStats() { TeamStatID = 4, AST = 23.2, BLK = 4.1, FGM = 39.6, GP = 65, PPG = 106.8, REB = 41.9, STL = 10.0 };
+            TeamStats ts5 = new TeamStats() { TeamStatID = 5, AST = 23.1, BLK = 3.2, FGM = 40.3, GP = 65, PPG = 106.9, REB = 44.2, STL = 6.9 };
+            TeamStats ts6 = new TeamStats() { TeamStatID = 6, AST = 24.7, BLK = 4.8, FGM = 41.7, GP = 75, PPG = 117.0, REB = 46.9, STL = 6.1 };
+            TeamStats ts7 = new TeamStats() { TeamStatID = 7, AST = 26.7, BLK = 4.6, FGM = 42.0, GP = 73, PPG = 111.3, REB = 44.1, STL = 8.0 };
+            TeamStats ts8 = new TeamStats() { TeamStatID = 8, AST = 24.1, BLK = 4.5, FGM = 39.3, GP = 66, PPG = 107.2, REB = 41.7, STL = 7.4 };
+            TeamStats ts9 = new TeamStats() { TeamStatID = 9, AST = 25.6, BLK = 4.6, FGM = 38.6, GP = 65, PPG = 106.3, REB = 42.8, STL = 8.2 };
+            TeamStats ts10 = new TeamStats() { TeamStatID = 10, AST = 21.6, BLK = 5.2, FGM = 40.8, GP = 72, PPG = 117.8, REB = 44.3, STL = 8.7 };
 
-            PlayerStats ps1 = new PlayerStats() { PlayerStatID = 1, AST = 10.2, BLK = 0.5, FGM = 9.6, GP = 67, PPG = 25.3, REB = 7.8, STL = 1.2};
-            PlayerStats ps2 = new PlayerStats() { PlayerStatID = 2, AST = 4.9, BLK = 0.6, FGM = 9.3, GP = 57, PPG = 27.1, REB = 7.1, STL = 1.8};
-            PlayerStats ps3 = new PlayerStats() { PlayerStatID = 3, AST = 9.3, BLK = 0.1, FGM = 9.1, GP = 60, PPG = 29.6, REB = 4.3, STL = 1.1};
-            PlayerStats ps4 = new PlayerStats() { PlayerStatID = 4, AST = 8.8, BLK = 0.2, FGM = 9.5, GP = 61, PPG = 28.8, REB = 9.4, STL = 1.0};
-            PlayerStats ps5 = new PlayerStats() { PlayerStatID = 5, AST = 7.5, BLK = 0.9, FGM = 9.9, GP = 68, PPG = 34.3, REB = 6.6, STL = 1.8};
+            PlayerStats ps1 = new PlayerStats() { PlayerStatID = 1, AST = 10.2, BLK = 0.5, FGM = 9.6, GP = 67, PPG = 25.3, REB = 7.8, STL = 1.2 };
+            PlayerStats ps2 = new PlayerStats() { PlayerStatID = 2, AST = 4.9, BLK = 0.6, FGM = 9.3, GP = 57, PPG = 27.1, REB = 7.1, STL = 1.8 };
+            PlayerStats ps3 = new PlayerStats() { PlayerStatID = 3, AST = 9.3, BLK = 0.1, FGM = 9.1, GP = 60, PPG = 29.6, REB = 4.3, STL = 1.1 };
+            PlayerStats ps4 = new PlayerStats() { PlayerStatID = 4, AST = 8.8, BLK = 0.2, FGM = 9.5, GP = 61, PPG = 28.8, REB = 9.4, STL = 1.0 };
+            PlayerStats ps5 = new PlayerStats() { PlayerStatID = 5, AST = 7.5, BLK = 0.9, FGM = 9.9, GP = 68, PPG = 34.3, REB = 6.6, STL = 1.8 };
 
             s1.WinnerID = t10.TeamID;
             s2.WinnerID = t10.TeamID;

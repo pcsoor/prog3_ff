@@ -110,39 +110,89 @@
             </summary>
             <returns>string.</returns>
         </member>
+        <member name="T:NBA.Data.Model.PlayerStats">
+            <summary>
+            Creates and set player statistics table.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.PlayerStats.PlayerStatID">
+            <summary>
+            Gets or sets the player stat id.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.PlayerStats.PlayerID">
+            <summary>
+            Gets or sets the player id.
+            </summary>
+        </member>
         <member name="P:NBA.Data.Model.PlayerStats.GP">
             <summary>
-            games played.
+            Gets or sets games played.
             </summary>
         </member>
         <member name="P:NBA.Data.Model.PlayerStats.PPG">
             <summary>
-            points per game.
+            Gets or sets points per game.
             </summary>
         </member>
         <member name="P:NBA.Data.Model.PlayerStats.FGM">
             <summary>
-            field goals made.
+            Gets or sets field goals made.
             </summary>
         </member>
         <member name="P:NBA.Data.Model.PlayerStats.AST">
             <summary>
-            assist.
+            Gets or sets assist.
             </summary>
         </member>
         <member name="P:NBA.Data.Model.PlayerStats.REB">
             <summary>
-            rebound.
+            Gets or sets rebound.
             </summary>
         </member>
         <member name="P:NBA.Data.Model.PlayerStats.BLK">
             <summary>
-            block.
+            Gets or sets block.
             </summary>
         </member>
         <member name="P:NBA.Data.Model.PlayerStats.STL">
             <summary>
-            steal.
+            Gets or sets steal.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.PlayerStats.Player">
+            <summary>
+            Gets the player entity.
+            </summary>
+        </member>
+        <member name="T:NBA.Data.Model.Series">
+            <summary>
+            Creates and sets the series table.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.Series.Year">
+            <summary>
+            Gets or sets the year of the series.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.Series.WinnerID">
+            <summary>
+            Gets or sets the winner team's id.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.Series.LoserID">
+            <summary>
+            Gets or sets the loser team's id.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.Series.Result">
+            <summary>
+            Gets or sets the final result.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.Series.Teams">
+            <summary>
+            Gets or sets the team entity.
             </summary>
         </member>
         <member name="T:NBA.Data.Model.Teams">

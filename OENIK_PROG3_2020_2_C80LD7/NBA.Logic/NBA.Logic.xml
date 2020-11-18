@@ -4,6 +4,23 @@
         <name>NBA.Logic</name>
     </assembly>
     <members>
+        <member name="T:NBA.Logic.IPlayerLogic">
+            <summary>
+            Describes player specific methods.
+            </summary>
+        </member>
+        <member name="M:NBA.Logic.IPlayerLogic.GetAllPlayers">
+            <summary>
+            Gives all of the players.
+            </summary>
+            <returns>list.</returns>
+        </member>
+        <member name="M:NBA.Logic.IPlayerLogic.AddNewPlayer(NBA.Data.Model.Player)">
+            <summary>
+            Inserts new player into database.
+            </summary>
+            <param name="player">player entity.</param>
+        </member>
         <member name="T:NBA.Logic.ITeamLogic">
             <summary>
             Implements Team specific methods.
@@ -37,7 +54,7 @@
             Gives you one player.
             </summary>
             <param name="id">id of the player.</param>
-            <returns>Player entity</returns>
+            <returns>Player entity.</returns>
         </member>
         <member name="T:NBA.Logic.TeamLogic">
             <summary>

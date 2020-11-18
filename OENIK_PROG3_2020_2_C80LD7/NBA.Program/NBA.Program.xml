@@ -45,5 +45,34 @@
             </summary>
             <param name="args">Array of string objects.</param>
         </member>
+        <member name="T:NBA.Program.SimpleMenu">
+            <summary>
+            class of console menu where operation methods are called.
+            </summary>
+        </member>
+        <member name="M:NBA.Program.SimpleMenu.ListAllTeams(NBA.Logic.TeamLogic)">
+            <summary>
+            Returns a list of all teams.
+            </summary>
+            <param name="teamsLogic">teamlogic.</param>
+        </member>
+        <member name="M:NBA.Program.SimpleMenu.ListAllPlayer(NBA.Logic.PlayerLogic)">
+            <summary>
+            Returns a list of all players.
+            </summary>
+            <param name="playerLogic">playerlogic.</param>
+        </member>
+        <member name="M:NBA.Program.SimpleMenu.ListAllTeamStat(NBA.Logic.TeamLogic)">
+            <summary>
+            Return a list of all team statistics.
+            </summary>
+            <param name="teamLogic">teamlogic.</param>
+        </member>
+        <member name="M:NBA.Program.SimpleMenu.GetOnePlayer(NBA.Logic.PlayerLogic)">
+            <summary>
+            Returns one player's data.
+            </summary>
+            <param name="playerLogic">playerlogic.</param>
+        </member>
     </members>
 </doc>
