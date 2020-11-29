@@ -1,4 +1,4 @@
-﻿// <copyright file="Repository.cs" company="PlaceholderCompany">
+﻿// <copyright file="NBARepository.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
@@ -11,7 +11,7 @@ namespace NBA.Repository
     /// This class includes all the common methods that all of the entities can have.
     /// </summary>
     /// <typeparam name="T">T represents the type of the entity.</typeparam>
-    public abstract class Repository<T> : IRepository<T>
+    public abstract class NBARepository<T> : IRepository<T>
         where T : class
     {
         /// <summary>
@@ -20,10 +20,10 @@ namespace NBA.Repository
         protected DbContext ctx;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Repository{T}"/> class.
+        /// Initializes a new instance of the <see cref="NBARepository{T}"/> class.
         /// </summary>
         /// <param name="ctx">dbcontext.</param>
-        public Repository(DbContext ctx)
+        public NBARepository(DbContext ctx)
         {
             this.ctx = ctx;
         }

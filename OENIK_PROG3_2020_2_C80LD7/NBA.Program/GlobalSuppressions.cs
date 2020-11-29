@@ -12,4 +12,4 @@ using System.Diagnostics.CodeAnalysis;
 [assembly: SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters", Justification = "<Pending>", Scope = "member", Target = "~M:NBA.Program.SimpleMenu.ListAllTeamStat(NBA.Logic.TeamLogic)")]
 [assembly: SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters", Justification = "<Pending>", Scope = "member", Target = "~M:NBA.Program.SimpleMenu.GetOnePlayer(NBA.Logic.PlayerLogic)")]
 [assembly: SuppressMessage("Globalization", "CA1305:Specify IFormatProvider", Justification = "<Pending>", Scope = "member", Target = "~M:NBA.Program.SimpleMenu.GetOnePlayer(NBA.Logic.PlayerLogic)")]
-[assembly: SuppressMessage("Usage", "CA1801:Review unused parameters", Justification = "<Pending>", Scope = "member", Target = "~M:NBA.Program.Program.Main(System.String[])")]
+[assembly: SuppressMessage("Usage", "CA1801:Review unused parameters", Justification = "<Pending>", Scope = "member", Target = "~M:NBA.Program.NBAProgram.Main(System.String[])")]

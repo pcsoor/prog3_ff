@@ -11,7 +11,7 @@ namespace NBA.Repository
     /// <summary>
     /// Implements player stat specific operations.
     /// </summary>
-    public class PlayerStatsRepository : Repository<PlayerStats>, IPlayerStatsRepository
+    public class PlayerStatsRepository : NBARepository<PlayerStats>, IPlayerStatsRepository
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PlayerStatsRepository"/> class.

@@ -11,7 +11,7 @@ namespace NBA.Repository
     /// <summary>
     /// Colection of team specific operations.
     /// </summary>
-    public class TeamsRepository : Repository<Teams>, ITeamsRepository
+    public class TeamsRepository : NBARepository<Teams>, ITeamsRepository
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TeamsRepository"/> class.

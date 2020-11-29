@@ -58,6 +58,7 @@ namespace NBA.Data.Model
 
         /// <summary>
         /// Gets or sets the collection of series.
+        /// Navigation property.
         /// </summary>
         [NotMapped]
         public virtual IReadOnlyCollection<Series> Series { get; set; }

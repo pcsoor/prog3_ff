@@ -11,7 +11,7 @@ namespace NBA.Repository
     /// <summary>
     /// this class contains Team Statistics.
     /// </summary>
-    public class TeamsStatsRepository : Repository<TeamStats>, ITeamsStatsRepository
+    public class TeamsStatsRepository : NBARepository<TeamStats>, ITeamsStatsRepository
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TeamsStatsRepository"/> class.

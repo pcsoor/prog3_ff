@@ -11,7 +11,7 @@ namespace NBA.Repository
     /// <summary>
     /// Player specific methods made in this class.
     /// </summary>
-    public class PlayerRepository : Repository<Player>, IPlayerRepository
+    public class PlayerRepository : NBARepository<Player>, IPlayerRepository
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PlayerRepository"/> class.
@@ -35,7 +35,7 @@ namespace NBA.Repository
         /// <param name="number">player's number.</param>
         public void ChangeNumber(int id, int number)
         {
-            var player = this.GetOne(id);
+            this.GetOne(id);
         }
     }
 }

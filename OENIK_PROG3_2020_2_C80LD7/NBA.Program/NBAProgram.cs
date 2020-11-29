@@ -1,4 +1,4 @@
-﻿// <copyright file="Program.cs" company="PlaceholderCompany">
+﻿// <copyright file="NBAProgram.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
@@ -7,7 +7,7 @@ namespace NBA.Program
     /// <summary>
     /// Top layer of the project.
     /// </summary>
-    public class Program
+    public class NBAProgram
     {
         /// <summary>
         /// This method implements the factory class and call its methods.
