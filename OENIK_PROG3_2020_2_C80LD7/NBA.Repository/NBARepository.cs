@@ -1,6 +1,7 @@
 ﻿// <copyright file="NBARepository.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
+[assembly: System.CLSCompliant(false)]
 
 namespace NBA.Repository
 {

@@ -1,4 +1,8 @@
-﻿namespace NBA.Logic
+﻿// <copyright file="Average.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace NBA.Logic
 {
     using System;
     using System.Collections.Generic;
@@ -24,7 +28,5 @@
         {
             return $"{this.Name} - {this.Avg}";
         }
-
-
     }
 }

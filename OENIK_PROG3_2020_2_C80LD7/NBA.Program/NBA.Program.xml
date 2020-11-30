@@ -80,5 +80,17 @@
             </summary>
             <param name="playerLogic">playerLogic.</param>
         </member>
+        <member name="M:NBA.Program.SimpleMenu.GetPlayerWithTheMostGamesPlayed(NBA.Logic.PlayerLogic)">
+            <summary>
+            Calls the method in logic.
+            </summary>
+            <param name="playerLogic">playerLogic reference.</param>
+        </member>
+        <member name="M:NBA.Program.SimpleMenu.DeletePlayer(NBA.Logic.PlayerLogic)">
+            <summary>
+            Calls tge deleteplayer method in logic.
+            </summary>
+            <param name="playerLogic">playerLogic reference.</param>
+        </member>
     </members>
 </doc>

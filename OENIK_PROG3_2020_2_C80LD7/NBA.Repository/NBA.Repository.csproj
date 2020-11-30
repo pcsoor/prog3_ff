@@ -20,6 +20,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <RazorCompile Include="Properties/AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\NBA.Data\NBA.Data.csproj" />
   </ItemGroup>
 

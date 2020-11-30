@@ -21,7 +21,7 @@ namespace NBA.Program
         private static PlayerRepository playerRepo = new PlayerRepository(ctx);
         private static TeamsRepository teamRepo = new TeamsRepository(ctx);
 
-         private static PlayerStatsRepository playerStatsRepo = new PlayerStatsRepository(ctx);
+        private static PlayerStatsRepository playerStatsRepo = new PlayerStatsRepository(ctx);
         private static TeamsStatsRepository teamStatsRepo = new TeamsStatsRepository(ctx);
 
         // private static SeriesRepository seriesRepo = new SeriesRepository(ctx);

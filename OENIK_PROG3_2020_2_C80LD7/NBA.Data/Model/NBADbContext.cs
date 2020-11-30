@@ -1,6 +1,7 @@
 ﻿// <copyright file="NBADbContext.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
+[assembly: System.CLSCompliant(false)]
 
 namespace NBA.Data.Model
 {

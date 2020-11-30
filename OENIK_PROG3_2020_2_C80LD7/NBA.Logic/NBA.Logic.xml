@@ -56,6 +56,7 @@
             Delete player with the given id.
             </summary>
             <param name="id">player's id.</param>
+            <returns>return true or false, depends on that it can be deleted or not.</returns>
         </member>
         <member name="T:NBA.Logic.ITeamLogic">
             <summary>
@@ -99,6 +100,19 @@
             Return how many players are there in the team.
             </summary>
             <returns>string.</returns>
+        </member>
+        <member name="M:NBA.Logic.PlayerLogic.GetPlayerWithTheMostGamesPlayed">
+            <summary>
+            Return one player in string format, who played the most.
+            </summary>
+            <returns>string.</returns>
+        </member>
+        <member name="M:NBA.Logic.PlayerLogic.DeletePlayer(System.Int32)">
+            <summary>
+            Delete player entity.
+            </summary>
+            <param name="id">player's id.</param>
+            <returns>true or false, depends on that the id could be found in the database.</returns>
         </member>
         <member name="T:NBA.Logic.TeamLogic">
             <summary>

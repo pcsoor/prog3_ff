@@ -14,6 +14,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <RazorCompile Include="Properties/AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="NBADatabase.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
