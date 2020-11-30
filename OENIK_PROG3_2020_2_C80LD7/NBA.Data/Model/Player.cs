@@ -23,6 +23,12 @@ namespace NBA.Data.Model
         public int PlayerID { get; set; }
 
         /// <summary>
+        /// Gets or sets the team id where the player plays currently.
+        /// </summary>
+        [ForeignKey(nameof(Teams))]
+        public int TeamID { get; set; }
+
+        /// <summary>
         /// Gets or sets the name of the player.
         /// </summary>
         [MaxLength(50)]
@@ -64,6 +70,12 @@ namespace NBA.Data.Model
         /// </summary>
         [NotMapped]
         public virtual PlayerStats PlayerStats { get; set; }
+
+        /// <summary>
+        /// Gets or sets one team.
+        /// </summary>
+        [NotMapped]
+        public virtual Teams Teams { get; set; }
 
         /// <summary>
         /// Returns the player's data.

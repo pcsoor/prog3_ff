@@ -11,7 +11,7 @@ namespace NBA.Repository
     /// <summary>
     /// This class includes series specific methods.
     /// </summary>
-    public class SeriesRepository : Repository<Series>, ISeriesRepository
+    public class SeriesRepository : NBARepository<Series>, ISeriesRepository
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SeriesRepository"/> class.

@@ -43,5 +43,15 @@ namespace NBA.Repository
             this.ctx.Set<T>().Add(attr);
             this.ctx.SaveChanges();
         }
+
+        /// <summary>
+        /// Delete on element from the database.
+        /// </summary>
+        /// <param name="attr">gives an entity to delete.</param>
+        public void Remove(T attr)
+        {
+            this.ctx.Set<T>().Remove(attr);
+            this.ctx.SaveChanges();
+        }
     }
 }

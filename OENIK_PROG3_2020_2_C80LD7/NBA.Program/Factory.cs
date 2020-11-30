@@ -21,7 +21,7 @@ namespace NBA.Program
         private static PlayerRepository playerRepo = new PlayerRepository(ctx);
         private static TeamsRepository teamRepo = new TeamsRepository(ctx);
 
-        // private static PlayerStatsRepository playerStatsRepo = new PlayerStatsRepository(ctx);
+         private static PlayerStatsRepository playerStatsRepo = new PlayerStatsRepository(ctx);
         private static TeamsStatsRepository teamStatsRepo = new TeamsStatsRepository(ctx);
 
         // private static SeriesRepository seriesRepo = new SeriesRepository(ctx);
@@ -31,7 +31,7 @@ namespace NBA.Program
         /// </summary>
         public Factory()
         {
-            this.PlayerLogic = new PlayerLogic(playerRepo);
+            this.PlayerLogic = new PlayerLogic(playerRepo, playerStatsRepo, teamRepo);
             this.TeamLogic = new TeamLogic(teamRepo, teamStatsRepo);
             this.Menu = new ConsoleMenu();
         }
@@ -63,20 +63,19 @@ namespace NBA.Program
             .Add("List all player", () => SimpleMenu.ListAllPlayer(this.PlayerLogic))
             .Add("List all team", () => SimpleMenu.ListAllTeams(this.TeamLogic))
             .Add("List all team statistics", () => SimpleMenu.ListAllTeamStat(this.TeamLogic))
+            .Add("List player quantity in each team", () => SimpleMenu.GetPlayerQtyByTeams(this.PlayerLogic))
             .Add("Back", ConsoleMenu.Close).Show())
-            .Add("LIST ONE OF THEM >", m => new ConsoleMenu()
+            .Add("GET ONE >", m => new ConsoleMenu()
             .Add("List one player", () => SimpleMenu.GetOnePlayer(this.PlayerLogic))
+            .Add("Player who played the most", () => SimpleMenu.GetPlayerWithTheMostGamesPlayed(this.PlayerLogic))
             .Add("Back", ConsoleMenu.Close).Show())
             .Add("INSERT METHODS >", m => new ConsoleMenu()
             .Add("Insert new player", () => this.AddPlayer())
             .Add("Back", ConsoleMenu.Close).Show())
             .Add("UPDATE METHODS >", m => new ConsoleMenu()
-            .Add("List all player", () => SimpleMenu.ListAllPlayer(this.PlayerLogic))
-            .Add("List all team", () => SimpleMenu.ListAllTeams(this.TeamLogic))
             .Add("Back", ConsoleMenu.Close).Show())
             .Add("REMOVE METHODS >", m => new ConsoleMenu()
-            .Add("List all player", () => SimpleMenu.ListAllPlayer(this.PlayerLogic))
-            .Add("List all team", () => SimpleMenu.ListAllTeams(this.TeamLogic))
+            .Add("Remove player", () => SimpleMenu.DeletePlayer(this.PlayerLogic))
             .Add("Back", ConsoleMenu.Close).Show())
             .Add("EXIT", ConsoleMenu.Close);
             menu.Show();

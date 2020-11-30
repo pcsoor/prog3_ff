@@ -31,5 +31,11 @@ namespace NBA.Repository
         /// </summary>
         /// <param name="attr">Entity specific attribute.</param>
         void Insert(T attr);
+
+        /// <summary>
+        /// Removes an element.
+        /// </summary>
+        /// <param name="attr">get one entity to delete.</param>
+        void Remove(T attr);
     }
 }

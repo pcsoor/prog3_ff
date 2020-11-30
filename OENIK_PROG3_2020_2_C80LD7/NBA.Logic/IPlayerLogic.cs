@@ -23,5 +23,24 @@ namespace NBA.Logic
         /// </summary>
         /// <param name="player">player entity.</param>
         void AddNewPlayer(Player player);
+
+        /// <summary>
+        /// Returns how many player plays in each team.
+        /// </summary>
+        /// <returns>list.</returns>
+        IList<Average> GetPlayerQtyByTeams();
+
+        /// <summary>
+        /// Return one player, who played the most game in the current series.
+        /// </summary>
+        /// <returns>player.</returns>
+        string GetPlayerWithTheMostGamesPlayed();
+
+        /// <summary>
+        /// Delete player with the given id.
+        /// </summary>
+        /// <param name="id">player's id.</param>
+        /// <returns>return true or false, depends on that it can be deleted or not.</returns>
+        bool DeletePlayer(int id);
     }
 }

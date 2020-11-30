@@ -63,6 +63,12 @@ namespace NBA.Data.Model
         [NotMapped]
         public virtual IReadOnlyCollection<Series> Series { get; set; }
 
+        /// <summary>
+        /// Gets the player entity.
+        /// </summary>
+        [NotMapped]
+        public virtual ICollection<Player> Players { get; }
+
         /// <inheritdoc/>
         public override string ToString()
         {

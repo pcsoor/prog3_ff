@@ -64,6 +64,11 @@
             Gets or sets unique identitication of player.
             </summary>
         </member>
+        <member name="P:NBA.Data.Model.Player.TeamID">
+            <summary>
+            Gets or sets the team id where the player plays currently.
+            </summary>
+        </member>
         <member name="P:NBA.Data.Model.Player.Name">
             <summary>
             Gets or sets the name of the player.
@@ -102,6 +107,11 @@
         <member name="P:NBA.Data.Model.Player.PlayerStats">
             <summary>
             Gets or sets the player's statistics in the current season.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.Player.Teams">
+            <summary>
+            Gets or sets one team.
             </summary>
         </member>
         <member name="M:NBA.Data.Model.Player.ToString">
@@ -233,6 +243,12 @@
         <member name="P:NBA.Data.Model.Teams.Series">
             <summary>
             Gets or sets the collection of series.
+            Navigation property.
+            </summary>
+        </member>
+        <member name="P:NBA.Data.Model.Teams.Players">
+            <summary>
+            Gets the player entity.
             </summary>
         </member>
         <member name="M:NBA.Data.Model.Teams.ToString">

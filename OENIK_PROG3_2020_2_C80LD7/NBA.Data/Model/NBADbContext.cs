@@ -91,6 +91,7 @@ namespace NBA.Data.Model
             Player p13 = new Player() { PlayerID = 13, Name = "Damian Lillard", Birth = new DateTime(1990, 07, 15), Height = 188, Weight = 88, Number = 0, Post = "PG", Salary = 29802321 };
             Player p14 = new Player() { PlayerID = 14, Name = "Luka Doncic", Birth = new DateTime(1999, 02, 28), Height = 201, Weight = 104, Number = 77, Post = "G/SF", Salary = 7683360 };
             Player p15 = new Player() { PlayerID = 15, Name = "Nikola Jokic", Birth = new DateTime(1995, 02, 19), Height = 213, Weight = 129, Number = 15, Post = "C", Salary = 27504630 };
+            Player p16 = new Player() { PlayerID = 16, Name = "Robert Covington", Birth = new DateTime(1990, 12, 4), Height = 201, Weight = 95, Number = 23, Post = "SF", Salary = 27504630 };
 
             Teams t1 = new Teams() { TeamID = 1, Name = "Boston Celtics", Coach = "Brad Stevens", Region = "Atlantic" };
             Teams t2 = new Teams() { TeamID = 2, Name = "Toronto Raptors", Coach = "Nick Nurse", Region = "Atlantic" };
@@ -194,6 +195,23 @@ namespace NBA.Data.Model
             ps4.PlayerID = p14.PlayerID;
             ps5.PlayerID = p5.PlayerID;
 
+            p1.TeamID = t10.TeamID;
+            p2.TeamID = t15.TeamID;
+            p3.TeamID = t12.TeamID;
+            p4.TeamID = t9.TeamID;
+            p5.TeamID = t11.TeamID;
+            p6.TeamID = t12.TeamID;
+            p7.TeamID = t22.TeamID;
+            p8.TeamID = t14.TeamID;
+            p9.TeamID = t11.TeamID;
+            p10.TeamID = t13.TeamID;
+            p11.TeamID = t1.TeamID;
+            p12.TeamID = t6.TeamID;
+            p13.TeamID = t7.TeamID;
+            p14.TeamID = t18.TeamID;
+            p15.TeamID = t8.TeamID;
+            p16.TeamID = t11.TeamID;
+
             if (modelBuilder == null)
             {
                 throw new ArgumentNullException(nameof(modelBuilder));
@@ -204,6 +222,14 @@ namespace NBA.Data.Model
                 entity.HasOne(p => p.PlayerStats)
                 .WithOne(ps => ps.Player)
                 .HasForeignKey<PlayerStats>(p => p.PlayerID);
+            });
+
+            modelBuilder.Entity<Player>(entity =>
+            {
+                entity.HasOne(player => player.Teams)
+                .WithMany(teams => teams.Players)
+                .HasForeignKey(player => player.TeamID)
+                .OnDelete(DeleteBehavior.ClientSetNull);
             });
 
             modelBuilder.Entity<Teams>(entity =>
@@ -222,7 +248,7 @@ namespace NBA.Data.Model
                 .OnDelete(DeleteBehavior.Cascade);
             });
 
-            modelBuilder.Entity<Player>().HasData(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15);
+            modelBuilder.Entity<Player>().HasData(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16);
             modelBuilder.Entity<Teams>().HasData(t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20, t21, t22, t23, t24, t25, t26, t27, t28);
             modelBuilder.Entity<Series>().HasData(s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12);
             modelBuilder.Entity<TeamStats>().HasData(ts1, ts2, ts3, ts4, ts5, ts6, ts7, ts8, ts9, ts10);

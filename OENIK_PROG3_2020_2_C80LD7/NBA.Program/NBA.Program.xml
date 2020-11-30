@@ -34,12 +34,12 @@
             This method prints out the menu, and called by program.cs.
             </summary>
         </member>
-        <member name="T:NBA.Program.Program">
+        <member name="T:NBA.Program.NBAProgram">
             <summary>
             Top layer of the project.
             </summary>
         </member>
-        <member name="M:NBA.Program.Program.Main(System.String[])">
+        <member name="M:NBA.Program.NBAProgram.Main(System.String[])">
             <summary>
             This method implements the factory class and call its methods.
             </summary>
@@ -73,6 +73,12 @@
             Returns one player's data.
             </summary>
             <param name="playerLogic">playerlogic.</param>
+        </member>
+        <member name="M:NBA.Program.SimpleMenu.GetPlayerQtyByTeams(NBA.Logic.PlayerLogic)">
+            <summary>
+            Returns how many players are there in each team.
+            </summary>
+            <param name="playerLogic">playerLogic.</param>
         </member>
     </members>
 </doc>

@@ -1,4 +1,4 @@
-﻿// <copyright file="SimpleMenu.cs" company="PlaceholderCompany">
+﻿// <copyright file="SimpleMenu.cs" company="C80LD7">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
@@ -67,6 +67,46 @@ namespace NBA.Program
             Console.WriteLine(header);
             Console.WriteLine(playerLogic.GetOnePlayerByID(id).ToString());
             Console.ReadLine();
+        }
+
+        /// <summary>
+        /// Returns how many players are there in each team.
+        /// </summary>
+        /// <param name="playerLogic">playerLogic.</param>
+        public static void GetPlayerQtyByTeams(PlayerLogic playerLogic)
+        {
+            foreach (var item in playerLogic.GetPlayerQtyByTeams())
+            {
+                Console.WriteLine($"{item.Name} - {item.Avg}");
+            }
+
+            Console.ReadLine();
+        }
+
+        /// <summary>
+        /// Calls the method in logic.
+        /// </summary>
+        /// <param name="playerLogic">playerLogic reference.</param>
+        public static void GetPlayerWithTheMostGamesPlayed(PlayerLogic playerLogic)
+        {
+            Console.WriteLine(playerLogic.GetPlayerWithTheMostGamesPlayed());
+            Console.ReadLine();
+        }
+
+        /// <summary>
+        /// Calls tge deleteplayer method in logic.
+        /// </summary>
+        /// <param name="playerLogic">playerLogic reference.</param>
+        public static void DeletePlayer(PlayerLogic playerLogic)
+        {
+            Console.WriteLine("Give me the player's ID:");
+            int playerID = int.Parse(Console.ReadLine());
+            playerLogic.DeletePlayer(playerID);
+            Console.WriteLine("Player deleted");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(">>> Player deleted!");
+            Console.ResetColor();
+            Console.ReadKey();
         }
     }
 }

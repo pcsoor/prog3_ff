@@ -61,6 +61,32 @@
             Describe team stat methods.
             </summary>
         </member>
+        <member name="T:NBA.Repository.NBARepository`1">
+            <summary>
+            This class includes all the common methods that all of the entities can have.
+            </summary>
+            <typeparam name="T">T represents the type of the entity.</typeparam>
+        </member>
+        <member name="F:NBA.Repository.NBARepository`1.ctx">
+            <summary>
+            Represents the database.
+            </summary>
+        </member>
+        <member name="M:NBA.Repository.NBARepository`1.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.Repository.NBARepository`1"/> class.
+            </summary>
+            <param name="ctx">dbcontext.</param>
+        </member>
+        <member name="M:NBA.Repository.NBARepository`1.GetAll">
+            <inheritdoc/>
+        </member>
+        <member name="M:NBA.Repository.NBARepository`1.GetOne(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:NBA.Repository.NBARepository`1.Insert(`0)">
+            <inheritdoc/>
+        </member>
         <member name="T:NBA.Repository.PlayerRepository">
             <summary>
             Player specific methods made in this class.
@@ -99,32 +125,6 @@
             </summary>
             <param name="id">id of player's stat.</param>
             <returns>PlayerStat.</returns>
-        </member>
-        <member name="T:NBA.Repository.Repository`1">
-            <summary>
-            This class includes all the common methods that all of the entities can have.
-            </summary>
-            <typeparam name="T">T represents the type of the entity.</typeparam>
-        </member>
-        <member name="F:NBA.Repository.Repository`1.ctx">
-            <summary>
-            Represents the database.
-            </summary>
-        </member>
-        <member name="M:NBA.Repository.Repository`1.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
-            <summary>
-            Initializes a new instance of the <see cref="T:NBA.Repository.Repository`1"/> class.
-            </summary>
-            <param name="ctx">dbcontext.</param>
-        </member>
-        <member name="M:NBA.Repository.Repository`1.GetAll">
-            <inheritdoc/>
-        </member>
-        <member name="M:NBA.Repository.Repository`1.GetOne(System.Int32)">
-            <inheritdoc/>
-        </member>
-        <member name="M:NBA.Repository.Repository`1.Insert(`0)">
-            <inheritdoc/>
         </member>
         <member name="T:NBA.Repository.SeriesRepository">
             <summary>
