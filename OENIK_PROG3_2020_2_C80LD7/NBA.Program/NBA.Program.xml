@@ -74,6 +74,12 @@
             </summary>
             <param name="playerLogic">playerlogic.</param>
         </member>
+        <member name="M:NBA.Program.SimpleMenu.DeleteTeam(NBA.Logic.TeamLogic)">
+            <summary>
+            Deletes one team by id given.
+            </summary>
+            <param name="teamLogic">teamLogic reference.</param>
+        </member>
         <member name="M:NBA.Program.SimpleMenu.GetPlayerQtyByTeams(NBA.Logic.PlayerLogic)">
             <summary>
             Returns how many players are there in each team.
@@ -91,6 +97,30 @@
             Calls tge deleteplayer method in logic.
             </summary>
             <param name="playerLogic">playerLogic reference.</param>
+        </member>
+        <member name="M:NBA.Program.SimpleMenu.GetWinQtyByTeams(NBA.Logic.TeamLogic)">
+            <summary>
+            Gets the number of won series by team.
+            </summary>
+            <param name="teamLogic">teamlogic reference.</param>
+        </member>
+        <member name="M:NBA.Program.SimpleMenu.GetPlayerAveragePointPerGame(NBA.Logic.PlayerLogic)">
+            <summary>
+            Gets one player's average point per game.
+            </summary>
+            <param name="playerLogic">playerLogic reference.</param>
+        </member>
+        <member name="M:NBA.Program.SimpleMenu.UpdatePlayerSalary(NBA.Logic.PlayerLogic)">
+            <summary>
+            Updates player's salary.
+            </summary>
+            <param name="playerLogic">playerLogic reference.</param>
+        </member>
+        <member name="M:NBA.Program.SimpleMenu.ChangeTeamName(NBA.Logic.TeamLogic)">
+            <summary>
+            Updates team's name.
+            </summary>
+            <param name="teamLogic">teamLogic reference.</param>
         </member>
     </members>
 </doc>

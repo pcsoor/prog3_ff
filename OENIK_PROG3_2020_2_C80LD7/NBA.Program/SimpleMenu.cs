@@ -1,5 +1,5 @@
 ﻿// <copyright file="SimpleMenu.cs" company="C80LD7">
-// Copyright (c) PlaceholderCompany. All rights reserved.
+// Copyright (c) C80LD7. All rights reserved.
 // </copyright>
 
 namespace NBA.Program
@@ -62,10 +62,58 @@ namespace NBA.Program
         public static void GetOnePlayer(PlayerLogic playerLogic)
         {
             Console.WriteLine("Enter player's ID");
+
             int id = int.Parse(Console.ReadLine());
-            string header = $"{"ID",-4} {"NAME",-20} {"BIRTH",-15} {"HEIGHT",-8} {"WEIGHT",-8} {"POST",-8} {"SALARY",-12} {"NUMBER",-2}";
-            Console.WriteLine(header);
-            Console.WriteLine(playerLogic.GetOnePlayerByID(id).ToString());
+            bool exist = false;
+            try
+            {
+                playerLogic?.GetOnePlayerById(id);
+                exist = true;
+            }
+            catch (ArgumentException)
+            {
+                Console.WriteLine("Wrong player ID! Try another one..");
+                GetOnePlayer(playerLogic);
+            }
+
+            if (exist)
+            {
+                string header = $"{"ID",-4} {"NAME",-20} {"BIRTH",-15} {"HEIGHT",-8} {"WEIGHT",-8} {"POST",-8} {"SALARY",-12} {"NUMBER",-2}";
+                Console.WriteLine(header);
+                Console.WriteLine(playerLogic.GetOnePlayerById(id).ToString());
+            }
+
+            Console.ReadLine();
+        }
+
+        /// <summary>
+        /// Deletes one team by id given.
+        /// </summary>
+        /// <param name="teamLogic">teamLogic reference.</param>
+        public static void DeleteTeam(TeamLogic teamLogic)
+        {
+            Console.WriteLine("Give me the team's id:");
+
+            int num = int.Parse(Console.ReadLine());
+            bool exist = false;
+            try
+            {
+                teamLogic?.DeleteTeam(num);
+                exist = true;
+            }
+            catch (ArgumentException)
+            {
+                Console.WriteLine("This team does not exist!");
+                DeleteTeam(teamLogic);
+            }
+
+            if (exist)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($">>> Team with id {num} deleted");
+                Console.ResetColor();
+            }
+
             Console.ReadLine();
         }
 
@@ -89,7 +137,7 @@ namespace NBA.Program
         /// <param name="playerLogic">playerLogic reference.</param>
         public static void GetPlayerWithTheMostGamesPlayed(PlayerLogic playerLogic)
         {
-            Console.WriteLine(playerLogic.GetPlayerWithTheMostGamesPlayed());
+            Console.WriteLine(playerLogic.GetPlayerWithTheMostGamesPlayed().FirstOrDefault());
             Console.ReadLine();
         }
 
@@ -107,6 +155,100 @@ namespace NBA.Program
             Console.WriteLine(">>> Player deleted!");
             Console.ResetColor();
             Console.ReadKey();
+        }
+
+        /// <summary>
+        /// Gets the number of won series by team.
+        /// </summary>
+        /// <param name="teamLogic">teamlogic reference.</param>
+        public static void GetWinQtyByTeams(TeamLogic teamLogic)
+        {
+            foreach (var item in teamLogic.GetWinQtyByTeams())
+            {
+                Console.WriteLine($"{item.Name} - {item.Avg}");
+            }
+
+            Console.ReadLine();
+        }
+
+        /// <summary>
+        /// Gets one player's average point per game.
+        /// </summary>
+        /// <param name="playerLogic">playerLogic reference.</param>
+        public static void GetPlayerAveragePointPerGame(PlayerLogic playerLogic)
+        {
+            foreach (var item in playerLogic.GetPlayerAveragePointPerGame())
+            {
+                Console.WriteLine($"{item.Name} - {item.Avg}");
+            }
+
+            Console.ReadLine();
+        }
+
+        /// <summary>
+        /// Updates player's salary.
+        /// </summary>
+        /// <param name="playerLogic">playerLogic reference.</param>
+        public static void UpdatePlayerSalary(PlayerLogic playerLogic)
+        {
+            Console.WriteLine("Give me the player's id:");
+            int id = int.Parse(Console.ReadLine());
+            Console.WriteLine("Give me the value:");
+            int newsalary = int.Parse(Console.ReadLine());
+            bool exist = false;
+            try
+            {
+                playerLogic?.ChangePlayerSalary(id, newsalary);
+                exist = true;
+            }
+            catch (ArgumentException)
+            {
+                Console.WriteLine("Player don't exist with this id.");
+                UpdatePlayerSalary(playerLogic);
+            }
+
+            if (exist)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine(">>> Player's salary changed..");
+                Console.ResetColor();
+            }
+
+            Console.ReadLine();
+        }
+
+        /// <summary>
+        /// Updates team's name.
+        /// </summary>
+        /// <param name="teamLogic">teamLogic reference.</param>
+        public static void ChangeTeamName(TeamLogic teamLogic)
+        {
+            Console.WriteLine("Give me the team's id:");
+            int id = int.Parse(Console.ReadLine());
+            Console.WriteLine("Type the team's new name:");
+            string newname = Console.ReadLine();
+
+            bool exist = false;
+
+            try
+            {
+                teamLogic?.ChangeTeamName(id, newname);
+                exist = true;
+            }
+            catch (ArgumentException)
+            {
+                Console.WriteLine("This team does not exist with this id!");
+                ChangeTeamName(teamLogic);
+            }
+
+            if (exist)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine(">>> Team's name changed..");
+                Console.ResetColor();
+            }
+
+            Console.ReadLine();
         }
     }
 }

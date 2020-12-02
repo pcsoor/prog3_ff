@@ -1,5 +1,5 @@
-﻿// <copyright file="Factory.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
+﻿// <copyright file="Factory.cs" company="C80LD7">
+// Copyright (c) C80LD7. All rights reserved.
 // </copyright>
 
 namespace NBA.Program
@@ -16,15 +16,12 @@ namespace NBA.Program
     /// </summary>
     public class Factory
     {
-        // repos
         private static NBADbContext ctx = new NBADbContext();
         private static PlayerRepository playerRepo = new PlayerRepository(ctx);
         private static TeamsRepository teamRepo = new TeamsRepository(ctx);
-
         private static PlayerStatsRepository playerStatsRepo = new PlayerStatsRepository(ctx);
         private static TeamsStatsRepository teamStatsRepo = new TeamsStatsRepository(ctx);
-
-        // private static SeriesRepository seriesRepo = new SeriesRepository(ctx);
+        private static SeriesRepository seriesRepo = new SeriesRepository(ctx);
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Factory"/> class.
@@ -32,7 +29,7 @@ namespace NBA.Program
         public Factory()
         {
             this.PlayerLogic = new PlayerLogic(playerRepo, playerStatsRepo, teamRepo);
-            this.TeamLogic = new TeamLogic(teamRepo, teamStatsRepo);
+            this.TeamLogic = new TeamLogic(teamRepo, teamStatsRepo, seriesRepo);
             this.Menu = new ConsoleMenu();
         }
 
@@ -64,6 +61,8 @@ namespace NBA.Program
             .Add("List all team", () => SimpleMenu.ListAllTeams(this.TeamLogic))
             .Add("List all team statistics", () => SimpleMenu.ListAllTeamStat(this.TeamLogic))
             .Add("List player quantity in each team", () => SimpleMenu.GetPlayerQtyByTeams(this.PlayerLogic))
+            .Add("List quantity of winner series by team", () => SimpleMenu.GetWinQtyByTeams(this.TeamLogic))
+            .Add("List player average points per game", () => SimpleMenu.GetPlayerAveragePointPerGame(this.PlayerLogic))
             .Add("Back", ConsoleMenu.Close).Show())
             .Add("GET ONE >", m => new ConsoleMenu()
             .Add("List one player", () => SimpleMenu.GetOnePlayer(this.PlayerLogic))
@@ -73,9 +72,12 @@ namespace NBA.Program
             .Add("Insert new player", () => this.AddPlayer())
             .Add("Back", ConsoleMenu.Close).Show())
             .Add("UPDATE METHODS >", m => new ConsoleMenu()
+            .Add("Update player's salary", () => SimpleMenu.UpdatePlayerSalary(this.PlayerLogic))
+            .Add("Update team's name", () => SimpleMenu.ChangeTeamName(this.TeamLogic))
             .Add("Back", ConsoleMenu.Close).Show())
             .Add("REMOVE METHODS >", m => new ConsoleMenu()
             .Add("Remove player", () => SimpleMenu.DeletePlayer(this.PlayerLogic))
+            .Add("Remove team", () => SimpleMenu.DeleteTeam(this.TeamLogic))
             .Add("Back", ConsoleMenu.Close).Show())
             .Add("EXIT", ConsoleMenu.Close);
             menu.Show();

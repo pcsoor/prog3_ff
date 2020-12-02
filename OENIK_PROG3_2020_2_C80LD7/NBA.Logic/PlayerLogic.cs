@@ -1,5 +1,5 @@
-﻿// <copyright file="PlayerLogic.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
+﻿// <copyright file="PlayerLogic.cs" company="C80LD7">
+// Copyright (c) C80LD7. All rights reserved.
 // </copyright>
 [assembly: System.CLSCompliant(false)]
 
@@ -49,7 +49,7 @@ namespace NBA.Logic
         /// </summary>
         /// <param name="id">id of the player.</param>
         /// <returns>Player entity.</returns>
-        public Player GetOnePlayerByID(int id)
+        public Player GetOnePlayerById(int id)
         {
             return this.playerRepo.GetOne(id);
         }
@@ -60,17 +60,15 @@ namespace NBA.Logic
         /// <returns>string.</returns>
         public IList<Average> GetPlayerQtyByTeams()
         {
-            List<string> list = new List<string>();
-            var q = from team in this.teamRepo.GetAll()
-                    orderby team.TeamID
-                    join player in this.playerRepo.GetAll() on team.TeamID equals player.TeamID
-                    group team by team.Name into teams
+            var q = from player in this.playerRepo.GetAll()
+                    join team in this.teamRepo.GetAll() on player.TeamID equals team.TeamID
+                    let item = new { TeamName = team.Name, PlayerID = player.PlayerID }
+                    group item by item.TeamName into g
                     select new Average
                     {
-                        Name = teams.Key,
-                        Avg = teams.Count(),
+                        Name = g.Key,
+                        Avg = g.Count(),
                     };
-
             return q.ToList();
         }
 
@@ -78,25 +76,25 @@ namespace NBA.Logic
         /// Return one player in string format, who played the most.
         /// </summary>
         /// <returns>string.</returns>
-        public string GetPlayerWithTheMostGamesPlayed()
+        public IList<string> GetPlayerWithTheMostGamesPlayed()
         {
             List<string> list = new List<string>();
             var q = from playerStat in this.playerStatsRepo.GetAll()
                     orderby playerStat.GP descending
                     join player in this.playerRepo.GetAll() on playerStat.PlayerID equals player.PlayerID
+                    let item = new { StatID = playerStat.PlayerStatID, PlayerName = player.Name }
                     select new
                     {
-                        _PLAYER = player.Name,
-                        _STAT = playerStat.GP,
+                        item.PlayerName,
                     };
 
             foreach (var item in q)
             {
-                string output = $"{item._PLAYER} - {item._STAT}";
+                string output = item.PlayerName;
                 list.Add(output);
             }
 
-            return list.FirstOrDefault();
+            return list;
         }
 
         /// <summary>
@@ -106,13 +104,41 @@ namespace NBA.Logic
         /// <returns>true or false, depends on that the id could be found in the database.</returns>
         public bool DeletePlayer(int id)
         {
-            if (this.GetOnePlayerByID(id) != null)
+            if (this.GetOnePlayerById(id) != null)
             {
-                this.playerRepo.Remove(this.GetOnePlayerByID(id));
+                this.playerRepo.Remove(this.GetOnePlayerById(id));
                 return true;
             }
 
             return false;
+        }
+
+        /// <summary>
+        /// Get one players average point per game by series.
+        /// </summary>
+        /// <returns>IQueryable.</returns>
+        public IList<Average> GetPlayerAveragePointPerGame()
+        {
+            var q = from player in this.playerRepo.GetAll()
+                    join stats in this.playerStatsRepo.GetAll() on player.PlayerID equals stats.PlayerID
+                    let item = new { PlayerName = player.Name, PPG = stats.PPG }
+                    group item by item.PlayerName into g
+                    select new Average
+                    {
+                        Name = g.Key,
+                        Avg = g.Average(item => item.PPG),
+                    };
+            return q.ToList();
+        }
+
+        /// <summary>
+        /// Change player's salary.
+        /// </summary>
+        /// <param name="id">player's id.</param>
+        /// <param name="newsalary">player's new salary to update.</param>
+        public void ChangePlayerSalary(int id, int newsalary)
+        {
+            this.playerRepo.ChangeSalary(id, newsalary);
         }
     }
 }

@@ -1,5 +1,5 @@
-﻿// <copyright file="NBARepository.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
+﻿// <copyright file="NBARepository.cs" company="C80LD7">
+// Copyright (c) C80LD7. All rights reserved.
 // </copyright>
 [assembly: System.CLSCompliant(false)]
 

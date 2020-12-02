@@ -9,14 +9,24 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <RazorCompile Include="Properties\AssemblyInfo.cs" />
+    <None Remove="stylecop.json" />
   </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="stylecop.json" />
+  </ItemGroup>
+
+  
 
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.0" />
+    <PackageReference Include="Moq" Version="4.15.2" />
+    <PackageReference Include="NUnit" Version="3.12.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.17.0" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -26,6 +36,10 @@
   <ItemGroup>
     <ProjectReference Include="..\NBA.Data\NBA.Data.csproj" />
     <ProjectReference Include="..\NBA.Repository\NBA.Repository.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <RazorCompile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
 
 </Project>

@@ -1,5 +1,5 @@
-﻿// <copyright file="IPlayerRepository.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
+﻿// <copyright file="IPlayerRepository.cs" company="C80LD7">
+// Copyright (c) C80LD7. All rights reserved.
 // </copyright>
 
 namespace NBA.Repository
@@ -15,7 +15,7 @@ namespace NBA.Repository
         /// Change the player's number.
         /// </summary>
         /// <param name="id">player's id.</param>
-        /// <param name="number">player's number.</param>
-        void ChangeNumber(int id, int number);
+        /// <param name="newsalary">player's new salary to update.</param>
+        void ChangeSalary(int id, int newsalary);
     }
 }

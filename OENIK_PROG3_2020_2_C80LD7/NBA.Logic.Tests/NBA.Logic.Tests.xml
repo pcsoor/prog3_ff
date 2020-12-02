@@ -4,5 +4,10 @@
         <name>NBA.Logic.Tests</name>
     </assembly>
     <members>
+        <member name="T:NBA.Logic.Tests.PlayerTests">
+            <summary>
+            asd.
+            </summary>
+        </member>
     </members>
 </doc>

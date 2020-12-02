@@ -1,5 +1,5 @@
-﻿// <copyright file="TeamsStatsRepository.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
+﻿// <copyright file="TeamsStatsRepository.cs" company="C80LD7">
+// Copyright (c) C80LD7. All rights reserved.
 // </copyright>
 
 namespace NBA.Repository

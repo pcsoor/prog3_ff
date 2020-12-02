@@ -1,5 +1,5 @@
-﻿// <copyright file="ITeamsRepository.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
+﻿// <copyright file="ITeamsRepository.cs" company="C80LD7">
+// Copyright (c) C80LD7. All rights reserved.
 // </copyright>
 
 namespace NBA.Repository
@@ -11,5 +11,11 @@ namespace NBA.Repository
     /// </summary>
     public interface ITeamsRepository : IRepository<Teams>
     {
+        /// <summary>
+        /// Changes team's name.
+        /// </summary>
+        /// <param name="id">team's id.</param>
+        /// <param name="newname">team's new name.</param>
+        void ChangeTeamName(int id, string newname);
     }
 }

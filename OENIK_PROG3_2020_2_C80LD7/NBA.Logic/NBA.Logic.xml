@@ -27,6 +27,13 @@
             Describes player specific methods.
             </summary>
         </member>
+        <member name="M:NBA.Logic.IPlayerLogic.GetOnePlayerById(System.Int32)">
+            <summary>
+            Return one player entity.
+            </summary>
+            <param name="id">player's id.</param>
+            <returns>player entity.</returns>
+        </member>
         <member name="M:NBA.Logic.IPlayerLogic.GetAllPlayers">
             <summary>
             Gives all of the players.
@@ -51,12 +58,25 @@
             </summary>
             <returns>player.</returns>
         </member>
+        <member name="M:NBA.Logic.IPlayerLogic.GetPlayerAveragePointPerGame">
+            <summary>
+            How many points a player earned in the series.
+            </summary>
+            <returns>average number.</returns>
+        </member>
         <member name="M:NBA.Logic.IPlayerLogic.DeletePlayer(System.Int32)">
             <summary>
             Delete player with the given id.
             </summary>
             <param name="id">player's id.</param>
             <returns>return true or false, depends on that it can be deleted or not.</returns>
+        </member>
+        <member name="M:NBA.Logic.IPlayerLogic.ChangePlayerSalary(System.Int32,System.Int32)">
+            <summary>
+            Changes player's salary.
+            </summary>
+            <param name="id">player's id.</param>
+            <param name="newsalary">player's new salary.</param>
         </member>
         <member name="T:NBA.Logic.ITeamLogic">
             <summary>
@@ -68,6 +88,33 @@
             Returns list of teams.
             </summary>
             <returns>Collection.</returns>
+        </member>
+        <member name="M:NBA.Logic.ITeamLogic.GetWinQtyByTeams">
+            <summary>
+            Gets the quantyt of the wins by teams.
+            </summary>
+            <returns>IQueryable list.</returns>
+        </member>
+        <member name="M:NBA.Logic.ITeamLogic.DeleteTeam(System.Int32)">
+            <summary>
+            Deletes a team.
+            </summary>
+            <param name="id">team's id.</param>
+            <returns>return true or false, depends on that it can be deleted or not.</returns>
+        </member>
+        <member name="M:NBA.Logic.ITeamLogic.ChangeTeamName(System.Int32,System.String)">
+            <summary>
+            Updates team's name.
+            </summary>
+            <param name="id">team's id.</param>
+            <param name="newname">team's new name.</param>
+        </member>
+        <member name="M:NBA.Logic.ITeamLogic.GetOneTeamById(System.Int32)">
+            <summary>
+            Get one team.
+            </summary>
+            <param name="id">team's id.</param>
+            <returns>team entity.</returns>
         </member>
         <member name="T:NBA.Logic.PlayerLogic">
             <summary>
@@ -88,7 +135,7 @@
         <member name="M:NBA.Logic.PlayerLogic.AddNewPlayer(NBA.Data.Model.Player)">
             <inheritdoc/>
         </member>
-        <member name="M:NBA.Logic.PlayerLogic.GetOnePlayerByID(System.Int32)">
+        <member name="M:NBA.Logic.PlayerLogic.GetOnePlayerById(System.Int32)">
             <summary>
             Gives you one player.
             </summary>
@@ -114,22 +161,36 @@
             <param name="id">player's id.</param>
             <returns>true or false, depends on that the id could be found in the database.</returns>
         </member>
+        <member name="M:NBA.Logic.PlayerLogic.GetPlayerAveragePointPerGame">
+            <summary>
+            Get one players average point per game by series.
+            </summary>
+            <returns>IQueryable.</returns>
+        </member>
+        <member name="M:NBA.Logic.PlayerLogic.ChangePlayerSalary(System.Int32,System.Int32)">
+            <summary>
+            Change player's salary.
+            </summary>
+            <param name="id">player's id.</param>
+            <param name="newsalary">player's new salary to update.</param>
+        </member>
         <member name="T:NBA.Logic.TeamLogic">
             <summary>
             This class implements team specific methods.
             </summary>
         </member>
-        <member name="M:NBA.Logic.TeamLogic.#ctor(NBA.Repository.ITeamsRepository,NBA.Repository.ITeamsStatsRepository)">
+        <member name="M:NBA.Logic.TeamLogic.#ctor(NBA.Repository.ITeamsRepository,NBA.Repository.ITeamsStatsRepository,NBA.Repository.ISeriesRepository)">
             <summary>
             Initializes a new instance of the <see cref="T:NBA.Logic.TeamLogic"/> class.
             </summary>
             <param name="teamRepo">This is teamrepository.</param>
             <param name="teamStatsRepo">this is team stat repository.</param>
+            <param name="seriesRepo">this is series repository.</param>
         </member>
         <member name="M:NBA.Logic.TeamLogic.GetAllTeams">
             <inheritdoc/>
         </member>
-        <member name="M:NBA.Logic.TeamLogic.GetOneTeam(System.Int32)">
+        <member name="M:NBA.Logic.TeamLogic.GetOneTeamById(System.Int32)">
             <summary>
             Returns one team.
             </summary>
@@ -141,6 +202,26 @@
             Returns all of the team statistics.
             </summary>
             <returns>collection.</returns>
+        </member>
+        <member name="M:NBA.Logic.TeamLogic.GetWinQtyByTeams">
+            <summary>
+            Number of wins by teams.
+            </summary>
+            <returns>IQueryable.</returns>
+        </member>
+        <member name="M:NBA.Logic.TeamLogic.DeleteTeam(System.Int32)">
+            <summary>
+            Delete one team by the given id.
+            </summary>
+            <param name="id">team's id.</param>
+            <returns>true or false, depends on that the id could be found in the database.</returns>
+        </member>
+        <member name="M:NBA.Logic.TeamLogic.ChangeTeamName(System.Int32,System.String)">
+            <summary>
+            Changes team's name.
+            </summary>
+            <param name="id">team's id.</param>
+            <param name="newname">team's new name.</param>
         </member>
     </members>
 </doc>
