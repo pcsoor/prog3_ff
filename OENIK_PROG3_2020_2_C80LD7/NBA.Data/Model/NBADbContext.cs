@@ -1,5 +1,5 @@
-﻿// <copyright file="NBADbContext.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
+﻿// <copyright file="NBADbContext.cs" company="C80LD7">
+// Copyright (c) C80LD7. All rights reserved.
 // </copyright>
 [assembly: System.CLSCompliant(false)]
 
@@ -152,6 +152,7 @@ namespace NBA.Data.Model
             PlayerStats ps3 = new PlayerStats() { PlayerStatID = 3, AST = 9.3, BLK = 0.1, FGM = 9.1, GP = 60, PPG = 29.6, REB = 4.3, STL = 1.1 };
             PlayerStats ps4 = new PlayerStats() { PlayerStatID = 4, AST = 8.8, BLK = 0.2, FGM = 9.5, GP = 61, PPG = 28.8, REB = 9.4, STL = 1.0 };
             PlayerStats ps5 = new PlayerStats() { PlayerStatID = 5, AST = 7.5, BLK = 0.9, FGM = 9.9, GP = 68, PPG = 34.3, REB = 6.6, STL = 1.8 };
+            PlayerStats ps6 = new PlayerStats() { PlayerStatID = 6, AST = 6.5, BLK = 1.1, FGM = 9.9, GP = 68, PPG = 26.3, REB = 6.6, STL = 1.8 };
 
             s1.WinnerID = t10.TeamID;
             s2.WinnerID = t10.TeamID;
@@ -195,6 +196,7 @@ namespace NBA.Data.Model
             ps3.PlayerID = p3.PlayerID;
             ps4.PlayerID = p14.PlayerID;
             ps5.PlayerID = p5.PlayerID;
+            ps6.PlayerID = p5.PlayerID;
 
             p1.TeamID = t10.TeamID;
             p2.TeamID = t15.TeamID;
@@ -230,7 +232,7 @@ namespace NBA.Data.Model
                 entity.HasOne(player => player.Teams)
                 .WithMany(teams => teams.Players)
                 .HasForeignKey(player => player.TeamID)
-                .OnDelete(DeleteBehavior.ClientSetNull);
+                .OnDelete(DeleteBehavior.Cascade);
             });
 
             modelBuilder.Entity<Teams>(entity =>
@@ -253,7 +255,7 @@ namespace NBA.Data.Model
             modelBuilder.Entity<Teams>().HasData(t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20, t21, t22, t23, t24, t25, t26, t27, t28);
             modelBuilder.Entity<Series>().HasData(s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12);
             modelBuilder.Entity<TeamStats>().HasData(ts1, ts2, ts3, ts4, ts5, ts6, ts7, ts8, ts9, ts10);
-            modelBuilder.Entity<PlayerStats>().HasData(ps1, ps2, ps3, ps4, ps5);
+            modelBuilder.Entity<PlayerStats>().HasData(ps1, ps2, ps3, ps4, ps5, ps6);
         }
     }
 }
