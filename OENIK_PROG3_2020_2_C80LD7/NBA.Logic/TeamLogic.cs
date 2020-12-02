@@ -101,5 +101,55 @@ namespace NBA.Logic
         {
             this.teamRepo.ChangeTeamName(id, newname);
         }
+
+        /// <summary>
+        /// Update the final result of the series.
+        /// </summary>
+        /// <param name="year">Year of the sereies.</param>
+        /// <param name="newresult">new final result.</param>
+        public void ChangeFinalResult(int year, string newresult)
+        {
+            this.seriesRepo.ChangeResult(year, newresult);
+        }
+
+        /// <summary>
+        /// Updates winner team.
+        /// </summary>
+        /// <param name="year">year of the series.</param>
+        /// <param name="newid">new winner team's id.</param>
+        public void ChangeWinnerId(int year, int newid)
+        {
+            this.seriesRepo.ChangeWinnerId(year, newid);
+        }
+
+        /// <summary>
+        /// Update loser team.
+        /// </summary>
+        /// <param name="year">year of the series.</param>
+        /// <param name="newid">new loser team's id.</param>
+        public void ChangeLoserId(int year, int newid)
+        {
+            this.seriesRepo.ChangeLoserId(year, newid);
+        }
+
+        /// <summary>
+        /// Updates one team point per game statistic.
+        /// </summary>
+        /// <param name="id">stat id.</param>
+        /// <param name="newppg">new ppg value.</param>
+        public void ChangeTeamStatPPG(int id, double newppg)
+        {
+            this.teamStatsRepo.ChangeTeamPointsPerGame(id, newppg);
+        }
+
+        /// <summary>
+        /// Updates one team assist per game statistic.
+        /// </summary>
+        /// <param name="id">stat id.</param>
+        /// <param name="newassist">new assist value.</param>
+        public void ChangeTeamStatAST(int id, double newassist)
+        {
+            this.teamStatsRepo.ChangeTeamAssists(id, newassist);
+        }
     }
 }

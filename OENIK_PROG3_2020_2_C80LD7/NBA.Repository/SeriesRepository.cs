@@ -5,6 +5,7 @@
 namespace NBA.Repository
 {
     using System;
+    using System.Linq;
     using Microsoft.EntityFrameworkCore;
     using NBA.Data.Model;
 
@@ -23,13 +24,78 @@ namespace NBA.Repository
         }
 
         /// <summary>
+        /// Update loser team.
+        /// </summary>
+        /// <param name="year">year of the series.</param>
+        /// <param name="newid">new loser team's id.</param>
+        public void ChangeLoserId(int year, int newid)
+        {
+            var series = this.GetOne(year);
+            if (series != null)
+            {
+                series.LoserID = newid;
+                this.ctx.SaveChanges();
+            }
+            else
+            {
+                throw new ArgumentException("This year doesn't exist exist in the database.");
+            }
+        }
+
+        /// <summary>
+        /// Update the final result of the series.
+        /// </summary>
+        /// <param name="year">Year of the sereies.</param>
+        /// <param name="newresult">new final result.</param>
+        public void ChangeResult(int year, string newresult)
+        {
+            var series = this.GetOne(year);
+            if (series != null)
+            {
+                series.Result = newresult;
+                this.ctx.SaveChanges();
+            }
+            else
+            {
+                throw new ArgumentException("This year doesn't exist exist in the database.");
+            }
+        }
+
+        /// <summary>
+        /// Update winner team.
+        /// </summary>
+        /// <param name="year">year of the series.</param>
+        /// <param name="newid">new winner team's id.</param>
+        public void ChangeWinnerId(int year, int newid)
+        {
+            var series = this.GetOne(year);
+            if (series != null)
+            {
+                series.WinnerID = newid;
+                this.ctx.SaveChanges();
+            }
+            else
+            {
+                throw new ArgumentException("This year doesn't exist exist in the database.");
+            }
+        }
+
+        /// <summary>
         /// Returns ine series's data.
         /// </summary>
         /// <param name="id">year of series.</param>
         /// <returns>series.</returns>
         public override Series GetOne(int id)
         {
-            throw new NotImplementedException();
+            Series find = this.GetAll().SingleOrDefault(x => x.Year == id);
+            if (find != null)
+            {
+                return find;
+            }
+            else
+            {
+                throw new ArgumentException("This year doesn't exist exist in the database.");
+            }
         }
     }
 }
