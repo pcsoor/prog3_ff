@@ -12,10 +12,9 @@ namespace NBA.Program
     public class NBAProgram
     {
         /// <summary>
-        /// This method implements the factory class and call its methods.
+        /// This method implements the factory class and calls its methods.
         /// </summary>
-        /// <param name="args">Array of string objects.</param>
-        private static void Main(string[] args)
+        private static void Main()
         {
             Factory f = new Factory();
             f.Kiir();
