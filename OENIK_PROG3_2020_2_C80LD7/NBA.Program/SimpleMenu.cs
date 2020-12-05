@@ -7,6 +7,7 @@ namespace NBA.Program
     using System;
     using System.Globalization;
     using System.Linq;
+    using NBA.Data.Model;
     using NBA.Logic;
 
     /// <summary>
@@ -56,6 +57,10 @@ namespace NBA.Program
             Console.ReadLine();
         }
 
+        /// <summary>
+        /// List all series.
+        /// </summary>
+        /// <param name="teamLogic">TeamLogic reference.</param>
         public static void ListAllSeriesResult(TeamLogic teamLogic)
         {
             MyCw("List of all series result:");
@@ -261,6 +266,10 @@ namespace NBA.Program
             Console.ReadLine();
         }
 
+        /// <summary>
+        /// Updates final result of the series.
+        /// </summary>
+        /// <param name="teamLogic">TeamLogic reference.</param>
         public static void ChangeFinalResult(TeamLogic teamLogic)
         {
             MyCw("Type the year of the series:");
@@ -289,6 +298,10 @@ namespace NBA.Program
             Console.ReadLine();
         }
 
+        /// <summary>
+        /// Updates winner team's id.
+        /// </summary>
+        /// <param name="teamLogic">TeamLogic reference.</param>
         public static void ChangeWinnerId(TeamLogic teamLogic)
         {
             MyCw("Type the year of the series:");
@@ -317,6 +330,10 @@ namespace NBA.Program
             Console.ReadLine();
         }
 
+        /// <summary>
+        /// Updates loser team's id.
+        /// </summary>
+        /// <param name="teamLogic">TeamLogic reference.</param>
         public static void ChangeLoserId(TeamLogic teamLogic)
         {
             MyCw("Type loser team's id:");
@@ -345,6 +362,10 @@ namespace NBA.Program
             Console.ReadLine();
         }
 
+        /// <summary>
+        /// Get players in one team.
+        /// </summary>
+        /// <param name="playerLogic">PlayerLogic ref.</param>
         public static void GetPlayerByTeam(PlayerLogic playerLogic)
         {
             MyCw("Type the team's id:");
@@ -353,7 +374,46 @@ namespace NBA.Program
             {
                 Console.WriteLine($"{item.Name} - {item.TeamID}");
             }
+
             Console.ReadLine();
+        }
+
+        /// <summary>
+        /// Add new player to the database.
+        /// </summary>
+        /// <param name="playerLogic">PlayerLogic reference.</param>
+        public static void AddPlayer(PlayerLogic playerLogic)
+        {
+            MyCw("\nEnter new player's name:");
+            string name = Console.ReadLine();
+            MyCw("\nEnter new player's date of birth: (YYYY, MM, DD)");
+            DateTime dob = DateTime.Parse(MyCr(), CultureInfo.CurrentCulture);
+            MyCw("\nEnter new player's height (cm)");
+            int height = int.Parse(MyCr(), CultureInfo.CurrentCulture);
+            MyCw("\nEnter new player's weight (kg)");
+            int weight = int.Parse(MyCr(), CultureInfo.CurrentCulture);
+            MyCw("\nEnter new player's number");
+            int number = int.Parse(MyCr(), CultureInfo.CurrentCulture);
+            MyCw("\nEnter new player's post");
+            string post = Console.ReadLine();
+            MyCw("\nEnter new player's salary");
+            int salary = int.Parse(MyCr(), CultureInfo.CurrentCulture);
+
+            playerLogic?.AddNewPlayer(new Player()
+            {
+                Name = name,
+                Birth = dob,
+                Height = height,
+                Weight = weight,
+                Number = number,
+                Post = post,
+                Salary = salary,
+            });
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            MyCw(">>> Player added to the database!");
+            Console.ResetColor();
+            Console.ReadKey();
         }
 
         /// <summary>
@@ -368,6 +428,7 @@ namespace NBA.Program
         /// <summary>
         /// calls readline method.
         /// </summary>
+        /// <returns>input string.</returns>
         public static string MyCr()
         {
             return Console.ReadLine();
