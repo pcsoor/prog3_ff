@@ -4,9 +4,15 @@
         <name>NBA.Logic.Tests</name>
     </assembly>
     <members>
-        <member name="T:NBA.Logic.Tests.PlayerTests">
+        <member name="M:NBA.Logic.Tests.PlayerTests.TestGetPlayerById(System.Int32)">
             <summary>
-            asd.
+            Tests get one player by id method.
+            </summary>
+            <param name="id">Player's id.</param>
+        </member>
+        <member name="T:NBA.Logic.Tests.TeamStats">
+            <summary>
+            Team entity specific tests.
             </summary>
         </member>
     </members>

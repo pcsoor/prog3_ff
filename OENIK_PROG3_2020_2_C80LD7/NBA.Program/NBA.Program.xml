@@ -39,11 +39,10 @@
             Top layer of the project.
             </summary>
         </member>
-        <member name="M:NBA.Program.NBAProgram.Main(System.String[])">
+        <member name="M:NBA.Program.NBAProgram.Main">
             <summary>
-            This method implements the factory class and call its methods.
+            This method implements the factory class and calls its methods.
             </summary>
-            <param name="args">Array of string objects.</param>
         </member>
         <member name="T:NBA.Program.SimpleMenu">
             <summary>
@@ -121,6 +120,17 @@
             Updates team's name.
             </summary>
             <param name="teamLogic">teamLogic reference.</param>
+        </member>
+        <member name="M:NBA.Program.SimpleMenu.MyCw(System.String)">
+            <summary>
+            Calls the writeline method.
+            </summary>
+            <param name="text">text to write to console.</param>
+        </member>
+        <member name="M:NBA.Program.SimpleMenu.MyCr">
+            <summary>
+            calls readline method.
+            </summary>
         </member>
     </members>
 </doc>
