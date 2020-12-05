@@ -62,8 +62,8 @@ namespace NBA.Logic
         {
             var q = from player in this.playerRepo.GetAll()
                     join team in this.teamRepo.GetAll() on player.TeamID equals team.TeamID
-                    let item = new { TeamName = team.Name, PlayerID = player.PlayerID }
-                    group item by item.TeamName into g
+                    group team by team.Name into g
+                    orderby g.Key
                     select new Average
                     {
                         Name = g.Key,
