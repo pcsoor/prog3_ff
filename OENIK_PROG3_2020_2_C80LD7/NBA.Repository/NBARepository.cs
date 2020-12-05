@@ -46,12 +46,12 @@ namespace NBA.Repository
         }
 
         /// <summary>
-        /// Delete on element from the database.
+        /// Removes an element from the database.
         /// </summary>
-        /// <param name="attr">gives an entity to delete.</param>
-        public void Remove(T attr)
+        /// <param name="id">gives an entity to delete.</param>
+        public void Remove(int id)
         {
-            this.ctx.Set<T>().Remove(attr);
+            this.ctx.Set<T>().Remove(this.GetOne(id));
             this.ctx.SaveChanges();
         }
     }

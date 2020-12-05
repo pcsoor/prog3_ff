@@ -35,7 +35,7 @@ namespace NBA.Repository
         /// <summary>
         /// Removes an element.
         /// </summary>
-        /// <param name="attr">get one entity to delete.</param>
-        void Remove(T attr);
+        /// <param name="id">get one entity to delete.</param>
+        void Remove(int id);
     }
 }

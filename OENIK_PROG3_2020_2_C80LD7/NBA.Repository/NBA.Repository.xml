@@ -46,11 +46,11 @@
             </summary>
             <param name="attr">Entity specific attribute.</param>
         </member>
-        <member name="M:NBA.Repository.IRepository`1.Remove(`0)">
+        <member name="M:NBA.Repository.IRepository`1.Remove(System.Int32)">
             <summary>
             Removes an element.
             </summary>
-            <param name="attr">get one entity to delete.</param>
+            <param name="id">get one entity to delete.</param>
         </member>
         <member name="T:NBA.Repository.ISeriesRepository">
             <summary>
@@ -135,11 +135,11 @@
         <member name="M:NBA.Repository.NBARepository`1.Insert(`0)">
             <inheritdoc/>
         </member>
-        <member name="M:NBA.Repository.NBARepository`1.Remove(`0)">
+        <member name="M:NBA.Repository.NBARepository`1.Remove(System.Int32)">
             <summary>
-            Delete on element from the database.
+            Removes an element from the database.
             </summary>
-            <param name="attr">gives an entity to delete.</param>
+            <param name="id">gives an entity to delete.</param>
         </member>
         <member name="T:NBA.Repository.PlayerRepository">
             <summary>

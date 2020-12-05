@@ -85,7 +85,7 @@ namespace NBA.Logic
         {
             if (this.GetOneTeamById(id) != null)
             {
-                this.teamRepo.Remove(this.GetOneTeamById(id));
+                this.teamRepo.Remove(id);
                 return true;
             }
 

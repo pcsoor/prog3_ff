@@ -104,9 +104,9 @@ namespace NBA.Logic
         /// <returns>true or false, depends on that the id could be found in the database.</returns>
         public bool DeletePlayer(int id)
         {
-            if (this.GetOnePlayerById(id) != null)
+            if (this.playerRepo.GetAll().ToList().Contains(this.GetOnePlayerById(id)))
             {
-                this.playerRepo.Remove(this.GetOnePlayerById(id));
+                this.playerRepo.Remove(id);
                 return true;
             }
 
