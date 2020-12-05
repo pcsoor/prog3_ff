@@ -28,5 +28,23 @@ namespace NBA.Logic
         {
             return $"{this.Name} - {this.Avg}";
         }
+
+        /// <inheritdoc/>
+        public override bool Equals(object obj)
+        {
+            if (obj is Average)
+            {
+                Average other = obj as Average;
+                return this.Avg == other.Avg && this.Name == other.Name;
+            }
+
+            return false;
+        }
+
+        /// <inheritdoc/>
+        public override int GetHashCode()
+        {
+            return 0;
+        }
     }
 }

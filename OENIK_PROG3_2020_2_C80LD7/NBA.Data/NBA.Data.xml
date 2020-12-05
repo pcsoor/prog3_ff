@@ -221,7 +221,7 @@
             <summary>
             Overrides ToString method.
             </summary>
-            <returns>string</returns>
+            <returns>string.</returns>
         </member>
         <member name="M:NBA.Data.Model.Series.Equals(System.Object)">
             <inheritdoc/>

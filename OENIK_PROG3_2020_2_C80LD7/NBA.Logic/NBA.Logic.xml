@@ -22,6 +22,12 @@
         <member name="M:NBA.Logic.Average.ToString">
             <inheritdoc/>
         </member>
+        <member name="M:NBA.Logic.Average.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:NBA.Logic.Average.GetHashCode">
+            <inheritdoc/>
+        </member>
         <member name="T:NBA.Logic.IPlayerLogic">
             <summary>
             Describes player specific methods.
