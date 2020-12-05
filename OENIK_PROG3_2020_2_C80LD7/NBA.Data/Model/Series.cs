@@ -46,7 +46,7 @@ namespace NBA.Data.Model
         /// <summary>
         /// Overrides ToString method.
         /// </summary>
-        /// <returns>string</returns>
+        /// <returns>string.</returns>
         public override string ToString()
         {
             string tartalom = $"{this.Year,-4} {this.WinnerID,-4} {this.LoserID,-4} {this.Result,-4}";

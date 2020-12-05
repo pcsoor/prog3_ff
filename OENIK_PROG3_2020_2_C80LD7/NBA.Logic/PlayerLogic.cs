@@ -141,6 +141,11 @@ namespace NBA.Logic
             this.playerRepo.ChangeSalary(id, newsalary);
         }
 
+        /// <summary>
+        /// Return players in one team.
+        /// </summary>
+        /// <param name="team">team's id.</param>
+        /// <returns>List of players.</returns>
         public IList<Player> GetPlayerByTeam(int team)
         {
             return this.playerRepo.GetAll().Where(x => x.TeamID == team).ToList();
