@@ -19,6 +19,18 @@ namespace NBA.Logic
         IList<Teams> GetAllTeams();
 
         /// <summary>
+        /// Returns all of the team statistics.
+        /// </summary>
+        /// <returns>collection.</returns>
+        IList<TeamStats> GetAllTeamStat();
+
+        /// <summary>
+        /// Returns all series result.
+        /// </summary>
+        /// <returns>collection.</returns>
+        IList<Series> GetAllSeriesResult();
+
+        /// <summary>
         /// Get one team.
         /// </summary>
         /// <param name="id">team's id.</param>

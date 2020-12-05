@@ -89,6 +89,25 @@
             </summary>
             <returns>Collection.</returns>
         </member>
+        <member name="M:NBA.Logic.ITeamLogic.GetAllTeamStat">
+            <summary>
+            Returns all of the team statistics.
+            </summary>
+            <returns>collection.</returns>
+        </member>
+        <member name="M:NBA.Logic.ITeamLogic.GetAllSeriesResult">
+            <summary>
+            Returns all series result.
+            </summary>
+            <returns>collection.</returns>
+        </member>
+        <member name="M:NBA.Logic.ITeamLogic.GetOneTeamById(System.Int32)">
+            <summary>
+            Get one team.
+            </summary>
+            <param name="id">team's id.</param>
+            <returns>team entity.</returns>
+        </member>
         <member name="M:NBA.Logic.ITeamLogic.GetWinQtyByTeams">
             <summary>
             Gets the quantyt of the wins by teams.
@@ -109,12 +128,40 @@
             <param name="id">team's id.</param>
             <param name="newname">team's new name.</param>
         </member>
-        <member name="M:NBA.Logic.ITeamLogic.GetOneTeamById(System.Int32)">
+        <member name="M:NBA.Logic.ITeamLogic.ChangeFinalResult(System.Int32,System.String)">
             <summary>
-            Get one team.
+            Update the final result of the series.
             </summary>
-            <param name="id">team's id.</param>
-            <returns>team entity.</returns>
+            <param name="year">Year of the sereies.</param>
+            <param name="newresult">new final result.</param>
+        </member>
+        <member name="M:NBA.Logic.ITeamLogic.ChangeWinnerId(System.Int32,System.Int32)">
+            <summary>
+            Update winner team.
+            </summary>
+            <param name="year">year of the series.</param>
+            <param name="newid">new winner team's id.</param>
+        </member>
+        <member name="M:NBA.Logic.ITeamLogic.ChangeLoserId(System.Int32,System.Int32)">
+            <summary>
+            Update loser team.
+            </summary>
+            <param name="year">year of the series.</param>
+            <param name="newid">new loser team's id.</param>
+        </member>
+        <member name="M:NBA.Logic.ITeamLogic.ChangeTeamStatPPG(System.Int32,System.Double)">
+            <summary>
+            Updates one team point per game statistic.
+            </summary>
+            <param name="id">stat id.</param>
+            <param name="newppg">new ppg value.</param>
+        </member>
+        <member name="M:NBA.Logic.ITeamLogic.ChangeTeamStatAST(System.Int32,System.Double)">
+            <summary>
+            Updates one team assist per game statistic.
+            </summary>
+            <param name="id">stat id.</param>
+            <param name="newassist">new assist value.</param>
         </member>
         <member name="T:NBA.Logic.PlayerLogic">
             <summary>
@@ -222,6 +269,47 @@
             </summary>
             <param name="id">team's id.</param>
             <param name="newname">team's new name.</param>
+        </member>
+        <member name="M:NBA.Logic.TeamLogic.ChangeFinalResult(System.Int32,System.String)">
+            <summary>
+            Update the final result of the series.
+            </summary>
+            <param name="year">Year of the sereies.</param>
+            <param name="newresult">new final result.</param>
+        </member>
+        <member name="M:NBA.Logic.TeamLogic.ChangeWinnerId(System.Int32,System.Int32)">
+            <summary>
+            Updates winner team.
+            </summary>
+            <param name="year">year of the series.</param>
+            <param name="newid">new winner team's id.</param>
+        </member>
+        <member name="M:NBA.Logic.TeamLogic.ChangeLoserId(System.Int32,System.Int32)">
+            <summary>
+            Update loser team.
+            </summary>
+            <param name="year">year of the series.</param>
+            <param name="newid">new loser team's id.</param>
+        </member>
+        <member name="M:NBA.Logic.TeamLogic.ChangeTeamStatPPG(System.Int32,System.Double)">
+            <summary>
+            Updates one team point per game statistic.
+            </summary>
+            <param name="id">stat id.</param>
+            <param name="newppg">new ppg value.</param>
+        </member>
+        <member name="M:NBA.Logic.TeamLogic.ChangeTeamStatAST(System.Int32,System.Double)">
+            <summary>
+            Updates one team assist per game statistic.
+            </summary>
+            <param name="id">stat id.</param>
+            <param name="newassist">new assist value.</param>
+        </member>
+        <member name="M:NBA.Logic.TeamLogic.GetAllSeriesResult">
+            <summary>
+            Returns all series result.
+            </summary>
+            <returns>collection.</returns>
         </member>
     </members>
 </doc>

@@ -151,5 +151,14 @@ namespace NBA.Logic
         {
             this.teamStatsRepo.ChangeTeamAssists(id, newassist);
         }
+
+        /// <summary>
+        /// Returns all series result.
+        /// </summary>
+        /// <returns>collection.</returns>
+        public IList<Series> GetAllSeriesResult()
+        {
+            return this.seriesRepo.GetAll().ToList();
+        }
     }
 }

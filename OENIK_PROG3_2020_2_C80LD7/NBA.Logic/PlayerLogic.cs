@@ -140,5 +140,10 @@ namespace NBA.Logic
         {
             this.playerRepo.ChangeSalary(id, newsalary);
         }
+
+        public IList<Player> GetPlayerByTeam(int team)
+        {
+            return this.playerRepo.GetAll().Where(x => x.TeamID == team).ToList();
+        }
     }
 }
