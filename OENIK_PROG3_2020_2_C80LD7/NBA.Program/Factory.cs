@@ -71,7 +71,6 @@ namespace NBA.Program
             .Add("Player who played the most", () => SimpleMenu.GetPlayerWithTheMostGamesPlayed(this.PlayerLogic))
             .Add("Back", ConsoleMenu.Close).Show())
             .Add("INSERT METHODS >", m => new ConsoleMenu()
-            .Add("Insert new player", () => this.AddPlayer())
             .Add("Back", ConsoleMenu.Close).Show())
             .Add("UPDATE METHODS >", m => new ConsoleMenu()
             .Add("Update player's salary", () => SimpleMenu.UpdatePlayerSalary(this.PlayerLogic))
@@ -86,39 +85,6 @@ namespace NBA.Program
             .Add("Back", ConsoleMenu.Close).Show())
             .Add("EXIT", ConsoleMenu.Close);
             menu.Show();
-        }
-
-        private void AddPlayer()
-        {
-            this.PlayerLogic?.GetAllPlayers().ToList().ForEach(x => Console.WriteLine(x.Name));
-            Console.WriteLine("\nEnter new player's name:");
-            string name = Console.ReadLine();
-            Console.WriteLine("\nEnter new player's date of birth: (YYYY, MM, DD)");
-            DateTime dob = DateTime.Parse(Console.ReadLine());
-            Console.WriteLine("\nEnter new player's height (cm)");
-            int height = int.Parse(Console.ReadLine());
-            Console.WriteLine("\nEnter new player's weight (kg)");
-            int weight = int.Parse(Console.ReadLine());
-            Console.WriteLine("\nEnter new player's number");
-            int number = int.Parse(Console.ReadLine());
-            Console.WriteLine("\nEnter new player's post");
-            string post = Console.ReadLine();
-            Console.WriteLine("\nEnter new player's salary");
-            int salary = int.Parse(Console.ReadLine());
-            this.PlayerLogic?.AddNewPlayer(new Player()
-            {
-                Name = name,
-                Birth = dob,
-                Height = height,
-                Weight = weight,
-                Number = number,
-                Post = post,
-                Salary = salary,
-            });
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(">>> Player added to the database!");
-            Console.ResetColor();
-            Console.ReadKey();
         }
     }
 }
