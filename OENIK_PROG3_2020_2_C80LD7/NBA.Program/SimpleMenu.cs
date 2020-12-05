@@ -5,6 +5,7 @@
 namespace NBA.Program
 {
     using System;
+    using System.Globalization;
     using System.Linq;
     using NBA.Logic;
 
@@ -19,9 +20,9 @@ namespace NBA.Program
         /// <param name="teamsLogic">teamlogic.</param>
         public static void ListAllTeams(TeamLogic teamsLogic)
         {
-            Console.WriteLine("List of teams");
+            MyCw("List of teams");
             string fejlec = $"{"ID",-4} {"NAME",-25} {"COACH",-20} {"REGION",-1}";
-            Console.WriteLine(fejlec);
+            MyCw(fejlec);
             teamsLogic.GetAllTeams()
                 .ToList().ForEach(x => Console.WriteLine(x.ToString()));
             Console.ReadLine();
@@ -33,9 +34,9 @@ namespace NBA.Program
         /// <param name="playerLogic">playerlogic.</param>
         public static void ListAllPlayer(PlayerLogic playerLogic)
         {
-            Console.WriteLine("List of players");
+            MyCw("List of players");
             string header = $"{"ID",-4} {"NAME",-20} {"BIRTH",-15} {"HEIGHT",-8} {"WEIGHT",-8} {"POST",-8} {"NUMBER",-12} {"SALARY",0}";
-            Console.WriteLine(header);
+            MyCw(header);
             playerLogic.GetAllPlayers()
                 .ToList().ForEach(x => Console.WriteLine(x.ToString()));
             Console.ReadLine();
@@ -47,11 +48,20 @@ namespace NBA.Program
         /// <param name="teamLogic">teamlogic.</param>
         public static void ListAllTeamStat(TeamLogic teamLogic)
         {
-            Console.WriteLine("List of team stats:");
+            MyCw("List of team stats:");
             string header = $"{"ID",-6} {"GP",-6} {"PPG",-6} {"REB",-6} {"STL",-6} {"AST",-6} {"BLK",-6} {"FGM",-6}";
-            Console.WriteLine(header);
+            MyCw(header);
             teamLogic.GetAllTeamStat()
                 .ToList().ForEach(x => Console.WriteLine(x.ToString()));
+            Console.ReadLine();
+        }
+
+        public static void ListAllSeriesResult(TeamLogic teamLogic)
+        {
+            MyCw("List of all series result:");
+            string header = $"{"YEAR",-4} {"WINNER ID",-4} {"LOSER ID",-4} {"RESULT",-4}";
+            MyCw(header);
+            teamLogic.GetAllSeriesResult().ToList().ForEach(x => Console.WriteLine(x.ToString()));
             Console.ReadLine();
         }
 
@@ -61,9 +71,9 @@ namespace NBA.Program
         /// <param name="playerLogic">playerlogic.</param>
         public static void GetOnePlayer(PlayerLogic playerLogic)
         {
-            Console.WriteLine("Enter player's ID");
+            MyCw("Enter player's ID");
 
-            int id = int.Parse(Console.ReadLine());
+            int id = int.Parse(Console.ReadLine(), CultureInfo.CurrentCulture);
             bool exist = false;
             try
             {
@@ -72,14 +82,14 @@ namespace NBA.Program
             }
             catch (ArgumentException)
             {
-                Console.WriteLine("Wrong player ID! Try another one..");
+                MyCw("Wrong player ID! Try another one..");
                 GetOnePlayer(playerLogic);
             }
 
             if (exist)
             {
                 string header = $"{"ID",-4} {"NAME",-20} {"BIRTH",-15} {"HEIGHT",-8} {"WEIGHT",-8} {"POST",-8} {"SALARY",-12} {"NUMBER",-2}";
-                Console.WriteLine(header);
+                MyCw(header);
                 Console.WriteLine(playerLogic.GetOnePlayerById(id).ToString());
             }
 
@@ -92,9 +102,9 @@ namespace NBA.Program
         /// <param name="teamLogic">teamLogic reference.</param>
         public static void DeleteTeam(TeamLogic teamLogic)
         {
-            Console.WriteLine("Give me the team's id:");
+            MyCw("Give me the team's id:");
 
-            int num = int.Parse(Console.ReadLine());
+            int num = int.Parse(Console.ReadLine(), CultureInfo.CurrentCulture);
             bool exist = false;
             try
             {
@@ -103,7 +113,7 @@ namespace NBA.Program
             }
             catch (ArgumentException)
             {
-                Console.WriteLine("This team does not exist!");
+                MyCw("This team does not exist!");
                 DeleteTeam(teamLogic);
             }
 
@@ -147,12 +157,12 @@ namespace NBA.Program
         /// <param name="playerLogic">playerLogic reference.</param>
         public static void DeletePlayer(PlayerLogic playerLogic)
         {
-            Console.WriteLine("Give me the player's ID:");
-            int playerID = int.Parse(Console.ReadLine());
+            MyCw("Give me the player's ID:");
+            int playerID = int.Parse(Console.ReadLine(), CultureInfo.CurrentCulture);
             playerLogic.DeletePlayer(playerID);
-            Console.WriteLine("Player deleted");
+            MyCw("Player deleted");
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(">>> Player deleted!");
+            MyCw(">>> Player deleted!");
             Console.ResetColor();
             Console.ReadKey();
         }
@@ -191,10 +201,10 @@ namespace NBA.Program
         /// <param name="playerLogic">playerLogic reference.</param>
         public static void UpdatePlayerSalary(PlayerLogic playerLogic)
         {
-            Console.WriteLine("Give me the player's id:");
-            int id = int.Parse(Console.ReadLine());
-            Console.WriteLine("Give me the value:");
-            int newsalary = int.Parse(Console.ReadLine());
+            MyCw("Give me the player's id:");
+            int id = int.Parse(Console.ReadLine(), CultureInfo.CurrentCulture);
+            MyCw("Give me the value:");
+            int newsalary = int.Parse(Console.ReadLine(), CultureInfo.CurrentCulture);
             bool exist = false;
             try
             {
@@ -203,14 +213,14 @@ namespace NBA.Program
             }
             catch (ArgumentException)
             {
-                Console.WriteLine("Player don't exist with this id.");
+                MyCw("Player don't exist with this id.");
                 UpdatePlayerSalary(playerLogic);
             }
 
             if (exist)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(">>> Player's salary changed..");
+                MyCw(">>> Player's salary changed..");
                 Console.ResetColor();
             }
 
@@ -223,9 +233,9 @@ namespace NBA.Program
         /// <param name="teamLogic">teamLogic reference.</param>
         public static void ChangeTeamName(TeamLogic teamLogic)
         {
-            Console.WriteLine("Give me the team's id:");
-            int id = int.Parse(Console.ReadLine());
-            Console.WriteLine("Type the team's new name:");
+            MyCw("Give me the team's id:");
+            int id = int.Parse(Console.ReadLine(), CultureInfo.CurrentCulture);
+            MyCw("Type the team's new name:");
             string newname = Console.ReadLine();
 
             bool exist = false;
@@ -237,18 +247,130 @@ namespace NBA.Program
             }
             catch (ArgumentException)
             {
-                Console.WriteLine("This team does not exist with this id!");
+                MyCw("This team does not exist with this id!");
                 ChangeTeamName(teamLogic);
             }
 
             if (exist)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(">>> Team's name changed..");
+                MyCw(">>> Team's name changed..");
                 Console.ResetColor();
             }
 
             Console.ReadLine();
+        }
+
+        public static void ChangeFinalResult(TeamLogic teamLogic)
+        {
+            MyCw("Type the year of the series:");
+            int year = int.Parse(Console.ReadLine(), CultureInfo.CurrentCulture);
+            MyCw("Type the new result: (separate with '-'! (eg: 3-4))");
+            string res = Console.ReadLine();
+            bool exist = false;
+            try
+            {
+                teamLogic.ChangeFinalResult(year, res);
+                exist = true;
+            }
+            catch (ArgumentException)
+            {
+                MyCw("This series doesn't exist in the database!");
+                ChangeFinalResult(teamLogic);
+            }
+
+            if (exist)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                MyCw("Final result updated successfully!");
+                Console.ResetColor();
+            }
+
+            Console.ReadLine();
+        }
+
+        public static void ChangeWinnerId(TeamLogic teamLogic)
+        {
+            MyCw("Type the year of the series:");
+            int year = int.Parse(Console.ReadLine(), CultureInfo.CurrentCulture);
+            MyCw("Type winner team's id:");
+            int winid = int.Parse(Console.ReadLine(), CultureInfo.CurrentCulture);
+            bool exist = false;
+            try
+            {
+                teamLogic.ChangeWinnerId(year, winid);
+                exist = true;
+            }
+            catch (ArgumentException)
+            {
+                MyCw("This series doesn't exist in the database!");
+                ChangeFinalResult(teamLogic);
+            }
+
+            if (exist)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                MyCw("Winner team's id updated successfully!");
+                Console.ResetColor();
+            }
+
+            Console.ReadLine();
+        }
+
+        public static void ChangeLoserId(TeamLogic teamLogic)
+        {
+            MyCw("Type loser team's id:");
+            int year = int.Parse(Console.ReadLine(), CultureInfo.CurrentCulture);
+            MyCw("Type loser team's id:");
+            int loserid = int.Parse(Console.ReadLine(), CultureInfo.CurrentCulture);
+            bool exist = false;
+            try
+            {
+                teamLogic.ChangeLoserId(year, loserid);
+                exist = true;
+            }
+            catch (ArgumentException)
+            {
+                MyCw("This series doesn't exist in the database!");
+                ChangeFinalResult(teamLogic);
+            }
+
+            if (exist)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                MyCw("Loser team's id updated successfully!");
+                Console.ResetColor();
+            }
+
+            Console.ReadLine();
+        }
+
+        public static void GetPlayerByTeam(PlayerLogic playerLogic)
+        {
+            MyCw("Type the team's id:");
+            int team = int.Parse(MyCr(), CultureInfo.CurrentCulture);
+            foreach (var item in playerLogic.GetPlayerByTeam(team))
+            {
+                Console.WriteLine($"{item.Name} - {item.TeamID}");
+            }
+            Console.ReadLine();
+        }
+
+        /// <summary>
+        /// Calls the writeline method.
+        /// </summary>
+        /// <param name="text">text to write to console.</param>
+        public static void MyCw(string text)
+        {
+            Console.WriteLine(text);
+        }
+
+        /// <summary>
+        /// calls readline method.
+        /// </summary>
+        public static string MyCr()
+        {
+            return Console.ReadLine();
         }
     }
 }
