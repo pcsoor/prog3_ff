@@ -4,11 +4,36 @@
         <name>NBA.Logic.Tests</name>
     </assembly>
     <members>
+        <member name="T:NBA.Logic.Tests.PlayerTests">
+            <summary>
+            Player entity tests.
+            </summary>
+        </member>
+        <member name="M:NBA.Logic.Tests.PlayerTests.Setup">
+            <summary>
+            Sets up the tests.
+            </summary>
+        </member>
         <member name="M:NBA.Logic.Tests.PlayerTests.TestGetPlayerById(System.Int32)">
             <summary>
             Tests get one player by id method.
             </summary>
             <param name="id">Player's id.</param>
+        </member>
+        <member name="M:NBA.Logic.Tests.PlayerTests.TestInsertNewCustomer">
+            <summary>
+            Testing that new player is added.
+            </summary>
+        </member>
+        <member name="M:NBA.Logic.Tests.PlayerTests.TestGetPlayerByTeam">
+            <summary>
+            Testing that GetPlayerByTeam returns players from one team.
+            </summary>
+        </member>
+        <member name="M:NBA.Logic.Tests.PlayerTests.TestGetPlayerWithTheMostGamesPlayed">
+            <summary>
+            Testing non crud method that gets the player who played the most.
+            </summary>
         </member>
         <member name="T:NBA.Logic.Tests.TeamStats">
             <summary>

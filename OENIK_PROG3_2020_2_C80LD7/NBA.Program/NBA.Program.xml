@@ -67,6 +67,12 @@
             </summary>
             <param name="teamLogic">teamlogic.</param>
         </member>
+        <member name="M:NBA.Program.SimpleMenu.ListAllSeriesResult(NBA.Logic.TeamLogic)">
+            <summary>
+            List all series.
+            </summary>
+            <param name="teamLogic">TeamLogic reference.</param>
+        </member>
         <member name="M:NBA.Program.SimpleMenu.GetOnePlayer(NBA.Logic.PlayerLogic)">
             <summary>
             Returns one player's data.
@@ -121,6 +127,36 @@
             </summary>
             <param name="teamLogic">teamLogic reference.</param>
         </member>
+        <member name="M:NBA.Program.SimpleMenu.ChangeFinalResult(NBA.Logic.TeamLogic)">
+            <summary>
+            Updates final result of the series.
+            </summary>
+            <param name="teamLogic">TeamLogic reference.</param>
+        </member>
+        <member name="M:NBA.Program.SimpleMenu.ChangeWinnerId(NBA.Logic.TeamLogic)">
+            <summary>
+            Updates winner team's id.
+            </summary>
+            <param name="teamLogic">TeamLogic reference.</param>
+        </member>
+        <member name="M:NBA.Program.SimpleMenu.ChangeLoserId(NBA.Logic.TeamLogic)">
+            <summary>
+            Updates loser team's id.
+            </summary>
+            <param name="teamLogic">TeamLogic reference.</param>
+        </member>
+        <member name="M:NBA.Program.SimpleMenu.GetPlayerByTeam(NBA.Logic.PlayerLogic)">
+            <summary>
+            Get players in one team.
+            </summary>
+            <param name="playerLogic">PlayerLogic ref.</param>
+        </member>
+        <member name="M:NBA.Program.SimpleMenu.AddPlayer(NBA.Logic.PlayerLogic)">
+            <summary>
+            Add new player to the database.
+            </summary>
+            <param name="playerLogic">PlayerLogic reference.</param>
+        </member>
         <member name="M:NBA.Program.SimpleMenu.MyCw(System.String)">
             <summary>
             Calls the writeline method.
@@ -131,6 +167,7 @@
             <summary>
             calls readline method.
             </summary>
+            <returns>input string.</returns>
         </member>
     </members>
 </doc>

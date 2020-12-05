@@ -78,6 +78,13 @@
             <param name="id">player's id.</param>
             <param name="newsalary">player's new salary.</param>
         </member>
+        <member name="M:NBA.Logic.IPlayerLogic.GetPlayerByTeam(System.Int32)">
+            <summary>
+            Return player player from one team.
+            </summary>
+            <param name="team">team's id.</param>
+            <returns>List of players.</returns>
+        </member>
         <member name="T:NBA.Logic.ITeamLogic">
             <summary>
             Implements Team specific methods.
@@ -220,6 +227,13 @@
             </summary>
             <param name="id">player's id.</param>
             <param name="newsalary">player's new salary to update.</param>
+        </member>
+        <member name="M:NBA.Logic.PlayerLogic.GetPlayerByTeam(System.Int32)">
+            <summary>
+            Return players in one team.
+            </summary>
+            <param name="team">team's id.</param>
+            <returns>List of players.</returns>
         </member>
         <member name="T:NBA.Logic.TeamLogic">
             <summary>

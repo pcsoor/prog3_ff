@@ -109,7 +109,7 @@
             Gets or sets the player's statistics in the current season.
             </summary>
         </member>
-        <member name="P:NBA.Data.Model.Player.Teams">
+        <member name="P:NBA.Data.Model.Player.Team">
             <summary>
             Gets or sets one team.
             </summary>
