@@ -75,7 +75,7 @@ namespace NBA.Data.Model
         /// Gets or sets one team.
         /// </summary>
         [NotMapped]
-        public virtual Teams Teams { get; set; }
+        public virtual Teams Team { get; set; }
 
         /// <summary>
         /// Returns the player's data.

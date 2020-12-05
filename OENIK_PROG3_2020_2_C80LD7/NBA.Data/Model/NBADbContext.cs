@@ -229,7 +229,7 @@ namespace NBA.Data.Model
 
             modelBuilder.Entity<Player>(entity =>
             {
-                entity.HasOne(player => player.Teams)
+                entity.HasOne(player => player.Team)
                 .WithMany(teams => teams.Players)
                 .HasForeignKey(player => player.TeamID)
                 .OnDelete(DeleteBehavior.Cascade);
