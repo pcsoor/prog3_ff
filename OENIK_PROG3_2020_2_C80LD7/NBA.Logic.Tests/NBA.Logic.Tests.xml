@@ -30,7 +30,7 @@
             Testing that GetPlayerByTeam returns players from one team.
             </summary>
         </member>
-        <member name="M:NBA.Logic.Tests.PlayerTests.TestGetPlayerWithTheMostGamesPlayed">
+        <member name="M:NBA.Logic.Tests.PlayerTests.TestGetPlayerQtyByTeams">
             <summary>
             Testing non crud method that gets the player who played the most.
             </summary>
