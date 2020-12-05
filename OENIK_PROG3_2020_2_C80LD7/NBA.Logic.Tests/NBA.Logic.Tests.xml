@@ -35,6 +35,19 @@
             Testing non crud method that gets the player who played the most.
             </summary>
         </member>
+        <member name="M:NBA.Logic.Tests.PlayerTests.TestDeletePlayer(System.Int32)">
+            <summary>
+            Test deleting one player.
+            </summary>
+            <param name="id">player's id.</param>
+        </member>
+        <member name="M:NBA.Logic.Tests.PlayerTests.TestUpdateSalary(System.Int32,System.Int32)">
+            <summary>
+            Testing player's salary update method. CRUD test.
+            </summary>
+            <param name="id">player's id.</param>
+            <param name="newsalary">player's new salary.</param>
+        </member>
         <member name="T:NBA.Logic.Tests.TeamStats">
             <summary>
             Team entity specific tests.

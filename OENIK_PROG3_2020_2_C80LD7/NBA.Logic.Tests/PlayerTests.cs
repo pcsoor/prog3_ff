@@ -174,5 +174,38 @@ namespace NBA.Logic.Tests
 
             Assert.That(result, Is.EqualTo(expectedQty));
         }
+
+        /// <summary>
+        /// Test deleting one player.
+        /// </summary>
+        /// <param name="id">player's id.</param>
+        [TestCase(5)]
+        public void TestDeletePlayer(int id)
+        {
+            this.MockedPlayerRepo.Setup(repo => repo.GetAll()).Returns(this.players.AsQueryable());
+            this.MockedPlayerRepo.Setup(player => player.GetOne(It.Is<int>(id => id >= 0 && id < this.players.Count))).Returns(this.players[id]);
+            this.MockedPlayerRepo.Setup(r => r.Remove(It.Is<int>(i => i > 0))).Verifiable();
+
+            this.PlayerLogic.DeletePlayer(id);
+
+            this.MockedPlayerRepo.Verify(r => r.Remove(It.Is<int>(i => i > 0)), Times.Once);
+            this.MockedPlayerRepo.Verify(r => r.GetOne(It.IsAny<int>()), Times.Once);
+        }
+
+        /// <summary>
+        /// Testing player's salary update method. CRUD test.
+        /// </summary>
+        /// <param name="id">player's id.</param>
+        /// <param name="newsalary">player's new salary.</param>
+        [TestCase(3, 7830000)]
+        public void TestUpdateSalary(int id, int newsalary)
+        {
+            this.MockedPlayerRepo.Setup(repo => repo.GetOne(It.Is<int>(id => id >= 0 && id < this.players.Count))).Returns(this.players[id]);
+            this.MockedPlayerRepo.Setup(a => a.ChangeSalary(It.Is<int>(i => i > 0), newsalary));
+
+            this.PlayerLogic.ChangePlayerSalary(id, newsalary);
+
+            this.MockedPlayerRepo.Verify(b => b.ChangeSalary(It.Is<int>(i => i > 0), newsalary), Times.Once);
+        }
     }
 }
