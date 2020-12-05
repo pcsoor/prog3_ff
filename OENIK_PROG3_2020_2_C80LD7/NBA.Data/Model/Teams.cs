@@ -75,5 +75,23 @@ namespace NBA.Data.Model
             string tartalom = $"{this.TeamID,-4} {this.Name,-25} {this.Coach,-20} {this.Region,-1}";
             return tartalom;
         }
+
+        /// <inheritdoc/>
+        public override bool Equals(object obj)
+        {
+            if (obj is Teams)
+            {
+                Teams item = obj as Teams;
+                return this.TeamID == item.TeamID && this.Name == item.Name && this.Coach == item.Coach && this.Region == item.Region;
+            }
+
+            return false;
+        }
+
+        /// <inheritdoc/>
+        public override int GetHashCode()
+        {
+            return this.TeamID;
+        }
     }
 }

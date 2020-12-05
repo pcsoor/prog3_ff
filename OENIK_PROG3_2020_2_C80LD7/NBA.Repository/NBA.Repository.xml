@@ -57,6 +57,27 @@
             Describes the repository of series.
             </summary>
         </member>
+        <member name="M:NBA.Repository.ISeriesRepository.ChangeWinnerId(System.Int32,System.Int32)">
+            <summary>
+            Update winner team.
+            </summary>
+            <param name="year">year of the series.</param>
+            <param name="newid">new winner team's id.</param>
+        </member>
+        <member name="M:NBA.Repository.ISeriesRepository.ChangeLoserId(System.Int32,System.Int32)">
+            <summary>
+            Update loser team.
+            </summary>
+            <param name="year">year of the series.</param>
+            <param name="newid">new loser team's id.</param>
+        </member>
+        <member name="M:NBA.Repository.ISeriesRepository.ChangeResult(System.Int32,System.String)">
+            <summary>
+            Update the final result of the series.
+            </summary>
+            <param name="year">Year of the sereies.</param>
+            <param name="newresult">new final result.</param>
+        </member>
         <member name="T:NBA.Repository.ITeamsRepository">
             <summary>
             Implements team specific operations.
@@ -73,6 +94,20 @@
             <summary>
             Describe team stat methods.
             </summary>
+        </member>
+        <member name="M:NBA.Repository.ITeamsStatsRepository.ChangeTeamPointsPerGame(System.Int32,System.Double)">
+            <summary>
+            Updates one team point per game statistic.
+            </summary>
+            <param name="id">stat id.</param>
+            <param name="newppg">new ppg value.</param>
+        </member>
+        <member name="M:NBA.Repository.ITeamsStatsRepository.ChangeTeamAssists(System.Int32,System.Double)">
+            <summary>
+            Updates one team assist per game statistic.
+            </summary>
+            <param name="id">stat id.</param>
+            <param name="newassist">new assist value.</param>
         </member>
         <member name="T:NBA.Repository.NBARepository`1">
             <summary>
@@ -156,6 +191,27 @@
             </summary>
             <param name="ctx">database.</param>
         </member>
+        <member name="M:NBA.Repository.SeriesRepository.ChangeLoserId(System.Int32,System.Int32)">
+            <summary>
+            Update loser team.
+            </summary>
+            <param name="year">year of the series.</param>
+            <param name="newid">new loser team's id.</param>
+        </member>
+        <member name="M:NBA.Repository.SeriesRepository.ChangeResult(System.Int32,System.String)">
+            <summary>
+            Update the final result of the series.
+            </summary>
+            <param name="year">Year of the sereies.</param>
+            <param name="newresult">new final result.</param>
+        </member>
+        <member name="M:NBA.Repository.SeriesRepository.ChangeWinnerId(System.Int32,System.Int32)">
+            <summary>
+            Update winner team.
+            </summary>
+            <param name="year">year of the series.</param>
+            <param name="newid">new winner team's id.</param>
+        </member>
         <member name="M:NBA.Repository.SeriesRepository.GetOne(System.Int32)">
             <summary>
             Returns ine series's data.
@@ -198,6 +254,20 @@
             Initializes a new instance of the <see cref="T:NBA.Repository.TeamsStatsRepository"/> class.
             </summary>
             <param name="ctx">this param represents the database.</param>
+        </member>
+        <member name="M:NBA.Repository.TeamsStatsRepository.ChangeTeamAssists(System.Int32,System.Double)">
+            <summary>
+            Updates one team assist per game statistic.
+            </summary>
+            <param name="id">stat id.</param>
+            <param name="newassist">new assist value.</param>
+        </member>
+        <member name="M:NBA.Repository.TeamsStatsRepository.ChangeTeamPointsPerGame(System.Int32,System.Double)">
+            <summary>
+            Updates one team point per game statistic.
+            </summary>
+            <param name="id">stat id.</param>
+            <param name="newppg">new ppg value.</param>
         </member>
         <member name="M:NBA.Repository.TeamsStatsRepository.GetOne(System.Int32)">
             <inheritdoc/>

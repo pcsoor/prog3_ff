@@ -42,5 +42,33 @@ namespace NBA.Data.Model
         /// </summary>
         [NotMapped]
         public virtual Teams Teams { get; set; }
+
+        /// <summary>
+        /// Overrides ToString method.
+        /// </summary>
+        /// <returns>string</returns>
+        public override string ToString()
+        {
+            string tartalom = $"{this.Year,-4} {this.WinnerID,-4} {this.LoserID,-4} {this.Result,-4}";
+            return tartalom;
+        }
+
+        /// <inheritdoc/>
+        public override bool Equals(object obj)
+        {
+            if (obj is Series)
+            {
+                Series item = obj as Series;
+                return this.Year == item.Year && this.WinnerID == item.WinnerID && this.LoserID == item.LoserID && this.Result == item.Result;
+            }
+
+            return false;
+        }
+
+        /// <inheritdoc/>
+        public override int GetHashCode()
+        {
+            return this.Year;
+        }
     }
 }

@@ -120,6 +120,12 @@
             </summary>
             <returns>string.</returns>
         </member>
+        <member name="M:NBA.Data.Model.Player.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:NBA.Data.Model.Player.GetHashCode">
+            <inheritdoc/>
+        </member>
         <member name="T:NBA.Data.Model.PlayerStats">
             <summary>
             Creates and set player statistics table.
@@ -175,6 +181,12 @@
             Gets the player entity.
             </summary>
         </member>
+        <member name="M:NBA.Data.Model.PlayerStats.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:NBA.Data.Model.PlayerStats.GetHashCode">
+            <inheritdoc/>
+        </member>
         <member name="T:NBA.Data.Model.Series">
             <summary>
             Creates and sets the series table.
@@ -204,6 +216,18 @@
             <summary>
             Gets or sets the team entity.
             </summary>
+        </member>
+        <member name="M:NBA.Data.Model.Series.ToString">
+            <summary>
+            Overrides ToString method.
+            </summary>
+            <returns>string</returns>
+        </member>
+        <member name="M:NBA.Data.Model.Series.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:NBA.Data.Model.Series.GetHashCode">
+            <inheritdoc/>
         </member>
         <member name="T:NBA.Data.Model.Teams">
             <summary>
@@ -252,6 +276,12 @@
             </summary>
         </member>
         <member name="M:NBA.Data.Model.Teams.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:NBA.Data.Model.Teams.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:NBA.Data.Model.Teams.GetHashCode">
             <inheritdoc/>
         </member>
         <member name="T:NBA.Data.Model.TeamStats">
@@ -310,6 +340,12 @@
             </summary>
         </member>
         <member name="M:NBA.Data.Model.TeamStats.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:NBA.Data.Model.TeamStats.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:NBA.Data.Model.TeamStats.GetHashCode">
             <inheritdoc/>
         </member>
     </members>

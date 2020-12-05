@@ -73,5 +73,23 @@ namespace NBA.Data.Model
             string context = $"{this.TeamStatID,-6} {this.GP,-6} {this.PPG,-6} {this.REB,-6} {this.STL,-6} {this.AST,-6} {this.BLK,-6} {this.FGM,-6}";
             return context;
         }
+
+        /// <inheritdoc/>
+        public override bool Equals(object obj)
+        {
+            if (obj is TeamStats)
+            {
+                TeamStats item = obj as TeamStats;
+                return this.TeamStatID == item.TeamStatID && this.TeamID == item.TeamID && this.GP == item.GP && this.PPG == item.PPG && this.FGM == item.FGM && this.AST == item.AST && this.REB == item.REB && this.BLK == item.BLK && this.STL == item.STL;
+            }
+
+            return false;
+        }
+
+        /// <inheritdoc/>
+        public override int GetHashCode()
+        {
+            return this.TeamStatID;
+        }
     }
 }

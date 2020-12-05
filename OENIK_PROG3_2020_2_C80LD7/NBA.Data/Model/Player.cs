@@ -86,5 +86,23 @@ namespace NBA.Data.Model
             string context = $"{this.PlayerID,-4} {this.Name,-20} {this.Birth.ToShortDateString(),-15} {this.Height,-8} {this.Weight,-8} {this.Post,-8} {this.Number,-12} {this.Salary:n0}";
             return context;
         }
+
+        /// <inheritdoc/>
+        public override bool Equals(object obj)
+        {
+            if (obj is Player)
+            {
+                Player secondPlayer = obj as Player;
+                return this.PlayerID == secondPlayer.PlayerID && this.Name == secondPlayer.Name && this.Birth == secondPlayer.Birth && this.Height == secondPlayer.Height && this.Weight == secondPlayer.Weight && this.TeamID == secondPlayer.TeamID && this.Post == secondPlayer.Post && this.Salary == secondPlayer.Salary && this.Number == secondPlayer.Number;
+            }
+
+            return false;
+        }
+
+        /// <inheritdoc/>
+        public override int GetHashCode()
+        {
+            return this.PlayerID;
+        }
     }
 }

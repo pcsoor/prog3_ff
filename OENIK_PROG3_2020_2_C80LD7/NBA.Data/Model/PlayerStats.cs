@@ -67,5 +67,23 @@ namespace NBA.Data.Model
         /// </summary>
         [NotMapped]
         public virtual Player Player { get; }
+
+        /// <inheritdoc/>
+        public override bool Equals(object obj)
+        {
+            if (obj is PlayerStats)
+            {
+                PlayerStats item = obj as PlayerStats;
+                return this.PlayerStatID == item.PlayerStatID && this.PlayerID == item.PlayerID && this.GP == item.GP && this.PPG == item.PPG && this.FGM == item.FGM && this.AST == item.AST && this.REB == item.REB && this.BLK == item.BLK && this.STL == item.STL;
+            }
+
+            return false;
+        }
+
+        /// <inheritdoc/>
+        public override int GetHashCode()
+        {
+            return this.PlayerStatID;
+        }
     }
 }
