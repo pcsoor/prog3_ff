@@ -5,6 +5,7 @@
 namespace NBA.Logic
 {
     using System.Collections.Generic;
+    using System.Threading.Tasks;
     using NBA.Data.Model;
 
     /// <summary>
@@ -91,5 +92,17 @@ namespace NBA.Logic
         /// <param name="id">stat id.</param>
         /// <param name="newassist">new assist value.</param>
         void ChangeTeamStatAST(int id, double newassist);
+
+        /// <summary>
+        /// Gets average steals per games by teams from previous seasons.
+        /// </summary>
+        /// <returns>List.</returns>
+        IList<Average> GetTeamAverageStealPerGame();
+
+        /// <summary>
+        /// Gets average steals per game in one team with async task.
+        /// </summary>
+        /// <returns>task.</returns>
+        Task<IList<Average>> GetTeamAverageStealPerGameAsync();
     }
 }

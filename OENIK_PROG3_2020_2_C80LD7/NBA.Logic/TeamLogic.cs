@@ -6,6 +6,7 @@ namespace NBA.Logic
 {
     using System.Collections.Generic;
     using System.Linq;
+    using System.Threading.Tasks;
     using NBA.Data.Model;
     using NBA.Repository;
 
@@ -64,9 +65,9 @@ namespace NBA.Logic
         {
             List<string> list = new List<string>();
             var q = from team in this.teamRepo.GetAll()
-                    orderby team.TeamID
                     join series in this.seriesRepo.GetAll() on team.TeamID equals series.WinnerID
                     group team by team.Name into g
+                    orderby g.Key
                     select new Average
                     {
                         Name = g.Key,
@@ -159,6 +160,36 @@ namespace NBA.Logic
         public IList<Series> GetAllSeriesResult()
         {
             return this.seriesRepo.GetAll().ToList();
+        }
+
+        /// <summary>
+        /// Get average steals by teams.
+        /// </summary>
+        /// <returns>IQueryable list.</returns>
+        public IList<Average> GetTeamAverageStealPerGame()
+        {
+            var q = from team in this.teamRepo.GetAll()
+                    join stats in this.teamStatsRepo.GetAll() on team.TeamID equals stats.TeamID
+                    let item = new { PlayerName = team.Name, STL = stats.STL }
+                    group item by item.PlayerName into g
+                    orderby g.Key
+                    select new Average
+                    {
+                        Name = g.Key,
+                        Avg = g.Average(item => item.STL),
+                    };
+            return q.ToList();
+        }
+
+        /// <summary>
+        /// Gets average steals per game in one team with async task.
+        /// </summary>
+        /// <returns>task.</returns>
+        public Task<IList<Average>> GetTeamAverageStealPerGameAsync()
+        {
+            Task<IList<Average>> task = Task.Run(() => this.GetTeamAverageStealPerGame());
+
+            return task;
         }
     }
 }

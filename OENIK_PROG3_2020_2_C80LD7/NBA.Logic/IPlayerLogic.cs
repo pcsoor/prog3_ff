@@ -6,6 +6,7 @@ namespace NBA.Logic
 {
     using System.Collections.Generic;
     using System.Linq;
+    using System.Threading.Tasks;
     using NBA.Data.Model;
 
     /// <summary>
@@ -70,5 +71,17 @@ namespace NBA.Logic
         /// <param name="team">team's id.</param>
         /// <returns>List of players.</returns>
         IList<Player> GetPlayerByTeam(int team);
+
+        /// <summary>
+        /// Gets player's average points per game from the past season.
+        /// </summary>
+        /// <returns>List of Averages.</returns>
+        Task<IList<Average>> GetPlayerAveragePointPerGameAsync();
+
+        /// <summary>
+        /// Gets player who played the most.
+        /// </summary>
+        /// <returns>List of Averages.</returns>
+        Task<IList<string>> GetPlayerWithTheMostGamesPlayedAsync();
     }
 }

@@ -20,6 +20,12 @@
             </summary>
             <param name="id">Player's id.</param>
         </member>
+        <member name="M:NBA.Logic.Tests.PlayerTests.TestGetPlayerByIdException(System.Int32)">
+            <summary>
+            Testing that get one throws an argument exception.
+            </summary>
+            <param name="id">index of get one.</param>
+        </member>
         <member name="M:NBA.Logic.Tests.PlayerTests.TestInsertNewCustomer">
             <summary>
             Testing that new player is added.
@@ -48,9 +54,30 @@
             <param name="id">player's id.</param>
             <param name="newsalary">player's new salary.</param>
         </member>
-        <member name="T:NBA.Logic.Tests.TeamStats">
+        <member name="T:NBA.Logic.Tests.TeamTests">
             <summary>
             Team entity specific tests.
+            </summary>
+        </member>
+        <member name="M:NBA.Logic.Tests.TeamTests.Setup">
+            <summary>
+            Sets up mocks.
+            </summary>
+        </member>
+        <member name="M:NBA.Logic.Tests.TeamTests.TestGetWinQtyByTeams">
+            <summary>
+            Tests GetWinQtyByTeams method. NON-CRUD Test.
+            </summary>
+        </member>
+        <member name="M:NBA.Logic.Tests.TeamTests.GetOneTeamById(System.Int32)">
+            <summary>
+            Test GetOneTeamById method. CRUD Test.
+            </summary>
+            <param name="id">team's id.</param>
+        </member>
+        <member name="M:NBA.Logic.Tests.TeamTests.TestGetTeamAverageStealPerGame">
+            <summary>
+            Tests GetTeamAverageStealPerGame method. NON-CRUD Test.
             </summary>
         </member>
     </members>
