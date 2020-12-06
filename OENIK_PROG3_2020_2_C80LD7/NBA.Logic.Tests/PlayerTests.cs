@@ -112,6 +112,16 @@ namespace NBA.Logic.Tests
         }
 
         /// <summary>
+        /// Testing that get one throws an argument exception.
+        /// </summary>
+        /// <param name="id">index of get one.</param>
+        [TestCase(200)]
+        public void TestGetPlayerByIdException(int id)
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => this.MockedPlayerRepo.Setup(r => r.GetOne(It.Is<int>(id => id >= 0 && id < this.players.Count))).Returns(this.players[id]));
+        }
+
+        /// <summary>
         /// Testing that new player is added.
         /// </summary>
         [Test]
