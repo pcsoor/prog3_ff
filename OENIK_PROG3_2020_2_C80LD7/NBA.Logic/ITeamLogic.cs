@@ -14,6 +14,24 @@ namespace NBA.Logic
     public interface ITeamLogic
     {
         /// <summary>
+        /// Inserts new team into the database.
+        /// </summary>
+        /// <param name="team">team entity that needs to be inserted.</param>
+        void AddNewTeam(Teams team);
+
+        /// <summary>
+        /// Inserts new team statistic into the database.
+        /// </summary>
+        /// <param name="teamStatistic">team statistic entity that needs to be inserted.</param>
+        void AddNewTeamStat(TeamStats teamStatistic);
+
+        /// <summary>
+        /// Inserts new series into the database.
+        /// </summary>
+        /// <param name="series">series entity that needs to be inserted.</param>
+        void AddNewSeries(Series series);
+
+        /// <summary>
         /// Returns list of teams.
         /// </summary>
         /// <returns>Collection.</returns>
@@ -39,6 +57,20 @@ namespace NBA.Logic
         Teams GetOneTeamById(int id);
 
         /// <summary>
+        /// Get one team statistic.
+        /// </summary>
+        /// <param name="id">team statistic's id.</param>
+        /// <returns>teamstat entity.</returns>
+        TeamStats GetOneTeamStatById(int id);
+
+        /// <summary>
+        /// Get one series.
+        /// </summary>
+        /// <param name="id">series's id.</param>
+        /// <returns>series entity.</returns>
+        Series GetOneSeriesId(int id);
+
+        /// <summary>
         /// Gets the quantyt of the wins by teams.
         /// </summary>
         /// <returns>IQueryable list.</returns>
@@ -50,6 +82,20 @@ namespace NBA.Logic
         /// <param name="id">team's id.</param>
         /// <returns>return true or false, depends on that it can be deleted or not.</returns>
         bool DeleteTeam(int id);
+
+        /// <summary>
+        /// Deletes a team statistic.
+        /// </summary>
+        /// <param name="id">team stat's id.</param>
+        /// <returns>return true or false, depends on that it can be deleted or not.</returns>
+        bool DeleteTeamStat(int id);
+
+        /// <summary>
+        /// Deletes a series.
+        /// </summary>
+        /// <param name="id">series's id.</param>
+        /// <returns>return true or false, depends on that it can be deleted or not.</returns>
+        bool DeleteSeries(int id);
 
         /// <summary>
         /// Updates team's name.

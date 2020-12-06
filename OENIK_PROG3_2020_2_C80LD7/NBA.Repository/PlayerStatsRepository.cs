@@ -5,6 +5,7 @@
 namespace NBA.Repository
 {
     using System;
+    using System.Linq;
     using Microsoft.EntityFrameworkCore;
     using NBA.Data.Model;
 
@@ -42,13 +43,21 @@ namespace NBA.Repository
         }
 
         /// <summary>
-        /// Gets one player.
+        /// Gets one player's statistics.
         /// </summary>
         /// <param name="id">id of player's stat.</param>
         /// <returns>PlayerStat.</returns>
         public override PlayerStats GetOne(int id)
         {
-            throw new NotImplementedException();
+            PlayerStats find = this.GetAll().SingleOrDefault(x => x.PlayerStatID == id);
+            if (find != null)
+            {
+                return find;
+            }
+            else
+            {
+                throw new ArgumentException("This player statistic not exist with this id.");
+            }
         }
     }
 }

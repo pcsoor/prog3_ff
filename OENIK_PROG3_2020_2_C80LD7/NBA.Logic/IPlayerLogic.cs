@@ -22,16 +22,35 @@ namespace NBA.Logic
         Player GetOnePlayerById(int id);
 
         /// <summary>
+        /// Return one player stat entity.
+        /// </summary>
+        /// <param name="id">playerstat's id.</param>
+        /// <returns>player stat entity.</returns>
+        PlayerStats GetOnePlayerStatById(int id);
+
+        /// <summary>
         /// Gives all of the players.
         /// </summary>
         /// <returns>list.</returns>
         IList<Player> GetAllPlayers();
 
         /// <summary>
+        /// Returns all player statistics.
+        /// </summary>
+        /// <returns>returns list of player statistics.</returns>
+        IList<PlayerStats> GetAllPlayerStat();
+
+        /// <summary>
         /// Inserts new player into database.
         /// </summary>
         /// <param name="player">player entity.</param>
         void AddNewPlayer(Player player);
+
+        /// <summary>
+        /// Inserts new player statistic into the database.
+        /// </summary>
+        /// <param name="playerStatistic">player statistic entity.</param>
+        void AddNewPlayerStat(PlayerStats playerStatistic);
 
         /// <summary>
         /// Returns how many player plays in each team.
@@ -57,6 +76,13 @@ namespace NBA.Logic
         /// <param name="id">player's id.</param>
         /// <returns>return true or false, depends on that it can be deleted or not.</returns>
         bool DeletePlayer(int id);
+
+        /// <summary>
+        /// Delete player's statistic with the given id.
+        /// </summary>
+        /// <param name="id">playerstat's id.</param>
+        /// <returns>return true or false, depends on that it can be deleted or not.</returns>
+        bool DeletePlayerStatistic(int id);
 
         /// <summary>
         /// Changes player's salary.

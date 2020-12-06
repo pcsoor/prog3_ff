@@ -173,5 +173,49 @@ namespace NBA.Logic
         {
             return this.playerRepo.GetAll().Where(x => x.TeamID == team).ToList();
         }
+
+        /// <summary>
+        /// Delete player statistic if the id exists.
+        /// </summary>
+        /// <param name="id">player stat id.</param>
+        /// <returns>true or false, depends on that the id could be found in the database.</returns>
+        public bool DeletePlayerStatistic(int id)
+        {
+            if (this.playerStatsRepo.GetAll().ToList().Contains(this.GetOnePlayerStatById(id)))
+            {
+                this.playerStatsRepo.Remove(id);
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// eturns one player stat if the id exists.
+        /// </summary>
+        /// <param name="id">player stat id.</param>
+        /// <returns>Player stat.</returns>
+        public PlayerStats GetOnePlayerStatById(int id)
+        {
+            return this.playerStatsRepo.GetOne(id);
+        }
+
+        /// <summary>
+        /// Returns a list of player statistics.
+        /// </summary>
+        /// <returns>Returns a list.</returns>
+        public IList<PlayerStats> GetAllPlayerStat()
+        {
+            return this.playerStatsRepo.GetAll().ToList();
+        }
+
+        /// <summary>
+        /// Adds new player statistic into the database.
+        /// </summary>
+        /// <param name="playerStatistic">player statistic entity that needs to be inserted.</param>
+        public void AddNewPlayerStat(PlayerStats playerStatistic)
+        {
+            this.playerStatsRepo.Insert(playerStatistic);
+        }
     }
 }

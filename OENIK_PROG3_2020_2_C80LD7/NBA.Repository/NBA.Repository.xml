@@ -189,7 +189,7 @@
         </member>
         <member name="M:NBA.Repository.PlayerStatsRepository.GetOne(System.Int32)">
             <summary>
-            Gets one player.
+            Gets one player's statistics.
             </summary>
             <param name="id">id of player's stat.</param>
             <returns>PlayerStat.</returns>

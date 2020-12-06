@@ -40,17 +40,36 @@
             <param name="id">player's id.</param>
             <returns>player entity.</returns>
         </member>
+        <member name="M:NBA.Logic.IPlayerLogic.GetOnePlayerStatById(System.Int32)">
+            <summary>
+            Return one player stat entity.
+            </summary>
+            <param name="id">playerstat's id.</param>
+            <returns>player stat entity.</returns>
+        </member>
         <member name="M:NBA.Logic.IPlayerLogic.GetAllPlayers">
             <summary>
             Gives all of the players.
             </summary>
             <returns>list.</returns>
         </member>
+        <member name="M:NBA.Logic.IPlayerLogic.GetAllPlayerStat">
+            <summary>
+            Returns all player statistics.
+            </summary>
+            <returns>returns list of player statistics.</returns>
+        </member>
         <member name="M:NBA.Logic.IPlayerLogic.AddNewPlayer(NBA.Data.Model.Player)">
             <summary>
             Inserts new player into database.
             </summary>
             <param name="player">player entity.</param>
+        </member>
+        <member name="M:NBA.Logic.IPlayerLogic.AddNewPlayerStat(NBA.Data.Model.PlayerStats)">
+            <summary>
+            Inserts new player statistic into the database.
+            </summary>
+            <param name="playerStatistic">player statistic entity.</param>
         </member>
         <member name="M:NBA.Logic.IPlayerLogic.GetPlayerQtyByTeams">
             <summary>
@@ -75,6 +94,13 @@
             Delete player with the given id.
             </summary>
             <param name="id">player's id.</param>
+            <returns>return true or false, depends on that it can be deleted or not.</returns>
+        </member>
+        <member name="M:NBA.Logic.IPlayerLogic.DeletePlayerStatistic(System.Int32)">
+            <summary>
+            Delete player's statistic with the given id.
+            </summary>
+            <param name="id">playerstat's id.</param>
             <returns>return true or false, depends on that it can be deleted or not.</returns>
         </member>
         <member name="M:NBA.Logic.IPlayerLogic.ChangePlayerSalary(System.Int32,System.Int32)">
@@ -108,6 +134,24 @@
             Implements Team specific methods.
             </summary>
         </member>
+        <member name="M:NBA.Logic.ITeamLogic.AddNewTeam(NBA.Data.Model.Teams)">
+            <summary>
+            Inserts new team into the database.
+            </summary>
+            <param name="team">team entity that needs to be inserted.</param>
+        </member>
+        <member name="M:NBA.Logic.ITeamLogic.AddNewTeamStat(NBA.Data.Model.TeamStats)">
+            <summary>
+            Inserts new team statistic into the database.
+            </summary>
+            <param name="teamStatistic">team statistic entity that needs to be inserted.</param>
+        </member>
+        <member name="M:NBA.Logic.ITeamLogic.AddNewSeries(NBA.Data.Model.Series)">
+            <summary>
+            Inserts new series into the database.
+            </summary>
+            <param name="series">series entity that needs to be inserted.</param>
+        </member>
         <member name="M:NBA.Logic.ITeamLogic.GetAllTeams">
             <summary>
             Returns list of teams.
@@ -133,6 +177,20 @@
             <param name="id">team's id.</param>
             <returns>team entity.</returns>
         </member>
+        <member name="M:NBA.Logic.ITeamLogic.GetOneTeamStatById(System.Int32)">
+            <summary>
+            Get one team statistic.
+            </summary>
+            <param name="id">team statistic's id.</param>
+            <returns>teamstat entity.</returns>
+        </member>
+        <member name="M:NBA.Logic.ITeamLogic.GetOneSeriesId(System.Int32)">
+            <summary>
+            Get one series.
+            </summary>
+            <param name="id">series's id.</param>
+            <returns>series entity.</returns>
+        </member>
         <member name="M:NBA.Logic.ITeamLogic.GetWinQtyByTeams">
             <summary>
             Gets the quantyt of the wins by teams.
@@ -144,6 +202,20 @@
             Deletes a team.
             </summary>
             <param name="id">team's id.</param>
+            <returns>return true or false, depends on that it can be deleted or not.</returns>
+        </member>
+        <member name="M:NBA.Logic.ITeamLogic.DeleteTeamStat(System.Int32)">
+            <summary>
+            Deletes a team statistic.
+            </summary>
+            <param name="id">team stat's id.</param>
+            <returns>return true or false, depends on that it can be deleted or not.</returns>
+        </member>
+        <member name="M:NBA.Logic.ITeamLogic.DeleteSeries(System.Int32)">
+            <summary>
+            Deletes a series.
+            </summary>
+            <param name="id">series's id.</param>
             <returns>return true or false, depends on that it can be deleted or not.</returns>
         </member>
         <member name="M:NBA.Logic.ITeamLogic.ChangeTeamName(System.Int32,System.String)">
@@ -277,6 +349,32 @@
             <param name="team">team's id.</param>
             <returns>List of players.</returns>
         </member>
+        <member name="M:NBA.Logic.PlayerLogic.DeletePlayerStatistic(System.Int32)">
+            <summary>
+            Delete player statistic if the id exists.
+            </summary>
+            <param name="id">player stat id.</param>
+            <returns>true or false, depends on that the id could be found in the database.</returns>
+        </member>
+        <member name="M:NBA.Logic.PlayerLogic.GetOnePlayerStatById(System.Int32)">
+            <summary>
+            eturns one player stat if the id exists.
+            </summary>
+            <param name="id">player stat id.</param>
+            <returns>Player stat.</returns>
+        </member>
+        <member name="M:NBA.Logic.PlayerLogic.GetAllPlayerStat">
+            <summary>
+            Returns a list of player statistics.
+            </summary>
+            <returns>Returns a list.</returns>
+        </member>
+        <member name="M:NBA.Logic.PlayerLogic.AddNewPlayerStat(NBA.Data.Model.PlayerStats)">
+            <summary>
+            Adds new player statistic into the database.
+            </summary>
+            <param name="playerStatistic">player statistic entity that needs to be inserted.</param>
+        </member>
         <member name="T:NBA.Logic.TeamLogic">
             <summary>
             This class implements team specific methods.
@@ -378,6 +476,52 @@
             Gets average steals per game in one team with async task.
             </summary>
             <returns>task.</returns>
+        </member>
+        <member name="M:NBA.Logic.TeamLogic.GetOneTeamStatById(System.Int32)">
+            <summary>
+            Returns one team statisic by id.
+            </summary>
+            <param name="id">team statistic's id.</param>
+            <returns>one team statistic entity.</returns>
+        </member>
+        <member name="M:NBA.Logic.TeamLogic.GetOneSeriesId(System.Int32)">
+            <summary>
+            Get one series by id.
+            </summary>
+            <param name="id">series's id.</param>
+            <returns>one series entity.</returns>
+        </member>
+        <member name="M:NBA.Logic.TeamLogic.DeleteTeamStat(System.Int32)">
+            <summary>
+            Deletes one team statistic if the if exists.
+            </summary>
+            <param name="id">team statistic's entity that needs to be deleted.</param>
+            <returns>true or false, depends on that the id could be fuond in the database.</returns>
+        </member>
+        <member name="M:NBA.Logic.TeamLogic.DeleteSeries(System.Int32)">
+            <summary>
+            Deletes one series if the if exists.
+            </summary>
+            <param name="id">series's entity that needs to be deleted.</param>
+            <returns>true or false, depends on that the id could be fuond in the database.</returns>
+        </member>
+        <member name="M:NBA.Logic.TeamLogic.AddNewTeam(NBA.Data.Model.Teams)">
+            <summary>
+            Inserts new team into the database.
+            </summary>
+            <param name="team">team entity that needs to be inserted.</param>
+        </member>
+        <member name="M:NBA.Logic.TeamLogic.AddNewTeamStat(NBA.Data.Model.TeamStats)">
+            <summary>
+            Inserts new team statistic into the database.
+            </summary>
+            <param name="teamStatistic">team statistic entity that needs to be inserted.</param>
+        </member>
+        <member name="M:NBA.Logic.TeamLogic.AddNewSeries(NBA.Data.Model.Series)">
+            <summary>
+            Inserts new series into the database.
+            </summary>
+            <param name="series">series entity that needs to be inserted.</param>
         </member>
     </members>
 </doc>

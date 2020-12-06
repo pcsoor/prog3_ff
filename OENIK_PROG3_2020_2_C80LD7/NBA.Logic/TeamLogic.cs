@@ -191,5 +191,84 @@ namespace NBA.Logic
 
             return task;
         }
+
+        /// <summary>
+        /// Returns one team statisic by id.
+        /// </summary>
+        /// <param name="id">team statistic's id.</param>
+        /// <returns>one team statistic entity.</returns>
+        public TeamStats GetOneTeamStatById(int id)
+        {
+            return this.teamStatsRepo.GetOne(id);
+        }
+
+        /// <summary>
+        /// Get one series by id.
+        /// </summary>
+        /// <param name="id">series's id.</param>
+        /// <returns>one series entity.</returns>
+        public Series GetOneSeriesId(int id)
+        {
+            return this.seriesRepo.GetOne(id);
+        }
+
+        /// <summary>
+        /// Deletes one team statistic if the if exists.
+        /// </summary>
+        /// <param name="id">team statistic's entity that needs to be deleted.</param>
+        /// <returns>true or false, depends on that the id could be fuond in the database.</returns>
+        public bool DeleteTeamStat(int id)
+        {
+            if (this.teamStatsRepo.GetAll().ToList().Contains(this.GetOneTeamStatById(id)))
+            {
+                this.teamStatsRepo.Remove(id);
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Deletes one series if the if exists.
+        /// </summary>
+        /// <param name="id">series's entity that needs to be deleted.</param>
+        /// <returns>true or false, depends on that the id could be fuond in the database.</returns>
+        public bool DeleteSeries(int id)
+        {
+            if (this.seriesRepo.GetAll().ToList().Contains(this.GetOneSeriesId(id)))
+            {
+                this.seriesRepo.Remove(id);
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Inserts new team into the database.
+        /// </summary>
+        /// <param name="team">team entity that needs to be inserted.</param>
+        public void AddNewTeam(Teams team)
+        {
+            this.teamRepo.Insert(team);
+        }
+
+        /// <summary>
+        /// Inserts new team statistic into the database.
+        /// </summary>
+        /// <param name="teamStatistic">team statistic entity that needs to be inserted.</param>
+        public void AddNewTeamStat(TeamStats teamStatistic)
+        {
+            this.teamStatsRepo.Insert(teamStatistic);
+        }
+
+        /// <summary>
+        /// Inserts new series into the database.
+        /// </summary>
+        /// <param name="series">series entity that needs to be inserted.</param>
+        public void AddNewSeries(Series series)
+        {
+            this.seriesRepo.Insert(series);
+        }
     }
 }
