@@ -417,6 +417,59 @@ namespace NBA.Program
         }
 
         /// <summary>
+        /// Returns how many steals a team made in one series.
+        /// </summary>
+        /// <param name="teamLogic">TeamLogic reference.</param>
+        public static void GetTeamAverageStealPerGame(TeamLogic teamLogic)
+        {
+            foreach (var item in teamLogic.GetTeamAverageStealPerGame())
+            {
+                MyCw($"{item.Name} - {item.Avg}");
+            }
+
+            Console.ReadLine();
+        }
+
+        /// <summary>
+        /// Gets average steals per game in one team with async task.
+        /// </summary>
+        /// <param name="teamLogic">Returns list.</param>
+        public static void GetTeamAverageStealPerGameAsync(TeamLogic teamLogic)
+        {
+            var res = teamLogic.GetTeamAverageStealPerGameAsync().Result;
+            var task = teamLogic.GetTeamAverageStealPerGameAsync();
+            task.Wait();
+            var res2 = task.Result;
+            Console.ReadLine();
+        }
+
+        /// <summary>
+        /// Gets average point per games in prev season by players with async task.
+        /// </summary>
+        /// <param name="playerLogic">Returns list.</param>
+        public static void GetPlayerAveragePointPerGameAsync(PlayerLogic playerLogic)
+        {
+            var res = playerLogic.GetPlayerAveragePointPerGameAsync().Result;
+            var task = playerLogic.GetPlayerAveragePointPerGameAsync();
+            task.Wait();
+            var res2 = task.Result;
+            Console.ReadLine();
+        }
+
+        /// <summary>
+        /// Gets player who played the most games in previous season with async task.
+        /// </summary>
+        /// <param name="playerLogic">Returns list.</param>
+        public static void GetPlayerWithTheMostGamesPlayedAsync(PlayerLogic playerLogic)
+        {
+            var res = playerLogic.GetPlayerWithTheMostGamesPlayedAsync().Result;
+            var task = playerLogic.GetPlayerWithTheMostGamesPlayedAsync();
+            task.Wait();
+            var res2 = task.Result;
+            Console.ReadLine();
+        }
+
+        /// <summary>
         /// Calls the writeline method.
         /// </summary>
         /// <param name="text">text to write to console.</param>
