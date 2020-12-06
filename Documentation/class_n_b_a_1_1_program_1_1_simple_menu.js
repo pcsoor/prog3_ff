@@ -1,0 +1,27 @@
+var class_n_b_a_1_1_program_1_1_simple_menu =
+[
+    [ "AddPlayer", "class_n_b_a_1_1_program_1_1_simple_menu.html#a6ea6825e5fe85ea950cbaf129082c252", null ],
+    [ "ChangeFinalResult", "class_n_b_a_1_1_program_1_1_simple_menu.html#a0179850d87034479a205ba870e806010", null ],
+    [ "ChangeLoserId", "class_n_b_a_1_1_program_1_1_simple_menu.html#a3140772f550d7bc06d9b8dddce6bfde6", null ],
+    [ "ChangeTeamName", "class_n_b_a_1_1_program_1_1_simple_menu.html#ae6eca8f46a73eb38d6ae89a9ab4a9cea", null ],
+    [ "ChangeWinnerId", "class_n_b_a_1_1_program_1_1_simple_menu.html#a73054890fa02a7ef3a432eb7db902041", null ],
+    [ "DeletePlayer", "class_n_b_a_1_1_program_1_1_simple_menu.html#aaabfefc007ce9e50f09cbe3c4e13d1e7", null ],
+    [ "DeleteTeam", "class_n_b_a_1_1_program_1_1_simple_menu.html#aac6570d5abb77e7903497ce5d34417bc", null ],
+    [ "GetOnePlayer", "class_n_b_a_1_1_program_1_1_simple_menu.html#a98744c10f4b7585e10ac4264503025c1", null ],
+    [ "GetPlayerAveragePointPerGame", "class_n_b_a_1_1_program_1_1_simple_menu.html#ac013a78a0063bc4610a58a70cae9219a", null ],
+    [ "GetPlayerAveragePointPerGameAsync", "class_n_b_a_1_1_program_1_1_simple_menu.html#aaf46e6e391ce2d6d6fca3b1ae83951ab", null ],
+    [ "GetPlayerByTeam", "class_n_b_a_1_1_program_1_1_simple_menu.html#a2f90722f2ee6733666bc6bbc4d61482d", null ],
+    [ "GetPlayerQtyByTeams", "class_n_b_a_1_1_program_1_1_simple_menu.html#ace80d4e305f5ea45006b5179e850a5b3", null ],
+    [ "GetPlayerWithTheMostGamesPlayed", "class_n_b_a_1_1_program_1_1_simple_menu.html#ade3ebc9fc31bbc0254e5d9ce1a7b6bfd", null ],
+    [ "GetPlayerWithTheMostGamesPlayedAsync", "class_n_b_a_1_1_program_1_1_simple_menu.html#ad299c849a96872152155b072219256df", null ],
+    [ "GetTeamAverageStealPerGame", "class_n_b_a_1_1_program_1_1_simple_menu.html#aa001fb038f38954f911db4aef3a87883", null ],
+    [ "GetTeamAverageStealPerGameAsync", "class_n_b_a_1_1_program_1_1_simple_menu.html#af37916d4868c9ef95ac2d8e3aba4865b", null ],
+    [ "GetWinQtyByTeams", "class_n_b_a_1_1_program_1_1_simple_menu.html#a185b3d5a1fe5c99583302316799684ae", null ],
+    [ "ListAllPlayer", "class_n_b_a_1_1_program_1_1_simple_menu.html#a808e13b17ee31ac46df2516dd8e6bb64", null ],
+    [ "ListAllSeriesResult", "class_n_b_a_1_1_program_1_1_simple_menu.html#abe5e0c76d537020a4da3ecaee8ebf764", null ],
+    [ "ListAllTeams", "class_n_b_a_1_1_program_1_1_simple_menu.html#aafa9ab8c3358d0e86afad6b23adf18b8", null ],
+    [ "ListAllTeamStat", "class_n_b_a_1_1_program_1_1_simple_menu.html#ae6c6f0792bfc9b7c76898851a24bf1e5", null ],
+    [ "MyCr", "class_n_b_a_1_1_program_1_1_simple_menu.html#a16d43b97b1b1f68828e643d78a16b6fb", null ],
+    [ "MyCw", "class_n_b_a_1_1_program_1_1_simple_menu.html#ac7da0e349e864c113830133529d6358e", null ],
+    [ "UpdatePlayerSalary", "class_n_b_a_1_1_program_1_1_simple_menu.html#a364969f58fb38dc7b9919d7afe4a29df", null ]
+];
