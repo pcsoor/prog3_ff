@@ -266,8 +266,7 @@
         </member>
         <member name="P:NBA.Data.Model.Teams.Series">
             <summary>
-            Gets or sets the collection of series.
-            Navigation property.
+            Gets or sets series entity.
             </summary>
         </member>
         <member name="P:NBA.Data.Model.Teams.Players">

@@ -157,6 +157,30 @@
             </summary>
             <param name="playerLogic">PlayerLogic reference.</param>
         </member>
+        <member name="M:NBA.Program.SimpleMenu.GetTeamAverageStealPerGame(NBA.Logic.TeamLogic)">
+            <summary>
+            Returns how many steals a team made in one series.
+            </summary>
+            <param name="teamLogic">TeamLogic reference.</param>
+        </member>
+        <member name="M:NBA.Program.SimpleMenu.GetTeamAverageStealPerGameAsync(NBA.Logic.TeamLogic)">
+            <summary>
+            Gets average steals per game in one team with async task.
+            </summary>
+            <param name="teamLogic">Returns list.</param>
+        </member>
+        <member name="M:NBA.Program.SimpleMenu.GetPlayerAveragePointPerGameAsync(NBA.Logic.PlayerLogic)">
+            <summary>
+            Gets average point per games in prev season by players with async task.
+            </summary>
+            <param name="playerLogic">Returns list.</param>
+        </member>
+        <member name="M:NBA.Program.SimpleMenu.GetPlayerWithTheMostGamesPlayedAsync(NBA.Logic.PlayerLogic)">
+            <summary>
+            Gets player who played the most games in previous season with async task.
+            </summary>
+            <param name="playerLogic">Returns list.</param>
+        </member>
         <member name="M:NBA.Program.SimpleMenu.MyCw(System.String)">
             <summary>
             Calls the writeline method.

@@ -57,11 +57,10 @@ namespace NBA.Data.Model
         public virtual TeamStats TeamStats { get; set; }
 
         /// <summary>
-        /// Gets or sets the collection of series.
-        /// Navigation property.
+        /// Gets or sets series entity.
         /// </summary>
         [NotMapped]
-        public virtual IReadOnlyCollection<Series> Series { get; set; }
+        public virtual ICollection<Series> Series { get; set; }
 
         /// <summary>
         /// Gets the player entity.

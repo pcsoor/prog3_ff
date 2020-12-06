@@ -176,6 +176,12 @@
             <param name="id">stat id.</param>
             <param name="newassist">new assist value.</param>
         </member>
+        <member name="M:NBA.Logic.ITeamLogic.GetTeamAverageStealPerGame">
+            <summary>
+            Gets average steals per games by teams from previous seasons.
+            </summary>
+            <returns>List.</returns>
+        </member>
         <member name="T:NBA.Logic.PlayerLogic">
             <summary>
             Implements player specific methods.
@@ -214,6 +220,12 @@
             </summary>
             <returns>string.</returns>
         </member>
+        <member name="M:NBA.Logic.PlayerLogic.GetPlayerWithTheMostGamesPlayedAsync">
+            <summary>
+            Gets player who played the most.
+            </summary>
+            <returns>List of Averages.</returns>
+        </member>
         <member name="M:NBA.Logic.PlayerLogic.DeletePlayer(System.Int32)">
             <summary>
             Delete player entity.
@@ -226,6 +238,12 @@
             Get one players average point per game by series.
             </summary>
             <returns>IQueryable.</returns>
+        </member>
+        <member name="M:NBA.Logic.PlayerLogic.GetPlayerAveragePointPerGameAsync">
+            <summary>
+            Gets player's average points per game from the past season.
+            </summary>
+            <returns>List of Averages.</returns>
         </member>
         <member name="M:NBA.Logic.PlayerLogic.ChangePlayerSalary(System.Int32,System.Int32)">
             <summary>
@@ -330,6 +348,18 @@
             Returns all series result.
             </summary>
             <returns>collection.</returns>
+        </member>
+        <member name="M:NBA.Logic.TeamLogic.GetTeamAverageStealPerGame">
+            <summary>
+            Get average steals by teams.
+            </summary>
+            <returns>IQueryable list.</returns>
+        </member>
+        <member name="M:NBA.Logic.TeamLogic.GetTeamAverageStealPerGameAsync">
+            <summary>
+            Gets average steals per game in one team with async task.
+            </summary>
+            <returns>task.</returns>
         </member>
     </members>
 </doc>
