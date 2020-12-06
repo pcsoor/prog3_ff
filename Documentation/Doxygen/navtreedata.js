@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "CsoorPeterFrank_C80LD7", "index.html", [
+  [ "NBA Semester Project", "index.html", [
     [ "Packages", "namespaces.html", [
       [ "Packages", "namespaces.html", "namespaces_dup" ]
     ] ],
@@ -48,7 +48,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_average_8cs_source.html",
-"dir_c68a9bd2d60541fe1f09bab1d120ebe6.html"
+"dir_4d86f5142dfe4453ffadfad785e449d6.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
