@@ -91,6 +91,18 @@
             <param name="team">team's id.</param>
             <returns>List of players.</returns>
         </member>
+        <member name="M:NBA.Logic.IPlayerLogic.GetPlayerAveragePointPerGameAsync">
+            <summary>
+            Gets player's average points per game from the past season.
+            </summary>
+            <returns>List of Averages.</returns>
+        </member>
+        <member name="M:NBA.Logic.IPlayerLogic.GetPlayerWithTheMostGamesPlayedAsync">
+            <summary>
+            Gets player who played the most.
+            </summary>
+            <returns>List of Averages.</returns>
+        </member>
         <member name="T:NBA.Logic.ITeamLogic">
             <summary>
             Implements Team specific methods.
@@ -181,6 +193,12 @@
             Gets average steals per games by teams from previous seasons.
             </summary>
             <returns>List.</returns>
+        </member>
+        <member name="M:NBA.Logic.ITeamLogic.GetTeamAverageStealPerGameAsync">
+            <summary>
+            Gets average steals per game in one team with async task.
+            </summary>
+            <returns>task.</returns>
         </member>
         <member name="T:NBA.Logic.PlayerLogic">
             <summary>

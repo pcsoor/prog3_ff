@@ -21,6 +21,13 @@
             Describes the player stats repository.
             </summary>
         </member>
+        <member name="M:NBA.Repository.IPlayerStatsRepository.ChangePlayerPointsPerGame(System.Int32,System.Double)">
+            <summary>
+            Updates players average point per game.
+            </summary>
+            <param name="id">stat id.</param>
+            <param name="newppg">new ppg value.</param>
+        </member>
         <member name="T:NBA.Repository.IRepository`1">
             <summary>
             IRepository osztály.
@@ -172,6 +179,13 @@
             Initializes a new instance of the <see cref="T:NBA.Repository.PlayerStatsRepository"/> class.
             </summary>
             <param name="ctx">database.</param>
+        </member>
+        <member name="M:NBA.Repository.PlayerStatsRepository.ChangePlayerPointsPerGame(System.Int32,System.Double)">
+            <summary>
+            Updates players average point per game.
+            </summary>
+            <param name="id">stat id.</param>
+            <param name="newppg">new ppg value.</param>
         </member>
         <member name="M:NBA.Repository.PlayerStatsRepository.GetOne(System.Int32)">
             <summary>

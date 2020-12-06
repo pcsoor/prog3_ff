@@ -11,5 +11,11 @@ namespace NBA.Repository
     /// </summary>
     public interface IPlayerStatsRepository : IRepository<PlayerStats>
     {
+        /// <summary>
+        /// Updates players average point per game.
+        /// </summary>
+        /// <param name="id">stat id.</param>
+        /// <param name="newppg">new ppg value.</param>
+        void ChangePlayerPointsPerGame(int id, double newppg);
     }
 }

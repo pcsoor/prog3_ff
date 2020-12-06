@@ -7,6 +7,7 @@ namespace NBA.Program
     using System;
     using System.Globalization;
     using System.Linq;
+    using System.Threading;
     using NBA.Data.Model;
     using NBA.Logic;
 
@@ -398,6 +399,8 @@ namespace NBA.Program
             string post = Console.ReadLine();
             MyCw("\nEnter new player's salary");
             int salary = int.Parse(MyCr(), CultureInfo.CurrentCulture);
+            MyCw("\nEnter new player's team");
+            int team = int.Parse(MyCr(), CultureInfo.CurrentCulture);
 
             playerLogic?.AddNewPlayer(new Player()
             {
@@ -408,6 +411,7 @@ namespace NBA.Program
                 Number = number,
                 Post = post,
                 Salary = salary,
+                TeamID = team,
             });
 
             Console.ForegroundColor = ConsoleColor.Green;
@@ -436,10 +440,15 @@ namespace NBA.Program
         /// <param name="teamLogic">Returns list.</param>
         public static void GetTeamAverageStealPerGameAsync(TeamLogic teamLogic)
         {
-            var res = teamLogic.GetTeamAverageStealPerGameAsync().Result;
             var task = teamLogic.GetTeamAverageStealPerGameAsync();
             task.Wait();
             var res2 = task.Result;
+            foreach (var item in res2)
+            {
+                MyCw($"{item.Name} - {item.Avg}");
+                Thread.Sleep(800);
+            }
+
             Console.ReadLine();
         }
 
@@ -449,10 +458,15 @@ namespace NBA.Program
         /// <param name="playerLogic">Returns list.</param>
         public static void GetPlayerAveragePointPerGameAsync(PlayerLogic playerLogic)
         {
-            var res = playerLogic.GetPlayerAveragePointPerGameAsync().Result;
             var task = playerLogic.GetPlayerAveragePointPerGameAsync();
             task.Wait();
             var res2 = task.Result;
+            foreach (var item in res2)
+            {
+                MyCw($"{item.Name} - {item.Avg}");
+                Thread.Sleep(800);
+            }
+
             Console.ReadLine();
         }
 
@@ -462,10 +476,12 @@ namespace NBA.Program
         /// <param name="playerLogic">Returns list.</param>
         public static void GetPlayerWithTheMostGamesPlayedAsync(PlayerLogic playerLogic)
         {
-            var res = playerLogic.GetPlayerWithTheMostGamesPlayedAsync().Result;
             var task = playerLogic.GetPlayerWithTheMostGamesPlayedAsync();
             task.Wait();
             var res2 = task.Result;
+            Thread.Sleep(800);
+            Console.WriteLine(res2.FirstOrDefault());
+
             Console.ReadLine();
         }
 

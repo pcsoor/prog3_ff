@@ -23,6 +23,25 @@ namespace NBA.Repository
         }
 
         /// <summary>
+        /// Updates players average point per game.
+        /// </summary>
+        /// <param name="id">stat id.</param>
+        /// <param name="newppg">new ppg value.</param>
+        public void ChangePlayerPointsPerGame(int id, double newppg)
+        {
+            var stat = this.GetOne(id);
+            if (stat != null)
+            {
+                stat.PPG = newppg;
+                this.ctx.SaveChanges();
+            }
+            else
+            {
+                throw new ArgumentException("This player stat id doesn't exist exist in the database.");
+            }
+        }
+
+        /// <summary>
         /// Gets one player.
         /// </summary>
         /// <param name="id">id of player's stat.</param>
