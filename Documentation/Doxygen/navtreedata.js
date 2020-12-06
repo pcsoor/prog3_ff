@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "NBA Feleves Feladat C80LD7", "index.html", [
+  [ "CsoorPeterFrank_C80LD7", "index.html", [
     [ "Packages", "namespaces.html", [
       [ "Packages", "namespaces.html", "namespaces_dup" ]
     ] ],
@@ -33,7 +33,7 @@ var NAVTREE =
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", null ],
+        [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ],
         [ "Properties", "functions_prop.html", null ]
@@ -48,7 +48,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_average_8cs_source.html",
-"dir_d2adf3d0b1e9d4202ba571602190468c.html"
+"dir_c68a9bd2d60541fe1f09bab1d120ebe6.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

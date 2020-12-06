@@ -216,7 +216,8 @@ var NAVTREEINDEX0 =
 "class_n_b_a_1_1_repository_1_1_player_repository.html#ae7e5ed65d3694a03d8cc75459489c025":[1,0,0,3,7,0],
 "class_n_b_a_1_1_repository_1_1_player_stats_repository.html":[1,0,0,3,8],
 "class_n_b_a_1_1_repository_1_1_player_stats_repository.html#a83b1716559a8bde1f23ec817c4394dea":[1,0,0,3,8,0],
-"class_n_b_a_1_1_repository_1_1_player_stats_repository.html#a94aa1735654c96d694617f446c618c5b":[1,0,0,3,8,1],
+"class_n_b_a_1_1_repository_1_1_player_stats_repository.html#a94aa1735654c96d694617f446c618c5b":[1,0,0,3,8,2],
+"class_n_b_a_1_1_repository_1_1_player_stats_repository.html#ab9198c565c7c7d3de8d47c346ea364eb":[1,0,0,3,8,1],
 "class_n_b_a_1_1_repository_1_1_series_repository.html":[1,0,0,3,9],
 "class_n_b_a_1_1_repository_1_1_series_repository.html#a071a72930a48bc5535f9cc007f6b6c4b":[1,0,0,3,9,2],
 "class_n_b_a_1_1_repository_1_1_series_repository.html#a086b212f57cba6c5d7dd62d156776846":[1,0,0,3,9,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "dir_9960fdc62cff13de43ff50c376ba87e5.html":[2,0,0],
 "dir_adee0fbbeb9507040c7199df903483e9.html":[2,0,0,0,3,0,0],
 "dir_aea1bd82cf86ee26e946e2b7592e2f1c.html":[2,0,0,0,1,0],
-"dir_c187df449f3b7b97815770056e31a4f5.html":[2,0,0,0,4,0,0],
-"dir_c68a9bd2d60541fe1f09bab1d120ebe6.html":[2,0,0,0,1]
+"dir_c187df449f3b7b97815770056e31a4f5.html":[2,0,0,0,4,0,0]
 };
