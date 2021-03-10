@@ -4,6 +4,7 @@
 
 namespace NBA.WPFApp.BL
 {
+    using NBA.WPFApp.Data;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -13,7 +14,8 @@ namespace NBA.WPFApp.BL
     /// <summary>
     /// Editor service interface.
     /// </summary>
-    internal interface IEditorService
+    public interface IEditorService
     {
+        bool EditPlayer(Player p);
     }
 }
