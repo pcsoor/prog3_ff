@@ -8,7 +8,7 @@
         xmlns:vm="clr-namespace:NBA.WPFApp.VM"
         xmlns:data="clr-namespace:NBA.WPFApp.Data"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="324" Width="357">
     <Window.Resources>
         <vm:MainViewModel x:Key="VM" />
 
@@ -21,7 +21,7 @@
             </DockPanel>
         </DataTemplate>
     </Window.Resources>
-    <Grid DataContext="{StaticResource VM}" Margin="0,0,465,136">
+    <Grid DataContext="{StaticResource VM}">
         <ListBox ItemTemplate="{StaticResource listTemplate}"
             ItemsSource="{Binding Path=Team}" SelectedItem="{Binding Path=TeamSelected}"
             HorizontalContentAlignment="Stretch"
