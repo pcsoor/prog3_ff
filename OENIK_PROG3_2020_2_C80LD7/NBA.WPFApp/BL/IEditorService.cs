@@ -16,6 +16,6 @@ namespace NBA.WPFApp.BL
     /// </summary>
     public interface IEditorService
     {
-        bool EditPlayer(Player p);
+        bool EditPlayer(PlayerUI p);
     }
 }

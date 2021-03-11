@@ -31,12 +31,13 @@ namespace NBA.WPFApp.BL
             this.messengerService = messengerService;
         }
 
-        public void AddPlayer(IList<Player> list)
+        public void AddPlayer(IList<PlayerUI> list)
         {
             Player newPlayer = new Player();
-            if (editorService.EditPlayer(newPlayer) == true)
+            PlayerUI newUiPlayer = ConvertToPlayerUiEntity(newPlayer);
+            if (editorService.EditPlayer(newUiPlayer) == true)
             {
-                list.Add(newPlayer);
+                list.Add(newUiPlayer);
                 this.playerRepo.Insert(newPlayer);
                 messengerService.Send("ADD OK", "LogicResult");
             }
@@ -44,7 +45,7 @@ namespace NBA.WPFApp.BL
 
         public void DelPlayer(IList<Player> list, Player player)
         {
-            throw new NotImplementedException();
+            
         }
 
         public IList<Player> GetAllPlayers()
@@ -52,9 +53,26 @@ namespace NBA.WPFApp.BL
             throw new NotImplementedException();
         }
 
-        public void ModPlayer(Player playerToModify)
+        public void ModPlayer(PlayerUI playerToModify)
         {
-            throw new NotImplementedException();
+            if (playerToModify == null)
+            {
+                messengerService.Send("EDIT FAILED", "LogicResult");
+                return;
+            }
+
+            PlayerUI clone = new PlayerUI();
+            clone.CopyFrom(playerToModify);
+            if (editorService.EditPlayer(clone) == true)
+            {
+                playerToModify.CopyFrom(clone);
+                // db
+                messengerService.Send("MODIFY OK", "LogicResult");
+            }
+            else
+            {
+                messengerService.Send("MODIFY CANCEL", "LogicResult");
+            }
         }
 
         public static Player ConvertToPlayerEntity(PlayerUI playerui)
@@ -66,7 +84,12 @@ namespace NBA.WPFApp.BL
                 player.Height = playerui.Height;
                 player.Weight = playerui.Weight;
                 player.Salary = playerui.Salary;
+                player.Number = playerui.Number;
+                player.Post = playerui.Post;
+                player.Team = playerui.Team;
             }
+
+            return player;
         }
 
         public static PlayerUI ConvertToPlayerUiEntity(Player player)
@@ -74,8 +97,41 @@ namespace NBA.WPFApp.BL
             PlayerUI playerui = new PlayerUI();
             if (player != null)
             {
-                playerui.Name
+                playerui.Name = player.Name;
+                playerui.Height = player.Height;
+                playerui.Weight = player.Weight;
+                playerui.Salary = player.Salary;
+                playerui.Number = player.Number;
+                playerui.Post = player.Post;
+                playerui.Team = player.Team;
             }
+
+            return playerui;
         }
+
+        //public void DelPlayer(IList<PlayerUI> list, PlayerUI player)
+        //{
+        //    Player playerToDel = ConvertToPlayerEntity(player);
+        //    if (player != null && list.Remove(player))
+        //    {
+        //        if (this.playerRepo.GetAll().ToList().Contains(PlayerLogic.GetOnePlayerById(id)))
+        //        {
+        //            this.playerRepo.Remove(id);
+        //            return true;
+        //        }
+        //        messengerService.Send("DELETE OK", "LogicResult");
+        //    }
+        //    else
+        //    {
+        //        messengerService.Send("DELETE FAILED", "LogicResult");
+        //    }
+        //}
+
+        IList<PlayerUI> IPlayerLogic.GetAllPlayers()
+        {
+            throw new NotImplementedException();
+        }
+
+        
     }
 }

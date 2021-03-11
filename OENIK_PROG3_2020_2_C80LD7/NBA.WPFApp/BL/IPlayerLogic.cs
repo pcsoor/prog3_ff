@@ -9,9 +9,9 @@
 
     interface IPlayerLogic
     {
-        void AddPlayer(IList<Player> list);
-        void ModPlayer(Player playerToModify);
-        void DelPlayer(IList<Player> list, Player player);
-        IList<Player> GetAllPlayers();
+        void AddPlayer(IList<PlayerUI> list);
+        void ModPlayer(PlayerUI playerToModify);
+        // void DelPlayer(IList<PlayerUI> list, PlayerUI player);
+        IList<PlayerUI> GetAllPlayers();
     }
 }
