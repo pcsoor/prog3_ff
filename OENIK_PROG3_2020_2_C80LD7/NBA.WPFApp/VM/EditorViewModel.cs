@@ -11,7 +11,7 @@
     class EditorViewModel : ViewModelBase
     {
         PlayerUI playerui;
-        public PlayerUI Playerui
+        public PlayerUI PlayerUi
         {
             get { return playerui; }
             set { Set(ref playerui, value); }

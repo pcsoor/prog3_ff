@@ -1,4 +1,5 @@
 ﻿using NBA.WPFApp.Data;
+using NBA.WPFApp.VM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,24 +21,30 @@ namespace NBA.WPFApp.UI
     /// </summary>
     public partial class EditorWindow : Window
     {
+        EditorViewModel VM;
+
+        public PlayerUI PlayerUI { get => VM.PlayerUi; }
+
         public EditorWindow()
         {
             InitializeComponent();
+
+            VM = FindResource("VM") as EditorViewModel;
         }
 
-        public EditorWindow(PlayerUI oldPlayer)
+        public EditorWindow(PlayerUI oldPlayer) : this()
         {
-
+            VM.PlayerUi = oldPlayer;
         }
 
         private void OkClick(object sender, RoutedEventArgs e)
         {
-
+            DialogResult = true;
         }
 
         private void CancelClick(object sender, RoutedEventArgs e)
         {
-
+            DialogResult = false;
         }
     }
 }
