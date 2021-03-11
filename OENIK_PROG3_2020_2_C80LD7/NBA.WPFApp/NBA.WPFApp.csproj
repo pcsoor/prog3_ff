@@ -10,6 +10,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="stylecop.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="stylecop.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="BL\" />
     <Folder Include="VM\" />
   </ItemGroup>
@@ -26,6 +34,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NBA.Data\NBA.Data.csproj" />
+    <ProjectReference Include="..\NBA.Logic\NBA.Logic.csproj" />
     <ProjectReference Include="..\NBA.Repository\NBA.Repository.csproj" />
   </ItemGroup>
 

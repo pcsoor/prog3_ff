@@ -1,137 +1,120 @@
-﻿// <copyright file="PlayerLogic.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
+﻿// <copyright file="PlayerLogic.cs" company="C80LD7">
+// Copyright (c) C80LD7. All rights reserved.
 // </copyright>
 
 namespace NBA.WPFApp.BL
 {
     using System;
     using System.Collections.Generic;
-    using GalaSoft.MvvmLight.Messaging;
-    using NBA.WPFApp.Data;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using NBA.Repository;
     using Amazon.DirectoryService.Model;
+    using GalaSoft.MvvmLight.Messaging;
     using NBA.Data.Model;
+    using NBA.WPFApp.Data;
 
     /// <summary>
     /// Player business logic implemented in this class.
     /// </summary>
     public class PlayerLogic : IPlayerLogic
     {
-        IEditorService editorService;
-        IMessenger messengerService;
-        private readonly IPlayerRepository playerRepo;
+        private readonly IEditorService editorService;
+        private readonly IMessenger messengerService;
+        private readonly NBA.Logic.IPlayerLogic playerLogic;
+        private readonly PlayerUI playeruidata;
 
-        public PlayerLogic(IEditorService editorService, IMessenger messengerService, IPlayerRepository playerRepo)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PlayerLogic"/> class.
+        /// </summary>
+        /// <param name="editorService">editor service ref.</param>
+        /// <param name="messengerService">messengerService ref.</param>
+        /// <param name="playerLogic">playerLogic ref in Logic layer.</param>
+        public PlayerLogic(IEditorService editorService, IMessenger messengerService, NBA.Logic.IPlayerLogic playerLogic)
         {
-            this.playerRepo = playerRepo;
+            this.playerLogic = playerLogic;
             this.editorService = editorService;
             this.messengerService = messengerService;
         }
 
+        /// <summary>
+        /// Adds one player to list.
+        /// </summary>
+        /// <param name="list">list of players in ui.</param>
         public void AddPlayer(IList<PlayerUI> list)
         {
-            Player newPlayer = new Player();
-            PlayerUI newUiPlayer = ConvertToPlayerUiEntity(newPlayer);
-            if (editorService.EditPlayer(newUiPlayer) == true)
+            PlayerUI newPlayer = new PlayerUI();
+            if (this.editorService.EditPlayer(newPlayer) == true)
             {
-                list.Add(newUiPlayer);
-                this.playerRepo.Insert(newPlayer);
-                messengerService.Send("ADD OK", "LogicResult");
+                list.Add(newPlayer);
+                this.playerLogic.AddNewPlayer(this.playeruidata.ConvertToPlayerEntity(newPlayer));
+                this.messengerService.Send("ADD OK", "LogicResult");
             }
         }
 
-        public void DelPlayer(IList<Player> list, Player player)
+        /// <summary>
+        /// Deletes one player from list and db as well.
+        /// </summary>
+        /// <param name="list">list of players in ui.</param>
+        /// <param name="player">playerui entity.</param>
+        public void DelPlayer(IList<PlayerUI> list, PlayerUI player)
         {
-            
+            if (player != null && list.Remove(player))
+            {
+                this.playerLogic.DeletePlayer(player.PlayerID);
+                this.messengerService.Send("DELETE OK", "LogicResult");
+            }
+            else
+            {
+                this.messengerService.Send("DELETE FAILED", "LogicResult");
+            }
         }
 
-        public IList<Player> GetAllPlayers()
+        /// <summary>
+        /// Returns a list of players in ui.
+        /// </summary>
+        /// <returns>IList collection.</returns>
+        public IList<PlayerUI> GetAllPlayers()
         {
-            throw new NotImplementedException();
+            List<PlayerUI> playerUiEntities = new List<PlayerUI>();
+            if (this.playerLogic.GetAllPlayers() != null)
+            {
+                foreach (var entity in this.playerLogic.GetAllPlayers())
+                {
+                    playerUiEntities.Add(this.playeruidata.ConvertToPlayerUiEntity(entity));
+                }
+
+                this.messengerService.Send("QUERY OK", "LogicResult");
+                return playerUiEntities;
+            }
+            else
+            {
+                this.messengerService.Send("QUERY FAILED", "LogicResult");
+                return null;
+            }
         }
 
+        /// <summary>
+        /// Change given player's properties.
+        /// </summary>
+        /// <param name="playerToModify">player to modify.</param>
         public void ModPlayer(PlayerUI playerToModify)
         {
             if (playerToModify == null)
             {
-                messengerService.Send("EDIT FAILED", "LogicResult");
+                this.messengerService.Send("EDIT FAILED", "LogicResult");
                 return;
             }
 
             PlayerUI clone = new PlayerUI();
             clone.CopyFrom(playerToModify);
-            if (editorService.EditPlayer(clone) == true)
+            if (this.editorService.EditPlayer(clone) == true)
             {
                 playerToModify.CopyFrom(clone);
-                // db
-                messengerService.Send("MODIFY OK", "LogicResult");
+                this.playerLogic.UpdatePlayer(this.playeruidata.ConvertToPlayerEntity(clone));
+                this.messengerService.Send("MODIFY OK", "LogicResult");
             }
             else
             {
-                messengerService.Send("MODIFY CANCEL", "LogicResult");
+                this.messengerService.Send("MODIFY CANCEL", "LogicResult");
             }
         }
-
-        public static Player ConvertToPlayerEntity(PlayerUI playerui)
-        {
-            Player player = new Player();
-            if (playerui != null)
-            {
-                player.Name = playerui.Name;
-                player.Height = playerui.Height;
-                player.Weight = playerui.Weight;
-                player.Salary = playerui.Salary;
-                player.Number = playerui.Number;
-                player.Post = playerui.Post;
-                player.Team = playerui.Team;
-            }
-
-            return player;
-        }
-
-        public static PlayerUI ConvertToPlayerUiEntity(Player player)
-        {
-            PlayerUI playerui = new PlayerUI();
-            if (player != null)
-            {
-                playerui.Name = player.Name;
-                playerui.Height = player.Height;
-                playerui.Weight = player.Weight;
-                playerui.Salary = player.Salary;
-                playerui.Number = player.Number;
-                playerui.Post = player.Post;
-                playerui.Team = player.Team;
-            }
-
-            return playerui;
-        }
-
-        //public void DelPlayer(IList<PlayerUI> list, PlayerUI player)
-        //{
-        //    Player playerToDel = ConvertToPlayerEntity(player);
-        //    if (player != null && list.Remove(player))
-        //    {
-        //        if (this.playerRepo.GetAll().ToList().Contains(PlayerLogic.GetOnePlayerById(id)))
-        //        {
-        //            this.playerRepo.Remove(id);
-        //            return true;
-        //        }
-        //        messengerService.Send("DELETE OK", "LogicResult");
-        //    }
-        //    else
-        //    {
-        //        messengerService.Send("DELETE FAILED", "LogicResult");
-        //    }
-        //}
-
-        IList<PlayerUI> IPlayerLogic.GetAllPlayers()
-        {
-            throw new NotImplementedException();
-        }
-
-        
     }
 }

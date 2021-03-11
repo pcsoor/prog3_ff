@@ -10,6 +10,7 @@ namespace NBA.WPFApp.Data
 {
     public class PlayerUI : ObservableObject
     {
+        int playerid;
         string name;
         DateTime birth;
         int height;
@@ -18,6 +19,12 @@ namespace NBA.WPFApp.Data
         int salary;
         int number;
         Teams team;
+
+        public int PlayerID
+        {
+            get { return playerid; }
+            set { Set(ref playerid, value); }
+        }
 
         public string Name
         {
@@ -71,6 +78,52 @@ namespace NBA.WPFApp.Data
         {
             this.GetType().GetProperties().ToList().
                 ForEach(property => property.SetValue(this, property.GetValue(other)));
+        }
+
+        /// <summary>
+        /// Converts PlayerUI entity to Player db entity.
+        /// </summary>
+        /// <param name="playerui">Player ui entity.</param>
+        /// <returns>Player db entity.</returns>
+        public Player ConvertToPlayerEntity(PlayerUI playerui)
+        {
+            Player player = new Player();
+            if (playerui != null)
+            {
+                player.PlayerID = playerui.PlayerID;
+                player.Name = playerui.Name;
+                player.Height = playerui.Height;
+                player.Weight = playerui.Weight;
+                player.Salary = playerui.Salary;
+                player.Number = playerui.Number;
+                player.Post = playerui.Post;
+                player.Team = playerui.Team;
+            }
+
+            return player;
+        }
+
+        /// <summary>
+        /// Converts one db player entity to player ui entity.
+        /// </summary>
+        /// <param name="player">player entity.</param>
+        /// <returns>PlayerUI entity.</returns>
+        public PlayerUI ConvertToPlayerUiEntity(Player player)
+        {
+            PlayerUI playerui = new PlayerUI();
+            if (player != null)
+            {
+                playerui.PlayerID = player.PlayerID;
+                playerui.Name = player.Name;
+                playerui.Height = player.Height;
+                playerui.Weight = player.Weight;
+                playerui.Salary = player.Salary;
+                playerui.Number = player.Number;
+                playerui.Post = player.Post;
+                playerui.Team = player.Team;
+            }
+
+            return playerui;
         }
     }
 }
