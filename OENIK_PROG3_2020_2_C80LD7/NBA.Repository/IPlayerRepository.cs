@@ -17,5 +17,7 @@ namespace NBA.Repository
         /// <param name="id">player's id.</param>
         /// <param name="newsalary">player's new salary to update.</param>
         void ChangeSalary(int id, int newsalary);
+
+        void UpdatePlayer(Player player);
     }
 }

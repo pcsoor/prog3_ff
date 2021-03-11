@@ -91,6 +91,8 @@ namespace NBA.Logic
         /// <param name="newsalary">player's new salary.</param>
         void ChangePlayerSalary(int id, int newsalary);
 
+        void UpdatePlayer(Player player);
+
         /// <summary>
         /// Return player player from one team.
         /// </summary>

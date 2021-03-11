@@ -164,6 +164,11 @@ namespace NBA.Logic
             this.playerRepo.ChangeSalary(id, newsalary);
         }
 
+        public void UpdatePlayer(Player player)
+        {
+            this.playerRepo.UpdatePlayer(player);
+        }
+
         /// <summary>
         /// Return players in one team.
         /// </summary>

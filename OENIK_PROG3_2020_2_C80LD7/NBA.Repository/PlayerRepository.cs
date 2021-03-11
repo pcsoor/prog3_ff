@@ -55,5 +55,23 @@ namespace NBA.Repository
                 throw new ArgumentException("Player not exist with this id.");
             }
         }
+
+        public void UpdatePlayer(Player entity)
+        {
+            if (entity != null)
+            {
+                var player = this.GetOne(entity.PlayerID);
+                if (player != null)
+                {
+                    player.Name = entity.Name;
+                    player.Number = entity.Number;
+                    player.Weight = entity.Weight;
+                    player.Height = entity.Height;
+                    player.Salary = entity.Salary;
+                    player.Team = entity.Team;
+                    player.Post = entity.Post;
+                }
+            }
+        }
     }
 }
