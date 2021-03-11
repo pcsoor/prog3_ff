@@ -29,5 +29,15 @@ namespace NBA.WPFApp.UI
         {
 
         }
+
+        private void OkClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CancelClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

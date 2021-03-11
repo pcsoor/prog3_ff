@@ -24,6 +24,7 @@
             {
                 playerui.Name = "Unknown Bill";
                 playerui.Height = 200;
+                playerui.Salary = 69696969;
             }
         }
     }
