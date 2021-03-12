@@ -53,8 +53,6 @@
         public MainViewModel()
             : this(IsInDesignModeStatic ? null : ServiceLocator.Current.GetInstance<IPlayerLogic>())
         {
-
         }
-        // IoC
     }
 }

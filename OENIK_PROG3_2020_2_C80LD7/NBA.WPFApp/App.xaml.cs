@@ -31,6 +31,7 @@ namespace NBA.WPFApp
             MyIoc.Instance.Register<IEditorService, EditorServiceViaWindow>();
             MyIoc.Instance.Register<IMessenger>(() => Messenger.Default);
             MyIoc.Instance.Register<IPlayerLogic, PlayerLogic>();
+            MyIoc.Instance.Register<Factory, Factory>();
         }
     }
 }

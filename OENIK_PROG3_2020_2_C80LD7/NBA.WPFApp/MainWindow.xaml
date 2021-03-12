@@ -8,7 +8,8 @@
         xmlns:vm="clr-namespace:NBA.WPFApp.VM"
         xmlns:data="clr-namespace:NBA.WPFApp.Data"
         mc:Ignorable="d"
-        Title="MainWindow" Height="324" Width="357">
+        Title="MainWindow" Height="324" Width="357"
+        Loaded="Window_Loaded" Closing="Window_Closing">
     <Window.Resources>
         <vm:MainViewModel x:Key="VM" />
 
