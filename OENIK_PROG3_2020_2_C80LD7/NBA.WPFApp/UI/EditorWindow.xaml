@@ -6,7 +6,7 @@
         xmlns:ui="clr-namespace:NBA.WPFApp.UI"
         xmlns:vm="clr-namespace:NBA.WPFApp.VM"
         mc:Ignorable="d"
-        Title="EditorWindow" Height="186" Width="228">
+        Title="EditorWindow" Height="201" Width="239">
     <Window.Resources>
         <vm:EditorViewModel x:Key="VM" />
         <ui:HeightToStringConverter x:Key="HeightToStringConverter" />
@@ -15,11 +15,14 @@
         <Label Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" />
         <Label Content="Height" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,38,0,0" />
         <Label Content="Salary" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,66,0,0" />
+        <Label Content="Team" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,94,0,0" />
 
-        <TextBox Text="{Binding Path=Playerui.Name}" HorizontalAlignment="Left" Height="23" Margin="63,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox Text="{Binding Path=Playerui.Height, Converter={StaticResource HeightToStringConverter}}" HorizontalAlignment="Left" Height="23" Margin="63,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox Text="{Binding Path=Playerui.Salary}" HorizontalAlignment="Left" Height="23" Margin="63,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button Content="OK" HorizontalAlignment="Left" Margin="17,108,0,0" VerticalAlignment="Top" Width="75" Click="OkClick" />
-        <Button Content="CANCEL" HorizontalAlignment="Left" Margin="97,108,0,0" VerticalAlignment="Top" Width="75" Click="CancelClick" />
+        <TextBox Text="{Binding Path=PlayerUi.Name}" HorizontalAlignment="Left" Height="23" Margin="63,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Text="{Binding Path=PlayerUi.Height, Converter={StaticResource HeightToStringConverter}}" HorizontalAlignment="Left" Height="23" Margin="63,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Text="{Binding Path=PlayerUi.Salary}" HorizontalAlignment="Left" Height="23" Margin="63,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Text="{Binding Path=PlayerUi.Team}" HorizontalAlignment="Left" Height="23" Margin="63,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        
+        <Button Content="OK" HorizontalAlignment="Left" Margin="17,128,0,0" VerticalAlignment="Top" Width="75" Click="OkClick" />
+        <Button Content="CANCEL" HorizontalAlignment="Left" Margin="97,128,0,0" VerticalAlignment="Top" Width="75" Click="CancelClick" />
     </Grid>
 </Window>
