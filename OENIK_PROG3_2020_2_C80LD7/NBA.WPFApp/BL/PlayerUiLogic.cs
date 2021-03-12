@@ -1,38 +1,43 @@
-﻿// <copyright file="PlayerLogic.cs" company="C80LD7">
-// Copyright (c) C80LD7. All rights reserved.
-// </copyright>
+﻿using GalaSoft.MvvmLight.Ioc;
+using GalaSoft.MvvmLight.Messaging;
+using NBA.Logic;
+using NBA.WPFApp.Data;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace NBA.WPFApp.BL
 {
-    using System;
-    using System.Collections.Generic;
-    using Amazon.DirectoryService.Model;
-    using GalaSoft.MvvmLight.Messaging;
-    using NBA.Data.Model;
-    using NBA.WPFApp.Data;
-
-    /// <summary>
-    /// Player business logic implemented in this class.
-    /// </summary>
-    public class PlayerLogic : IPlayerLogic
+    public class PlayerUiLogic : IPlayerUiLogic
     {
         private readonly IEditorService editorService;
         private readonly IMessenger messengerService;
         private readonly NBA.Logic.IPlayerLogic playerLogic;
         private readonly PlayerUI playeruidata;
 
+        [PreferredConstructorAttribute]
         /// <summary>
         /// Initializes a new instance of the <see cref="PlayerLogic"/> class.
         /// </summary>
         /// <param name="editorService">editor service ref.</param>
         /// <param name="messengerService">messengerService ref.</param>
         /// <param name="playerLogic">playerLogic ref in Logic layer.</param>
-        public PlayerLogic(IEditorService editorService, IMessenger messengerService, NBA.Logic.IPlayerLogic playerLogic)
+        public PlayerUiLogic(IEditorService editorService, IMessenger messengerService, NBA.Logic.IPlayerLogic playerLogic, PlayerUI playeruidata)
         {
             this.playerLogic = playerLogic;
             this.editorService = editorService;
             this.messengerService = messengerService;
+            this.playeruidata = playeruidata;
         }
+
+        public PlayerUiLogic(IPlayerLogic playerLogic)
+        {
+            this.playerLogic = playerLogic;
+        }
+
+
 
         /// <summary>
         /// Adds one player to list.

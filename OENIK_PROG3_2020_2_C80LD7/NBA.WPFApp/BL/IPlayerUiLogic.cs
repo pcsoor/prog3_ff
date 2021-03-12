@@ -1,16 +1,13 @@
-﻿// <copyright file="IPlayerLogic.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
+﻿using NBA.WPFApp.Data;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace NBA.WPFApp.BL
 {
-    using System.Collections.Generic;
-    using NBA.WPFApp.Data;
-
-    /// <summary>
-    /// Interface of player logic.
-    /// </summary>
-    public interface IPlayerLogic
+    public interface IPlayerUiLogic
     {
         /// <summary>
         /// Adds new player to the list.
