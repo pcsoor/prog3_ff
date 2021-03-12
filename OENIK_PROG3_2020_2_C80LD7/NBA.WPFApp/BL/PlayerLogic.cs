@@ -20,7 +20,6 @@ namespace NBA.WPFApp.BL
         private readonly IMessenger messengerService;
         private readonly NBA.Logic.IPlayerLogic playerLogic;
         private readonly PlayerUI playeruidata;
-        private Factory factory;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PlayerLogic"/> class.
@@ -28,12 +27,11 @@ namespace NBA.WPFApp.BL
         /// <param name="editorService">editor service ref.</param>
         /// <param name="messengerService">messengerService ref.</param>
         /// <param name="playerLogic">playerLogic ref in Logic layer.</param>
-        public PlayerLogic(IEditorService editorService, IMessenger messengerService, NBA.Logic.IPlayerLogic playerLogic, Factory factory)
+        public PlayerLogic(IEditorService editorService, IMessenger messengerService, NBA.Logic.IPlayerLogic playerLogic)
         {
             this.playerLogic = playerLogic;
             this.editorService = editorService;
             this.messengerService = messengerService;
-            this.factory = factory;
         }
 
         /// <summary>
