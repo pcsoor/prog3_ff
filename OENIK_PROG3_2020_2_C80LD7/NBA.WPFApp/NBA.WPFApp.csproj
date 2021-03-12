@@ -18,8 +18,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="BL\" />
     <Folder Include="VM\" />
+    <Folder Include="BL\" />
+    <Folder Include="UI\" />
+    <Folder Include="Data\" />
   </ItemGroup>
 
   <ItemGroup>
