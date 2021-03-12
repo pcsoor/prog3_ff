@@ -24,7 +24,7 @@ namespace NBA.WPFApp
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            VM = FindResource("VM") as MainViewModel;
+            VM = this.FindResource("VM") as MainViewModel;
 
             Messenger.Default.Register<string>(this, "LogicResult", msg =>
             {
