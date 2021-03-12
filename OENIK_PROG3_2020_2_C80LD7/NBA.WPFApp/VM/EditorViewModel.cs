@@ -25,6 +25,7 @@
                 playerui.Name = "Unknown Bill";
                 playerui.Height = 200;
                 playerui.Salary = 69696969;
+                playerui.Team = new NBA.Data.Model.Teams() { TeamID = 3 };
             }
         }
     }

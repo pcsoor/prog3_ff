@@ -17,9 +17,9 @@ namespace NBA.WPFApp.VM
     /// <summary>
     /// Main view model class that implements view model base.
     /// </summary>
-    class MainViewModel : ViewModelBase
+    public class MainViewModel : ViewModelBase
     {
-        private IPlayerLogic logic;
+        private IPlayerUiLogic logic;
         private Factory factory;
         private PlayerUI teamSelected;
 
@@ -46,10 +46,9 @@ namespace NBA.WPFApp.VM
         /// </summary>
         public ICommand DelCmd { get; private set; }
 
-        public MainViewModel(IPlayerLogic logic, Factory factory) // Dependency Injection
+        public MainViewModel(IPlayerUiLogic logic) // Dependency Injection
         {
             this.logic = logic;
-            this.factory = factory;
 
             this.Team = new ObservableCollection<PlayerUI>();
 
@@ -59,7 +58,7 @@ namespace NBA.WPFApp.VM
                 PlayerUI p2 = new PlayerUI() { Name = "Test2 Test2", Birth = new DateTime(1988, 09, 29), Height = 208, Weight = 109, Number = 35, Post = "SF/PF", Salary = 37199000 };
                 this.Team.Add(p1);
                 this.Team.Add(p2);
-                SimpleIoc.Default.Register<IPlayerLogic>();
+                SimpleIoc.Default.Register<IPlayerUiLogic>();
             }
 
             this.AddCmd = new RelayCommand(() => this.logic.AddPlayer(this.Team));
@@ -72,7 +71,7 @@ namespace NBA.WPFApp.VM
         /// implements main view model.
         /// </summary>
         public MainViewModel()
-            : this(IsInDesignModeStatic ? null : ServiceLocator.Current.GetInstance<IPlayerLogic>(), IsInDesignModeStatic ? null : ServiceLocator.Current.GetInstance<Factory>())
+            : this(IsInDesignModeStatic ? null : ServiceLocator.Current.GetInstance<IPlayerUiLogic>())
         {
         }
     }
