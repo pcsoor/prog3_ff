@@ -4,15 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NBA.WPFApp"
-        xmlns:ui="clr-namespace:NBA.WPFApp.UI"
         xmlns:vm="clr-namespace:NBA.WPFApp.VM"
         xmlns:data="clr-namespace:NBA.WPFApp.Data"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="324" Width="357"
-        Loaded="Window_Loaded" Closing="Window_Closing">
+        Loaded="Window_Loaded" Closing="Window_Closing"
+        Title="MainWindow" Height="324" Width="357">
     <Window.Resources>
         <vm:MainViewModel x:Key="VM" />
-
         <DataTemplate x:Key="listTemplate" DataType="{x:Type data:PlayerUI}">
             <DockPanel>
                 <Label Content="{Binding Path=Name}" DockPanel.Dock="Top" HorizontalContentAlignment="Center" />
