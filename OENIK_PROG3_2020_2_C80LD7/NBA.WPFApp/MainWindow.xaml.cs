@@ -12,7 +12,7 @@ namespace NBA.WPFApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        MainViewModel VM;
+        private MainViewModel vM;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow"/> class.
@@ -24,7 +24,7 @@ namespace NBA.WPFApp
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            VM = this.FindResource("VM") as MainViewModel;
+            this.vM = this.FindResource("VM") as MainViewModel;
 
             Messenger.Default.Register<string>(this, "LogicResult", msg =>
             {

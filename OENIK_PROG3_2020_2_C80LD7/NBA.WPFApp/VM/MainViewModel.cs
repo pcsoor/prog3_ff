@@ -19,17 +19,69 @@ namespace NBA.WPFApp.VM
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
+        // private readonly TeamUI teamSelected;
         private IPlayerUiLogic logic;
-        private Factory factory;
-        private PlayerUI teamSelected;
+        private PlayerUI playerSelected;
 
-        public PlayerUI TeamSelected
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainViewModel"/> class.
+        /// </summary>
+        /// <param name="logic">Player ui logic ref.</param>
+        public MainViewModel(IPlayerUiLogic logic)
         {
-            get { return teamSelected; }
-            set { Set(ref teamSelected, value); }
+            this.logic = logic;
+
+            this.Team = new ObservableCollection<PlayerUI>();
+
+            // this.TeamCollection = new ObservableCollection<TeamUI>();
+            if (this.IsInDesignMode)
+            {
+                PlayerUI p1 = new PlayerUI() { Name = "Test Test", Birth = new DateTime(1984, 12, 20), Height = 206, Weight = 113, Number = 23, Post = "SF/PF", Salary = 37436858 };
+                PlayerUI p2 = new PlayerUI() { Name = "Test2 Test2", Birth = new DateTime(1988, 09, 29), Height = 208, Weight = 109, Number = 35, Post = "SF/PF", Salary = 37199000 };
+                this.Team.Add(p1);
+                this.Team.Add(p2);
+            }
+
+            foreach (var item in this.logic.GetAllPlayers())
+            {
+                this.Team.Add(item);
+            }
+
+            this.AddCmd = new RelayCommand(() => this.logic.AddPlayer(this.Team));
+            this.ModCmd = new RelayCommand(() => this.logic.ModPlayer(this.PlayerSelected));
+            this.DelCmd = new RelayCommand(() => this.logic.DelPlayer(this.Team, this.PlayerSelected));
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainViewModel"/> class.
+        /// implements main view model.
+        /// </summary>
+        public MainViewModel()
+            : this(IsInDesignModeStatic ? null : ServiceLocator.Current.GetInstance<IPlayerUiLogic>())
+        {
+        }
+
+        /// <summary>
+        /// Gets or sets the selected player.
+        /// </summary>
+        public PlayerUI PlayerSelected
+        {
+            get { return this.playerSelected; }
+            set { this.Set(ref this.playerSelected, value); }
+        }
+
+        // public TeamUI TeamSelected
+        // {
+        //    get { return this.teamSelected; }
+        //    set { Set(ref teamSelected, value); }
+        // }
+
+        /// <summary>
+        /// Gets team collection.
+        /// </summary>
         public ObservableCollection<PlayerUI> Team { get; private set; }
+
+        // public ObservableCollection<TeamUI> TeamCollection { get; private set; }
 
         /// <summary>
         /// Gets add command.
@@ -45,34 +97,5 @@ namespace NBA.WPFApp.VM
         /// Gets delete command.
         /// </summary>
         public ICommand DelCmd { get; private set; }
-
-        public MainViewModel(IPlayerUiLogic logic) // Dependency Injection
-        {
-            this.logic = logic;
-
-            this.Team = new ObservableCollection<PlayerUI>();
-
-            if (this.IsInDesignMode)
-            {
-                PlayerUI p1 = new PlayerUI() { Name = "Test Test", Birth = new DateTime(1984, 12, 20), Height = 206, Weight = 113, Number = 23, Post = "SF/PF", Salary = 37436858 };
-                PlayerUI p2 = new PlayerUI() { Name = "Test2 Test2", Birth = new DateTime(1988, 09, 29), Height = 208, Weight = 109, Number = 35, Post = "SF/PF", Salary = 37199000 };
-                this.Team.Add(p1);
-                this.Team.Add(p2);
-                SimpleIoc.Default.Register<IPlayerUiLogic>();
-            }
-
-            this.AddCmd = new RelayCommand(() => this.logic.AddPlayer(this.Team));
-            this.ModCmd = new RelayCommand(() => this.logic.ModPlayer(this.TeamSelected));
-            this.DelCmd = new RelayCommand(() => this.logic.DelPlayer(this.Team, this.TeamSelected));
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MainViewModel"/> class.
-        /// implements main view model.
-        /// </summary>
-        public MainViewModel()
-            : this(IsInDesignModeStatic ? null : ServiceLocator.Current.GetInstance<IPlayerUiLogic>())
-        {
-        }
     }
 }

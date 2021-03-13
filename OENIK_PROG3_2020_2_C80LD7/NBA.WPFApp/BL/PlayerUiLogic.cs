@@ -1,43 +1,56 @@
-﻿using GalaSoft.MvvmLight.Ioc;
-using GalaSoft.MvvmLight.Messaging;
-using NBA.Logic;
-using NBA.WPFApp.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// <copyright file="PlayerUiLogic.cs" company="C80LD7">
+// Copyright (c) C80LD7. All rights reserved.
+// </copyright>
 
 namespace NBA.WPFApp.BL
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using GalaSoft.MvvmLight.Ioc;
+    using GalaSoft.MvvmLight.Messaging;
+    using NBA.Logic;
+    using NBA.WPFApp.Data;
+
+    /// <summary>
+    /// Player Business logic.
+    /// </summary>
     public class PlayerUiLogic : IPlayerUiLogic
     {
         private readonly IEditorService editorService;
         private readonly IMessenger messengerService;
         private readonly NBA.Logic.IPlayerLogic playerLogic;
         private readonly PlayerUI playeruidata;
+        private readonly Factory factory;
+        private readonly TeamUI teamuidata;
 
-        [PreferredConstructorAttribute]
         /// <summary>
-        /// Initializes a new instance of the <see cref="PlayerLogic"/> class.
+        /// Initializes a new instance of the <see cref="PlayerUiLogic"/> class.
         /// </summary>
-        /// <param name="editorService">editor service ref.</param>
-        /// <param name="messengerService">messengerService ref.</param>
-        /// <param name="playerLogic">playerLogic ref in Logic layer.</param>
-        public PlayerUiLogic(IEditorService editorService, IMessenger messengerService, NBA.Logic.IPlayerLogic playerLogic, PlayerUI playeruidata)
+        /// <param name="editorService">Editor service ref.</param>
+        /// <param name="messengerService">Messenger service ref.</param>
+        /// <param name="playerLogic">old player logic ref.</param>
+        /// <param name="playeruidata">playerui data ref.</param>
+        /// <param name="factory">factory ref.</param>
+        /// <param name="teamui">teamui data ref.</param>
+        [PreferredConstructor]
+        public PlayerUiLogic(IEditorService editorService, IMessenger messengerService, NBA.Logic.IPlayerLogic playerLogic, PlayerUI playeruidata, Factory factory, TeamUI teamui)
         {
             this.playerLogic = playerLogic;
             this.editorService = editorService;
             this.messengerService = messengerService;
             this.playeruidata = playeruidata;
+            this.factory = factory;
+            this.teamuidata = teamui;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PlayerUiLogic"/> class.
+        /// </summary>
+        /// <param name="playerLogic">playerLogic interface reference.</param>
         public PlayerUiLogic(IPlayerLogic playerLogic)
         {
             this.playerLogic = playerLogic;
         }
-
-
 
         /// <summary>
         /// Adds one player to list.
@@ -48,8 +61,11 @@ namespace NBA.WPFApp.BL
             PlayerUI newPlayer = new PlayerUI();
             if (this.editorService.EditPlayer(newPlayer) == true)
             {
-                list.Add(newPlayer);
-                this.playerLogic.AddNewPlayer(this.playeruidata.ConvertToPlayerEntity(newPlayer));
+                list?.Add(newPlayer);
+                this.factory.Ctx.Player.Add(new NBA.Data.Model.Player() { Name = newPlayer.Name, Team = TeamUI.ConvertToTeamEntity(newPlayer.TeamUI), Height = newPlayer.Height, Salary = newPlayer.Salary });
+
+                // this.playerLogic.AddNewPlayer(this.playeruidata.ConvertToPlayerEntity(newPlayer));
+                this.factory.Ctx.SaveChanges();
                 this.messengerService.Send("ADD OK", "LogicResult");
             }
         }
@@ -61,9 +77,13 @@ namespace NBA.WPFApp.BL
         /// <param name="player">playerui entity.</param>
         public void DelPlayer(IList<PlayerUI> list, PlayerUI player)
         {
-            if (player != null && list.Remove(player))
+            if (player != null && list != null && list.Remove(player))
             {
-                this.playerLogic.DeletePlayer(player.PlayerID);
+                // this.playerLogic.DeletePlayer(player.PlayerID);
+                var entityToDel = this.factory.Ctx.Player.Where(x => x.Name == player.Name && x.PlayerID == player.PlayerID
+                && x.Team == TeamUI.ConvertToTeamEntity(player.TeamUI)).FirstOrDefault();
+                this.factory.Ctx.Player.Remove(entityToDel);
+                this.factory.Ctx.SaveChanges();
                 this.messengerService.Send("DELETE OK", "LogicResult");
             }
             else
@@ -83,7 +103,7 @@ namespace NBA.WPFApp.BL
             {
                 foreach (var entity in this.playerLogic.GetAllPlayers())
                 {
-                    playerUiEntities.Add(this.playeruidata.ConvertToPlayerUiEntity(entity));
+                    playerUiEntities.Add(PlayerUI.ConvertToPlayerUiEntity(entity));
                 }
 
                 this.messengerService.Send("QUERY OK", "LogicResult");
@@ -113,7 +133,8 @@ namespace NBA.WPFApp.BL
             if (this.editorService.EditPlayer(clone) == true)
             {
                 playerToModify.CopyFrom(clone);
-                this.playerLogic.UpdatePlayer(this.playeruidata.ConvertToPlayerEntity(clone));
+                this.playerLogic.UpdatePlayer(PlayerUI.ConvertToPlayerEntity(clone));
+                this.factory.Ctx.SaveChanges();
                 this.messengerService.Send("MODIFY OK", "LogicResult");
             }
             else

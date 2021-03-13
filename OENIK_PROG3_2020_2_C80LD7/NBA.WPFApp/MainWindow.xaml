@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NBA.WPFApp"
-        xmlns:vm="clr-namespace:NBA.WPFApp.VM"
         xmlns:data="clr-namespace:NBA.WPFApp.Data"
+        xmlns:vm="clr-namespace:NBA.WPFApp.VM"
+        xmlns:ui="clr-namespace:NBA.WPFApp.UI"
         Loaded="Window_Loaded" Closing="Window_Closing"
         Title="MainWindow" Height="324" Width="357">
     <Window.Resources>
@@ -15,7 +16,6 @@
                 <Label Content="{Binding Path=Name}" DockPanel.Dock="Top" HorizontalContentAlignment="Center" />
                 <Label Content="{Binding Path=Height}" DockPanel.Dock="Bottom" HorizontalContentAlignment="Center" />
                 <Label Content="{Binding Path=Salary}" DockPanel.Dock="Left"/>
-                <Label />
             </DockPanel>
         </DataTemplate>
     </Window.Resources>

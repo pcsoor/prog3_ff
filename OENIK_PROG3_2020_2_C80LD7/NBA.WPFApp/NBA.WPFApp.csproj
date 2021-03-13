@@ -9,19 +9,17 @@
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>NBA.WPFApp.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <None Remove="stylecop.json" />
   </ItemGroup>
 
   <ItemGroup>
     <AdditionalFiles Include="stylecop.json" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="VM\" />
-    <Folder Include="BL\" />
-    <Folder Include="UI\" />
-    <Folder Include="Data\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,6 +35,7 @@
   <ItemGroup>
     <ProjectReference Include="..\NBA.Data\NBA.Data.csproj" />
     <ProjectReference Include="..\NBA.Logic\NBA.Logic.csproj" />
+    <ProjectReference Include="..\NBA.Program\NBA.Program.csproj" />
     <ProjectReference Include="..\NBA.Repository\NBA.Repository.csproj" />
   </ItemGroup>
 

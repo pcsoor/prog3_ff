@@ -1,0 +1,442 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NBA.WPFApp</name>
+    </assembly>
+    <members>
+        <member name="T:NBA.WPFApp.App">
+            <summary>
+            Interaction logic for App.xaml.
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:NBA.WPFApp.App.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.WPFApp.App"/> class.
+            </summary>
+        </member>
+        <member name="M:NBA.WPFApp.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:NBA.WPFApp.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:NBA.WPFApp.BL.IEditorService">
+            <summary>
+            Editor service interface.
+            </summary>
+        </member>
+        <member name="M:NBA.WPFApp.BL.IEditorService.EditPlayer(NBA.WPFApp.Data.PlayerUI)">
+            <summary>
+            Returns edit player result.
+            </summary>
+            <param name="p">Player entity ref.</param>
+            <returns>true or false.</returns>
+        </member>
+        <member name="T:NBA.WPFApp.BL.IPlayerUiLogic">
+            <summary>
+            Interface of Player business logic.
+            </summary>
+        </member>
+        <member name="M:NBA.WPFApp.BL.IPlayerUiLogic.AddPlayer(System.Collections.Generic.IList{NBA.WPFApp.Data.PlayerUI})">
+            <summary>
+            Adds new player to the list.
+            </summary>
+            <param name="list">list of players in ui.</param>
+        </member>
+        <member name="M:NBA.WPFApp.BL.IPlayerUiLogic.ModPlayer(NBA.WPFApp.Data.PlayerUI)">
+            <summary>
+            Modify one player's props.
+            </summary>
+            <param name="playerToModify">player in ui to modify.</param>
+        </member>
+        <member name="M:NBA.WPFApp.BL.IPlayerUiLogic.DelPlayer(System.Collections.Generic.IList{NBA.WPFApp.Data.PlayerUI},NBA.WPFApp.Data.PlayerUI)">
+            <summary>
+            Deletes one player from the list and from the db as well.
+            </summary>
+            <param name="list">list of players in ui.</param>
+            <param name="player">player in ui to delete.</param>
+        </member>
+        <member name="M:NBA.WPFApp.BL.IPlayerUiLogic.GetAllPlayers">
+            <summary>
+            Retruns a list of players in ui.
+            </summary>
+            <returns>IList collection.</returns>
+        </member>
+        <member name="T:NBA.WPFApp.BL.PlayerUiLogic">
+            <summary>
+            Player Business logic.
+            </summary>
+        </member>
+        <member name="M:NBA.WPFApp.BL.PlayerUiLogic.#ctor(NBA.WPFApp.BL.IEditorService,GalaSoft.MvvmLight.Messaging.IMessenger,NBA.Logic.IPlayerLogic,NBA.WPFApp.Data.PlayerUI,NBA.WPFApp.Factory,NBA.WPFApp.Data.TeamUI)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.WPFApp.BL.PlayerUiLogic"/> class.
+            </summary>
+            <param name="editorService">Editor service ref.</param>
+            <param name="messengerService">Messenger service ref.</param>
+            <param name="playerLogic">old player logic ref.</param>
+            <param name="playeruidata">playerui data ref.</param>
+            <param name="factory">factory ref.</param>
+            <param name="teamui">teamui data ref.</param>
+        </member>
+        <member name="M:NBA.WPFApp.BL.PlayerUiLogic.#ctor(NBA.Logic.IPlayerLogic)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.WPFApp.BL.PlayerUiLogic"/> class.
+            </summary>
+            <param name="playerLogic">playerLogic interface reference.</param>
+        </member>
+        <member name="M:NBA.WPFApp.BL.PlayerUiLogic.AddPlayer(System.Collections.Generic.IList{NBA.WPFApp.Data.PlayerUI})">
+            <summary>
+            Adds one player to list.
+            </summary>
+            <param name="list">list of players in ui.</param>
+        </member>
+        <member name="M:NBA.WPFApp.BL.PlayerUiLogic.DelPlayer(System.Collections.Generic.IList{NBA.WPFApp.Data.PlayerUI},NBA.WPFApp.Data.PlayerUI)">
+            <summary>
+            Deletes one player from list and db as well.
+            </summary>
+            <param name="list">list of players in ui.</param>
+            <param name="player">playerui entity.</param>
+        </member>
+        <member name="M:NBA.WPFApp.BL.PlayerUiLogic.GetAllPlayers">
+            <summary>
+            Returns a list of players in ui.
+            </summary>
+            <returns>IList collection.</returns>
+        </member>
+        <member name="M:NBA.WPFApp.BL.PlayerUiLogic.ModPlayer(NBA.WPFApp.Data.PlayerUI)">
+            <summary>
+            Change given player's properties.
+            </summary>
+            <param name="playerToModify">player to modify.</param>
+        </member>
+        <member name="T:NBA.WPFApp.Data.PlayerUI">
+            <summary>
+            Player entity to display in ui.
+            </summary>
+        </member>
+        <member name="P:NBA.WPFApp.Data.PlayerUI.PlayerID">
+            <summary>
+            Gets or sets iD of the player.
+            </summary>
+        </member>
+        <member name="P:NBA.WPFApp.Data.PlayerUI.Name">
+            <summary>
+            Gets or sets the name of the player.
+            </summary>
+        </member>
+        <member name="P:NBA.WPFApp.Data.PlayerUI.Birth">
+            <summary>
+            Gets or sets the date of birth of the player.
+            </summary>
+        </member>
+        <member name="P:NBA.WPFApp.Data.PlayerUI.Height">
+            <summary>
+            Gets or sets the height of the player.
+            </summary>
+        </member>
+        <member name="P:NBA.WPFApp.Data.PlayerUI.Weight">
+            <summary>
+            Gets or sets the weight of the player.
+            </summary>
+        </member>
+        <member name="P:NBA.WPFApp.Data.PlayerUI.Post">
+            <summary>
+            Gets or sets the post of the player where he plays at.
+            </summary>
+        </member>
+        <member name="P:NBA.WPFApp.Data.PlayerUI.Salary">
+            <summary>
+            Gets or sets the salary of the player.
+            </summary>
+        </member>
+        <member name="P:NBA.WPFApp.Data.PlayerUI.Number">
+            <summary>
+            Gets or sets the number of the player.
+            </summary>
+        </member>
+        <member name="P:NBA.WPFApp.Data.PlayerUI.TeamUI">
+            <summary>
+            Gets or sets the Team of the player where he plays at.
+            </summary>
+        </member>
+        <member name="M:NBA.WPFApp.Data.PlayerUI.ConvertToPlayerEntity(NBA.WPFApp.Data.PlayerUI)">
+            <summary>
+            Converts PlayerUI entity to Player db entity.
+            </summary>
+            <param name="playerui">Player ui entity.</param>
+            <returns>Player db entity.</returns>
+        </member>
+        <member name="M:NBA.WPFApp.Data.PlayerUI.ConvertToPlayerUiEntity(NBA.Data.Model.Player)">
+            <summary>
+            Converts one db player entity to player ui entity.
+            </summary>
+            <param name="player">player entity.</param>
+            <returns>PlayerUI entity.</returns>
+        </member>
+        <member name="M:NBA.WPFApp.Data.PlayerUI.CopyFrom(NBA.WPFApp.Data.PlayerUI)">
+            <summary>
+            Copies a player entity.
+            </summary>
+            <param name="other">player to copy.</param>
+        </member>
+        <member name="T:NBA.WPFApp.Data.TeamUI">
+            <summary>
+            Team ui entity.
+            </summary>
+        </member>
+        <member name="P:NBA.WPFApp.Data.TeamUI.TeamID">
+            <summary>
+            Gets or sets the team's id.
+            </summary>
+        </member>
+        <member name="P:NBA.WPFApp.Data.TeamUI.TeamName">
+            <summary>
+            Gets or sets the team's name.
+            </summary>
+        </member>
+        <member name="M:NBA.WPFApp.Data.TeamUI.ConvertToTeamEntity(NBA.WPFApp.Data.TeamUI)">
+            <summary>
+            Converts PlayerUI entity to Player db entity.
+            </summary>
+            <param name="teamui">Player ui entity.</param>
+            <returns>Player db entity.</returns>
+        </member>
+        <member name="M:NBA.WPFApp.Data.TeamUI.ConvertToTeamUiEntity(NBA.Data.Model.Teams)">
+            <summary>
+            Converts one db player entity to player ui entity.
+            </summary>
+            <param name="team">player entity.</param>
+            <returns>PlayerUI entity.</returns>
+        </member>
+        <member name="M:NBA.WPFApp.Data.TeamUI.ToString">
+            <summary>
+            Overrides the tostring method. It returs the team's name.
+            </summary>
+            <returns>string.</returns>
+        </member>
+        <member name="T:NBA.WPFApp.Factory">
+            <summary>
+            Factory class.
+            </summary>
+        </member>
+        <member name="M:NBA.WPFApp.Factory.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.WPFApp.Factory"/> class.
+            </summary>
+        </member>
+        <member name="P:NBA.WPFApp.Factory.PlayerLogic">
+            <summary>
+            Gets player logic.
+            </summary>
+        </member>
+        <member name="P:NBA.WPFApp.Factory.Ctx">
+            <summary>
+            Gets db context.
+            </summary>
+        </member>
+        <member name="T:NBA.WPFApp.MainWindow">
+            <summary>
+            Interaction logic for MainWindow.xaml.
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="M:NBA.WPFApp.MainWindow.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.WPFApp.MainWindow"/> class.
+            </summary>
+        </member>
+        <member name="M:NBA.WPFApp.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:NBA.WPFApp.MyIoc">
+            <summary>
+            Custom MyIoc container.
+            </summary>
+        </member>
+        <member name="P:NBA.WPFApp.MyIoc.Instance">
+            <summary>
+            Gets myIoc instance.
+            </summary>
+        </member>
+        <member name="T:NBA.WPFApp.UI.EditorServiceViaWindow">
+            <summary>
+            Editor service via wndow.
+            </summary>
+        </member>
+        <member name="M:NBA.WPFApp.UI.EditorServiceViaWindow.EditPlayer(NBA.WPFApp.Data.PlayerUI)">
+            <summary>
+            Returns player edit's result.
+            </summary>
+            <param name="p">Player ui entity.</param>
+            <returns>true or false, depends on result.</returns>
+        </member>
+        <member name="T:NBA.WPFApp.UI.EditorWindow">
+            <summary>
+            Interaction logic for EditorWindow.xaml.
+            </summary>
+            <summary>
+            EditorWindow
+            </summary>
+        </member>
+        <member name="M:NBA.WPFApp.UI.EditorWindow.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.WPFApp.UI.EditorWindow"/> class.
+            </summary>
+        </member>
+        <member name="M:NBA.WPFApp.UI.EditorWindow.#ctor(NBA.WPFApp.Data.PlayerUI)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.WPFApp.UI.EditorWindow"/> class.
+            </summary>
+            <param name="oldPlayer">Player ui entity.</param>
+        </member>
+        <member name="P:NBA.WPFApp.UI.EditorWindow.PlayerUI">
+            <summary>
+            Gets player ui ref.
+            </summary>
+        </member>
+        <member name="M:NBA.WPFApp.UI.EditorWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:NBA.WPFApp.UI.HeightToStringConverter">
+            <summary>
+            Height to string converter.
+            </summary>
+        </member>
+        <member name="M:NBA.WPFApp.UI.HeightToStringConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts standart int to height format like: Xm Ycm.
+            </summary>
+            <param name="value">value to convert.</param>
+            <param name="targetType">target type.</param>
+            <param name="parameter">parameter.</param>
+            <param name="culture">culture.</param>
+            <returns>some obj.</returns>
+        </member>
+        <member name="M:NBA.WPFApp.UI.HeightToStringConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            converts back the string format back to int.
+            </summary>
+            <param name="value">value to convert.</param>
+            <param name="targetType">targettype.</param>
+            <param name="parameter">param.</param>
+            <param name="culture">cultureinfo.</param>
+            <returns>some obj.</returns>
+        </member>
+        <member name="T:NBA.WPFApp.VM.EditorViewModel">
+            <summary>
+            Editor window.
+            </summary>
+        </member>
+        <member name="M:NBA.WPFApp.VM.EditorViewModel.#ctor(NBA.Logic.ITeamLogic)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.WPFApp.VM.EditorViewModel"/> class.
+            </summary>
+            <param name="logic">Team logic ref.</param>
+        </member>
+        <member name="M:NBA.WPFApp.VM.EditorViewModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.WPFApp.VM.EditorViewModel"/> class.
+            </summary>
+        </member>
+        <member name="P:NBA.WPFApp.VM.EditorViewModel.PlayerUi">
+            <summary>
+            Gets or sets player ui entity.
+            </summary>
+        </member>
+        <member name="P:NBA.WPFApp.VM.EditorViewModel.TeamCollection">
+            <summary>
+            Gets collection of teams.
+            </summary>
+        </member>
+        <member name="P:NBA.WPFApp.VM.EditorViewModel.TeamUi">
+            <summary>
+            Gets or sets team ui entity.
+            </summary>
+        </member>
+        <member name="T:NBA.WPFApp.VM.MainViewModel">
+            <summary>
+            Main view model class that implements view model base.
+            </summary>
+        </member>
+        <member name="M:NBA.WPFApp.VM.MainViewModel.#ctor(NBA.WPFApp.BL.IPlayerUiLogic)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.WPFApp.VM.MainViewModel"/> class.
+            </summary>
+            <param name="logic">Player ui logic ref.</param>
+        </member>
+        <member name="M:NBA.WPFApp.VM.MainViewModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.WPFApp.VM.MainViewModel"/> class.
+            implements main view model.
+            </summary>
+        </member>
+        <member name="P:NBA.WPFApp.VM.MainViewModel.PlayerSelected">
+            <summary>
+            Gets or sets the selected player.
+            </summary>
+        </member>
+        <member name="P:NBA.WPFApp.VM.MainViewModel.Team">
+            <summary>
+            Gets team collection.
+            </summary>
+        </member>
+        <member name="P:NBA.WPFApp.VM.MainViewModel.AddCmd">
+            <summary>
+            Gets add command.
+            </summary>
+        </member>
+        <member name="P:NBA.WPFApp.VM.MainViewModel.ModCmd">
+            <summary>
+            Gets modification command.
+            </summary>
+        </member>
+        <member name="P:NBA.WPFApp.VM.MainViewModel.DelCmd">
+            <summary>
+            Gets delete command.
+            </summary>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
+        </member>
+    </members>
+</doc>

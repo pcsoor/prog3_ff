@@ -1,5 +1,5 @@
-﻿// <copyright file="App.xaml.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
+﻿// <copyright file="App.xaml.cs" company="C80LD7">
+// Copyright (c) C80LD7. All rights reserved.
 // </copyright>
 
 namespace NBA.WPFApp
@@ -15,20 +15,16 @@ namespace NBA.WPFApp
     using NBA.WPFApp.BL;
     using NBA.WPFApp.Data;
     using NBA.WPFApp.UI;
-
-    class MyIoc : SimpleIoc, IServiceLocator
-    {
-        /// <summary>
-        /// Gets simpleIoc default instance.
-        /// </summary>
-        public static MyIoc Instance { get; private set; } = new MyIoc();
-    }
+    using NBA.WPFApp.VM;
 
     /// <summary>
     /// Interaction logic for App.xaml.
     /// </summary>
     public partial class App : Application
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="App"/> class.
+        /// </summary>
         public App()
         {
             ServiceLocator.SetLocatorProvider(() => MyIoc.Instance);
@@ -37,13 +33,17 @@ namespace NBA.WPFApp
 
             MyIoc.Instance.Register<DbContext>(() => new NBADbContext());
             MyIoc.Instance.Register<PlayerUI, PlayerUI>();
+            MyIoc.Instance.Register<TeamUI, TeamUI>();
 
             MyIoc.Instance.Register<IPlayerRepository, PlayerRepository>();
             MyIoc.Instance.Register<IPlayerStatsRepository, PlayerStatsRepository>();
             MyIoc.Instance.Register<ITeamsRepository, TeamsRepository>();
+            MyIoc.Instance.Register<ITeamsStatsRepository, TeamsStatsRepository>();
+            MyIoc.Instance.Register<ISeriesRepository, SeriesRepository>();
 
             MyIoc.Instance.Register<IPlayerUiLogic, PlayerUiLogic>();
             MyIoc.Instance.Register<IPlayerLogic, PlayerLogic>();
+            MyIoc.Instance.Register<ITeamLogic, TeamLogic>();
 
             MyIoc.Instance.Register<Factory, Factory>();
         }

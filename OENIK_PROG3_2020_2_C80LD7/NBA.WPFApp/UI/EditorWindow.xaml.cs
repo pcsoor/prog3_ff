@@ -1,50 +1,53 @@
-﻿using NBA.WPFApp.Data;
-using NBA.WPFApp.VM;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿// <copyright file="EditorWindow.xaml.cs" company="C80LD7">
+// Copyright (c) C80LD7. All rights reserved.
+// </copyright>
 
 namespace NBA.WPFApp.UI
 {
+    using System.Windows;
+    using NBA.WPFApp.Data;
+    using NBA.WPFApp.VM;
+
     /// <summary>
-    /// Interaction logic for EditorWindow.xaml
+    /// Interaction logic for EditorWindow.xaml.
     /// </summary>
     public partial class EditorWindow : Window
     {
-        EditorViewModel VM;
+        private EditorViewModel VM;
 
-        public PlayerUI PlayerUI { get => VM.PlayerUi; }
-
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EditorWindow"/> class.
+        /// </summary>
         public EditorWindow()
         {
-            InitializeComponent();
+            this.InitializeComponent();
 
-            VM = FindResource("VM") as EditorViewModel;
+            this.VM = this.FindResource("VM") as EditorViewModel;
         }
 
-        public EditorWindow(PlayerUI oldPlayer) : this()
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EditorWindow"/> class.
+        /// </summary>
+        /// <param name="oldPlayer">Player ui entity.</param>
+        public EditorWindow(PlayerUI oldPlayer)
+            : this()
         {
-            VM.PlayerUi = oldPlayer;
+            this.VM.PlayerUi = oldPlayer;
         }
+
+        /// <summary>
+        /// Gets player ui ref.
+        /// </summary>
+        public PlayerUI PlayerUI { get => this.VM.PlayerUi; }
 
         private void OkClick(object sender, RoutedEventArgs e)
         {
-            DialogResult = true;
+            this.DialogResult = true;
         }
 
         private void CancelClick(object sender, RoutedEventArgs e)
         {
-            DialogResult = false;
+            this.DialogResult = false;
         }
     }
 }

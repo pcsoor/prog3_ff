@@ -1,31 +1,46 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Data;
+﻿// <copyright file="HeightToStringConverter.cs" company="C80LD7">
+// Copyright (c) C80LD7. All rights reserved.
+// </copyright>
 
 namespace NBA.WPFApp.UI
 {
-    class HeightToStringConverter : IValueConverter
+    using System;
+    using System.Globalization;
+    using System.Windows.Data;
+
+    /// <summary>
+    /// Height to string converter.
+    /// </summary>
+    public class HeightToStringConverter : IValueConverter
     {
-        // VM => UI
-        // (int) 205 => 2m 5cm (string)
+        /// <summary>
+        /// Converts standart int to height format like: Xm Ycm.
+        /// </summary>
+        /// <param name="value">value to convert.</param>
+        /// <param name="targetType">target type.</param>
+        /// <param name="parameter">parameter.</param>
+        /// <param name="culture">culture.</param>
+        /// <returns>some obj.</returns>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             int h = (int)value;
-            return string.Format("{0}m {1}cm", h / 100, h % 100);
+            return $"{h / 100}m {h % 100}cm";
         }
 
-        // UI => VM
-        // (string) 1m 85cm => 185 (int)
+        /// <summary>
+        /// converts back the string format back to int.
+        /// </summary>
+        /// <param name="value">value to convert.</param>
+        /// <param name="targetType">targettype.</param>
+        /// <param name="parameter">param.</param>
+        /// <param name="culture">cultureinfo.</param>
+        /// <returns>some obj.</returns>
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            string[] input = value.ToString().Split(' ');
-            int m = int.Parse(input[0].Substring(0, input[0].Length - 1));
-            int cm = int.Parse(input[1].Substring(0, input[1].Length - 2));
-            return m * 100 + cm;
+            string[] input = value?.ToString().Split(' ');
+            int m = int.Parse(input[0].Substring(0, input[0].Length - 1), CultureInfo.CurrentCulture);
+            int cm = int.Parse(input[1].Substring(0, input[1].Length - 2), CultureInfo.CurrentCulture);
+            return (m * 100) + cm;
         }
     }
 }

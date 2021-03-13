@@ -1,23 +1,27 @@
-﻿using NBA.Data.Model;
-using NBA.Logic;
-using NBA.Repository;
-using NBA.WPFApp.BL;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// <copyright file="Factory.cs" company="C80LD7">
+// Copyright (c) C80LD7. All rights reserved.
+// </copyright>
 
 namespace NBA.WPFApp
 {
+    using NBA.Data.Model;
+    using NBA.Logic;
+    using NBA.Repository;
+
+    /// <summary>
+    /// Factory class.
+    /// </summary>
     public class Factory
     {
-        NBADbContext ctx;
-        PlayerRepository playerRepo;
-        PlayerStatsRepository playerStatRepo;
-        TeamsRepository teamRepo;
-        PlayerLogic playerLogic;
+        private NBADbContext ctx;
+        private PlayerRepository playerRepo;
+        private PlayerStatsRepository playerStatRepo;
+        private TeamsRepository teamRepo;
+        private PlayerLogic playerLogic;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Factory"/> class.
+        /// </summary>
         public Factory()
         {
             this.ctx = new NBADbContext();
@@ -27,9 +31,20 @@ namespace NBA.WPFApp
             this.teamRepo = new TeamsRepository(this.ctx);
         }
 
+        /// <summary>
+        /// Gets player logic.
+        /// </summary>
         public PlayerLogic PlayerLogic
         {
             get { return this.playerLogic; }
+        }
+
+        /// <summary>
+        /// Gets db context.
+        /// </summary>
+        public NBADbContext Ctx
+        {
+            get { return this.ctx; }
         }
     }
 }

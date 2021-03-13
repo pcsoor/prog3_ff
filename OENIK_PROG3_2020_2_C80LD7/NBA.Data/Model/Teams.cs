@@ -32,21 +32,18 @@ namespace NBA.Data.Model
         /// <summary>
         /// Gets or sets the name of the team.
         /// </summary>
-        [Required]
         [MaxLength(50)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the team's coach.
         /// </summary>
-        [Required]
         [MaxLength(50)]
         public string Coach { get; set; }
 
         /// <summary>
         /// Gets or sets the team's region.
         /// </summary>
-        [Required]
         [MaxLength(20)]
         public string Region { get; set; }
 
@@ -71,8 +68,7 @@ namespace NBA.Data.Model
         /// <inheritdoc/>
         public override string ToString()
         {
-            string tartalom = $"{this.TeamID,-4} {this.Name,-25} {this.Coach,-20} {this.Region,-1}";
-            return tartalom;
+            return this.Name;
         }
 
         /// <inheritdoc/>
