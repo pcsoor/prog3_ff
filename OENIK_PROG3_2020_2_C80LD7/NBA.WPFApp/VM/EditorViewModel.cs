@@ -19,6 +19,7 @@ namespace NBA.WPFApp.VM
         private PlayerUI playerui;
         private TeamUI teamui;
         private ITeamLogic logic;
+        private TeamUI selectedTeam;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="EditorViewModel"/> class.
@@ -27,7 +28,7 @@ namespace NBA.WPFApp.VM
         public EditorViewModel(ITeamLogic logic)
         {
             this.logic = logic;
-            this.TeamCollection = new ObservableCollection<Teams>();
+            this.TeamCollection = new ObservableCollection<TeamUI>();
 
             this.playerui = new PlayerUI();
 
@@ -40,7 +41,7 @@ namespace NBA.WPFApp.VM
 
             foreach (var item in this.logic.GetAllTeams())
             {
-                this.TeamCollection.Add(item);
+                this.TeamCollection.Add(TeamUI.ConvertToTeamUiEntity(item));
             }
         }
 
@@ -62,9 +63,18 @@ namespace NBA.WPFApp.VM
         }
 
         /// <summary>
+        /// Gets or sets returns selected team.
+        /// </summary>
+        public TeamUI SelectedTeam
+        {
+            get { return this.selectedTeam; }
+            set { this.Set(ref this.selectedTeam, value); }
+        }
+
+        /// <summary>
         /// Gets collection of teams.
         /// </summary>
-        public ObservableCollection<Teams> TeamCollection { get; private set; }
+        public ObservableCollection<TeamUI> TeamCollection { get; private set; }
 
         /// <summary>
         /// Gets or sets team ui entity.
