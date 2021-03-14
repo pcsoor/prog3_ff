@@ -62,10 +62,15 @@ namespace NBA.WPFApp.BL
             if (this.editorService.EditPlayer(newPlayer) == true)
             {
                 list?.Add(newPlayer);
-                this.factory.Ctx.Player.Add(new NBA.Data.Model.Player() { Name = newPlayer.Name, Team = TeamUI.ConvertToTeamEntity(newPlayer.TeamUI), Height = newPlayer.Height, Salary = newPlayer.Salary });
+                this.playerLogic.AddNewPlayer(new NBA.Data.Model.Player
+                {
+                    Name = newPlayer.Name,
+                    Height = newPlayer.Height,
+                    Salary = newPlayer.Salary,
+                    Team = TeamUI.ConvertToTeamEntity(newPlayer.TeamUI),
+                });
 
-                // this.playerLogic.AddNewPlayer(this.playeruidata.ConvertToPlayerEntity(newPlayer));
-                this.factory.Ctx.SaveChanges();
+                list.Last().PlayerID = this.playerLogic.GetAllPlayers().Last().PlayerID;
                 this.messengerService.Send("ADD OK", "LogicResult");
             }
         }
@@ -79,6 +84,7 @@ namespace NBA.WPFApp.BL
         {
             if (player != null && list != null && list.Remove(player))
             {
+                TeamUI.ConvertToTeamEntity(player.TeamUI);
                 this.playerLogic.DeletePlayer(player.PlayerID);
                 this.messengerService.Send("DELETE OK", "LogicResult");
             }
