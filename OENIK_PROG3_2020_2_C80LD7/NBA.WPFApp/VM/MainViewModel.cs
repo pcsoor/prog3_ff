@@ -44,6 +44,7 @@ namespace NBA.WPFApp.VM
 
             foreach (var item in this.logic.GetAllPlayers())
             {
+                TeamUI.ConvertToTeamEntity(item.TeamUI);
                 this.Team.Add(item);
             }
 
