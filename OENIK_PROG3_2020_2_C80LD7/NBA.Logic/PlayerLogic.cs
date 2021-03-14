@@ -167,10 +167,10 @@ namespace NBA.Logic
         /// <summary>
         /// Updates player entity.
         /// </summary>
-        /// <param name="player">Player type entity.</param>
-        public void UpdatePlayer(Player player)
+        /// <param name="id">Player type entity.</param>
+        public void UpdatePlayer(int id)
         {
-            this.playerRepo.UpdatePlayer(player);
+            this.playerRepo.UpdatePlayer(id);
         }
 
         /// <summary>

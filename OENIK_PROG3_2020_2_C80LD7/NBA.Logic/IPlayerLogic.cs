@@ -94,8 +94,8 @@ namespace NBA.Logic
         /// <summary>
         /// Updates player entity.
         /// </summary>
-        /// <param name="player">Player entity.</param>
-        void UpdatePlayer(Player player);
+        /// <param name="id">Player entity.</param>
+        void UpdatePlayer(int id);
 
         /// <summary>
         /// Return player player from one team.
