@@ -146,6 +146,7 @@ namespace NBA.WPFApp.Data
                 playerui.Number = player.Number;
                 playerui.Post = player.Post;
                 playerui.TeamUI = TeamUI.ConvertToTeamUiEntity(player.Team);
+                playerui.TeamUI.TeamID = player.Team.TeamID;
             }
 
             return playerui;
