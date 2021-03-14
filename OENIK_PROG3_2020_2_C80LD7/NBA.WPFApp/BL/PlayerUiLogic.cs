@@ -67,7 +67,7 @@ namespace NBA.WPFApp.BL
                     Name = newPlayer.Name,
                     Height = newPlayer.Height,
                     Salary = newPlayer.Salary,
-                    Team = TeamUI.ConvertToTeamEntity(newPlayer.TeamUI),
+                    TeamID = TeamUI.ConvertToTeamEntity(newPlayer.TeamUI).TeamID,
                 });
 
                 list.Last().PlayerID = this.playerLogic.GetAllPlayers().Last().PlayerID;
@@ -84,8 +84,9 @@ namespace NBA.WPFApp.BL
         {
             if (player != null && list != null && list.Remove(player))
             {
-                TeamUI.ConvertToTeamEntity(player.TeamUI);
-                this.playerLogic.DeletePlayer(player.PlayerID);
+                // TeamUI.ConvertToTeamEntity(player.TeamUI);
+                var toDel = this.playerLogic.GetOnePlayerById(PlayerUI.ConvertToPlayerEntity(player).PlayerID);
+                this.playerLogic.DeletePlayer(toDel.PlayerID);
                 this.messengerService.Send("DELETE OK", "LogicResult");
             }
             else
@@ -131,12 +132,12 @@ namespace NBA.WPFApp.BL
             }
 
             PlayerUI clone = new PlayerUI();
+            this.playerLogic.GetOnePlayerById(playerToModify.PlayerID);
             clone.CopyFrom(playerToModify);
             if (this.editorService.EditPlayer(clone) == true)
             {
                 playerToModify.CopyFrom(clone);
-                this.playerLogic.UpdatePlayer(PlayerUI.ConvertToPlayerEntity(clone));
-                this.factory.Ctx.SaveChanges();
+                this.playerLogic.UpdatePlayer(this.playerLogic.GetOnePlayerById(clone.PlayerID).PlayerID);
                 this.messengerService.Send("MODIFY OK", "LogicResult");
             }
             else

@@ -15,8 +15,8 @@
             <DockPanel>
                 <Label Content="{Binding Path=Name}" DockPanel.Dock="Top" HorizontalContentAlignment="Center" />
                 <Label Content="{Binding Path=Height}" DockPanel.Dock="Bottom" HorizontalContentAlignment="Center" />
-                <Label Content="{Binding Path=Salary}" DockPanel.Dock="Left"/>
-                <Label Content="{Binding Path=TeamUI.TeamName}" DockPanel.Dock="Right"/>
+                <Label Content="{Binding Path=Salary}" ContentStringFormat=" {0} $/y" DockPanel.Dock="Left"/>
+                <Label Content="{Binding Path=TeamUI}" DockPanel.Dock="Right"/>
                 <Label />
             </DockPanel>
         </DataTemplate>
