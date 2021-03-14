@@ -71,7 +71,7 @@ namespace NBA.WPFApp.BL
         }
 
         /// <summary>
-        /// Deletes one player from list and db as well.
+        /// Deletes one player from list and from db as well.
         /// </summary>
         /// <param name="list">list of players in ui.</param>
         /// <param name="player">playerui entity.</param>
@@ -79,11 +79,7 @@ namespace NBA.WPFApp.BL
         {
             if (player != null && list != null && list.Remove(player))
             {
-                // this.playerLogic.DeletePlayer(player.PlayerID);
-                var entityToDel = this.factory.Ctx.Player.Where(x => x.Name == player.Name && x.PlayerID == player.PlayerID
-                && x.Team == TeamUI.ConvertToTeamEntity(player.TeamUI)).FirstOrDefault();
-                this.factory.Ctx.Player.Remove(entityToDel);
-                this.factory.Ctx.SaveChanges();
+                this.playerLogic.DeletePlayer(player.PlayerID);
                 this.messengerService.Send("DELETE OK", "LogicResult");
             }
             else
