@@ -110,6 +110,12 @@
             <param name="id">player's id.</param>
             <param name="newsalary">player's new salary.</param>
         </member>
+        <member name="M:NBA.Logic.IPlayerLogic.UpdatePlayer(NBA.Data.Model.Player)">
+            <summary>
+            Updates player entity.
+            </summary>
+            <param name="player">Player entity.</param>
+        </member>
         <member name="M:NBA.Logic.IPlayerLogic.GetPlayerByTeam(System.Int32)">
             <summary>
             Return player player from one team.
@@ -341,6 +347,12 @@
             </summary>
             <param name="id">player's id.</param>
             <param name="newsalary">player's new salary to update.</param>
+        </member>
+        <member name="M:NBA.Logic.PlayerLogic.UpdatePlayer(NBA.Data.Model.Player)">
+            <summary>
+            Updates player entity.
+            </summary>
+            <param name="player">Player type entity.</param>
         </member>
         <member name="M:NBA.Logic.PlayerLogic.GetPlayerByTeam(System.Int32)">
             <summary>
