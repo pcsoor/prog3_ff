@@ -4,6 +4,7 @@
 
 namespace NBA.WPFApp.Data
 {
+    using System.Linq;
     using GalaSoft.MvvmLight;
     using NBA.Data.Model;
 
@@ -65,6 +66,16 @@ namespace NBA.WPFApp.Data
             }
 
             return teamui;
+        }
+
+        /// <summary>
+        /// Copies a team entity.
+        /// </summary>
+        /// <param name="other">team to copy.</param>
+        public void CopyFrom(TeamUI other)
+        {
+            this.GetType().GetProperties().ToList().
+                ForEach(property => property.SetValue(this, property.GetValue(other)));
         }
 
         /// <summary>
