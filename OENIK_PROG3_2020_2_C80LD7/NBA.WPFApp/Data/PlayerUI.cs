@@ -122,6 +122,7 @@ namespace NBA.WPFApp.Data
                 player.Salary = playerui.Salary;
                 player.Number = playerui.Number;
                 player.Post = playerui.Post;
+                player.Team = TeamUI.ConvertToTeamEntity(playerui.TeamUI);
             }
 
             return player;
@@ -144,6 +145,7 @@ namespace NBA.WPFApp.Data
                 playerui.Salary = player.Salary;
                 playerui.Number = player.Number;
                 playerui.Post = player.Post;
+                playerui.TeamUI = TeamUI.ConvertToTeamUiEntity(player.Team);
             }
 
             return playerui;
