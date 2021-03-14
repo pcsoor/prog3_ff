@@ -18,6 +18,10 @@ namespace NBA.Repository
         /// <param name="newsalary">player's new salary to update.</param>
         void ChangeSalary(int id, int newsalary);
 
+        /// <summary>
+        /// Updates player properties.
+        /// </summary>
+        /// <param name="player">player entity.</param>
         void UpdatePlayer(Player player);
     }
 }

@@ -164,6 +164,10 @@ namespace NBA.Logic
             this.playerRepo.ChangeSalary(id, newsalary);
         }
 
+        /// <summary>
+        /// Updates player entity.
+        /// </summary>
+        /// <param name="player">Player type entity.</param>
         public void UpdatePlayer(Player player)
         {
             this.playerRepo.UpdatePlayer(player);
