@@ -8,7 +8,7 @@
         xmlns:vm="clr-namespace:NBA.WPFApp.VM"
         xmlns:ui="clr-namespace:NBA.WPFApp.UI"
         Loaded="Window_Loaded" Closing="Window_Closing"
-        Title="MainWindow" Height="324" Width="357">
+        Title="MainWindow" Height="346" Width="448">
     <Window.Resources>
         <vm:MainViewModel x:Key="VM" />
         <DataTemplate x:Key="listTemplate" DataType="{x:Type data:PlayerUI}">
@@ -17,6 +17,7 @@
                 <Label Content="{Binding Path=Height}" DockPanel.Dock="Bottom" HorizontalContentAlignment="Center" />
                 <Label Content="{Binding Path=Salary}" DockPanel.Dock="Left"/>
                 <Label Content="{Binding Path=TeamUI.TeamName}" DockPanel.Dock="Right"/>
+                <Label />
             </DockPanel>
         </DataTemplate>
     </Window.Resources>
@@ -24,10 +25,10 @@
         <ListBox ItemTemplate="{StaticResource listTemplate}"
             ItemsSource="{Binding Path=Team}" SelectedItem="{Binding Path=PlayerSelected}"
             HorizontalContentAlignment="Stretch"
-            HorizontalAlignment="Left" Height="251" Margin="10,10,0,0" VerticalAlignment="Top" Width="210" />
+            HorizontalAlignment="Left" Height="251" Margin="10,10,0,0" VerticalAlignment="Top" Width="304" />
 
-        <Button Command="{Binding Path=AddCmd}" Content="ADD" HorizontalAlignment="Left" Margin="225,15,0,0" VerticalAlignment="Top" Width="75" />
-        <Button Command="{Binding Path=ModCmd}" Content="MOD" HorizontalAlignment="Left" Margin="225,40,0,0" VerticalAlignment="Top" Width="75" />
-        <Button Command="{Binding Path=DelCmd}" Content="DEL" HorizontalAlignment="Left" Margin="225,65,0,0" VerticalAlignment="Top" Width="75" />
+        <Button Command="{Binding Path=AddCmd}" Content="ADD" HorizontalAlignment="Left" Margin="331,13,0,0" VerticalAlignment="Top" Width="75" />
+        <Button Command="{Binding Path=ModCmd}" Content="MOD" HorizontalAlignment="Left" Margin="331,38,0,0" VerticalAlignment="Top" Width="75" />
+        <Button Command="{Binding Path=DelCmd}" Content="DEL" HorizontalAlignment="Left" Margin="331,63,0,0" VerticalAlignment="Top" Width="75" />
     </Grid>
 </Window>
