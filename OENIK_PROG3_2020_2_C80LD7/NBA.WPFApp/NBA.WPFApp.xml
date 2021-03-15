@@ -227,6 +227,19 @@
             </summary>
             <returns>string.</returns>
         </member>
+        <member name="M:NBA.WPFApp.Data.TeamUI.Equals(System.Object)">
+            <summary>
+            Overrides equals method.
+            </summary>
+            <param name="obj">Object to compare.</param>
+            <returns>true or false.</returns>
+        </member>
+        <member name="M:NBA.WPFApp.Data.TeamUI.GetHashCode">
+            <summary>
+            Overries get hash code method.
+            </summary>
+            <returns>int.</returns>
+        </member>
         <member name="T:NBA.WPFApp.Factory">
             <summary>
             Factory class.

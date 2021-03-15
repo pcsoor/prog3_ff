@@ -67,6 +67,8 @@ namespace NBA.WPFApp.BL
                     Name = newPlayer.Name,
                     Height = newPlayer.Height,
                     Salary = newPlayer.Salary,
+
+                    // Team = TeamUI.ConvertToTeamEntity(newPlayer.TeamUI),
                     TeamID = TeamUI.ConvertToTeamEntity(newPlayer.TeamUI).TeamID,
                 });
 
