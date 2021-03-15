@@ -161,5 +161,16 @@ namespace NBA.WPFApp.Data
             this.GetType().GetProperties().ToList().
                 ForEach(property => property.SetValue(this, property.GetValue(other)));
         }
+
+        // public override bool Equals(object obj)
+        // {
+        //    if (obj is PlayerUI)
+        //    {
+        //        PlayerUI secondPlayer = obj as PlayerUI;
+        //        return this.PlayerID == secondPlayer.PlayerID && this.Name == secondPlayer.Name && this.Height == secondPlayer.Height && this.TeamUI == secondPlayer.TeamUI && this.Salary == secondPlayer.Salary && this.Weight == secondPlayer.Weight && this.Number == secondPlayer.Number;
+        //    }
+
+        // return false;
+        // }
     }
 }
