@@ -6,7 +6,7 @@
         xmlns:ui="clr-namespace:NBA.WPFApp.UI"
         xmlns:vm="clr-namespace:NBA.WPFApp.VM"
         mc:Ignorable="d"
-        Title="EditorWindow" Height="201" Width="239">
+        Title="EditorWindow" Height="205" Width="239">
     <Window.Resources>
         <vm:EditorViewModel x:Key="VM" />
         <ui:HeightToStringConverter x:Key="HeightToStringConverter" />
@@ -22,11 +22,12 @@
         <TextBox Text="{Binding Path=PlayerUi.Salary}" HorizontalAlignment="Left" Height="23" Margin="63,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
         <ComboBox HorizontalAlignment="Left" Margin="63,96,0,0" VerticalAlignment="Top" Width="120" 
-                  ItemsSource="{Binding Path=TeamCollection}" SelectedItem="{Binding Path=PlayerUi.TeamUI, Mode=TwoWay}">
+                  ItemsSource="{Binding Path=TeamCollection}" 
+                  SelectedItem="{Binding Path=PlayerUi.TeamUI}">
         </ComboBox>
 
         <Button Content="OK" HorizontalAlignment="Left" Margin="17,128,0,0" VerticalAlignment="Top" Width="75" Click="OkClick" />
         <Button Content="CANCEL" HorizontalAlignment="Left" Margin="97,128,0,0" VerticalAlignment="Top" Width="75" Click="CancelClick" />
-        
+
     </Grid>
 </Window>

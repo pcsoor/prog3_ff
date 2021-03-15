@@ -86,5 +86,30 @@ namespace NBA.WPFApp.Data
         {
             return this.TeamName;
         }
+
+        /// <summary>
+        /// Overrides equals method.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>true or false.</returns>
+        public override bool Equals(object obj)
+        {
+            if (obj is TeamUI)
+            {
+                TeamUI secondTeam = obj as TeamUI;
+                return this.TeamID == secondTeam.TeamID && this.TeamName == secondTeam.TeamName;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Overries get hash code method.
+        /// </summary>
+        /// <returns>int.</returns>
+        public override int GetHashCode()
+        {
+            return this.TeamID;
+        }
     }
 }
