@@ -153,6 +153,7 @@ namespace NBA.WPFApp.Data
             if (playerui != null)
             {
                 player.PlayerID = playerui.PlayerID;
+                player.Birth = playerui.Birth;
                 player.Name = playerui.Name;
                 player.Height = playerui.Height;
                 player.Weight = playerui.Weight;
