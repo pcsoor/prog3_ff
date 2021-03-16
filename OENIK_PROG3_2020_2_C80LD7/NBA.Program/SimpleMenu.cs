@@ -408,7 +408,7 @@ namespace NBA.Program
             {
                 list.Add(Player.PositionType.PointGuard);
             }
-            else if(post == "SF")
+            else if (post == "SF")
             {
                 list.Add(Player.PositionType.SmallForward);
             }

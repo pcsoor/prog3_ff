@@ -55,6 +55,14 @@ namespace NBA.WPFApp.VM
         }
 
         /// <summary>
+        /// Gets list of positions.
+        /// </summary>
+        public static Array Positions
+        {
+            get { return Enum.GetValues(typeof(PositionTypeUI)); }
+        }
+
+        /// <summary>
         /// Gets or sets player ui entity.
         /// </summary>
         public PlayerUI PlayerUi
@@ -70,11 +78,6 @@ namespace NBA.WPFApp.VM
         {
             get { return this.selectedTeam; }
             set { this.Set(ref this.selectedTeam, value); }
-        }
-
-        public Array Positions
-        {
-            get { return Enum.GetValues(typeof(PositionTypeUI)); }
         }
 
         /// <summary>

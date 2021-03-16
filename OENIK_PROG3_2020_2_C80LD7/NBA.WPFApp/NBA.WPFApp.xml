@@ -332,6 +332,31 @@
             Gets myIoc instance.
             </summary>
         </member>
+        <member name="T:NBA.WPFApp.UI.CheckDateIfNullConverter">
+            <summary>
+            Checks if date is null.
+            </summary>
+        </member>
+        <member name="M:NBA.WPFApp.UI.CheckDateIfNullConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Convert to.
+            </summary>
+            <param name="value">value.</param>
+            <param name="targetType">target type.</param>
+            <param name="parameter">parameter.</param>
+            <param name="culture">culture info.</param>
+            <returns>DateTime if not null, string if null.</returns>
+        </member>
+        <member name="M:NBA.WPFApp.UI.CheckDateIfNullConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts back.
+            </summary>
+            <param name="value">value.</param>
+            <param name="targetType">target type.</param>
+            <param name="parameter">parameter.</param>
+            <param name="culture">culture info.</param>
+            <returns>Nothing.</returns>
+        </member>
         <member name="T:NBA.WPFApp.UI.EditorServiceViaWindow">
             <summary>
             Editor service via wndow.
@@ -412,6 +437,11 @@
         <member name="M:NBA.WPFApp.VM.EditorViewModel.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:NBA.WPFApp.VM.EditorViewModel"/> class.
+            </summary>
+        </member>
+        <member name="P:NBA.WPFApp.VM.EditorViewModel.Positions">
+            <summary>
+            Gets list of positions.
             </summary>
         </member>
         <member name="P:NBA.WPFApp.VM.EditorViewModel.PlayerUi">
