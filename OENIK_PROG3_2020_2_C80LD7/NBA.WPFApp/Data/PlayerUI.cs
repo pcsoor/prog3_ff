@@ -192,6 +192,26 @@ namespace NBA.WPFApp.Data
         }
 
         /// <summary>
+        /// Converts ui position type to db position type.
+        /// </summary>
+        /// <param name="pt">ui position type.</param>
+        /// <returns>db position type.</returns>
+        public static Player.PositionType ConvertToPositionType(PositionTypeUI pt)
+        {
+            return (Player.PositionType)pt;
+        }
+
+        /// <summary>
+        /// Converts db position type to ui position type.
+        /// </summary>
+        /// <param name="pt">db position type.</param>
+        /// <returns>ui position type.</returns>
+        public static PositionTypeUI ConvertToPositionTypeUI(Player.PositionType pt)
+        {
+            return (PositionTypeUI)pt;
+        }
+
+        /// <summary>
         /// Copies a player entity.
         /// </summary>
         /// <param name="other">player to copy.</param>
