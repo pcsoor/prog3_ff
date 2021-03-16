@@ -4,6 +4,7 @@
 
 namespace NBA.WPFApp.VM
 {
+    using System;
     using System.Collections.ObjectModel;
     using CommonServiceLocator;
     using GalaSoft.MvvmLight;
@@ -69,6 +70,11 @@ namespace NBA.WPFApp.VM
         {
             get { return this.selectedTeam; }
             set { this.Set(ref this.selectedTeam, value); }
+        }
+
+        public Array Positions
+        {
+            get { return Enum.GetValues(typeof(PositionTypeUI)); }
         }
 
         /// <summary>
