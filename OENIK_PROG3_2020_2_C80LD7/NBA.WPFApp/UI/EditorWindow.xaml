@@ -3,31 +3,49 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:ui="clr-namespace:NBA.WPFApp.UI"
         xmlns:vm="clr-namespace:NBA.WPFApp.VM"
         mc:Ignorable="d"
-        Title="EditorWindow" Height="205" Width="239">
+        Title="EditorWindow" Height="382" Width="325">
     <Window.Resources>
         <vm:EditorViewModel x:Key="VM" />
         <ui:HeightToStringConverter x:Key="HeightToStringConverter" />
     </Window.Resources>
     <Grid DataContext="{StaticResource VM}">
         <Label Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" />
-        <Label Content="Height" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,38,0,0" />
-        <Label Content="Salary" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,66,0,0" />
-        <Label Content="Team" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,94,0,0" />
+        <Label Content="Date of Birth" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+        <Label Content="Height" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,72,0,0" />
+        <Label Content="Weight" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top"/>
+        <Label Content="Position" HorizontalAlignment="Left" Margin="10,136,0,0" VerticalAlignment="Top"/>
+        <Label Content="Salary" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,169,0,0" />
+        <Label Content="Number" HorizontalAlignment="Left" Margin="10,201,0,0" VerticalAlignment="Top"/>
+        <Label Content="Team" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,232,0,0" />
 
-        <TextBox Text="{Binding Path=PlayerUi.Name}" HorizontalAlignment="Left" Height="23" Margin="63,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox Text="{Binding Path=PlayerUi.Height, Converter={StaticResource HeightToStringConverter}}" HorizontalAlignment="Left" Height="23" Margin="63,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox Text="{Binding Path=PlayerUi.Salary}" HorizontalAlignment="Left" Height="23" Margin="63,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-
-        <ComboBox HorizontalAlignment="Left" Margin="63,96,0,0" VerticalAlignment="Top" Width="120" 
+        <TextBox Text="{Binding Path=PlayerUi.Name}" HorizontalAlignment="Left" Height="23" Margin="108,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155"/>
+        <DatePicker HorizontalAlignment="Left" Margin="108,42,0,0" VerticalAlignment="Top" Width="155" SelectedDate="{Binding PlayerUi.Birth}"/>
+        <TextBox Text="{Binding Path=PlayerUi.Height, Converter={StaticResource HeightToStringConverter}}" HorizontalAlignment="Left" Height="23" Margin="108,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155"/>
+        <TextBox Text="{Binding PlayerUi.Weight}" HorizontalAlignment="Left" Height="23" Margin="108,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155"/>
+        <ComboBox HorizontalAlignment="Left" Margin="108,138,0,0" VerticalAlignment="Top" Width="155" 
+                  ItemsSource="{Binding Path=Positions}" 
+                  SelectedItem="{Binding Path=PlayerUi.Post}">
+        </ComboBox>
+        <TextBox Text="{Binding Path=PlayerUi.Salary}" HorizontalAlignment="Left" Height="23" Margin="108,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155"/>
+        <TextBox Text="{Binding PlayerUi.Number}" HorizontalAlignment="Left" Height="23" Margin="108,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155"/>
+        <ComboBox HorizontalAlignment="Left" Margin="108,234,0,0" VerticalAlignment="Top" Width="155" 
                   ItemsSource="{Binding Path=TeamCollection}" 
                   SelectedItem="{Binding Path=PlayerUi.TeamUI}">
         </ComboBox>
 
-        <Button Content="OK" HorizontalAlignment="Left" Margin="17,128,0,0" VerticalAlignment="Top" Width="75" Click="OkClick" />
-        <Button Content="CANCEL" HorizontalAlignment="Left" Margin="97,128,0,0" VerticalAlignment="Top" Width="75" Click="CancelClick" />
+
+        <Button Content="OK" HorizontalAlignment="Left" Margin="10,301,0,0" VerticalAlignment="Top" Width="75" Click="OkClick" />
+        <Button Content="CANCEL" HorizontalAlignment="Left" Margin="108,301,0,0" VerticalAlignment="Top" Width="75" Click="CancelClick" />
+
+
+
+
+
+
 
     </Grid>
 </Window>
