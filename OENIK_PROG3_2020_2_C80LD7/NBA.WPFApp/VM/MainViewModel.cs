@@ -36,8 +36,8 @@ namespace NBA.WPFApp.VM
             // this.TeamCollection = new ObservableCollection<TeamUI>();
             if (this.IsInDesignMode)
             {
-                PlayerUI p1 = new PlayerUI() { Name = "Test Test", Birth = new DateTime(1984, 12, 20), Height = 206, Weight = 113, Number = 23, Post = "SF/PF", Salary = 37436858 };
-                PlayerUI p2 = new PlayerUI() { Name = "Test2 Test2", Birth = new DateTime(1988, 09, 29), Height = 208, Weight = 109, Number = 35, Post = "SF/PF", Salary = 37199000 };
+                PlayerUI p1 = new PlayerUI() { Name = "Test Test", Birth = new DateTime(1984, 12, 20), Height = 206, Weight = 113, Number = 23, Post = PositionTypeUI.PointGuard, Salary = 37436858 };
+                PlayerUI p2 = new PlayerUI() { Name = "Test2 Test2", Birth = new DateTime(1988, 09, 29), Height = 208, Weight = 109, Number = 35, Post = PositionTypeUI.PowerForward, Salary = 37199000 };
                 this.Team.Add(p1);
                 this.Team.Add(p2);
             }
