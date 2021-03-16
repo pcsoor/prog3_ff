@@ -56,11 +56,6 @@ namespace NBA.WPFApp.Data
         private int number;
         private TeamUI teamui;
 
-        public PlayerUI()
-        {
-            this.birth = new DateTime();
-        }
-
         /// <summary>
         /// Gets or sets iD of the player.
         /// </summary>
