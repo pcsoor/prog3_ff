@@ -3,14 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:NBA.WPFApp"
         xmlns:data="clr-namespace:NBA.WPFApp.Data"
         xmlns:vm="clr-namespace:NBA.WPFApp.VM"
         xmlns:ui="clr-namespace:NBA.WPFApp.UI"
         Loaded="Window_Loaded" Closing="Window_Closing"
-        Title="MainWindow" Height="346" Width="448">
+        Title="MainWindow" Height="384" Width="543">
     <Window.Resources>
         <vm:MainViewModel x:Key="VM" />
+        <ui:CheckDateIfNullConverter x:Key="CheckDateIfNullConverter" />
         <DataTemplate x:Key="listTemplate" DataType="{x:Type data:PlayerUI}">
             <DockPanel>
                 <Label Content="{Binding Path=Name}" DockPanel.Dock="Top" HorizontalContentAlignment="Center" />
@@ -22,13 +24,28 @@
         </DataTemplate>
     </Window.Resources>
     <Grid DataContext="{StaticResource VM}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <ListBox ItemTemplate="{StaticResource listTemplate}"
             ItemsSource="{Binding Path=Team}" SelectedItem="{Binding Path=PlayerSelected}"
             HorizontalContentAlignment="Stretch"
             HorizontalAlignment="Left" Height="251" Margin="10,10,0,0" VerticalAlignment="Top" Width="304" />
 
-        <Button Command="{Binding Path=AddCmd}" Content="ADD" HorizontalAlignment="Left" Margin="331,13,0,0" VerticalAlignment="Top" Width="75" />
-        <Button Command="{Binding Path=ModCmd}" Content="MOD" HorizontalAlignment="Left" Margin="331,38,0,0" VerticalAlignment="Top" Width="75" />
-        <Button Command="{Binding Path=DelCmd}" Content="DEL" HorizontalAlignment="Left" Margin="331,63,0,0" VerticalAlignment="Top" Width="75" />
+        <Button Command="{Binding Path=AddCmd}" Content="ADD" HorizontalAlignment="Left" Margin="10,283,0,0" VerticalAlignment="Top" Width="75" />
+        <Button Command="{Binding Path=ModCmd}" Content="MOD" HorizontalAlignment="Left" Margin="104,283,0,0" VerticalAlignment="Top" Width="76" />
+        <Button Command="{Binding Path=DelCmd}" Content="DEL" HorizontalAlignment="Left" Margin="200,283,0,0" VerticalAlignment="Top" Width="76" />
+        <Label Content="Player Details:" HorizontalAlignment="Left" Margin="325,20,0,0" VerticalAlignment="Top" BorderThickness="0 0 0 1" BorderBrush="Black" Padding="0 2"/>
+
+        <TextBlock Text="{Binding PlayerSelected.Name, StringFormat={}Name: {0}}" Margin="325,53,0,0" Height="20" VerticalAlignment="Top"/>
+        <TextBlock Text="{Binding PlayerSelected.Birth, Converter={StaticResource CheckDateIfNullConverter}, StringFormat={}Birth: {0}, Mode=OneWay}" Margin="319,73,0,0" Height="20" VerticalAlignment="Top"/>
+        <TextBlock Text="{Binding PlayerSelected.Height, StringFormat={}Height: {0}}" Margin="325,93,0,0" Height="20" VerticalAlignment="Top"/>
+        <TextBlock Text="{Binding PlayerSelected.Weight, StringFormat={}Weight: {0}}" Margin="325,113,0,0" Height="20" VerticalAlignment="Top"/>
+        <TextBlock Text="{Binding PlayerSelected.Post, StringFormat={}Post: {0}}" Margin="325,133,0,0" Height="20" VerticalAlignment="Top"/>
+        <TextBlock Text="{Binding PlayerSelected.Number, StringFormat={}Number: {0}}" Margin="325,153,0,0" Height="20" VerticalAlignment="Top"/>
+        <TextBlock Text="{Binding PlayerSelected.Salary, StringFormat={}Salary: {0}}" Margin="325,173,0,0" Height="20" VerticalAlignment="Top"/>
+        <TextBlock Text="{Binding PlayerSelected.TeamUI, StringFormat={}Team: {0}}" Margin="325,193,0,0" Height="20" VerticalAlignment="Top"/>
+
+
     </Grid>
 </Window>

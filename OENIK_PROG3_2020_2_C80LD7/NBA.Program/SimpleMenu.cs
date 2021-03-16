@@ -5,6 +5,7 @@
 namespace NBA.Program
 {
     using System;
+    using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
     using System.Threading;
@@ -402,6 +403,28 @@ namespace NBA.Program
             MyCw("\nEnter new player's team");
             int team = int.Parse(MyCr(), CultureInfo.CurrentCulture);
 
+            var list = new List<dynamic>();
+            if (post == "PG")
+            {
+                list.Add(Player.PositionType.PointGuard);
+            }
+            else if(post == "SF")
+            {
+                list.Add(Player.PositionType.SmallForward);
+            }
+            else if (post == "SG")
+            {
+                list.Add(Player.PositionType.ShootingGuard);
+            }
+            else if (post == "C")
+            {
+                list.Add(Player.PositionType.Center);
+            }
+            else
+            {
+                list.Add(Player.PositionType.PowerForward);
+            }
+
             playerLogic?.AddNewPlayer(new Player()
             {
                 Name = name,
@@ -409,7 +432,7 @@ namespace NBA.Program
                 Height = height,
                 Weight = weight,
                 Number = number,
-                Post = post,
+                Post = list.Last(),
                 Salary = salary,
                 TeamID = team,
             });

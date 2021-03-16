@@ -59,6 +59,36 @@
             This class represents the player entity.
             </summary>
         </member>
+        <member name="T:NBA.Data.Model.Player.PositionType">
+            <summary>
+            Position types.
+            </summary>
+        </member>
+        <member name="F:NBA.Data.Model.Player.PositionType.PointGuard">
+            <summary>
+            Pointgurad position.
+            </summary>
+        </member>
+        <member name="F:NBA.Data.Model.Player.PositionType.ShootingGuard">
+            <summary>
+            Shooting guard position.
+            </summary>
+        </member>
+        <member name="F:NBA.Data.Model.Player.PositionType.SmallForward">
+            <summary>
+            Small forward position.
+            </summary>
+        </member>
+        <member name="F:NBA.Data.Model.Player.PositionType.PowerForward">
+            <summary>
+            Power Forward position.
+            </summary>
+        </member>
+        <member name="F:NBA.Data.Model.Player.PositionType.Center">
+            <summary>
+            Center position.
+            </summary>
+        </member>
         <member name="P:NBA.Data.Model.Player.PlayerID">
             <summary>
             Gets or sets unique identitication of player.

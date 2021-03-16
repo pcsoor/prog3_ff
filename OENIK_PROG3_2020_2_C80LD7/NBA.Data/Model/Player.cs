@@ -15,6 +15,37 @@ namespace NBA.Data.Model
     public class Player
     {
         /// <summary>
+        /// Position types.
+        /// </summary>
+        public enum PositionType
+        {
+            /// <summary>
+            /// Pointgurad position.
+            /// </summary>
+            PointGuard,
+
+            /// <summary>
+            /// Shooting guard position.
+            /// </summary>
+            ShootingGuard,
+
+            /// <summary>
+            /// Small forward position.
+            /// </summary>
+            SmallForward,
+
+            /// <summary>
+            /// Power Forward position.
+            /// </summary>
+            PowerForward,
+
+            /// <summary>
+            /// Center position.
+            /// </summary>
+            Center,
+        }
+
+        /// <summary>
         /// Gets or sets unique identitication of player.
         /// </summary>
         [Range(1, int.MaxValue, ErrorMessage = "Please enter a value bigger than {1}")]
@@ -53,7 +84,7 @@ namespace NBA.Data.Model
         /// Gets or sets the position where the player plays.
         /// </summary>
         [MaxLength(10)]
-        public string Post { get; set; }
+        public PositionType Post { get; set; }
 
         /// <summary>
         /// Gets or sets the avarage salary.
