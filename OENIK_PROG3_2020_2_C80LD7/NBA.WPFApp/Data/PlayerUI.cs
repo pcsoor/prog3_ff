@@ -109,7 +109,7 @@ namespace NBA.WPFApp.Data
         /// <summary>
         /// Gets or sets the post of the player where he plays at.
         /// </summary>
-        public string Post
+        public PositionTypeUI Post
         {
             get { return this.post; }
             set { this.Set(ref this.post, value); }
