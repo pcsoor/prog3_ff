@@ -5,9 +5,41 @@
 namespace NBA.WPFApp.Data
 {
     using System;
+    using System.ComponentModel;
     using System.Linq;
     using GalaSoft.MvvmLight;
     using NBA.Data.Model;
+
+    /// <summary>
+    /// Position types.
+    /// </summary>
+    public enum PositionTypeUI
+    {
+        /// <summary>
+        /// Pointgurad position.
+        /// </summary>
+        PointGuard,
+
+        /// <summary>
+        /// Shooting guard position.
+        /// </summary>
+        ShootingGuard,
+
+        /// <summary>
+        /// Small forward position.
+        /// </summary>
+        SmallForward,
+
+        /// <summary>
+        /// Power Forward position.
+        /// </summary>
+        PowerForward,
+
+        /// <summary>
+        /// Center position.
+        /// </summary>
+        Center,
+    }
 
     /// <summary>
     /// Player entity to display in ui.
