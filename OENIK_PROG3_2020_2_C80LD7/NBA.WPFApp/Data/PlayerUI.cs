@@ -178,11 +178,12 @@ namespace NBA.WPFApp.Data
             {
                 playerui.PlayerID = player.PlayerID;
                 playerui.Name = player.Name;
+                playerui.Birth = player.Birth;
                 playerui.Height = player.Height;
                 playerui.Weight = player.Weight;
                 playerui.Salary = player.Salary;
                 playerui.Number = player.Number;
-                playerui.Post = player.Post;
+                playerui.Post = ConvertToPositionTypeUI(player.Post);
                 playerui.TeamUI = TeamUI.ConvertToTeamUiEntity(player.Team);
                 playerui.TeamUI.TeamID = player.Team.TeamID;
             }
