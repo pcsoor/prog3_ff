@@ -159,7 +159,7 @@ namespace NBA.WPFApp.Data
                 player.Weight = playerui.Weight;
                 player.Salary = playerui.Salary;
                 player.Number = playerui.Number;
-                player.Post = playerui.Post;
+                player.Post = ConvertToPositionType(playerui.Post);
                 player.Team = TeamUI.ConvertToTeamEntity(playerui.TeamUI);
             }
 
