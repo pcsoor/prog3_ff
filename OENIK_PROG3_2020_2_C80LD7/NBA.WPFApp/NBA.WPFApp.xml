@@ -116,6 +116,36 @@
             </summary>
             <param name="playerToModify">player to modify.</param>
         </member>
+        <member name="T:NBA.WPFApp.Data.PositionTypeUI">
+            <summary>
+            Position types.
+            </summary>
+        </member>
+        <member name="F:NBA.WPFApp.Data.PositionTypeUI.PointGuard">
+            <summary>
+            Pointgurad position.
+            </summary>
+        </member>
+        <member name="F:NBA.WPFApp.Data.PositionTypeUI.ShootingGuard">
+            <summary>
+            Shooting guard position.
+            </summary>
+        </member>
+        <member name="F:NBA.WPFApp.Data.PositionTypeUI.SmallForward">
+            <summary>
+            Small forward position.
+            </summary>
+        </member>
+        <member name="F:NBA.WPFApp.Data.PositionTypeUI.PowerForward">
+            <summary>
+            Power Forward position.
+            </summary>
+        </member>
+        <member name="F:NBA.WPFApp.Data.PositionTypeUI.Center">
+            <summary>
+            Center position.
+            </summary>
+        </member>
         <member name="T:NBA.WPFApp.Data.PlayerUI">
             <summary>
             Player entity to display in ui.
@@ -179,6 +209,20 @@
             </summary>
             <param name="player">player entity.</param>
             <returns>PlayerUI entity.</returns>
+        </member>
+        <member name="M:NBA.WPFApp.Data.PlayerUI.ConvertToPositionType(NBA.WPFApp.Data.PositionTypeUI)">
+            <summary>
+            Converts ui position type to db position type.
+            </summary>
+            <param name="pt">ui position type.</param>
+            <returns>db position type.</returns>
+        </member>
+        <member name="M:NBA.WPFApp.Data.PlayerUI.ConvertToPositionTypeUI(NBA.Data.Model.Player.PositionType)">
+            <summary>
+            Converts db position type to ui position type.
+            </summary>
+            <param name="pt">db position type.</param>
+            <returns>ui position type.</returns>
         </member>
         <member name="M:NBA.WPFApp.Data.PlayerUI.CopyFrom(NBA.WPFApp.Data.PlayerUI)">
             <summary>
@@ -430,36 +474,6 @@
         <member name="P:NBA.WPFApp.VM.MainViewModel.DelCmd">
             <summary>
             Gets delete command.
-            </summary>
-        </member>
-        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
-            <summary>
-            GeneratedInternalTypeHelper
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
-            <summary>
-            CreateInstance
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            GetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            SetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
-            <summary>
-            CreateDelegate
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
-            <summary>
-            AddEventHandler
             </summary>
         </member>
     </members>

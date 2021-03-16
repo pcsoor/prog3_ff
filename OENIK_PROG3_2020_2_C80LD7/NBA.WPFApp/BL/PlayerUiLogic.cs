@@ -65,8 +65,12 @@ namespace NBA.WPFApp.BL
                 this.playerLogic.AddNewPlayer(new NBA.Data.Model.Player
                 {
                     Name = newPlayer.Name,
+                    Birth = newPlayer.Birth,
                     Height = newPlayer.Height,
+                    Weight = newPlayer.Weight,
+                    Post = PlayerUI.ConvertToPositionType(newPlayer.Post),
                     Salary = newPlayer.Salary,
+                    Number = newPlayer.Number,
 
                     // Team = TeamUI.ConvertToTeamEntity(newPlayer.TeamUI),
                     TeamID = TeamUI.ConvertToTeamEntity(newPlayer.TeamUI).TeamID,
