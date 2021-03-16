@@ -19,10 +19,15 @@ namespace NBA.WPFApp.Data
         private DateTime birth;
         private int height;
         private int weight;
-        private string post;
+        private PositionTypeUI post;
         private int salary;
         private int number;
         private TeamUI teamui;
+
+        public PlayerUI()
+        {
+            this.birth = new DateTime();
+        }
 
         /// <summary>
         /// Gets or sets iD of the player.
