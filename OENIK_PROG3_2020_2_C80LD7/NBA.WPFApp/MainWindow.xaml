@@ -38,7 +38,7 @@
         <Label Content="Player Details:" HorizontalAlignment="Left" Margin="325,20,0,0" VerticalAlignment="Top" BorderThickness="0 0 0 1" BorderBrush="Black" Padding="0 2"/>
 
         <TextBlock Text="{Binding PlayerSelected.Name, StringFormat={}Name: {0}}" Margin="325,53,0,0" Height="20" VerticalAlignment="Top"/>
-        <TextBlock Text="{Binding PlayerSelected.Birth, Converter={StaticResource CheckDateIfNullConverter}, StringFormat={}Birth: {0}, Mode=OneWay}" Margin="319,73,0,0" Height="20" VerticalAlignment="Top"/>
+        <TextBlock Text="{Binding PlayerSelected.Birth, Converter={StaticResource CheckDateIfNullConverter}, StringFormat={}Birth: {0}, Mode=OneWay}" Margin="325,73,0,0" Height="20" VerticalAlignment="Top"/>
         <TextBlock Text="{Binding PlayerSelected.Height, StringFormat={}Height: {0}}" Margin="325,93,0,0" Height="20" VerticalAlignment="Top"/>
         <TextBlock Text="{Binding PlayerSelected.Weight, StringFormat={}Weight: {0}}" Margin="325,113,0,0" Height="20" VerticalAlignment="Top"/>
         <TextBlock Text="{Binding PlayerSelected.Post, StringFormat={}Post: {0}}" Margin="325,133,0,0" Height="20" VerticalAlignment="Top"/>
