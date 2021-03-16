@@ -1,0 +1,2108 @@
+diff --git a/OENIK_PROG3_2020_2_C80LD7/NBA.Data/Model/Teams.cs b/OENIK_PROG3_2020_2_C80LD7/NBA.Data/Model/Teams.cs
+index 7342b0b..836acf2 100644
+--- a/OENIK_PROG3_2020_2_C80LD7/NBA.Data/Model/Teams.cs
++++ b/OENIK_PROG3_2020_2_C80LD7/NBA.Data/Model/Teams.cs
+@@ -32,21 +32,18 @@ namespace NBA.Data.Model
+         /// <summary>
+         /// Gets or sets the name of the team.
+         /// </summary>
+-        [Required]
+         [MaxLength(50)]
+         public string Name { get; set; }
+ 
+         /// <summary>
+         /// Gets or sets the team's coach.
+         /// </summary>
+-        [Required]
+         [MaxLength(50)]
+         public string Coach { get; set; }
+ 
+         /// <summary>
+         /// Gets or sets the team's region.
+         /// </summary>
+-        [Required]
+         [MaxLength(20)]
+         public string Region { get; set; }
+ 
+@@ -71,8 +68,7 @@ namespace NBA.Data.Model
+         /// <inheritdoc/>
+         public override string ToString()
+         {
+-            string tartalom = $"{this.TeamID,-4} {this.Name,-25} {this.Coach,-20} {this.Region,-1}";
+-            return tartalom;
++            return this.Name;
+         }
+ 
+         /// <inheritdoc/>
+diff --git a/OENIK_PROG3_2020_2_C80LD7/NBA.Data/NBA.Data.csproj b/OENIK_PROG3_2020_2_C80LD7/NBA.Data/NBA.Data.csproj
+index 6f2c1c2..66d80c6 100644
+--- a/OENIK_PROG3_2020_2_C80LD7/NBA.Data/NBA.Data.csproj
++++ b/OENIK_PROG3_2020_2_C80LD7/NBA.Data/NBA.Data.csproj
+@@ -1,11 +1,15 @@
+ ﻿<Project Sdk="Microsoft.NET.Sdk">
+ 
+   <PropertyGroup>
+-    <TargetFramework>netcoreapp3.1</TargetFramework>
++    <TargetFramework>net5.0</TargetFramework>
++    <EnableNETAnalyzers>true</EnableNETAnalyzers>
++    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
++    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+   </PropertyGroup>
+ 
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+     <DocumentationFile>NBA.Data.xml</DocumentationFile>
++    <WarningLevel>4</WarningLevel>
+   </PropertyGroup>
+ 
+   <ItemGroup>
+@@ -32,10 +36,6 @@
+   </ItemGroup>
+ 
+   <ItemGroup>
+-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.1">
+-      <PrivateAssets>all</PrivateAssets>
+-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+-    </PackageReference>
+     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.9" />
+     <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="3.1.9" />
+     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.9" />
+diff --git a/OENIK_PROG3_2020_2_C80LD7/NBA.Logic.Tests/NBA.Logic.Tests.csproj b/OENIK_PROG3_2020_2_C80LD7/NBA.Logic.Tests/NBA.Logic.Tests.csproj
+index 27b113e..06c7b26 100644
+--- a/OENIK_PROG3_2020_2_C80LD7/NBA.Logic.Tests/NBA.Logic.Tests.csproj
++++ b/OENIK_PROG3_2020_2_C80LD7/NBA.Logic.Tests/NBA.Logic.Tests.csproj
+@@ -1,11 +1,15 @@
+ ﻿<Project Sdk="Microsoft.NET.Sdk">
+ 
+   <PropertyGroup>
+-    <TargetFramework>netcoreapp3.1</TargetFramework>
++    <TargetFramework>net5.0</TargetFramework>
++    <EnableNETAnalyzers>true</EnableNETAnalyzers>
++    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
++    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+   </PropertyGroup>
+ 
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+     <DocumentationFile>NBA.Logic.Tests.xml</DocumentationFile>
++    <WarningLevel>4</WarningLevel>
+   </PropertyGroup>
+ 
+   <ItemGroup>
+@@ -19,10 +23,6 @@
+   
+ 
+   <ItemGroup>
+-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.1">
+-      <PrivateAssets>all</PrivateAssets>
+-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+-    </PackageReference>
+     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.0" />
+     <PackageReference Include="Moq" Version="4.15.2" />
+     <PackageReference Include="NUnit" Version="3.12.0" />
+diff --git a/OENIK_PROG3_2020_2_C80LD7/NBA.Logic/IPlayerLogic.cs b/OENIK_PROG3_2020_2_C80LD7/NBA.Logic/IPlayerLogic.cs
+index dd98ede..7abb407 100644
+--- a/OENIK_PROG3_2020_2_C80LD7/NBA.Logic/IPlayerLogic.cs
++++ b/OENIK_PROG3_2020_2_C80LD7/NBA.Logic/IPlayerLogic.cs
+@@ -91,6 +91,12 @@ namespace NBA.Logic
+         /// <param name="newsalary">player's new salary.</param>
+         void ChangePlayerSalary(int id, int newsalary);
+ 
++        /// <summary>
++        /// Updates player entity.
++        /// </summary>
++        /// <param name="id">Player entity.</param>
++        void UpdatePlayer(int id);
++
+         /// <summary>
+         /// Return player player from one team.
+         /// </summary>
+diff --git a/OENIK_PROG3_2020_2_C80LD7/NBA.Logic/NBA.Logic.csproj b/OENIK_PROG3_2020_2_C80LD7/NBA.Logic/NBA.Logic.csproj
+index 22ed57e..8872f2c 100644
+--- a/OENIK_PROG3_2020_2_C80LD7/NBA.Logic/NBA.Logic.csproj
++++ b/OENIK_PROG3_2020_2_C80LD7/NBA.Logic/NBA.Logic.csproj
+@@ -1,11 +1,15 @@
+ <Project Sdk="Microsoft.NET.Sdk">
+ 
+   <PropertyGroup>
+-    <TargetFramework>netcoreapp3.1</TargetFramework>
++    <TargetFramework>net5.0</TargetFramework>
++    <EnableNETAnalyzers>true</EnableNETAnalyzers>
++    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
++    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+   </PropertyGroup>
+ 
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+     <DocumentationFile>NBA.Logic.xml</DocumentationFile>
++    <WarningLevel>4</WarningLevel>
+   </PropertyGroup>
+ 
+   <ItemGroup>
+@@ -19,10 +23,6 @@
+   
+ 
+   <ItemGroup>
+-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.1">
+-      <PrivateAssets>all</PrivateAssets>
+-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+-    </PackageReference>
+     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.0" />
+     <PackageReference Include="Moq" Version="4.15.2" />
+     <PackageReference Include="NUnit" Version="3.12.0" />
+diff --git a/OENIK_PROG3_2020_2_C80LD7/NBA.Logic/NBA.Logic.xml b/OENIK_PROG3_2020_2_C80LD7/NBA.Logic/NBA.Logic.xml
+index 15dda66..d65d238 100644
+--- a/OENIK_PROG3_2020_2_C80LD7/NBA.Logic/NBA.Logic.xml
++++ b/OENIK_PROG3_2020_2_C80LD7/NBA.Logic/NBA.Logic.xml
+@@ -110,6 +110,12 @@
+             <param name="id">player's id.</param>
+             <param name="newsalary">player's new salary.</param>
+         </member>
++        <member name="M:NBA.Logic.IPlayerLogic.UpdatePlayer(System.Int32)">
++            <summary>
++            Updates player entity.
++            </summary>
++            <param name="id">Player entity.</param>
++        </member>
+         <member name="M:NBA.Logic.IPlayerLogic.GetPlayerByTeam(System.Int32)">
+             <summary>
+             Return player player from one team.
+@@ -342,6 +348,12 @@
+             <param name="id">player's id.</param>
+             <param name="newsalary">player's new salary to update.</param>
+         </member>
++        <member name="M:NBA.Logic.PlayerLogic.UpdatePlayer(System.Int32)">
++            <summary>
++            Updates player entity.
++            </summary>
++            <param name="id">Player type entity.</param>
++        </member>
+         <member name="M:NBA.Logic.PlayerLogic.GetPlayerByTeam(System.Int32)">
+             <summary>
+             Return players in one team.
+diff --git a/OENIK_PROG3_2020_2_C80LD7/NBA.Logic/PlayerLogic.cs b/OENIK_PROG3_2020_2_C80LD7/NBA.Logic/PlayerLogic.cs
+index 32d6965..7736d1f 100644
+--- a/OENIK_PROG3_2020_2_C80LD7/NBA.Logic/PlayerLogic.cs
++++ b/OENIK_PROG3_2020_2_C80LD7/NBA.Logic/PlayerLogic.cs
+@@ -164,6 +164,15 @@ namespace NBA.Logic
+             this.playerRepo.ChangeSalary(id, newsalary);
+         }
+ 
++        /// <summary>
++        /// Updates player entity.
++        /// </summary>
++        /// <param name="id">Player type entity.</param>
++        public void UpdatePlayer(int id)
++        {
++            this.playerRepo.UpdatePlayer(id);
++        }
++
+         /// <summary>
+         /// Return players in one team.
+         /// </summary>
+diff --git a/OENIK_PROG3_2020_2_C80LD7/NBA.Program/NBA.Program.csproj b/OENIK_PROG3_2020_2_C80LD7/NBA.Program/NBA.Program.csproj
+index e5dc8d0..ac57136 100644
+--- a/OENIK_PROG3_2020_2_C80LD7/NBA.Program/NBA.Program.csproj
++++ b/OENIK_PROG3_2020_2_C80LD7/NBA.Program/NBA.Program.csproj
+@@ -2,11 +2,15 @@
+ 
+   <PropertyGroup>
+     <OutputType>Exe</OutputType>
+-    <TargetFramework>netcoreapp3.1</TargetFramework>
++    <TargetFramework>net5.0</TargetFramework>
++    <EnableNETAnalyzers>true</EnableNETAnalyzers>
++    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
++    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+   </PropertyGroup>
+ 
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+     <DocumentationFile>NBA.Program.xml</DocumentationFile>
++    <WarningLevel>4</WarningLevel>
+   </PropertyGroup>
+ 
+   <ItemGroup>
+@@ -19,10 +23,6 @@
+ 
+   <ItemGroup>
+     <PackageReference Include="ConsoleMenu-simple" Version="2.4.0" />
+-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.1">
+-      <PrivateAssets>all</PrivateAssets>
+-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+-    </PackageReference>
+     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+       <PrivateAssets>all</PrivateAssets>
+       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+diff --git a/OENIK_PROG3_2020_2_C80LD7/NBA.Repository/IPlayerRepository.cs b/OENIK_PROG3_2020_2_C80LD7/NBA.Repository/IPlayerRepository.cs
+index c5c1c6c..53b0861 100644
+--- a/OENIK_PROG3_2020_2_C80LD7/NBA.Repository/IPlayerRepository.cs
++++ b/OENIK_PROG3_2020_2_C80LD7/NBA.Repository/IPlayerRepository.cs
+@@ -17,5 +17,11 @@ namespace NBA.Repository
+         /// <param name="id">player's id.</param>
+         /// <param name="newsalary">player's new salary to update.</param>
+         void ChangeSalary(int id, int newsalary);
++
++        /// <summary>
++        /// Updates player properties.
++        /// </summary>
++        /// <param name="id">player entity id.</param>
++        void UpdatePlayer(int id);
+     }
+ }
+diff --git a/OENIK_PROG3_2020_2_C80LD7/NBA.Repository/NBA.Repository.csproj b/OENIK_PROG3_2020_2_C80LD7/NBA.Repository/NBA.Repository.csproj
+index 7a094b8..b6342e6 100644
+--- a/OENIK_PROG3_2020_2_C80LD7/NBA.Repository/NBA.Repository.csproj
++++ b/OENIK_PROG3_2020_2_C80LD7/NBA.Repository/NBA.Repository.csproj
+@@ -1,11 +1,15 @@
+-<Project Sdk="Microsoft.NET.Sdk">
++﻿<Project Sdk="Microsoft.NET.Sdk">
+ 
+   <PropertyGroup>
+-    <TargetFramework>netcoreapp3.1</TargetFramework>
++      <TargetFramework>net5.0</TargetFramework>
++      <EnableNETAnalyzers>true</EnableNETAnalyzers>
++      <AnalysisMode>AllEnabledByDefault</AnalysisMode>
++      <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+   </PropertyGroup>
+ 
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+     <DocumentationFile>NBA.Repository.xml</DocumentationFile>
++    <WarningLevel>4</WarningLevel>
+   </PropertyGroup>
+ 
+   <ItemGroup>
+@@ -17,10 +21,6 @@
+   </ItemGroup>
+ 
+   <ItemGroup>
+-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.1">
+-      <PrivateAssets>all</PrivateAssets>
+-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+-    </PackageReference>
+     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+       <PrivateAssets>all</PrivateAssets>
+       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+diff --git a/OENIK_PROG3_2020_2_C80LD7/NBA.Repository/NBA.Repository.xml b/OENIK_PROG3_2020_2_C80LD7/NBA.Repository/NBA.Repository.xml
+index 811f32d..4419849 100644
+--- a/OENIK_PROG3_2020_2_C80LD7/NBA.Repository/NBA.Repository.xml
++++ b/OENIK_PROG3_2020_2_C80LD7/NBA.Repository/NBA.Repository.xml
+@@ -16,6 +16,12 @@
+             <param name="id">player's id.</param>
+             <param name="newsalary">player's new salary to update.</param>
+         </member>
++        <member name="M:NBA.Repository.IPlayerRepository.UpdatePlayer(System.Int32)">
++            <summary>
++            Updates player properties.
++            </summary>
++            <param name="id">player entity id.</param>
++        </member>
+         <member name="T:NBA.Repository.IPlayerStatsRepository">
+             <summary>
+             Describes the player stats repository.
+@@ -169,6 +175,12 @@
+             <param name="id">id of the player.</param>
+             <param name="newsalary">player's new salary to update.</param>
+         </member>
++        <member name="M:NBA.Repository.PlayerRepository.UpdatePlayer(System.Int32)">
++            <summary>
++            Updates player's properties.
++            </summary>
++            <param name="id">Player type entity id.</param>
++        </member>
+         <member name="T:NBA.Repository.PlayerStatsRepository">
+             <summary>
+             Implements player stat specific operations.
+diff --git a/OENIK_PROG3_2020_2_C80LD7/NBA.Repository/PlayerRepository.cs b/OENIK_PROG3_2020_2_C80LD7/NBA.Repository/PlayerRepository.cs
+index e028a6f..bc1500f 100644
+--- a/OENIK_PROG3_2020_2_C80LD7/NBA.Repository/PlayerRepository.cs
++++ b/OENIK_PROG3_2020_2_C80LD7/NBA.Repository/PlayerRepository.cs
+@@ -55,5 +55,27 @@ namespace NBA.Repository
+                 throw new ArgumentException("Player not exist with this id.");
+             }
+         }
++
++        /// <summary>
++        /// Updates player's properties.
++        /// </summary>
++        /// <param name="id">Player type entity id.</param>
++        public void UpdatePlayer(int id)
++        {
++            var player = this.GetOne(id);
++            if (player != null)
++            {
++                player.PlayerID = player.PlayerID;
++                player.Name = player.Name;
++                player.Number = player.Number;
++                player.Weight = player.Weight;
++                player.Height = player.Height;
++                player.Salary = player.Salary;
++                player.Team = player.Team;
++                player.Post = player.Post;
++
++                this.ctx.SaveChanges();
++            }
++        }
+     }
+ }
+diff --git a/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/App.xaml b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/App.xaml
+new file mode 100644
+index 0000000..487e698
+--- /dev/null
++++ b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/App.xaml
+@@ -0,0 +1,9 @@
++﻿<Application x:Class="NBA.WPFApp.App"
++             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
++             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
++             xmlns:local="clr-namespace:NBA.WPFApp"
++             StartupUri="MainWindow.xaml">
++    <Application.Resources>
++         
++    </Application.Resources>
++</Application>
+diff --git a/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/App.xaml.cs b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/App.xaml.cs
+new file mode 100644
+index 0000000..96e0cd0
+--- /dev/null
++++ b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/App.xaml.cs
+@@ -0,0 +1,51 @@
++﻿// <copyright file="App.xaml.cs" company="C80LD7">
++// Copyright (c) C80LD7. All rights reserved.
++// </copyright>
++
++namespace NBA.WPFApp
++{
++    using System.Windows;
++    using CommonServiceLocator;
++    using GalaSoft.MvvmLight.Ioc;
++    using GalaSoft.MvvmLight.Messaging;
++    using Microsoft.EntityFrameworkCore;
++    using NBA.Data.Model;
++    using NBA.Logic;
++    using NBA.Repository;
++    using NBA.WPFApp.BL;
++    using NBA.WPFApp.Data;
++    using NBA.WPFApp.UI;
++    using NBA.WPFApp.VM;
++
++    /// <summary>
++    /// Interaction logic for App.xaml.
++    /// </summary>
++    public partial class App : Application
++    {
++        /// <summary>
++        /// Initializes a new instance of the <see cref="App"/> class.
++        /// </summary>
++        public App()
++        {
++            ServiceLocator.SetLocatorProvider(() => MyIoc.Instance);
++            MyIoc.Instance.Register<IEditorService, EditorServiceViaWindow>();
++            MyIoc.Instance.Register<IMessenger>(() => Messenger.Default);
++
++            MyIoc.Instance.Register<DbContext>(() => new NBADbContext());
++            MyIoc.Instance.Register<PlayerUI, PlayerUI>();
++            MyIoc.Instance.Register<TeamUI, TeamUI>();
++
++            MyIoc.Instance.Register<IPlayerRepository, PlayerRepository>();
++            MyIoc.Instance.Register<IPlayerStatsRepository, PlayerStatsRepository>();
++            MyIoc.Instance.Register<ITeamsRepository, TeamsRepository>();
++            MyIoc.Instance.Register<ITeamsStatsRepository, TeamsStatsRepository>();
++            MyIoc.Instance.Register<ISeriesRepository, SeriesRepository>();
++
++            MyIoc.Instance.Register<IPlayerUiLogic, PlayerUiLogic>();
++            MyIoc.Instance.Register<IPlayerLogic, PlayerLogic>();
++            MyIoc.Instance.Register<ITeamLogic, TeamLogic>();
++
++            MyIoc.Instance.Register<Factory, Factory>();
++        }
++    }
++}
+diff --git a/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/AssemblyInfo.cs b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/AssemblyInfo.cs
+new file mode 100644
+index 0000000..727168c
+--- /dev/null
++++ b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/AssemblyInfo.cs
+@@ -0,0 +1,11 @@
++// <copyright file="AssemblyInfo.cs" company="C80LD7">
++// Copyright (c) C80LD7. All rights reserved.
++// </copyright>
++
++using System;
++using System.Windows;
++
++[assembly: ThemeInfo(
++    ResourceDictionaryLocation.None, // where theme specific resource dictionaries are located
++    ResourceDictionaryLocation.SourceAssembly)]
++[assembly: CLSCompliant(false)]
+\ No newline at end of file
+diff --git a/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/BL/IEditorService.cs b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/BL/IEditorService.cs
+new file mode 100644
+index 0000000..81407de
+--- /dev/null
++++ b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/BL/IEditorService.cs
+@@ -0,0 +1,21 @@
++﻿// <copyright file="IEditorService.cs" company="C80LD7">
++// Copyright (c) C80LD7. All rights reserved.
++// </copyright>
++
++namespace NBA.WPFApp.BL
++{
++    using NBA.WPFApp.Data;
++
++    /// <summary>
++    /// Editor service interface.
++    /// </summary>
++    public interface IEditorService
++    {
++        /// <summary>
++        /// Returns edit player result.
++        /// </summary>
++        /// <param name="p">Player entity ref.</param>
++        /// <returns>true or false.</returns>
++        bool EditPlayer(PlayerUI p);
++    }
++}
+diff --git a/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/BL/IPlayerUiLogic.cs b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/BL/IPlayerUiLogic.cs
+new file mode 100644
+index 0000000..57cd6c3
+--- /dev/null
++++ b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/BL/IPlayerUiLogic.cs
+@@ -0,0 +1,40 @@
++﻿// <copyright file="IPlayerUiLogic.cs" company="C80LD7">
++// Copyright (c) C80LD7. All rights reserved.
++// </copyright>
++
++namespace NBA.WPFApp.BL
++{
++    using System.Collections.Generic;
++    using NBA.WPFApp.Data;
++
++    /// <summary>
++    /// Interface of Player business logic.
++    /// </summary>
++    public interface IPlayerUiLogic
++    {
++        /// <summary>
++        /// Adds new player to the list.
++        /// </summary>
++        /// <param name="list">list of players in ui.</param>
++        void AddPlayer(IList<PlayerUI> list);
++
++        /// <summary>
++        /// Modify one player's props.
++        /// </summary>
++        /// <param name="playerToModify">player in ui to modify.</param>
++        void ModPlayer(PlayerUI playerToModify);
++
++        /// <summary>
++        /// Deletes one player from the list and from the db as well.
++        /// </summary>
++        /// <param name="list">list of players in ui.</param>
++        /// <param name="player">player in ui to delete.</param>
++        void DelPlayer(IList<PlayerUI> list, PlayerUI player);
++
++        /// <summary>
++        /// Retruns a list of players in ui.
++        /// </summary>
++        /// <returns>IList collection.</returns>
++        IList<PlayerUI> GetAllPlayers();
++    }
++}
+diff --git a/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/BL/PlayerUiLogic.cs b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/BL/PlayerUiLogic.cs
+new file mode 100644
+index 0000000..dd36060
+--- /dev/null
++++ b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/BL/PlayerUiLogic.cs
+@@ -0,0 +1,151 @@
++﻿// <copyright file="PlayerUiLogic.cs" company="C80LD7">
++// Copyright (c) C80LD7. All rights reserved.
++// </copyright>
++
++namespace NBA.WPFApp.BL
++{
++    using System.Collections.Generic;
++    using System.Linq;
++    using GalaSoft.MvvmLight.Ioc;
++    using GalaSoft.MvvmLight.Messaging;
++    using NBA.Logic;
++    using NBA.WPFApp.Data;
++
++    /// <summary>
++    /// Player Business logic.
++    /// </summary>
++    public class PlayerUiLogic : IPlayerUiLogic
++    {
++        private readonly IEditorService editorService;
++        private readonly IMessenger messengerService;
++        private readonly NBA.Logic.IPlayerLogic playerLogic;
++        private readonly PlayerUI playeruidata;
++        private readonly Factory factory;
++        private readonly TeamUI teamuidata;
++
++        /// <summary>
++        /// Initializes a new instance of the <see cref="PlayerUiLogic"/> class.
++        /// </summary>
++        /// <param name="editorService">Editor service ref.</param>
++        /// <param name="messengerService">Messenger service ref.</param>
++        /// <param name="playerLogic">old player logic ref.</param>
++        /// <param name="playeruidata">playerui data ref.</param>
++        /// <param name="factory">factory ref.</param>
++        /// <param name="teamui">teamui data ref.</param>
++        [PreferredConstructor]
++        public PlayerUiLogic(IEditorService editorService, IMessenger messengerService, NBA.Logic.IPlayerLogic playerLogic, PlayerUI playeruidata, Factory factory, TeamUI teamui)
++        {
++            this.playerLogic = playerLogic;
++            this.editorService = editorService;
++            this.messengerService = messengerService;
++            this.playeruidata = playeruidata;
++            this.factory = factory;
++            this.teamuidata = teamui;
++        }
++
++        /// <summary>
++        /// Initializes a new instance of the <see cref="PlayerUiLogic"/> class.
++        /// </summary>
++        /// <param name="playerLogic">playerLogic interface reference.</param>
++        public PlayerUiLogic(IPlayerLogic playerLogic)
++        {
++            this.playerLogic = playerLogic;
++        }
++
++        /// <summary>
++        /// Adds one player to list.
++        /// </summary>
++        /// <param name="list">list of players in ui.</param>
++        public void AddPlayer(IList<PlayerUI> list)
++        {
++            PlayerUI newPlayer = new PlayerUI();
++            if (this.editorService.EditPlayer(newPlayer) == true)
++            {
++                list?.Add(newPlayer);
++                this.playerLogic.AddNewPlayer(new NBA.Data.Model.Player
++                {
++                    Name = newPlayer.Name,
++                    Height = newPlayer.Height,
++                    Salary = newPlayer.Salary,
++
++                    // Team = TeamUI.ConvertToTeamEntity(newPlayer.TeamUI),
++                    TeamID = TeamUI.ConvertToTeamEntity(newPlayer.TeamUI).TeamID,
++                });
++
++                list.Last().PlayerID = this.playerLogic.GetAllPlayers().Last().PlayerID;
++                this.messengerService.Send("ADD OK", "LogicResult");
++            }
++        }
++
++        /// <summary>
++        /// Deletes one player from list and from db as well.
++        /// </summary>
++        /// <param name="list">list of players in ui.</param>
++        /// <param name="player">playerui entity.</param>
++        public void DelPlayer(IList<PlayerUI> list, PlayerUI player)
++        {
++            if (player != null && list != null && list.Remove(player))
++            {
++                // TeamUI.ConvertToTeamEntity(player.TeamUI);
++                var toDel = this.playerLogic.GetOnePlayerById(PlayerUI.ConvertToPlayerEntity(player).PlayerID);
++                this.playerLogic.DeletePlayer(toDel.PlayerID);
++                this.messengerService.Send("DELETE OK", "LogicResult");
++            }
++            else
++            {
++                this.messengerService.Send("DELETE FAILED", "LogicResult");
++            }
++        }
++
++        /// <summary>
++        /// Returns a list of players in ui.
++        /// </summary>
++        /// <returns>IList collection.</returns>
++        public IList<PlayerUI> GetAllPlayers()
++        {
++            List<PlayerUI> playerUiEntities = new List<PlayerUI>();
++            if (this.playerLogic.GetAllPlayers() != null)
++            {
++                foreach (var entity in this.playerLogic.GetAllPlayers())
++                {
++                    playerUiEntities.Add(PlayerUI.ConvertToPlayerUiEntity(entity));
++                }
++
++                this.messengerService.Send("QUERY OK", "LogicResult");
++                return playerUiEntities;
++            }
++            else
++            {
++                this.messengerService.Send("QUERY FAILED", "LogicResult");
++                return null;
++            }
++        }
++
++        /// <summary>
++        /// Change given player's properties.
++        /// </summary>
++        /// <param name="playerToModify">player to modify.</param>
++        public void ModPlayer(PlayerUI playerToModify)
++        {
++            if (playerToModify == null)
++            {
++                this.messengerService.Send("EDIT FAILED", "LogicResult");
++                return;
++            }
++
++            PlayerUI clone = new PlayerUI();
++            this.playerLogic.GetOnePlayerById(playerToModify.PlayerID);
++            clone.CopyFrom(playerToModify);
++            if (this.editorService.EditPlayer(clone) == true)
++            {
++                playerToModify.CopyFrom(clone);
++                this.playerLogic.UpdatePlayer(this.playerLogic.GetOnePlayerById(clone.PlayerID).PlayerID);
++                this.messengerService.Send("MODIFY OK", "LogicResult");
++            }
++            else
++            {
++                this.messengerService.Send("MODIFY CANCEL", "LogicResult");
++            }
++        }
++    }
++}
+diff --git a/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/Data/PlayerUI.cs b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/Data/PlayerUI.cs
+new file mode 100644
+index 0000000..7569397
+--- /dev/null
++++ b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/Data/PlayerUI.cs
+@@ -0,0 +1,176 @@
++﻿// <copyright file="PlayerUI.cs" company="C80LD7">
++// Copyright (c) C80LD7. All rights reserved.
++// </copyright>
++
++namespace NBA.WPFApp.Data
++{
++    using System;
++    using System.Linq;
++    using GalaSoft.MvvmLight;
++    using NBA.Data.Model;
++
++    /// <summary>
++    /// Player entity to display in ui.
++    /// </summary>
++    public class PlayerUI : ObservableObject
++    {
++        private int playerid;
++        private string name;
++        private DateTime birth;
++        private int height;
++        private int weight;
++        private string post;
++        private int salary;
++        private int number;
++        private TeamUI teamui;
++
++        /// <summary>
++        /// Gets or sets iD of the player.
++        /// </summary>
++        public int PlayerID
++        {
++            get { return this.playerid; }
++            set { this.Set(ref this.playerid, value); }
++        }
++
++        /// <summary>
++        /// Gets or sets the name of the player.
++        /// </summary>
++        public string Name
++        {
++            get { return this.name; }
++            set { this.Set(ref this.name, value); }
++        }
++
++        /// <summary>
++        /// Gets or sets the date of birth of the player.
++        /// </summary>
++        public DateTime Birth
++        {
++            get { return this.birth; }
++            set { this.Set(ref this.birth, value); }
++        }
++
++        /// <summary>
++        /// Gets or sets the height of the player.
++        /// </summary>
++        public int Height
++        {
++            get { return this.height; }
++            set { this.Set(ref this.height, value); }
++        }
++
++        /// <summary>
++        /// Gets or sets the weight of the player.
++        /// </summary>
++        public int Weight
++        {
++            get { return this.weight; }
++            set { this.Set(ref this.weight, value); }
++        }
++
++        /// <summary>
++        /// Gets or sets the post of the player where he plays at.
++        /// </summary>
++        public string Post
++        {
++            get { return this.post; }
++            set { this.Set(ref this.post, value); }
++        }
++
++        /// <summary>
++        /// Gets or sets the salary of the player.
++        /// </summary>
++        public int Salary
++        {
++            get { return this.salary; }
++            set { this.Set(ref this.salary, value); }
++        }
++
++        /// <summary>
++        /// Gets or sets the number of the player.
++        /// </summary>
++        public int Number
++        {
++            get { return this.number; }
++            set { this.Set(ref this.number, value); }
++        }
++
++        /// <summary>
++        /// Gets or sets the Team of the player where he plays at.
++        /// </summary>
++        public TeamUI TeamUI
++        {
++            get { return this.teamui; }
++            set { this.Set(ref this.teamui, value); }
++        }
++
++        /// <summary>
++        /// Converts PlayerUI entity to Player db entity.
++        /// </summary>
++        /// <param name="playerui">Player ui entity.</param>
++        /// <returns>Player db entity.</returns>
++        public static Player ConvertToPlayerEntity(PlayerUI playerui)
++        {
++            Player player = new Player();
++            if (playerui != null)
++            {
++                player.PlayerID = playerui.PlayerID;
++                player.Name = playerui.Name;
++                player.Height = playerui.Height;
++                player.Weight = playerui.Weight;
++                player.Salary = playerui.Salary;
++                player.Number = playerui.Number;
++                player.Post = playerui.Post;
++                player.Team = TeamUI.ConvertToTeamEntity(playerui.TeamUI);
++            }
++
++            return player;
++        }
++
++        /// <summary>
++        /// Converts one db player entity to player ui entity.
++        /// </summary>
++        /// <param name="player">player entity.</param>
++        /// <returns>PlayerUI entity.</returns>
++        public static PlayerUI ConvertToPlayerUiEntity(Player player)
++        {
++            PlayerUI playerui = new PlayerUI();
++            if (player != null)
++            {
++                playerui.PlayerID = player.PlayerID;
++                playerui.Name = player.Name;
++                playerui.Height = player.Height;
++                playerui.Weight = player.Weight;
++                playerui.Salary = player.Salary;
++                playerui.Number = player.Number;
++                playerui.Post = player.Post;
++                playerui.TeamUI = TeamUI.ConvertToTeamUiEntity(player.Team);
++                playerui.TeamUI.TeamID = player.Team.TeamID;
++            }
++
++            return playerui;
++        }
++
++        /// <summary>
++        /// Copies a player entity.
++        /// </summary>
++        /// <param name="other">player to copy.</param>
++        public void CopyFrom(PlayerUI other)
++        {
++            this.GetType().GetProperties().ToList().
++                ForEach(property => property.SetValue(this, property.GetValue(other)));
++        }
++
++        // public override bool Equals(object obj)
++        // {
++        //    if (obj is PlayerUI)
++        //    {
++        //        PlayerUI secondPlayer = obj as PlayerUI;
++        //        return this.PlayerID == secondPlayer.PlayerID && this.Name == secondPlayer.Name && this.Height == secondPlayer.Height && this.TeamUI == secondPlayer.TeamUI && this.Salary == secondPlayer.Salary && this.Weight == secondPlayer.Weight && this.Number == secondPlayer.Number;
++        //    }
++
++        // return false;
++        // }
++    }
++}
+diff --git a/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/Data/TeamUI.cs b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/Data/TeamUI.cs
+new file mode 100644
+index 0000000..10d7183
+--- /dev/null
++++ b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/Data/TeamUI.cs
+@@ -0,0 +1,115 @@
++﻿// <copyright file="TeamUI.cs" company="C80LD7">
++// Copyright (c) C80LD7. All rights reserved.
++// </copyright>
++
++namespace NBA.WPFApp.Data
++{
++    using System.Linq;
++    using GalaSoft.MvvmLight;
++    using NBA.Data.Model;
++
++    /// <summary>
++    /// Team ui entity.
++    /// </summary>
++    public class TeamUI : ObservableObject
++    {
++        private int teamID;
++        private string teamName;
++
++        /// <summary>
++        /// Gets or sets the team's id.
++        /// </summary>
++        public int TeamID
++        {
++            get { return this.teamID; }
++            set { this.Set(ref this.teamID, value); }
++        }
++
++        /// <summary>
++        /// Gets or sets the team's name.
++        /// </summary>
++        public string TeamName
++        {
++            get { return this.teamName; }
++            set { this.Set(ref this.teamName, value); }
++        }
++
++        /// <summary>
++        /// Converts PlayerUI entity to Player db entity.
++        /// </summary>
++        /// <param name="teamui">Player ui entity.</param>
++        /// <returns>Player db entity.</returns>
++        public static Teams ConvertToTeamEntity(TeamUI teamui)
++        {
++            Teams team = new Teams();
++            if (teamui != null)
++            {
++                team.TeamID = teamui.TeamID;
++                team.Name = teamui.TeamName;
++            }
++
++            return team;
++        }
++
++        /// <summary>
++        /// Converts one db player entity to player ui entity.
++        /// </summary>
++        /// <param name="team">player entity.</param>
++        /// <returns>PlayerUI entity.</returns>
++        public static TeamUI ConvertToTeamUiEntity(Teams team)
++        {
++            TeamUI teamui = new TeamUI();
++            if (team != null)
++            {
++                teamui.TeamID = team.TeamID;
++                teamui.TeamName = team.Name;
++            }
++
++            return teamui;
++        }
++
++        /// <summary>
++        /// Copies a team entity.
++        /// </summary>
++        /// <param name="other">team to copy.</param>
++        public void CopyFrom(TeamUI other)
++        {
++            this.GetType().GetProperties().ToList().
++                ForEach(property => property.SetValue(this, property.GetValue(other)));
++        }
++
++        /// <summary>
++        /// Overrides the tostring method. It returs the team's name.
++        /// </summary>
++        /// <returns>string.</returns>
++        public override string ToString()
++        {
++            return this.TeamName;
++        }
++
++        /// <summary>
++        /// Overrides equals method.
++        /// </summary>
++        /// <param name="obj">Object to compare.</param>
++        /// <returns>true or false.</returns>
++        public override bool Equals(object obj)
++        {
++            if (obj is TeamUI)
++            {
++                TeamUI secondTeam = obj as TeamUI;
++                return this.TeamID == secondTeam.TeamID && this.TeamName == secondTeam.TeamName;
++            }
++
++            return false;
++        }
++
++        /// <summary>
++        /// Overries get hash code method.
++        /// </summary>
++        /// <returns>int.</returns>
++        public override int GetHashCode()
++        {
++            return this.TeamID;
++        }
++    }
++}
+diff --git a/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/Factory.cs b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/Factory.cs
+new file mode 100644
+index 0000000..8bc9a07
+--- /dev/null
++++ b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/Factory.cs
+@@ -0,0 +1,50 @@
++﻿// <copyright file="Factory.cs" company="C80LD7">
++// Copyright (c) C80LD7. All rights reserved.
++// </copyright>
++
++namespace NBA.WPFApp
++{
++    using NBA.Data.Model;
++    using NBA.Logic;
++    using NBA.Repository;
++
++    /// <summary>
++    /// Factory class.
++    /// </summary>
++    public class Factory
++    {
++        private NBADbContext ctx;
++        private PlayerRepository playerRepo;
++        private PlayerStatsRepository playerStatRepo;
++        private TeamsRepository teamRepo;
++        private PlayerLogic playerLogic;
++
++        /// <summary>
++        /// Initializes a new instance of the <see cref="Factory"/> class.
++        /// </summary>
++        public Factory()
++        {
++            this.ctx = new NBADbContext();
++            this.playerRepo = new PlayerRepository(this.ctx);
++            this.playerLogic = new PlayerLogic(this.playerRepo, this.playerStatRepo, this.teamRepo);
++            this.playerStatRepo = new PlayerStatsRepository(this.ctx);
++            this.teamRepo = new TeamsRepository(this.ctx);
++        }
++
++        /// <summary>
++        /// Gets player logic.
++        /// </summary>
++        public PlayerLogic PlayerLogic
++        {
++            get { return this.playerLogic; }
++        }
++
++        /// <summary>
++        /// Gets db context.
++        /// </summary>
++        public NBADbContext Ctx
++        {
++            get { return this.ctx; }
++        }
++    }
++}
+diff --git a/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/GlobalSuppressions.cs b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/GlobalSuppressions.cs
+new file mode 100644
+index 0000000..8499375
+--- /dev/null
++++ b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/GlobalSuppressions.cs
+@@ -0,0 +1,12 @@
++﻿// <copyright file="GlobalSuppressions.cs" company="C80LD7">
++// Copyright (c) C80LD7. All rights reserved.
++// </copyright>
++
++using System.Diagnostics.CodeAnalysis;
++
++[assembly: SuppressMessage("StyleCop.CSharp.NamingRules", "SA1306:Field names should begin with lower-case letter", Justification = "<Pending>", Scope = "member", Target = "~F:NBA.WPFApp.UI.EditorWindow.VM")]
++[assembly: SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1404:Code analysis suppression should have justification", Justification = "<Pending>")]
++[assembly: SuppressMessage("Design", "CA1002:Do not expose generic lists", Justification = "Allowed to disable")]
++
++[assembly: SuppressMessage("Design", "CA1812:Avoid uninstantiated internal classes", Justification = "False error.")]
++[assembly: SuppressMessage("Design", "CA1001:Types that own disposable fields should be disposable", Justification = "<Pending>", Scope = "type", Target = "~T:NBA.WPFApp.Factory")]
+diff --git a/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/MainWindow.xaml b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/MainWindow.xaml
+new file mode 100644
+index 0000000..7062b1d
+--- /dev/null
++++ b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/MainWindow.xaml
+@@ -0,0 +1,34 @@
++﻿<Window x:Class="NBA.WPFApp.MainWindow"
++        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
++        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
++        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
++        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
++        xmlns:local="clr-namespace:NBA.WPFApp"
++        xmlns:data="clr-namespace:NBA.WPFApp.Data"
++        xmlns:vm="clr-namespace:NBA.WPFApp.VM"
++        xmlns:ui="clr-namespace:NBA.WPFApp.UI"
++        Loaded="Window_Loaded" Closing="Window_Closing"
++        Title="MainWindow" Height="346" Width="448">
++    <Window.Resources>
++        <vm:MainViewModel x:Key="VM" />
++        <DataTemplate x:Key="listTemplate" DataType="{x:Type data:PlayerUI}">
++            <DockPanel>
++                <Label Content="{Binding Path=Name}" DockPanel.Dock="Top" HorizontalContentAlignment="Center" />
++                <Label Content="{Binding Path=Height}" DockPanel.Dock="Bottom" HorizontalContentAlignment="Center" />
++                <Label Content="{Binding Path=Salary}" ContentStringFormat=" {0} $/y" DockPanel.Dock="Left"/>
++                <Label Content="{Binding Path=TeamUI}" DockPanel.Dock="Right"/>
++                <Label />
++            </DockPanel>
++        </DataTemplate>
++    </Window.Resources>
++    <Grid DataContext="{StaticResource VM}">
++        <ListBox ItemTemplate="{StaticResource listTemplate}"
++            ItemsSource="{Binding Path=Team}" SelectedItem="{Binding Path=PlayerSelected}"
++            HorizontalContentAlignment="Stretch"
++            HorizontalAlignment="Left" Height="251" Margin="10,10,0,0" VerticalAlignment="Top" Width="304" />
++
++        <Button Command="{Binding Path=AddCmd}" Content="ADD" HorizontalAlignment="Left" Margin="331,13,0,0" VerticalAlignment="Top" Width="75" />
++        <Button Command="{Binding Path=ModCmd}" Content="MOD" HorizontalAlignment="Left" Margin="331,38,0,0" VerticalAlignment="Top" Width="75" />
++        <Button Command="{Binding Path=DelCmd}" Content="DEL" HorizontalAlignment="Left" Margin="331,63,0,0" VerticalAlignment="Top" Width="75" />
++    </Grid>
++</Window>
+diff --git a/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/MainWindow.xaml.cs b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/MainWindow.xaml.cs
+new file mode 100644
+index 0000000..f806461
+--- /dev/null
++++ b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/MainWindow.xaml.cs
+@@ -0,0 +1,40 @@
++﻿// <copyright file="MainWindow.xaml.cs" company="C80LD7">
++// Copyright (c) C80LD7. All rights reserved.
++// </copyright>
++namespace NBA.WPFApp
++{
++    using System.Windows;
++    using GalaSoft.MvvmLight.Messaging;
++    using NBA.WPFApp.VM;
++
++    /// <summary>
++    /// Interaction logic for MainWindow.xaml.
++    /// </summary>
++    public partial class MainWindow : Window
++    {
++        private MainViewModel vM;
++
++        /// <summary>
++        /// Initializes a new instance of the <see cref="MainWindow"/> class.
++        /// </summary>
++        public MainWindow()
++        {
++            this.InitializeComponent();
++        }
++
++        private void Window_Loaded(object sender, RoutedEventArgs e)
++        {
++            this.vM = this.FindResource("VM") as MainViewModel;
++
++            Messenger.Default.Register<string>(this, "LogicResult", msg =>
++            {
++                MessageBox.Show(msg);
++            });
++        }
++
++        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
++        {
++            Messenger.Default.Unregister(this);
++        }
++    }
++}
+diff --git a/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/MyIoc.xaml.cs b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/MyIoc.xaml.cs
+new file mode 100644
+index 0000000..c6b697f
+--- /dev/null
++++ b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/MyIoc.xaml.cs
+@@ -0,0 +1,30 @@
++﻿// <copyright file="MyIoc.xaml.cs" company="C80LD7">
++// Copyright (c) C80LD7. All rights reserved.
++// </copyright>
++
++namespace NBA.WPFApp
++{
++    using System.Windows;
++    using CommonServiceLocator;
++    using GalaSoft.MvvmLight.Ioc;
++    using GalaSoft.MvvmLight.Messaging;
++    using Microsoft.EntityFrameworkCore;
++    using NBA.Data.Model;
++    using NBA.Logic;
++    using NBA.Repository;
++    using NBA.WPFApp.BL;
++    using NBA.WPFApp.Data;
++    using NBA.WPFApp.UI;
++    using NBA.WPFApp.VM;
++
++    /// <summary>
++    /// Custom MyIoc container.
++    /// </summary>
++    public class MyIoc : SimpleIoc, IServiceLocator
++    {
++        /// <summary>
++        /// Gets myIoc instance.
++        /// </summary>
++        public static MyIoc Instance { get; private set; } = new MyIoc();
++    }
++}
+diff --git a/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/NBA.WPFApp.csproj b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/NBA.WPFApp.csproj
+new file mode 100644
+index 0000000..f316808
+--- /dev/null
++++ b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/NBA.WPFApp.csproj
+@@ -0,0 +1,41 @@
++﻿<Project Sdk="Microsoft.NET.Sdk">
++
++  <PropertyGroup>
++    <OutputType>WinExe</OutputType>
++    <TargetFramework>net5.0-windows</TargetFramework>
++    <UseWPF>true</UseWPF>
++    <EnableNETAnalyzers>true</EnableNETAnalyzers>
++    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
++    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
++  </PropertyGroup>
++
++  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
++    <DocumentationFile>NBA.WPFApp.xml</DocumentationFile>
++    <WarningLevel>4</WarningLevel>
++  </PropertyGroup>
++
++  <ItemGroup>
++    <None Remove="stylecop.json" />
++  </ItemGroup>
++
++  <ItemGroup>
++    <AdditionalFiles Include="stylecop.json" />
++  </ItemGroup>
++
++  <ItemGroup>
++    <PackageReference Include="CommonServiceLocator" Version="2.0.6" />
++    <PackageReference Include="MvvmLightLibsStd10" Version="5.4.1.1" />
++    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
++      <PrivateAssets>all</PrivateAssets>
++      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
++    </PackageReference>
++  </ItemGroup>
++
++  <ItemGroup>
++    <ProjectReference Include="..\NBA.Data\NBA.Data.csproj" />
++    <ProjectReference Include="..\NBA.Logic\NBA.Logic.csproj" />
++    <ProjectReference Include="..\NBA.Program\NBA.Program.csproj" />
++    <ProjectReference Include="..\NBA.Repository\NBA.Repository.csproj" />
++  </ItemGroup>
++
++</Project>
+diff --git a/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/NBA.WPFApp.xml b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/NBA.WPFApp.xml
+new file mode 100644
+index 0000000..011eca0
+--- /dev/null
++++ b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/NBA.WPFApp.xml
+@@ -0,0 +1,466 @@
++<?xml version="1.0"?>
++<doc>
++    <assembly>
++        <name>NBA.WPFApp</name>
++    </assembly>
++    <members>
++        <member name="T:NBA.WPFApp.App">
++            <summary>
++            Interaction logic for App.xaml.
++            </summary>
++            <summary>
++            App
++            </summary>
++        </member>
++        <member name="M:NBA.WPFApp.App.#ctor">
++            <summary>
++            Initializes a new instance of the <see cref="T:NBA.WPFApp.App"/> class.
++            </summary>
++        </member>
++        <member name="M:NBA.WPFApp.App.InitializeComponent">
++            <summary>
++            InitializeComponent
++            </summary>
++        </member>
++        <member name="M:NBA.WPFApp.App.Main">
++            <summary>
++            Application Entry Point.
++            </summary>
++        </member>
++        <member name="T:NBA.WPFApp.BL.IEditorService">
++            <summary>
++            Editor service interface.
++            </summary>
++        </member>
++        <member name="M:NBA.WPFApp.BL.IEditorService.EditPlayer(NBA.WPFApp.Data.PlayerUI)">
++            <summary>
++            Returns edit player result.
++            </summary>
++            <param name="p">Player entity ref.</param>
++            <returns>true or false.</returns>
++        </member>
++        <member name="T:NBA.WPFApp.BL.IPlayerUiLogic">
++            <summary>
++            Interface of Player business logic.
++            </summary>
++        </member>
++        <member name="M:NBA.WPFApp.BL.IPlayerUiLogic.AddPlayer(System.Collections.Generic.IList{NBA.WPFApp.Data.PlayerUI})">
++            <summary>
++            Adds new player to the list.
++            </summary>
++            <param name="list">list of players in ui.</param>
++        </member>
++        <member name="M:NBA.WPFApp.BL.IPlayerUiLogic.ModPlayer(NBA.WPFApp.Data.PlayerUI)">
++            <summary>
++            Modify one player's props.
++            </summary>
++            <param name="playerToModify">player in ui to modify.</param>
++        </member>
++        <member name="M:NBA.WPFApp.BL.IPlayerUiLogic.DelPlayer(System.Collections.Generic.IList{NBA.WPFApp.Data.PlayerUI},NBA.WPFApp.Data.PlayerUI)">
++            <summary>
++            Deletes one player from the list and from the db as well.
++            </summary>
++            <param name="list">list of players in ui.</param>
++            <param name="player">player in ui to delete.</param>
++        </member>
++        <member name="M:NBA.WPFApp.BL.IPlayerUiLogic.GetAllPlayers">
++            <summary>
++            Retruns a list of players in ui.
++            </summary>
++            <returns>IList collection.</returns>
++        </member>
++        <member name="T:NBA.WPFApp.BL.PlayerUiLogic">
++            <summary>
++            Player Business logic.
++            </summary>
++        </member>
++        <member name="M:NBA.WPFApp.BL.PlayerUiLogic.#ctor(NBA.WPFApp.BL.IEditorService,GalaSoft.MvvmLight.Messaging.IMessenger,NBA.Logic.IPlayerLogic,NBA.WPFApp.Data.PlayerUI,NBA.WPFApp.Factory,NBA.WPFApp.Data.TeamUI)">
++            <summary>
++            Initializes a new instance of the <see cref="T:NBA.WPFApp.BL.PlayerUiLogic"/> class.
++            </summary>
++            <param name="editorService">Editor service ref.</param>
++            <param name="messengerService">Messenger service ref.</param>
++            <param name="playerLogic">old player logic ref.</param>
++            <param name="playeruidata">playerui data ref.</param>
++            <param name="factory">factory ref.</param>
++            <param name="teamui">teamui data ref.</param>
++        </member>
++        <member name="M:NBA.WPFApp.BL.PlayerUiLogic.#ctor(NBA.Logic.IPlayerLogic)">
++            <summary>
++            Initializes a new instance of the <see cref="T:NBA.WPFApp.BL.PlayerUiLogic"/> class.
++            </summary>
++            <param name="playerLogic">playerLogic interface reference.</param>
++        </member>
++        <member name="M:NBA.WPFApp.BL.PlayerUiLogic.AddPlayer(System.Collections.Generic.IList{NBA.WPFApp.Data.PlayerUI})">
++            <summary>
++            Adds one player to list.
++            </summary>
++            <param name="list">list of players in ui.</param>
++        </member>
++        <member name="M:NBA.WPFApp.BL.PlayerUiLogic.DelPlayer(System.Collections.Generic.IList{NBA.WPFApp.Data.PlayerUI},NBA.WPFApp.Data.PlayerUI)">
++            <summary>
++            Deletes one player from list and from db as well.
++            </summary>
++            <param name="list">list of players in ui.</param>
++            <param name="player">playerui entity.</param>
++        </member>
++        <member name="M:NBA.WPFApp.BL.PlayerUiLogic.GetAllPlayers">
++            <summary>
++            Returns a list of players in ui.
++            </summary>
++            <returns>IList collection.</returns>
++        </member>
++        <member name="M:NBA.WPFApp.BL.PlayerUiLogic.ModPlayer(NBA.WPFApp.Data.PlayerUI)">
++            <summary>
++            Change given player's properties.
++            </summary>
++            <param name="playerToModify">player to modify.</param>
++        </member>
++        <member name="T:NBA.WPFApp.Data.PlayerUI">
++            <summary>
++            Player entity to display in ui.
++            </summary>
++        </member>
++        <member name="P:NBA.WPFApp.Data.PlayerUI.PlayerID">
++            <summary>
++            Gets or sets iD of the player.
++            </summary>
++        </member>
++        <member name="P:NBA.WPFApp.Data.PlayerUI.Name">
++            <summary>
++            Gets or sets the name of the player.
++            </summary>
++        </member>
++        <member name="P:NBA.WPFApp.Data.PlayerUI.Birth">
++            <summary>
++            Gets or sets the date of birth of the player.
++            </summary>
++        </member>
++        <member name="P:NBA.WPFApp.Data.PlayerUI.Height">
++            <summary>
++            Gets or sets the height of the player.
++            </summary>
++        </member>
++        <member name="P:NBA.WPFApp.Data.PlayerUI.Weight">
++            <summary>
++            Gets or sets the weight of the player.
++            </summary>
++        </member>
++        <member name="P:NBA.WPFApp.Data.PlayerUI.Post">
++            <summary>
++            Gets or sets the post of the player where he plays at.
++            </summary>
++        </member>
++        <member name="P:NBA.WPFApp.Data.PlayerUI.Salary">
++            <summary>
++            Gets or sets the salary of the player.
++            </summary>
++        </member>
++        <member name="P:NBA.WPFApp.Data.PlayerUI.Number">
++            <summary>
++            Gets or sets the number of the player.
++            </summary>
++        </member>
++        <member name="P:NBA.WPFApp.Data.PlayerUI.TeamUI">
++            <summary>
++            Gets or sets the Team of the player where he plays at.
++            </summary>
++        </member>
++        <member name="M:NBA.WPFApp.Data.PlayerUI.ConvertToPlayerEntity(NBA.WPFApp.Data.PlayerUI)">
++            <summary>
++            Converts PlayerUI entity to Player db entity.
++            </summary>
++            <param name="playerui">Player ui entity.</param>
++            <returns>Player db entity.</returns>
++        </member>
++        <member name="M:NBA.WPFApp.Data.PlayerUI.ConvertToPlayerUiEntity(NBA.Data.Model.Player)">
++            <summary>
++            Converts one db player entity to player ui entity.
++            </summary>
++            <param name="player">player entity.</param>
++            <returns>PlayerUI entity.</returns>
++        </member>
++        <member name="M:NBA.WPFApp.Data.PlayerUI.CopyFrom(NBA.WPFApp.Data.PlayerUI)">
++            <summary>
++            Copies a player entity.
++            </summary>
++            <param name="other">player to copy.</param>
++        </member>
++        <member name="T:NBA.WPFApp.Data.TeamUI">
++            <summary>
++            Team ui entity.
++            </summary>
++        </member>
++        <member name="P:NBA.WPFApp.Data.TeamUI.TeamID">
++            <summary>
++            Gets or sets the team's id.
++            </summary>
++        </member>
++        <member name="P:NBA.WPFApp.Data.TeamUI.TeamName">
++            <summary>
++            Gets or sets the team's name.
++            </summary>
++        </member>
++        <member name="M:NBA.WPFApp.Data.TeamUI.ConvertToTeamEntity(NBA.WPFApp.Data.TeamUI)">
++            <summary>
++            Converts PlayerUI entity to Player db entity.
++            </summary>
++            <param name="teamui">Player ui entity.</param>
++            <returns>Player db entity.</returns>
++        </member>
++        <member name="M:NBA.WPFApp.Data.TeamUI.ConvertToTeamUiEntity(NBA.Data.Model.Teams)">
++            <summary>
++            Converts one db player entity to player ui entity.
++            </summary>
++            <param name="team">player entity.</param>
++            <returns>PlayerUI entity.</returns>
++        </member>
++        <member name="M:NBA.WPFApp.Data.TeamUI.CopyFrom(NBA.WPFApp.Data.TeamUI)">
++            <summary>
++            Copies a team entity.
++            </summary>
++            <param name="other">team to copy.</param>
++        </member>
++        <member name="M:NBA.WPFApp.Data.TeamUI.ToString">
++            <summary>
++            Overrides the tostring method. It returs the team's name.
++            </summary>
++            <returns>string.</returns>
++        </member>
++        <member name="M:NBA.WPFApp.Data.TeamUI.Equals(System.Object)">
++            <summary>
++            Overrides equals method.
++            </summary>
++            <param name="obj">Object to compare.</param>
++            <returns>true or false.</returns>
++        </member>
++        <member name="M:NBA.WPFApp.Data.TeamUI.GetHashCode">
++            <summary>
++            Overries get hash code method.
++            </summary>
++            <returns>int.</returns>
++        </member>
++        <member name="T:NBA.WPFApp.Factory">
++            <summary>
++            Factory class.
++            </summary>
++        </member>
++        <member name="M:NBA.WPFApp.Factory.#ctor">
++            <summary>
++            Initializes a new instance of the <see cref="T:NBA.WPFApp.Factory"/> class.
++            </summary>
++        </member>
++        <member name="P:NBA.WPFApp.Factory.PlayerLogic">
++            <summary>
++            Gets player logic.
++            </summary>
++        </member>
++        <member name="P:NBA.WPFApp.Factory.Ctx">
++            <summary>
++            Gets db context.
++            </summary>
++        </member>
++        <member name="T:NBA.WPFApp.MainWindow">
++            <summary>
++            Interaction logic for MainWindow.xaml.
++            </summary>
++            <summary>
++            MainWindow
++            </summary>
++        </member>
++        <member name="M:NBA.WPFApp.MainWindow.#ctor">
++            <summary>
++            Initializes a new instance of the <see cref="T:NBA.WPFApp.MainWindow"/> class.
++            </summary>
++        </member>
++        <member name="M:NBA.WPFApp.MainWindow.InitializeComponent">
++            <summary>
++            InitializeComponent
++            </summary>
++        </member>
++        <member name="T:NBA.WPFApp.MyIoc">
++            <summary>
++            Custom MyIoc container.
++            </summary>
++        </member>
++        <member name="P:NBA.WPFApp.MyIoc.Instance">
++            <summary>
++            Gets myIoc instance.
++            </summary>
++        </member>
++        <member name="T:NBA.WPFApp.UI.EditorServiceViaWindow">
++            <summary>
++            Editor service via wndow.
++            </summary>
++        </member>
++        <member name="M:NBA.WPFApp.UI.EditorServiceViaWindow.EditPlayer(NBA.WPFApp.Data.PlayerUI)">
++            <summary>
++            Returns player edit's result.
++            </summary>
++            <param name="p">Player ui entity.</param>
++            <returns>true or false, depends on result.</returns>
++        </member>
++        <member name="T:NBA.WPFApp.UI.EditorWindow">
++            <summary>
++            Interaction logic for EditorWindow.xaml.
++            </summary>
++            <summary>
++            EditorWindow
++            </summary>
++        </member>
++        <member name="M:NBA.WPFApp.UI.EditorWindow.#ctor">
++            <summary>
++            Initializes a new instance of the <see cref="T:NBA.WPFApp.UI.EditorWindow"/> class.
++            </summary>
++        </member>
++        <member name="M:NBA.WPFApp.UI.EditorWindow.#ctor(NBA.WPFApp.Data.PlayerUI)">
++            <summary>
++            Initializes a new instance of the <see cref="T:NBA.WPFApp.UI.EditorWindow"/> class.
++            </summary>
++            <param name="oldPlayer">Player ui entity.</param>
++        </member>
++        <member name="P:NBA.WPFApp.UI.EditorWindow.PlayerUI">
++            <summary>
++            Gets player ui ref.
++            </summary>
++        </member>
++        <member name="M:NBA.WPFApp.UI.EditorWindow.InitializeComponent">
++            <summary>
++            InitializeComponent
++            </summary>
++        </member>
++        <member name="T:NBA.WPFApp.UI.HeightToStringConverter">
++            <summary>
++            Height to string converter.
++            </summary>
++        </member>
++        <member name="M:NBA.WPFApp.UI.HeightToStringConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
++            <summary>
++            Converts standart int to height format like: Xm Ycm.
++            </summary>
++            <param name="value">value to convert.</param>
++            <param name="targetType">target type.</param>
++            <param name="parameter">parameter.</param>
++            <param name="culture">culture.</param>
++            <returns>some obj.</returns>
++        </member>
++        <member name="M:NBA.WPFApp.UI.HeightToStringConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
++            <summary>
++            converts back the string format back to int.
++            </summary>
++            <param name="value">value to convert.</param>
++            <param name="targetType">targettype.</param>
++            <param name="parameter">param.</param>
++            <param name="culture">cultureinfo.</param>
++            <returns>some obj.</returns>
++        </member>
++        <member name="T:NBA.WPFApp.VM.EditorViewModel">
++            <summary>
++            Editor window.
++            </summary>
++        </member>
++        <member name="M:NBA.WPFApp.VM.EditorViewModel.#ctor(NBA.Logic.ITeamLogic)">
++            <summary>
++            Initializes a new instance of the <see cref="T:NBA.WPFApp.VM.EditorViewModel"/> class.
++            </summary>
++            <param name="logic">Team logic ref.</param>
++        </member>
++        <member name="M:NBA.WPFApp.VM.EditorViewModel.#ctor">
++            <summary>
++            Initializes a new instance of the <see cref="T:NBA.WPFApp.VM.EditorViewModel"/> class.
++            </summary>
++        </member>
++        <member name="P:NBA.WPFApp.VM.EditorViewModel.PlayerUi">
++            <summary>
++            Gets or sets player ui entity.
++            </summary>
++        </member>
++        <member name="P:NBA.WPFApp.VM.EditorViewModel.SelectedTeam">
++            <summary>
++            Gets or sets returns selected team.
++            </summary>
++        </member>
++        <member name="P:NBA.WPFApp.VM.EditorViewModel.TeamCollection">
++            <summary>
++            Gets collection of teams.
++            </summary>
++        </member>
++        <member name="P:NBA.WPFApp.VM.EditorViewModel.TeamUi">
++            <summary>
++            Gets or sets team ui entity.
++            </summary>
++        </member>
++        <member name="T:NBA.WPFApp.VM.MainViewModel">
++            <summary>
++            Main view model class that implements view model base.
++            </summary>
++        </member>
++        <member name="M:NBA.WPFApp.VM.MainViewModel.#ctor(NBA.WPFApp.BL.IPlayerUiLogic)">
++            <summary>
++            Initializes a new instance of the <see cref="T:NBA.WPFApp.VM.MainViewModel"/> class.
++            </summary>
++            <param name="logic">Player ui logic ref.</param>
++        </member>
++        <member name="M:NBA.WPFApp.VM.MainViewModel.#ctor">
++            <summary>
++            Initializes a new instance of the <see cref="T:NBA.WPFApp.VM.MainViewModel"/> class.
++            implements main view model.
++            </summary>
++        </member>
++        <member name="P:NBA.WPFApp.VM.MainViewModel.PlayerSelected">
++            <summary>
++            Gets or sets the selected player.
++            </summary>
++        </member>
++        <member name="P:NBA.WPFApp.VM.MainViewModel.Team">
++            <summary>
++            Gets team collection.
++            </summary>
++        </member>
++        <member name="P:NBA.WPFApp.VM.MainViewModel.AddCmd">
++            <summary>
++            Gets add command.
++            </summary>
++        </member>
++        <member name="P:NBA.WPFApp.VM.MainViewModel.ModCmd">
++            <summary>
++            Gets modification command.
++            </summary>
++        </member>
++        <member name="P:NBA.WPFApp.VM.MainViewModel.DelCmd">
++            <summary>
++            Gets delete command.
++            </summary>
++        </member>
++        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
++            <summary>
++            GeneratedInternalTypeHelper
++            </summary>
++        </member>
++        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
++            <summary>
++            CreateInstance
++            </summary>
++        </member>
++        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
++            <summary>
++            GetPropertyValue
++            </summary>
++        </member>
++        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
++            <summary>
++            SetPropertyValue
++            </summary>
++        </member>
++        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
++            <summary>
++            CreateDelegate
++            </summary>
++        </member>
++        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
++            <summary>
++            AddEventHandler
++            </summary>
++        </member>
++    </members>
++</doc>
+diff --git a/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/UI/EditorServiceViaWindow.cs b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/UI/EditorServiceViaWindow.cs
+new file mode 100644
+index 0000000..f464de2
+--- /dev/null
++++ b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/UI/EditorServiceViaWindow.cs
+@@ -0,0 +1,26 @@
++﻿// <copyright file="EditorServiceViaWindow.cs" company="C80LD7">
++// Copyright (c) C80LD7. All rights reserved.
++// </copyright>
++
++namespace NBA.WPFApp.UI
++{
++    using NBA.WPFApp.BL;
++    using NBA.WPFApp.Data;
++
++    /// <summary>
++    /// Editor service via wndow.
++    /// </summary>
++    public class EditorServiceViaWindow : IEditorService
++    {
++        /// <summary>
++        /// Returns player edit's result.
++        /// </summary>
++        /// <param name="p">Player ui entity.</param>
++        /// <returns>true or false, depends on result.</returns>
++        public bool EditPlayer(PlayerUI p)
++        {
++            EditorWindow win = new EditorWindow(p);
++            return win.ShowDialog() ?? false;
++        }
++    }
++}
+diff --git a/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/UI/EditorWindow.xaml b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/UI/EditorWindow.xaml
+new file mode 100644
+index 0000000..d10af12
+--- /dev/null
++++ b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/UI/EditorWindow.xaml
+@@ -0,0 +1,33 @@
++﻿<Window x:Class="NBA.WPFApp.UI.EditorWindow"
++        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
++        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
++        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
++        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
++        xmlns:ui="clr-namespace:NBA.WPFApp.UI"
++        xmlns:vm="clr-namespace:NBA.WPFApp.VM"
++        mc:Ignorable="d"
++        Title="EditorWindow" Height="205" Width="239">
++    <Window.Resources>
++        <vm:EditorViewModel x:Key="VM" />
++        <ui:HeightToStringConverter x:Key="HeightToStringConverter" />
++    </Window.Resources>
++    <Grid DataContext="{StaticResource VM}">
++        <Label Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" />
++        <Label Content="Height" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,38,0,0" />
++        <Label Content="Salary" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,66,0,0" />
++        <Label Content="Team" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,94,0,0" />
++
++        <TextBox Text="{Binding Path=PlayerUi.Name}" HorizontalAlignment="Left" Height="23" Margin="63,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
++        <TextBox Text="{Binding Path=PlayerUi.Height, Converter={StaticResource HeightToStringConverter}}" HorizontalAlignment="Left" Height="23" Margin="63,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
++        <TextBox Text="{Binding Path=PlayerUi.Salary}" HorizontalAlignment="Left" Height="23" Margin="63,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
++
++        <ComboBox HorizontalAlignment="Left" Margin="63,96,0,0" VerticalAlignment="Top" Width="120" 
++                  ItemsSource="{Binding Path=TeamCollection}" 
++                  SelectedItem="{Binding Path=PlayerUi.TeamUI}">
++        </ComboBox>
++
++        <Button Content="OK" HorizontalAlignment="Left" Margin="17,128,0,0" VerticalAlignment="Top" Width="75" Click="OkClick" />
++        <Button Content="CANCEL" HorizontalAlignment="Left" Margin="97,128,0,0" VerticalAlignment="Top" Width="75" Click="CancelClick" />
++
++    </Grid>
++</Window>
+diff --git a/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/UI/EditorWindow.xaml.cs b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/UI/EditorWindow.xaml.cs
+new file mode 100644
+index 0000000..11bcd76
+--- /dev/null
++++ b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/UI/EditorWindow.xaml.cs
+@@ -0,0 +1,53 @@
++﻿// <copyright file="EditorWindow.xaml.cs" company="C80LD7">
++// Copyright (c) C80LD7. All rights reserved.
++// </copyright>
++
++namespace NBA.WPFApp.UI
++{
++    using System.Windows;
++    using NBA.WPFApp.Data;
++    using NBA.WPFApp.VM;
++
++    /// <summary>
++    /// Interaction logic for EditorWindow.xaml.
++    /// </summary>
++    public partial class EditorWindow : Window
++    {
++        private EditorViewModel VM;
++
++        /// <summary>
++        /// Initializes a new instance of the <see cref="EditorWindow"/> class.
++        /// </summary>
++        public EditorWindow()
++        {
++            this.InitializeComponent();
++
++            this.VM = this.FindResource("VM") as EditorViewModel;
++        }
++
++        /// <summary>
++        /// Initializes a new instance of the <see cref="EditorWindow"/> class.
++        /// </summary>
++        /// <param name="oldPlayer">Player ui entity.</param>
++        public EditorWindow(PlayerUI oldPlayer)
++            : this()
++        {
++            this.VM.PlayerUi = oldPlayer;
++        }
++
++        /// <summary>
++        /// Gets player ui ref.
++        /// </summary>
++        public PlayerUI PlayerUI { get => this.VM.PlayerUi; }
++
++        private void OkClick(object sender, RoutedEventArgs e)
++        {
++            this.DialogResult = true;
++        }
++
++        private void CancelClick(object sender, RoutedEventArgs e)
++        {
++            this.DialogResult = false;
++        }
++    }
++}
+diff --git a/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/UI/HeightToStringConverter.cs b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/UI/HeightToStringConverter.cs
+new file mode 100644
+index 0000000..f28ca2f
+--- /dev/null
++++ b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/UI/HeightToStringConverter.cs
+@@ -0,0 +1,46 @@
++﻿// <copyright file="HeightToStringConverter.cs" company="C80LD7">
++// Copyright (c) C80LD7. All rights reserved.
++// </copyright>
++
++namespace NBA.WPFApp.UI
++{
++    using System;
++    using System.Globalization;
++    using System.Windows.Data;
++
++    /// <summary>
++    /// Height to string converter.
++    /// </summary>
++    public class HeightToStringConverter : IValueConverter
++    {
++        /// <summary>
++        /// Converts standart int to height format like: Xm Ycm.
++        /// </summary>
++        /// <param name="value">value to convert.</param>
++        /// <param name="targetType">target type.</param>
++        /// <param name="parameter">parameter.</param>
++        /// <param name="culture">culture.</param>
++        /// <returns>some obj.</returns>
++        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
++        {
++            int h = (int)value;
++            return $"{h / 100}m {h % 100}cm";
++        }
++
++        /// <summary>
++        /// converts back the string format back to int.
++        /// </summary>
++        /// <param name="value">value to convert.</param>
++        /// <param name="targetType">targettype.</param>
++        /// <param name="parameter">param.</param>
++        /// <param name="culture">cultureinfo.</param>
++        /// <returns>some obj.</returns>
++        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
++        {
++            string[] input = value?.ToString().Split(' ');
++            int m = int.Parse(input[0].Substring(0, input[0].Length - 1), CultureInfo.CurrentCulture);
++            int cm = int.Parse(input[1].Substring(0, input[1].Length - 2), CultureInfo.CurrentCulture);
++            return (m * 100) + cm;
++        }
++    }
++}
+diff --git a/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/VM/EditorViewModel.cs b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/VM/EditorViewModel.cs
+new file mode 100644
+index 0000000..fbdfa27
+--- /dev/null
++++ b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/VM/EditorViewModel.cs
+@@ -0,0 +1,88 @@
++﻿// <copyright file="EditorViewModel.cs" company="C80LD7">
++// Copyright (c) C80LD7. All rights reserved.
++// </copyright>
++
++namespace NBA.WPFApp.VM
++{
++    using System.Collections.ObjectModel;
++    using CommonServiceLocator;
++    using GalaSoft.MvvmLight;
++    using NBA.Data.Model;
++    using NBA.Logic;
++    using NBA.WPFApp.Data;
++
++    /// <summary>
++    /// Editor window.
++    /// </summary>
++    public class EditorViewModel : ViewModelBase
++    {
++        private PlayerUI playerui;
++        private TeamUI teamui;
++        private ITeamLogic logic;
++        private TeamUI selectedTeam;
++
++        /// <summary>
++        /// Initializes a new instance of the <see cref="EditorViewModel"/> class.
++        /// </summary>
++        /// <param name="logic">Team logic ref.</param>
++        public EditorViewModel(ITeamLogic logic)
++        {
++            this.logic = logic;
++            this.TeamCollection = new ObservableCollection<TeamUI>();
++
++            this.playerui = new PlayerUI();
++
++            if (this.IsInDesignMode)
++            {
++                this.playerui.Name = "Unknown Bill";
++                this.playerui.Height = 200;
++                this.playerui.Salary = 69696969;
++            }
++
++            foreach (var item in this.logic.GetAllTeams())
++            {
++                this.TeamCollection.Add(TeamUI.ConvertToTeamUiEntity(item));
++            }
++        }
++
++        /// <summary>
++        /// Initializes a new instance of the <see cref="EditorViewModel"/> class.
++        /// </summary>
++        public EditorViewModel()
++            : this(IsInDesignModeStatic ? null : ServiceLocator.Current.GetInstance<ITeamLogic>())
++        {
++        }
++
++        /// <summary>
++        /// Gets or sets player ui entity.
++        /// </summary>
++        public PlayerUI PlayerUi
++        {
++            get { return this.playerui; }
++            set { this.Set(ref this.playerui, value); }
++        }
++
++        /// <summary>
++        /// Gets or sets returns selected team.
++        /// </summary>
++        public TeamUI SelectedTeam
++        {
++            get { return this.selectedTeam; }
++            set { this.Set(ref this.selectedTeam, value); }
++        }
++
++        /// <summary>
++        /// Gets collection of teams.
++        /// </summary>
++        public ObservableCollection<TeamUI> TeamCollection { get; private set; }
++
++        /// <summary>
++        /// Gets or sets team ui entity.
++        /// </summary>
++        public TeamUI TeamUi
++        {
++            get { return this.teamui; }
++            set { this.Set(ref this.teamui, value); }
++        }
++    }
++}
+diff --git a/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/VM/MainViewModel.cs b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/VM/MainViewModel.cs
+new file mode 100644
+index 0000000..fdf2479
+--- /dev/null
++++ b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/VM/MainViewModel.cs
+@@ -0,0 +1,102 @@
++﻿// <copyright file="MainViewModel.cs" company="C80LD7">
++// Copyright (c) C80LD7. All rights reserved.
++// </copyright>
++
++namespace NBA.WPFApp.VM
++{
++    using System;
++    using System.Collections.ObjectModel;
++    using System.Windows.Input;
++    using CommonServiceLocator;
++    using GalaSoft.MvvmLight;
++    using GalaSoft.MvvmLight.Command;
++    using GalaSoft.MvvmLight.Ioc;
++    using NBA.WPFApp.BL;
++    using NBA.WPFApp.Data;
++
++    /// <summary>
++    /// Main view model class that implements view model base.
++    /// </summary>
++    public class MainViewModel : ViewModelBase
++    {
++        // private readonly TeamUI teamSelected;
++        private IPlayerUiLogic logic;
++        private PlayerUI playerSelected;
++
++        /// <summary>
++        /// Initializes a new instance of the <see cref="MainViewModel"/> class.
++        /// </summary>
++        /// <param name="logic">Player ui logic ref.</param>
++        public MainViewModel(IPlayerUiLogic logic)
++        {
++            this.logic = logic;
++
++            this.Team = new ObservableCollection<PlayerUI>();
++
++            // this.TeamCollection = new ObservableCollection<TeamUI>();
++            if (this.IsInDesignMode)
++            {
++                PlayerUI p1 = new PlayerUI() { Name = "Test Test", Birth = new DateTime(1984, 12, 20), Height = 206, Weight = 113, Number = 23, Post = "SF/PF", Salary = 37436858 };
++                PlayerUI p2 = new PlayerUI() { Name = "Test2 Test2", Birth = new DateTime(1988, 09, 29), Height = 208, Weight = 109, Number = 35, Post = "SF/PF", Salary = 37199000 };
++                this.Team.Add(p1);
++                this.Team.Add(p2);
++            }
++
++            foreach (var item in this.logic.GetAllPlayers())
++            {
++                TeamUI.ConvertToTeamEntity(item.TeamUI);
++                this.Team.Add(item);
++            }
++
++            this.AddCmd = new RelayCommand(() => this.logic.AddPlayer(this.Team));
++            this.ModCmd = new RelayCommand(() => this.logic.ModPlayer(this.PlayerSelected));
++            this.DelCmd = new RelayCommand(() => this.logic.DelPlayer(this.Team, this.PlayerSelected));
++        }
++
++        /// <summary>
++        /// Initializes a new instance of the <see cref="MainViewModel"/> class.
++        /// implements main view model.
++        /// </summary>
++        public MainViewModel()
++            : this(IsInDesignModeStatic ? null : ServiceLocator.Current.GetInstance<IPlayerUiLogic>())
++        {
++        }
++
++        /// <summary>
++        /// Gets or sets the selected player.
++        /// </summary>
++        public PlayerUI PlayerSelected
++        {
++            get { return this.playerSelected; }
++            set { this.Set(ref this.playerSelected, value); }
++        }
++
++        // public TeamUI TeamSelected
++        // {
++        //    get { return this.teamSelected; }
++        //    set { Set(ref teamSelected, value); }
++        // }
++
++        /// <summary>
++        /// Gets team collection.
++        /// </summary>
++        public ObservableCollection<PlayerUI> Team { get; private set; }
++
++        // public ObservableCollection<TeamUI> TeamCollection { get; private set; }
++
++        /// <summary>
++        /// Gets add command.
++        /// </summary>
++        public ICommand AddCmd { get; private set; }
++
++        /// <summary>
++        /// Gets modification command.
++        /// </summary>
++        public ICommand ModCmd { get; private set; }
++
++        /// <summary>
++        /// Gets delete command.
++        /// </summary>
++        public ICommand DelCmd { get; private set; }
++    }
++}
+diff --git a/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/stylecop.json b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/stylecop.json
+new file mode 100644
+index 0000000..9028ea8
+--- /dev/null
++++ b/OENIK_PROG3_2020_2_C80LD7/NBA.WPFApp/stylecop.json
+@@ -0,0 +1,14 @@
++﻿{
++  // ACTION REQUIRED: This file was automatically added to your project, but it
++  // will not take effect until additional steps are taken to enable it. See the
++  // following page for additional information:
++  //
++  // https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/EnableConfiguration.md
++
++  "$schema": "https://raw.githubusercontent.com/DotNetAnalyzers/StyleCopAnalyzers/master/StyleCop.Analyzers/StyleCop.Analyzers/Settings/stylecop.schema.json",
++  "settings": {
++    "documentationRules": {
++      "companyName": "C80LD7"
++    }
++  }
++}
+diff --git a/OENIK_PROG3_2020_2_C80LD7/OENIK_PROG3_2020_2_C80LD7.sln b/OENIK_PROG3_2020_2_C80LD7/OENIK_PROG3_2020_2_C80LD7.sln
+index de8fa63..d727837 100644
+--- a/OENIK_PROG3_2020_2_C80LD7/OENIK_PROG3_2020_2_C80LD7.sln
++++ b/OENIK_PROG3_2020_2_C80LD7/OENIK_PROG3_2020_2_C80LD7.sln
+@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NBA.Logic", "NBA.Logic\NBA.
+ EndProject
+ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NBA.Logic.Tests", "NBA.Logic.Tests\NBA.Logic.Tests.csproj", "{66C81260-58F4-4129-95AF-76167334920C}"
+ EndProject
++Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NBA.WPFApp", "NBA.WPFApp\NBA.WPFApp.csproj", "{E454EBC3-CB46-4ADE-91DE-DE3F3026C294}"
++EndProject
+ Global
+ 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+ 		Debug|Any CPU = Debug|Any CPU
+@@ -39,6 +41,10 @@ Global
+ 		{66C81260-58F4-4129-95AF-76167334920C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+ 		{66C81260-58F4-4129-95AF-76167334920C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+ 		{66C81260-58F4-4129-95AF-76167334920C}.Release|Any CPU.Build.0 = Release|Any CPU
++		{E454EBC3-CB46-4ADE-91DE-DE3F3026C294}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
++		{E454EBC3-CB46-4ADE-91DE-DE3F3026C294}.Debug|Any CPU.Build.0 = Debug|Any CPU
++		{E454EBC3-CB46-4ADE-91DE-DE3F3026C294}.Release|Any CPU.ActiveCfg = Release|Any CPU
++		{E454EBC3-CB46-4ADE-91DE-DE3F3026C294}.Release|Any CPU.Build.0 = Release|Any CPU
+ 	EndGlobalSection
+ 	GlobalSection(SolutionProperties) = preSolution
+ 		HideSolutionNode = FALSE
