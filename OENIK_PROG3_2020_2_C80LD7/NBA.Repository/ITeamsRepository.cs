@@ -17,5 +17,11 @@ namespace NBA.Repository
         /// <param name="id">team's id.</param>
         /// <param name="newname">team's new name.</param>
         void ChangeTeamName(int id, string newname);
+
+        /// <summary>
+        /// Updates team properties.
+        /// </summary>
+        /// <param name="id">team entity id.</param>
+        void UpdateTeam(int id);
     }
 }

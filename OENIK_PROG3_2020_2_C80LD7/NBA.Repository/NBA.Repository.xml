@@ -103,6 +103,12 @@
             <param name="id">team's id.</param>
             <param name="newname">team's new name.</param>
         </member>
+        <member name="M:NBA.Repository.ITeamsRepository.UpdateTeam(System.Int32)">
+            <summary>
+            Updates team properties.
+            </summary>
+            <param name="id">team entity id.</param>
+        </member>
         <member name="T:NBA.Repository.ITeamsStatsRepository">
             <summary>
             Describe team stat methods.
@@ -269,6 +275,12 @@
             </summary>
             <param name="id">id of the team.</param>
             <returns>Team entity.</returns>
+        </member>
+        <member name="M:NBA.Repository.TeamsRepository.UpdateTeam(System.Int32)">
+            <summary>
+            Updates team properties.
+            </summary>
+            <param name="id"></param>
         </member>
         <member name="T:NBA.Repository.TeamsStatsRepository">
             <summary>

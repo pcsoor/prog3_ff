@@ -59,5 +59,25 @@ namespace NBA.Repository
                 throw new ArgumentException("Player not exist with this id.");
             }
         }
+
+        /// <summary>
+        /// Updates team properties.
+        /// </summary>
+        /// <param name="id"></param>
+        public void UpdateTeam(int id)
+        {
+            var team = this.GetOne(id);
+            if (team != null)
+            {
+                team.TeamID = team.TeamID;
+                team.Name = team.Name;
+                team.Coach = team.Coach;
+                team.Region = team.Region;
+                team.Series = team.Series;
+                team.TeamStats = team.TeamStats;
+
+                this.ctx.SaveChanges();
+            }
+        }
     }
 }
