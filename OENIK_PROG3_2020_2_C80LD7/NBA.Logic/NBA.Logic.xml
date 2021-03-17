@@ -266,6 +266,12 @@
             <param name="id">stat id.</param>
             <param name="newassist">new assist value.</param>
         </member>
+        <member name="M:NBA.Logic.ITeamLogic.UpdateTeam(System.Int32)">
+            <summary>
+            Updates team entity.
+            </summary>
+            <param name="id">Team entity's id.</param>
+        </member>
         <member name="M:NBA.Logic.ITeamLogic.GetTeamAverageStealPerGame">
             <summary>
             Gets average steals per games by teams from previous seasons.
@@ -534,6 +540,12 @@
             Inserts new series into the database.
             </summary>
             <param name="series">series entity that needs to be inserted.</param>
+        </member>
+        <member name="M:NBA.Logic.TeamLogic.UpdateTeam(System.Int32)">
+            <summary>
+            Updates a team.
+            </summary>
+            <param name="id">team's id.</param>
         </member>
     </members>
 </doc>

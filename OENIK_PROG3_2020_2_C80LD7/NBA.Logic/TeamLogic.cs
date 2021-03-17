@@ -270,5 +270,14 @@ namespace NBA.Logic
         {
             this.seriesRepo.Insert(series);
         }
+
+        /// <summary>
+        /// Updates a team.
+        /// </summary>
+        /// <param name="id">team's id.</param>
+        public void UpdateTeam(int id)
+        {
+            this.teamRepo.UpdateTeam(id);
+        }
     }
 }
