@@ -27,6 +27,16 @@
             Application Entry Point.
             </summary>
         </member>
+        <member name="T:NBA.WPFApp.MyIoc">
+            <summary>
+            Custom IoC.
+            </summary>
+        </member>
+        <member name="P:NBA.WPFApp.MyIoc.Instance">
+            <summary>
+            Gets myIoc instance.
+            </summary>
+        </member>
         <member name="T:NBA.WPFApp.BL.IEditorService">
             <summary>
             Editor service interface.
@@ -37,6 +47,13 @@
             Returns edit player result.
             </summary>
             <param name="p">Player entity ref.</param>
+            <returns>true or false.</returns>
+        </member>
+        <member name="M:NBA.WPFApp.BL.IEditorService.EditTeam(NBA.WPFApp.Data.TeamUI)">
+            <summary>
+            Edit team.
+            </summary>
+            <param name="t">team reference.</param>
             <returns>true or false.</returns>
         </member>
         <member name="T:NBA.WPFApp.BL.IPlayerUiLogic">
@@ -66,6 +83,36 @@
         <member name="M:NBA.WPFApp.BL.IPlayerUiLogic.GetAllPlayers">
             <summary>
             Retruns a list of players in ui.
+            </summary>
+            <returns>IList collection.</returns>
+        </member>
+        <member name="T:NBA.WPFApp.BL.ITeamUiLogic">
+            <summary>
+            Team logic interface.
+            </summary>
+        </member>
+        <member name="M:NBA.WPFApp.BL.ITeamUiLogic.AddTeam(System.Collections.Generic.IList{NBA.WPFApp.Data.TeamUI})">
+            <summary>
+            Adds new team to the list.
+            </summary>
+            <param name="list">list of teams in ui.</param>
+        </member>
+        <member name="M:NBA.WPFApp.BL.ITeamUiLogic.ModTeam(NBA.WPFApp.Data.TeamUI)">
+            <summary>
+            Modify a team's props.
+            </summary>
+            <param name="teamToModify">team in ui to modify.</param>
+        </member>
+        <member name="M:NBA.WPFApp.BL.ITeamUiLogic.DelTeam(System.Collections.Generic.IList{NBA.WPFApp.Data.TeamUI},NBA.WPFApp.Data.TeamUI)">
+            <summary>
+            Deletes one team from the list and from the db as well.
+            </summary>
+            <param name="list">list of players in ui.</param>
+            <param name="team">team in ui to delete.</param>
+        </member>
+        <member name="M:NBA.WPFApp.BL.ITeamUiLogic.GetAllTeam">
+            <summary>
+            Retruns a list of teams in ui.
             </summary>
             <returns>IList collection.</returns>
         </member>
@@ -115,6 +162,52 @@
             Change given player's properties.
             </summary>
             <param name="playerToModify">player to modify.</param>
+        </member>
+        <member name="T:NBA.WPFApp.BL.TeamUiLogic">
+            <summary>
+            Business Logic of team.
+            </summary>
+        </member>
+        <member name="M:NBA.WPFApp.BL.TeamUiLogic.#ctor(NBA.WPFApp.BL.IEditorService,GalaSoft.MvvmLight.Messaging.IMessenger,NBA.Logic.ITeamLogic,NBA.WPFApp.Factory,NBA.WPFApp.Data.TeamUI)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.WPFApp.BL.TeamUiLogic"/> class.
+            </summary>
+            <param name="editorService">editor service ref.</param>
+            <param name="messengerService">messenger service ref.</param>
+            <param name="teamLogic">team logic ref.</param>
+            <param name="factory">ref to factory.</param>
+            <param name="teamuidata">ref to team data.</param>
+        </member>
+        <member name="M:NBA.WPFApp.BL.TeamUiLogic.#ctor(NBA.Logic.ITeamLogic)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.WPFApp.BL.TeamUiLogic"/> class.
+            </summary>
+            <param name="teamLogic">Ref to team logic.</param>
+        </member>
+        <member name="M:NBA.WPFApp.BL.TeamUiLogic.AddTeam(System.Collections.Generic.IList{NBA.WPFApp.Data.TeamUI})">
+            <summary>
+            Adds a team to list.
+            </summary>
+            <param name="list">list of teams.</param>
+        </member>
+        <member name="M:NBA.WPFApp.BL.TeamUiLogic.DelTeam(System.Collections.Generic.IList{NBA.WPFApp.Data.TeamUI},NBA.WPFApp.Data.TeamUI)">
+            <summary>
+            Deletes one team from list.
+            </summary>
+            <param name="list">list of teams.</param>
+            <param name="team">team ref.</param>
+        </member>
+        <member name="M:NBA.WPFApp.BL.TeamUiLogic.GetAllTeam">
+            <summary>
+            Returns a list of all team.
+            </summary>
+            <returns>list.</returns>
+        </member>
+        <member name="M:NBA.WPFApp.BL.TeamUiLogic.ModTeam(NBA.WPFApp.Data.TeamUI)">
+            <summary>
+            Modifies one team.
+            </summary>
+            <param name="teamToModify">team to mod.</param>
         </member>
         <member name="T:NBA.WPFApp.Data.PositionTypeUI">
             <summary>
@@ -245,6 +338,16 @@
             Gets or sets the team's name.
             </summary>
         </member>
+        <member name="P:NBA.WPFApp.Data.TeamUI.Coach">
+            <summary>
+            Gets or sets the team's coach.
+            </summary>
+        </member>
+        <member name="P:NBA.WPFApp.Data.TeamUI.Region">
+            <summary>
+            Gets or sets the team's location.
+            </summary>
+        </member>
         <member name="M:NBA.WPFApp.Data.TeamUI.ConvertToTeamEntity(NBA.WPFApp.Data.TeamUI)">
             <summary>
             Converts PlayerUI entity to Player db entity.
@@ -322,16 +425,6 @@
             InitializeComponent
             </summary>
         </member>
-        <member name="T:NBA.WPFApp.MyIoc">
-            <summary>
-            Custom MyIoc container.
-            </summary>
-        </member>
-        <member name="P:NBA.WPFApp.MyIoc.Instance">
-            <summary>
-            Gets myIoc instance.
-            </summary>
-        </member>
         <member name="T:NBA.WPFApp.UI.CheckDateIfNullConverter">
             <summary>
             Checks if date is null.
@@ -369,6 +462,13 @@
             <param name="p">Player ui entity.</param>
             <returns>true or false, depends on result.</returns>
         </member>
+        <member name="M:NBA.WPFApp.UI.EditorServiceViaWindow.EditTeam(NBA.WPFApp.Data.TeamUI)">
+            <summary>
+            Returns team edit's result.
+            </summary>
+            <param name="t">Team ui entity.</param>
+            <returns>true or false, depends on result.</returns>
+        </member>
         <member name="T:NBA.WPFApp.UI.EditorWindow">
             <summary>
             Interaction logic for EditorWindow.xaml.
@@ -388,12 +488,47 @@
             </summary>
             <param name="oldPlayer">Player ui entity.</param>
         </member>
+        <member name="M:NBA.WPFApp.UI.EditorWindow.#ctor(NBA.WPFApp.Data.TeamUI)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.WPFApp.UI.EditorWindow"/> class.
+            </summary>
+            <param name="oldTeam">Player ui entity.</param>
+        </member>
         <member name="P:NBA.WPFApp.UI.EditorWindow.PlayerUI">
             <summary>
             Gets player ui ref.
             </summary>
         </member>
+        <member name="P:NBA.WPFApp.UI.EditorWindow.TeamUI">
+            <summary>
+            Gets team ui ref.
+            </summary>
+        </member>
         <member name="M:NBA.WPFApp.UI.EditorWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:NBA.WPFApp.UI.EditorWindowTeam">
+            <summary>
+            Interaction logic for EditorWindowTeam.xaml.
+            </summary>
+            <summary>
+            EditorWindowTeam
+            </summary>
+        </member>
+        <member name="M:NBA.WPFApp.UI.EditorWindowTeam.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.WPFApp.UI.EditorWindowTeam"/> class.
+            </summary>
+        </member>
+        <member name="M:NBA.WPFApp.UI.EditorWindowTeam.#ctor(NBA.WPFApp.Data.TeamUI)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.WPFApp.UI.EditorWindowTeam"/> class.
+            </summary>
+            <param name="oldTeam">Player ui entity.</param>
+        </member>
+        <member name="M:NBA.WPFApp.UI.EditorWindowTeam.InitializeComponent">
             <summary>
             InitializeComponent
             </summary>
@@ -422,6 +557,17 @@
             <param name="parameter">param.</param>
             <param name="culture">cultureinfo.</param>
             <returns>some obj.</returns>
+        </member>
+        <member name="T:NBA.WPFApp.UI.StatusToBrushConverter">
+            <summary>
+            Status to brush converter.
+            </summary>
+        </member>
+        <member name="M:NBA.WPFApp.UI.StatusToBrushConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:NBA.WPFApp.UI.StatusToBrushConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
         </member>
         <member name="T:NBA.WPFApp.VM.EditorViewModel">
             <summary>
@@ -464,16 +610,32 @@
             Gets or sets team ui entity.
             </summary>
         </member>
+        <member name="T:NBA.WPFApp.VM.EditorViewModelTeam">
+            <summary>
+            Team editor view model.
+            </summary>
+        </member>
+        <member name="M:NBA.WPFApp.VM.EditorViewModelTeam.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.WPFApp.VM.EditorViewModelTeam"/> class.
+            </summary>
+        </member>
+        <member name="P:NBA.WPFApp.VM.EditorViewModelTeam.TeamUi">
+            <summary>
+            Gets or sets team ui entity.
+            </summary>
+        </member>
         <member name="T:NBA.WPFApp.VM.MainViewModel">
             <summary>
             Main view model class that implements view model base.
             </summary>
         </member>
-        <member name="M:NBA.WPFApp.VM.MainViewModel.#ctor(NBA.WPFApp.BL.IPlayerUiLogic)">
+        <member name="M:NBA.WPFApp.VM.MainViewModel.#ctor(NBA.WPFApp.BL.IPlayerUiLogic,NBA.WPFApp.BL.ITeamUiLogic)">
             <summary>
             Initializes a new instance of the <see cref="T:NBA.WPFApp.VM.MainViewModel"/> class.
             </summary>
             <param name="logic">Player ui logic ref.</param>
+            <param name="teamUiLogic">Team ui logic ref.</param>
         </member>
         <member name="M:NBA.WPFApp.VM.MainViewModel.#ctor">
             <summary>
@@ -486,9 +648,19 @@
             Gets or sets the selected player.
             </summary>
         </member>
+        <member name="P:NBA.WPFApp.VM.MainViewModel.TeamSelected">
+            <summary>
+            Gets or sets selected team.
+            </summary>
+        </member>
         <member name="P:NBA.WPFApp.VM.MainViewModel.Team">
             <summary>
             Gets team collection.
+            </summary>
+        </member>
+        <member name="P:NBA.WPFApp.VM.MainViewModel.TeamCollection">
+            <summary>
+            Gets collection of teams.
             </summary>
         </member>
         <member name="P:NBA.WPFApp.VM.MainViewModel.AddCmd">
@@ -502,6 +674,21 @@
             </summary>
         </member>
         <member name="P:NBA.WPFApp.VM.MainViewModel.DelCmd">
+            <summary>
+            Gets delete command.
+            </summary>
+        </member>
+        <member name="P:NBA.WPFApp.VM.MainViewModel.AddTeamCmd">
+            <summary>
+            Gets add command.
+            </summary>
+        </member>
+        <member name="P:NBA.WPFApp.VM.MainViewModel.ModTeamCmd">
+            <summary>
+            Gets modification command.
+            </summary>
+        </member>
+        <member name="P:NBA.WPFApp.VM.MainViewModel.DelTeamCmd">
             <summary>
             Gets delete command.
             </summary>
