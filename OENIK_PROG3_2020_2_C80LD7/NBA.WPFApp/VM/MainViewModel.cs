@@ -38,23 +38,25 @@ namespace NBA.WPFApp.VM
             this.TeamCollection = new ObservableCollection<TeamUI>();
             this.Team = new ObservableCollection<PlayerUI>();
 
-            foreach (var item in this.logic.GetAllPlayers())
-            {
-                TeamUI.ConvertToTeamEntity(item.TeamUI);
-                this.Team.Add(item);
-            }
-
-            foreach (var item in this.teamUiLogic.GetAllTeam())
-            {
-                this.TeamCollection.Add(item);
-            }
-
             if (this.IsInDesignMode)
             {
                 PlayerUI p1 = new PlayerUI() { Name = "Test Test", Birth = new DateTime(1984, 12, 20), Height = 206, Weight = 113, Number = 23, Post = PositionTypeUI.PointGuard, Salary = 37436858, TeamUI = new TeamUI { TeamName = "Test", Coach = "Test Coach", Region = "Test region" } };
                 PlayerUI p2 = new PlayerUI() { Name = "Test2 Test2", Birth = new DateTime(1988, 09, 29), Height = 208, Weight = 109, Number = 35, Post = PositionTypeUI.PowerForward, Salary = 37199000, TeamUI = new TeamUI { TeamName = "Test", Coach = "Test Coach", Region = "Test region" } };
                 this.Team.Add(p1);
                 this.Team.Add(p2);
+            }
+            else
+            {
+                foreach (var item in this.logic.GetAllPlayers())
+                {
+                    TeamUI.ConvertToTeamEntity(item.TeamUI);
+                    this.Team.Add(item);
+                }
+
+                foreach (var item in this.teamUiLogic.GetAllTeam())
+                {
+                    this.TeamCollection.Add(item);
+                }
             }
 
             this.AddCmd = new RelayCommand(() => this.logic.AddPlayer(this.Team));

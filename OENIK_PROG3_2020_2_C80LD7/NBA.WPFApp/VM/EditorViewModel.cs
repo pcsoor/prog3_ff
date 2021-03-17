@@ -39,10 +39,12 @@ namespace NBA.WPFApp.VM
                 this.playerui.Height = 200;
                 this.playerui.Salary = 69696969;
             }
-
-            foreach (var item in this.logic.GetAllTeams())
+            else
             {
-                this.TeamCollection.Add(TeamUI.ConvertToTeamUiEntity(item));
+                foreach (var item in this.logic.GetAllTeams())
+                {
+                    this.TeamCollection.Add(TeamUI.ConvertToTeamUiEntity(item));
+                }
             }
         }
 
