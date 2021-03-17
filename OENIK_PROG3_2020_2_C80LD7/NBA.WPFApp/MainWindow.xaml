@@ -9,42 +9,81 @@
         xmlns:vm="clr-namespace:NBA.WPFApp.VM"
         xmlns:ui="clr-namespace:NBA.WPFApp.UI"
         Loaded="Window_Loaded" Closing="Window_Closing"
-        Title="MainWindow" Height="384" Width="543">
+        Title="MainWindow" Height="361" Width="676">
     <Window.Resources>
-        <vm:MainViewModel x:Key="VM" />
         <ui:CheckDateIfNullConverter x:Key="CheckDateIfNullConverter" />
+        <ui:StatusToBrushConverter x:Key="StatusToBrushConverter" />
+        <vm:MainViewModel x:Key="VM" />
         <DataTemplate x:Key="listTemplate" DataType="{x:Type data:PlayerUI}">
-            <DockPanel>
-                <Label Content="{Binding Path=Name}" DockPanel.Dock="Top" HorizontalContentAlignment="Center" />
-                <Label Content="{Binding Path=Height}" DockPanel.Dock="Bottom" HorizontalContentAlignment="Center" />
-                <Label Content="{Binding Path=Salary}" ContentStringFormat=" {0} $/y" DockPanel.Dock="Left"/>
-                <Label Content="{Binding Path=TeamUI}" DockPanel.Dock="Right"/>
+            <DockPanel Background="{Binding Path=Post, Converter={StaticResource StatusToBrushConverter}}">
+                <Label Content="{Binding Path=Name}" DockPanel.Dock="Left" />
+                <Label Content="{Binding Path=Height, StringFormat={}{0}cm}" DockPanel.Dock="Right" />
+                <Label Content="{Binding Path=TeamUI}" DockPanel.Dock="Right" />
                 <Label />
+            </DockPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="listTemplateTeams" DataType="{x:Type data:TeamUI}">
+            <DockPanel>
+                <Label Content="{Binding Path=TeamName}" DockPanel.Dock="Left" />
+                <Label Content="{Binding Path=Coach}" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
             </DockPanel>
         </DataTemplate>
     </Window.Resources>
     <Grid DataContext="{StaticResource VM}">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <ListBox ItemTemplate="{StaticResource listTemplate}"
-            ItemsSource="{Binding Path=Team}" SelectedItem="{Binding Path=PlayerSelected}"
-            HorizontalContentAlignment="Stretch"
-            HorizontalAlignment="Left" Height="251" Margin="10,10,0,0" VerticalAlignment="Top" Width="304" />
+        <TabControl>
+            <TabItem Header="Players">
+                <StackPanel Orientation="Horizontal">
+                    <ListBox ItemTemplate="{StaticResource listTemplate}"
+                ItemsSource="{Binding Path=Team}" SelectedItem="{Binding Path=PlayerSelected}"
+                HorizontalContentAlignment="Stretch"
+                HorizontalAlignment="Left" Height="251" Margin="10,10,0,0" VerticalAlignment="Top" Width="304" />
+                    <StackPanel Orientation="Vertical" Width="160" Height="250" VerticalAlignment="Top" Margin="10">
+                        <Label Content="Player Details:" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" BorderThickness="0 0 0 1" BorderBrush="Black" Padding="0 2"/>
+                        <TextBlock Text="{Binding PlayerSelected.Name, StringFormat=Name: \{0\}}" Margin="10,0,0,0" Height="20" VerticalAlignment="Top"/>
+                        <TextBlock Text="{Binding PlayerSelected.Birth, Converter={StaticResource CheckDateIfNullConverter}, Mode=OneWay, StringFormat=Birth: \{0\}}" Margin="10,0,0,0" Height="20" VerticalAlignment="Top"/>
+                        <TextBlock Text="{Binding PlayerSelected.Height, StringFormat=Height: \{0\}}" Margin="10,0,0,0" Height="20" VerticalAlignment="Top"/>
+                        <TextBlock Text="{Binding PlayerSelected.Weight, StringFormat=Weight: \{0\}}" Margin="10,0,0,0" Height="20" VerticalAlignment="Top"/>
+                        <TextBlock Text="{Binding PlayerSelected.Post, StringFormat=Post: \{0\}}" Margin="10,0,0,0" Height="20" VerticalAlignment="Top"/>
+                        <TextBlock Text="{Binding PlayerSelected.Number, StringFormat=Number: \{0\}}" Margin="10,0,0,0" Height="20" VerticalAlignment="Top"/>
+                        <TextBlock Text="{Binding PlayerSelected.Salary, StringFormat=Salary: \{0\}}" Margin="10,0,0,0" Height="20" VerticalAlignment="Top"/>
+                        <TextBlock Text="{Binding PlayerSelected.TeamUI, StringFormat=Team: \{0\}}" Margin="10,0,0,0" Height="20" VerticalAlignment="Top"/>
+                    </StackPanel>
 
-        <Button Command="{Binding Path=AddCmd}" Content="ADD" HorizontalAlignment="Left" Margin="10,283,0,0" VerticalAlignment="Top" Width="75" />
-        <Button Command="{Binding Path=ModCmd}" Content="MOD" HorizontalAlignment="Left" Margin="104,283,0,0" VerticalAlignment="Top" Width="76" />
-        <Button Command="{Binding Path=DelCmd}" Content="DEL" HorizontalAlignment="Left" Margin="200,283,0,0" VerticalAlignment="Top" Width="76" />
-        <Label Content="Player Details:" HorizontalAlignment="Left" Margin="325,20,0,0" VerticalAlignment="Top" BorderThickness="0 0 0 1" BorderBrush="Black" Padding="0 2"/>
+                    <StackPanel Orientation="Vertical">
+                        <Button Command="{Binding Path=AddCmd}" Content="ADD" Margin="0, 5" VerticalAlignment="Top" Width="100" />
+                        <Button Command="{Binding Path=ModCmd}" Content="MOD" Margin="0, 5" VerticalAlignment="Top" Width="100" />
+                        <Button Command="{Binding Path=DelCmd}" Content="DEL" Margin="0, 5" VerticalAlignment="Top" Width="100" />
+                    </StackPanel>
+                </StackPanel>
 
-        <TextBlock Text="{Binding PlayerSelected.Name, StringFormat={}Name: {0}}" Margin="325,53,0,0" Height="20" VerticalAlignment="Top"/>
-        <TextBlock Text="{Binding PlayerSelected.Birth, Converter={StaticResource CheckDateIfNullConverter}, StringFormat={}Birth: {0}, Mode=OneWay}" Margin="325,73,0,0" Height="20" VerticalAlignment="Top"/>
-        <TextBlock Text="{Binding PlayerSelected.Height, StringFormat={}Height: {0}}" Margin="325,93,0,0" Height="20" VerticalAlignment="Top"/>
-        <TextBlock Text="{Binding PlayerSelected.Weight, StringFormat={}Weight: {0}}" Margin="325,113,0,0" Height="20" VerticalAlignment="Top"/>
-        <TextBlock Text="{Binding PlayerSelected.Post, StringFormat={}Post: {0}}" Margin="325,133,0,0" Height="20" VerticalAlignment="Top"/>
-        <TextBlock Text="{Binding PlayerSelected.Number, StringFormat={}Number: {0}}" Margin="325,153,0,0" Height="20" VerticalAlignment="Top"/>
-        <TextBlock Text="{Binding PlayerSelected.Salary, StringFormat={}Salary: {0}}" Margin="325,173,0,0" Height="20" VerticalAlignment="Top"/>
-        <TextBlock Text="{Binding PlayerSelected.TeamUI, StringFormat={}Team: {0}}" Margin="325,193,0,0" Height="20" VerticalAlignment="Top"/>
+
+            </TabItem>
+            <TabItem Header="Teams">
+                <StackPanel Orientation="Horizontal">
+                    <ListBox ItemTemplate="{StaticResource listTemplateTeams}"
+                ItemsSource="{Binding Path=TeamCollection}" SelectedItem="{Binding Path=TeamSelected}"
+                HorizontalContentAlignment="Stretch"
+                HorizontalAlignment="Left" Height="251" Margin="10,10,0,0" VerticalAlignment="Top" Width="304" />
+                    <StackPanel Orientation="Vertical" Width="160" Height="250" VerticalAlignment="Top" Margin="10">
+                        <Label Content="Team Details:" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" BorderThickness="0 0 0 1" BorderBrush="Black" Padding="0 2"/>
+                        <TextBlock Text="{Binding TeamSelected.TeamName, StringFormat=Name: \{0\}}" Margin="10,0,0,0" Height="20" VerticalAlignment="Top"/>
+                        <TextBlock Text="{Binding TeamSelected.Coach, StringFormat=Coach: \{0\}}" Margin="10,0,0,0" Height="20" VerticalAlignment="Top"/>
+                        <TextBlock Text="{Binding TeamSelected.Region, StringFormat=Region: \{0\}}" Margin="10,0,0,0" Height="20" VerticalAlignment="Top"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical">
+                        <Button Command="{Binding Path=AddTeamCmd}" Content="ADD" Margin="0, 5" VerticalAlignment="Top" Width="100" />
+                        <Button Command="{Binding Path=ModTeamCmd}" Content="MOD" Margin="0, 5" VerticalAlignment="Top" Width="100" />
+                        <Button Command="{Binding Path=DelTeamCmd}" Content="DEL" Margin="0, 5" VerticalAlignment="Top" Width="100" />
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+
+
+        
+
 
 
     </Grid>
