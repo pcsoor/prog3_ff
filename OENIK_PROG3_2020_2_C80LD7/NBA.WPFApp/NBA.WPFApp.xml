@@ -27,16 +27,6 @@
             Application Entry Point.
             </summary>
         </member>
-        <member name="T:NBA.WPFApp.MyIoc">
-            <summary>
-            Custom IoC.
-            </summary>
-        </member>
-        <member name="P:NBA.WPFApp.MyIoc.Instance">
-            <summary>
-            Gets myIoc instance.
-            </summary>
-        </member>
         <member name="T:NBA.WPFApp.BL.IEditorService">
             <summary>
             Editor service interface.
@@ -425,6 +415,16 @@
             InitializeComponent
             </summary>
         </member>
+        <member name="T:NBA.WPFApp.MyIoc">
+            <summary>
+            Custom IoC.
+            </summary>
+        </member>
+        <member name="P:NBA.WPFApp.MyIoc.Instance">
+            <summary>
+            Gets myIoc instance.
+            </summary>
+        </member>
         <member name="T:NBA.WPFApp.UI.CheckDateIfNullConverter">
             <summary>
             Checks if date is null.
@@ -488,20 +488,9 @@
             </summary>
             <param name="oldPlayer">Player ui entity.</param>
         </member>
-        <member name="M:NBA.WPFApp.UI.EditorWindow.#ctor(NBA.WPFApp.Data.TeamUI)">
-            <summary>
-            Initializes a new instance of the <see cref="T:NBA.WPFApp.UI.EditorWindow"/> class.
-            </summary>
-            <param name="oldTeam">Player ui entity.</param>
-        </member>
         <member name="P:NBA.WPFApp.UI.EditorWindow.PlayerUI">
             <summary>
             Gets player ui ref.
-            </summary>
-        </member>
-        <member name="P:NBA.WPFApp.UI.EditorWindow.TeamUI">
-            <summary>
-            Gets team ui ref.
             </summary>
         </member>
         <member name="M:NBA.WPFApp.UI.EditorWindow.InitializeComponent">
@@ -527,6 +516,11 @@
             Initializes a new instance of the <see cref="T:NBA.WPFApp.UI.EditorWindowTeam"/> class.
             </summary>
             <param name="oldTeam">Player ui entity.</param>
+        </member>
+        <member name="P:NBA.WPFApp.UI.EditorWindowTeam.TeamUI">
+            <summary>
+            Gets team ui ref.
+            </summary>
         </member>
         <member name="M:NBA.WPFApp.UI.EditorWindowTeam.InitializeComponent">
             <summary>
@@ -691,6 +685,36 @@
         <member name="P:NBA.WPFApp.VM.MainViewModel.DelTeamCmd">
             <summary>
             Gets delete command.
+            </summary>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
             </summary>
         </member>
     </members>
