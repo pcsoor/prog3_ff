@@ -15,6 +15,8 @@ namespace NBA.WPFApp.Data
     {
         private int teamID;
         private string teamName;
+        private string coach;
+        private string region;
 
         /// <summary>
         /// Gets or sets the team's id.
@@ -35,6 +37,24 @@ namespace NBA.WPFApp.Data
         }
 
         /// <summary>
+        /// Gets or sets the team's coach.
+        /// </summary>
+        public string Coach
+        {
+            get { return this.coach; }
+            set { this.Set(ref this.coach, value); }
+        }
+
+        /// <summary>
+        /// Gets or sets the team's location.
+        /// </summary>
+        public string Region
+        {
+            get { return this.region; }
+            set { this.Set(ref this.region, value); }
+        }
+
+        /// <summary>
         /// Converts PlayerUI entity to Player db entity.
         /// </summary>
         /// <param name="teamui">Player ui entity.</param>
@@ -46,6 +66,8 @@ namespace NBA.WPFApp.Data
             {
                 team.TeamID = teamui.TeamID;
                 team.Name = teamui.TeamName;
+                team.Coach = teamui.Coach;
+                team.Region = teamui.Region;
             }
 
             return team;
@@ -63,6 +85,8 @@ namespace NBA.WPFApp.Data
             {
                 teamui.TeamID = team.TeamID;
                 teamui.TeamName = team.Name;
+                teamui.Coach = team.Coach;
+                teamui.Region = team.Region;
             }
 
             return teamui;
@@ -97,7 +121,7 @@ namespace NBA.WPFApp.Data
             if (obj is TeamUI)
             {
                 TeamUI secondTeam = obj as TeamUI;
-                return this.TeamID == secondTeam.TeamID && this.TeamName == secondTeam.TeamName;
+                return this.TeamID == secondTeam.TeamID && this.TeamName == secondTeam.TeamName && this.Coach == secondTeam.Coach && this.Region == secondTeam.Region;
             }
 
             return false;
