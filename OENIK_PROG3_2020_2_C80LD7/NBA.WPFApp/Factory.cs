@@ -13,11 +13,14 @@ namespace NBA.WPFApp
     /// </summary>
     public class Factory
     {
-        private NBADbContext ctx;
-        private PlayerRepository playerRepo;
-        private PlayerStatsRepository playerStatRepo;
-        private TeamsRepository teamRepo;
-        private PlayerLogic playerLogic;
+        private readonly NBADbContext ctx;
+        private readonly PlayerRepository playerRepo;
+        private readonly PlayerStatsRepository playerStatRepo;
+        private readonly TeamsRepository teamRepo;
+        private readonly TeamsStatsRepository teamStatsRepo;
+        private readonly SeriesRepository seriesRepo;
+        private readonly PlayerLogic playerLogic;
+        private readonly TeamLogic teamLogic;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Factory"/> class.
@@ -26,9 +29,12 @@ namespace NBA.WPFApp
         {
             this.ctx = new NBADbContext();
             this.playerRepo = new PlayerRepository(this.ctx);
+            this.teamStatsRepo = new TeamsStatsRepository(this.ctx);
+            this.seriesRepo = new SeriesRepository(this.ctx);
             this.playerLogic = new PlayerLogic(this.playerRepo, this.playerStatRepo, this.teamRepo);
             this.playerStatRepo = new PlayerStatsRepository(this.ctx);
             this.teamRepo = new TeamsRepository(this.ctx);
+            this.teamLogic = new TeamLogic(this.teamRepo, this.teamStatsRepo, this.seriesRepo);
         }
 
         /// <summary>
