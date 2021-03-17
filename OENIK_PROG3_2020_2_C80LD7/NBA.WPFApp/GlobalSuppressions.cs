@@ -10,4 +10,3 @@ using System.Diagnostics.CodeAnalysis;
 
 [assembly: SuppressMessage("Design", "CA1812:Avoid uninstantiated internal classes", Justification = "False error.")]
 [assembly: SuppressMessage("Design", "CA1001:Types that own disposable fields should be disposable", Justification = "<Pending>", Scope = "type", Target = "~T:NBA.WPFApp.Factory")]
-[assembly: SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1402:File may only contain a single type", Justification = "<Pending>", Scope = "type", Target = "~T:NBA.WPFApp.MyIoc")]
