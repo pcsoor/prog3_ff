@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['fgm_276',['FGM',['../class_n_b_a_1_1_data_1_1_model_1_1_player_stats.html#a18095cae5182c24bdafc2b4f7c705b30',1,'NBA.Data.Model.PlayerStats.FGM()'],['../class_n_b_a_1_1_data_1_1_model_1_1_team_stats.html#aee7e0f3dea8bf47e695bbfc5116641c3',1,'NBA.Data.Model.TeamStats.FGM()']]]
+  ['delcmd_417',['DelCmd',['../class_n_b_a_1_1_w_p_f_app_1_1_v_m_1_1_main_view_model.html#ab68a507f2d6fbfca1a1746129827d525',1,'NBA::WPFApp::VM::MainViewModel']]],
+  ['delteamcmd_418',['DelTeamCmd',['../class_n_b_a_1_1_w_p_f_app_1_1_v_m_1_1_main_view_model.html#a0cfcf82c22b26db12666733f8ca18a22',1,'NBA::WPFApp::VM::MainViewModel']]]
 ];

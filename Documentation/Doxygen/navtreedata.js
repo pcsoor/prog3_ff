@@ -24,9 +24,13 @@
 */
 var NAVTREE =
 [
-  [ "NBA Semester Project", "index.html", [
+  [ "Prog4 hf project", "index.html", [
     [ "Packages", "namespaces.html", [
-      [ "Packages", "namespaces.html", "namespaces_dup" ]
+      [ "Packages", "namespaces.html", "namespaces_dup" ],
+      [ "Package Functions", "namespacemembers.html", [
+        [ "All", "namespacemembers.html", null ],
+        [ "Enumerations", "namespacemembers_enum.html", null ]
+      ] ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -34,8 +38,9 @@ var NAVTREE =
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
-        [ "Functions", "functions_func.html", null ],
+        [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
+        [ "Enumerations", "functions_enum.html", null ],
         [ "Properties", "functions_prop.html", null ]
       ] ]
     ] ],
@@ -47,8 +52,9 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_average_8cs_source.html",
-"dir_4d86f5142dfe4453ffadfad785e449d6.html"
+"_app_8xaml_8cs_source.html",
+"class_n_b_a_1_1_program_1_1_simple_menu.html#ad299c849a96872152155b072219256df",
+"interface_n_b_a_1_1_logic_1_1_i_player_logic.html#a57b4d9a05d765983034ae95f2ad3967f"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>NBA Semester Project: C:/Users/csoor/OneDrive/Documents/oenik_prog3_2020_2_c80ld7/OENIK_PROG3_2020_2_C80LD7/NBA.Repository/TeamsRepository.cs Source File</title>
+<title>Prog4 hf project: C:/Users/csoor/OneDrive/Documents/oenik_prog4hf_2021_1_c80ld7/OENIK_PROG3_2020_2_C80LD7/NBA.Repository/TeamsRepository.cs Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,10 +25,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">NBA Semester Project
-   &#160;<span id="projectnumber">1.2</span>
+   <div id="projectname">Prog4 hf project
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
-   <div id="projectbrief">C80LD7</div>
+   <div id="projectbrief">prog4hf</div>
   </td>
  </tr>
  </tbody>
@@ -131,8 +131,24 @@ $(document).ready(function(){initNavTree('_teams_repository_8cs_source.html','')
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <span class="keywordflow">throw</span> <span class="keyword">new</span> ArgumentException(<span class="stringliteral">&quot;Player not exist with this id.&quot;</span>);</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            }</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="class_n_b_a_1_1_repository_1_1_teams_repository.html#af3a29db97b9ad4dba79ae78042b254f5">   67</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="class_n_b_a_1_1_repository_1_1_teams_repository.html#af3a29db97b9ad4dba79ae78042b254f5">UpdateTeam</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>)</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            var team = this.<a class="code" href="class_n_b_a_1_1_repository_1_1_teams_repository.html#a2afde0cac4d76e9a3e1d850679a11784">GetOne</a>(<span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keywordflow">if</span> (team != <span class="keyword">null</span>)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                team.TeamID = team.TeamID;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                team.Name = team.Name;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                team.Coach = team.Coach;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                team.Region = team.Region;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                team.Series = team.Series;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                team.TeamStats = team.TeamStats;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                this.<a class="code" href="class_n_b_a_1_1_repository_1_1_n_b_a_repository.html#aa36d9d46a8d3e82973d56456af074f12">ctx</a>.SaveChanges();</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            }</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_n_b_a_1_1_repository_1_1_n_b_a_repository_html_a4134679ac975d57533a033298513bb68"><div class="ttname"><a href="class_n_b_a_1_1_repository_1_1_n_b_a_repository.html#a4134679ac975d57533a033298513bb68">NBA.Repository.NBARepository&lt; Teams &gt;::GetAll</a></div><div class="ttdeci">IQueryable&lt; T &gt; GetAll()</div><div class="ttdef"><b>Definition:</b> <a href="_n_b_a_repository_8cs_source.html#l00033">NBARepository.cs:33</a></div></div>
@@ -146,13 +162,14 @@ $(document).ready(function(){initNavTree('_teams_repository_8cs_source.html','')
 <div class="ttc" id="ainterface_n_b_a_1_1_repository_1_1_i_teams_repository_html"><div class="ttname"><a href="interface_n_b_a_1_1_repository_1_1_i_teams_repository.html">NBA.Repository.ITeamsRepository</a></div><div class="ttdoc">Implements team specific operations.</div><div class="ttdef"><b>Definition:</b> <a href="_i_teams_repository_8cs_source.html#l00012">ITeamsRepository.cs:13</a></div></div>
 <div class="ttc" id="aclass_n_b_a_1_1_repository_1_1_teams_repository_html_a2afde0cac4d76e9a3e1d850679a11784"><div class="ttname"><a href="class_n_b_a_1_1_repository_1_1_teams_repository.html#a2afde0cac4d76e9a3e1d850679a11784">NBA.Repository.TeamsRepository.GetOne</a></div><div class="ttdeci">override Teams GetOne(int id)</div><div class="ttdoc">Returns one team.</div><div class="ttdef"><b>Definition:</b> <a href="_teams_repository_8cs_source.html#l00050">TeamsRepository.cs:50</a></div></div>
 <div class="ttc" id="anamespace_system_1_1_linq_html"><div class="ttname"><a href="namespace_system_1_1_linq.html">Linq</a></div></div>
+<div class="ttc" id="aclass_n_b_a_1_1_repository_1_1_teams_repository_html_af3a29db97b9ad4dba79ae78042b254f5"><div class="ttname"><a href="class_n_b_a_1_1_repository_1_1_teams_repository.html#af3a29db97b9ad4dba79ae78042b254f5">NBA.Repository.TeamsRepository.UpdateTeam</a></div><div class="ttdeci">void UpdateTeam(int id)</div><div class="ttdoc">Updates team properties.</div><div class="ttdef"><b>Definition:</b> <a href="_teams_repository_8cs_source.html#l00067">TeamsRepository.cs:67</a></div></div>
 <div class="ttc" id="aclass_n_b_a_1_1_repository_1_1_n_b_a_repository_html"><div class="ttname"><a href="class_n_b_a_1_1_repository_1_1_n_b_a_repository.html">NBA.Repository.NBARepository</a></div><div class="ttdoc">This class includes all the common methods that all of the entities can have.</div><div class="ttdef"><b>Definition:</b> <a href="_n_b_a_repository_8cs_source.html#l00015">NBARepository.cs:17</a></div></div>
 <div class="ttc" id="anamespace_n_b_a_1_1_data_1_1_model_html"><div class="ttname"><a href="namespace_n_b_a_1_1_data_1_1_model.html">NBA.Data.Model</a></div><div class="ttdef"><b>Definition:</b> <a href="_n_b_a_db_context_8cs_source.html#l00006">NBADbContext.cs:7</a></div></div>
 <div class="ttc" id="anamespace_n_b_a_1_1_repository_html"><div class="ttname"><a href="namespace_n_b_a_1_1_repository.html">NBA.Repository</a></div><div class="ttdef"><b>Definition:</b> <a href="_i_player_repository_8cs_source.html#l00005">IPlayerRepository.cs:6</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9960fdc62cff13de43ff50c376ba87e5.html">oenik_prog3_2020_2_c80ld7</a></li><li class="navelem"><a class="el" href="dir_4d86f5142dfe4453ffadfad785e449d6.html">OENIK_PROG3_2020_2_C80LD7</a></li><li class="navelem"><a class="el" href="dir_6b06c76126a014ce37a215836bcca967.html">NBA.Repository</a></li><li class="navelem"><b>TeamsRepository.cs</b></li>
+    <li class="navelem"><a class="el" href="dir_d522931ffa1371640980b621734a4381.html">Users</a></li><li class="navelem"><a class="el" href="dir_4609d5f93e959bd6551f96500933d0d1.html">csoor</a></li><li class="navelem"><a class="el" href="dir_9a77e7a7f56d8270a6ff9a2ddba2eb5f.html">OneDrive</a></li><li class="navelem"><a class="el" href="dir_9dc2cd7d1d07487a3e40b8d58a3b296e.html">Documents</a></li><li class="navelem"><a class="el" href="dir_8db6e24366fe46e4a3f8aa2d74d949b0.html">oenik_prog4hf_2021_1_c80ld7</a></li><li class="navelem"><a class="el" href="dir_99570c510c4f28217d8aa4c1e00a0ffd.html">OENIK_PROG3_2020_2_C80LD7</a></li><li class="navelem"><a class="el" href="dir_91993c0e34d2b82ee9801a6ad1f32ed8.html">NBA.Repository</a></li><li class="navelem"><b>TeamsRepository.cs</b></li>
     <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
   </ul>
 </div>

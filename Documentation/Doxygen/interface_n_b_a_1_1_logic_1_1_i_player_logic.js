@@ -14,5 +14,6 @@ var interface_n_b_a_1_1_logic_1_1_i_player_logic =
     [ "GetPlayerByTeam", "interface_n_b_a_1_1_logic_1_1_i_player_logic.html#af1bb0f95f21dbf23dc61ee3a1a778323", null ],
     [ "GetPlayerQtyByTeams", "interface_n_b_a_1_1_logic_1_1_i_player_logic.html#a57b4d9a05d765983034ae95f2ad3967f", null ],
     [ "GetPlayerWithTheMostGamesPlayed", "interface_n_b_a_1_1_logic_1_1_i_player_logic.html#a36b6d86b7eb97dfab51bd33f45c432a4", null ],
-    [ "GetPlayerWithTheMostGamesPlayedAsync", "interface_n_b_a_1_1_logic_1_1_i_player_logic.html#a0986f3291beed39f4395f4817b9f5f02", null ]
+    [ "GetPlayerWithTheMostGamesPlayedAsync", "interface_n_b_a_1_1_logic_1_1_i_player_logic.html#a0986f3291beed39f4395f4817b9f5f02", null ],
+    [ "UpdatePlayer", "interface_n_b_a_1_1_logic_1_1_i_player_logic.html#af66056292d4b4cf8aadc903eacc583b1", null ]
 ];

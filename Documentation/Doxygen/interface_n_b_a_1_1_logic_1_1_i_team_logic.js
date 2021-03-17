@@ -20,5 +20,6 @@ var interface_n_b_a_1_1_logic_1_1_i_team_logic =
     [ "GetOneTeamStatById", "interface_n_b_a_1_1_logic_1_1_i_team_logic.html#a940471aeabb4d5921fac360cc862068b", null ],
     [ "GetTeamAverageStealPerGame", "interface_n_b_a_1_1_logic_1_1_i_team_logic.html#a5ecea80022f01632c1940fba1e9c3771", null ],
     [ "GetTeamAverageStealPerGameAsync", "interface_n_b_a_1_1_logic_1_1_i_team_logic.html#a0cf593835c2cee0db3981b55f9f3052f", null ],
-    [ "GetWinQtyByTeams", "interface_n_b_a_1_1_logic_1_1_i_team_logic.html#aedc39009ccfe21a1eef2dca326a29d7c", null ]
+    [ "GetWinQtyByTeams", "interface_n_b_a_1_1_logic_1_1_i_team_logic.html#aedc39009ccfe21a1eef2dca326a29d7c", null ],
+    [ "UpdateTeam", "interface_n_b_a_1_1_logic_1_1_i_team_logic.html#af6f46cc09e637557fc9476b857b2796c", null ]
 ];

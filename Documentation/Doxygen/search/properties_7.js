@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['menu_280',['Menu',['../class_n_b_a_1_1_program_1_1_factory.html#a4269701d00cb10169d411f5c4d11c6d7',1,'NBA::Program::Factory']]]
+  ['instance_422',['Instance',['../class_n_b_a_1_1_w_p_f_app_1_1_my_ioc.html#ad681caca91467a3fecb1bed3e45aafcf',1,'NBA::WPFApp::MyIoc']]]
 ];

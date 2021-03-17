@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>NBA Semester Project: C:/Users/csoor/OneDrive/Documents/oenik_prog3_2020_2_c80ld7/OENIK_PROG3_2020_2_C80LD7/NBA.Repository/PlayerRepository.cs Source File</title>
+<title>Prog4 hf project: C:/Users/csoor/OneDrive/Documents/oenik_prog4hf_2021_1_c80ld7/OENIK_PROG3_2020_2_C80LD7/NBA.Repository/PlayerRepository.cs Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,10 +25,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">NBA Semester Project
-   &#160;<span id="projectnumber">1.2</span>
+   <div id="projectname">Prog4 hf project
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
-   <div id="projectbrief">C80LD7</div>
+   <div id="projectbrief">prog4hf</div>
   </td>
  </tr>
  </tbody>
@@ -131,10 +131,30 @@ $(document).ready(function(){initNavTree('_player_repository_8cs_source.html',''
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <span class="keywordflow">throw</span> <span class="keyword">new</span> ArgumentException(<span class="stringliteral">&quot;Player not exist with this id.&quot;</span>);</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            }</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        }</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="class_n_b_a_1_1_repository_1_1_player_repository.html#a2345598b4632c7825356a4609401f769">   63</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="class_n_b_a_1_1_repository_1_1_player_repository.html#a2345598b4632c7825356a4609401f769">UpdatePlayer</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>)</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            var player = this.<a class="code" href="class_n_b_a_1_1_repository_1_1_player_repository.html#a8055eae4d8de39f42c30085f123f4e16">GetOne</a>(<span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keywordflow">if</span> (player != <span class="keyword">null</span>)</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                player.PlayerID = player.PlayerID;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                player.Name = player.Name;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                player.Number = player.Number;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                player.Weight = player.Weight;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                player.Height = player.Height;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                player.Salary = player.Salary;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                player.Team = player.Team;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                player.Post = player.Post;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                player.Birth = player.Birth;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                this.<a class="code" href="class_n_b_a_1_1_repository_1_1_n_b_a_repository.html#aa36d9d46a8d3e82973d56456af074f12">ctx</a>.SaveChanges();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        }</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclass_n_b_a_1_1_repository_1_1_player_repository_html_a2345598b4632c7825356a4609401f769"><div class="ttname"><a href="class_n_b_a_1_1_repository_1_1_player_repository.html#a2345598b4632c7825356a4609401f769">NBA.Repository.PlayerRepository.UpdatePlayer</a></div><div class="ttdeci">void UpdatePlayer(int id)</div><div class="ttdoc">Updates player's properties.</div><div class="ttdef"><b>Definition:</b> <a href="_player_repository_8cs_source.html#l00063">PlayerRepository.cs:63</a></div></div>
 <div class="ttc" id="ainterface_n_b_a_1_1_repository_1_1_i_player_repository_html"><div class="ttname"><a href="interface_n_b_a_1_1_repository_1_1_i_player_repository.html">NBA.Repository.IPlayerRepository</a></div><div class="ttdoc">Player specific methods.</div><div class="ttdef"><b>Definition:</b> <a href="_i_player_repository_8cs_source.html#l00012">IPlayerRepository.cs:13</a></div></div>
 <div class="ttc" id="aclass_n_b_a_1_1_repository_1_1_n_b_a_repository_html_a4134679ac975d57533a033298513bb68"><div class="ttname"><a href="class_n_b_a_1_1_repository_1_1_n_b_a_repository.html#a4134679ac975d57533a033298513bb68">NBA.Repository.NBARepository&lt; Player &gt;::GetAll</a></div><div class="ttdeci">IQueryable&lt; T &gt; GetAll()</div><div class="ttdef"><b>Definition:</b> <a href="_n_b_a_repository_8cs_source.html#l00033">NBARepository.cs:33</a></div></div>
 <div class="ttc" id="aclass_n_b_a_1_1_repository_1_1_n_b_a_repository_html_aa36d9d46a8d3e82973d56456af074f12"><div class="ttname"><a href="class_n_b_a_1_1_repository_1_1_n_b_a_repository.html#aa36d9d46a8d3e82973d56456af074f12">NBA.Repository.NBARepository&lt; Player &gt;::ctx</a></div><div class="ttdeci">DbContext ctx</div><div class="ttdoc">Represents the database.</div><div class="ttdef"><b>Definition:</b> <a href="_n_b_a_repository_8cs_source.html#l00021">NBARepository.cs:21</a></div></div>
@@ -152,7 +172,7 @@ $(document).ready(function(){initNavTree('_player_repository_8cs_source.html',''
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9960fdc62cff13de43ff50c376ba87e5.html">oenik_prog3_2020_2_c80ld7</a></li><li class="navelem"><a class="el" href="dir_4d86f5142dfe4453ffadfad785e449d6.html">OENIK_PROG3_2020_2_C80LD7</a></li><li class="navelem"><a class="el" href="dir_6b06c76126a014ce37a215836bcca967.html">NBA.Repository</a></li><li class="navelem"><b>PlayerRepository.cs</b></li>
+    <li class="navelem"><a class="el" href="dir_d522931ffa1371640980b621734a4381.html">Users</a></li><li class="navelem"><a class="el" href="dir_4609d5f93e959bd6551f96500933d0d1.html">csoor</a></li><li class="navelem"><a class="el" href="dir_9a77e7a7f56d8270a6ff9a2ddba2eb5f.html">OneDrive</a></li><li class="navelem"><a class="el" href="dir_9dc2cd7d1d07487a3e40b8d58a3b296e.html">Documents</a></li><li class="navelem"><a class="el" href="dir_8db6e24366fe46e4a3f8aa2d74d949b0.html">oenik_prog4hf_2021_1_c80ld7</a></li><li class="navelem"><a class="el" href="dir_99570c510c4f28217d8aa4c1e00a0ffd.html">OENIK_PROG3_2020_2_C80LD7</a></li><li class="navelem"><a class="el" href="dir_91993c0e34d2b82ee9801a6ad1f32ed8.html">NBA.Repository</a></li><li class="navelem"><b>PlayerRepository.cs</b></li>
     <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
   </ul>
 </div>

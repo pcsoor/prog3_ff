@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>NBA Semester Project: NBA.Repository.PlayerRepository Class Reference</title>
+<title>Prog4 hf project: NBA.Repository.PlayerRepository Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,10 +25,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">NBA Semester Project
-   &#160;<span id="projectnumber">1.2</span>
+   <div id="projectname">Prog4 hf project
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
-   <div id="projectbrief">C80LD7</div>
+   <div id="projectbrief">prog4hf</div>
   </td>
  </tr>
  </tbody>
@@ -116,6 +116,9 @@ override <a class="el" href="class_n_b_a_1_1_data_1_1_model_1_1_player.html">Pla
 <tr class="memitem:ad84b27300f98fd9de1a04201f3984d49"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_b_a_1_1_repository_1_1_player_repository.html#ad84b27300f98fd9de1a04201f3984d49">ChangeSalary</a> (int id, int newsalary)</td></tr>
 <tr class="memdesc:ad84b27300f98fd9de1a04201f3984d49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the player's number.  <a href="class_n_b_a_1_1_repository_1_1_player_repository.html#ad84b27300f98fd9de1a04201f3984d49">More...</a><br /></td></tr>
 <tr class="separator:ad84b27300f98fd9de1a04201f3984d49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2345598b4632c7825356a4609401f769"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_b_a_1_1_repository_1_1_player_repository.html#a2345598b4632c7825356a4609401f769">UpdatePlayer</a> (int id)</td></tr>
+<tr class="memdesc:a2345598b4632c7825356a4609401f769"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates player's properties.  <a href="class_n_b_a_1_1_repository_1_1_player_repository.html#a2345598b4632c7825356a4609401f769">More...</a><br /></td></tr>
+<tr class="separator:a2345598b4632c7825356a4609401f769"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_n_b_a_1_1_repository_1_1_n_b_a_repository"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_n_b_a_1_1_repository_1_1_n_b_a_repository')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_n_b_a_1_1_repository_1_1_n_b_a_repository.html">NBA.Repository.NBARepository&lt; Player &gt;</a></td></tr>
 <tr class="memitem:a8ee084defba87127c87a998d00d485c9 inherit pub_methods_class_n_b_a_1_1_repository_1_1_n_b_a_repository"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_b_a_1_1_repository_1_1_n_b_a_repository.html#a8ee084defba87127c87a998d00d485c9">NBARepository</a> (DbContext <a class="el" href="class_n_b_a_1_1_repository_1_1_n_b_a_repository.html#aa36d9d46a8d3e82973d56456af074f12">ctx</a>)</td></tr>
 <tr class="memdesc:a8ee084defba87127c87a998d00d485c9 inherit pub_methods_class_n_b_a_1_1_repository_1_1_n_b_a_repository"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the <a class="el" href="class_n_b_a_1_1_repository_1_1_n_b_a_repository.html#a8ee084defba87127c87a998d00d485c9" title="Initializes a new instance of the NBARepository&lt;T&gt; class.">NBARepository&lt;T&gt;</a> class.  <a href="class_n_b_a_1_1_repository_1_1_n_b_a_repository.html#a8ee084defba87127c87a998d00d485c9">More...</a><br /></td></tr>
@@ -225,8 +228,38 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a id="a2345598b4632c7825356a4609401f769"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2345598b4632c7825356a4609401f769">&#9670;&nbsp;</a></span>UpdatePlayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NBA.Repository.PlayerRepository.UpdatePlayer </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates player's properties. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Player type entity id.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="interface_n_b_a_1_1_repository_1_1_i_player_repository.html#a1891282069092207593049ce09ef56a2">NBA.Repository.IPlayerRepository</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_player_repository_8cs_source.html#l00063">63</a> of file <a class="el" href="_player_repository_8cs_source.html">PlayerRepository.cs</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/csoor/OneDrive/Documents/oenik_prog3_2020_2_c80ld7/OENIK_PROG3_2020_2_C80LD7/NBA.Repository/<a class="el" href="_player_repository_8cs_source.html">PlayerRepository.cs</a></li>
+<li>C:/Users/csoor/OneDrive/Documents/oenik_prog4hf_2021_1_c80ld7/OENIK_PROG3_2020_2_C80LD7/NBA.Repository/<a class="el" href="_player_repository_8cs_source.html">PlayerRepository.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
