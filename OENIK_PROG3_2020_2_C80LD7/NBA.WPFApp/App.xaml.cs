@@ -49,15 +49,4 @@ namespace NBA.WPFApp
             MyIoc.Instance.Register<Factory, Factory>();
         }
     }
-
-    /// <summary>
-    /// Custom IoC.
-    /// </summary>
-    public class MyIoc : SimpleIoc, IServiceLocator
-    {
-        /// <summary>
-        /// Gets myIoc instance.
-        /// </summary>
-        public static MyIoc Instance { get; private set; } = new MyIoc();
-    }
 }
