@@ -26,7 +26,7 @@ namespace NBA.WPFApp
         {
             this.vM = this.FindResource("VM") as MainViewModel;
 
-            Messenger.Default.Register<string>(this, "LogicResult", msg =>
+            Messenger.Default.Register<string>(this, "LogicResult", (msg) =>
             {
                 MessageBox.Show(msg);
             });
