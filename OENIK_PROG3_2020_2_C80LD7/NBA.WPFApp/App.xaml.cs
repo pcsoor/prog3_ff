@@ -44,8 +44,20 @@ namespace NBA.WPFApp
             MyIoc.Instance.Register<IPlayerUiLogic, PlayerUiLogic>();
             MyIoc.Instance.Register<IPlayerLogic, PlayerLogic>();
             MyIoc.Instance.Register<ITeamLogic, TeamLogic>();
+            MyIoc.Instance.Register<ITeamUiLogic, TeamUiLogic>();
 
             MyIoc.Instance.Register<Factory, Factory>();
         }
+    }
+
+    /// <summary>
+    /// Custom IoC.
+    /// </summary>
+    public class MyIoc : SimpleIoc, IServiceLocator
+    {
+        /// <summary>
+        /// Gets myIoc instance.
+        /// </summary>
+        public static MyIoc Instance { get; private set; } = new MyIoc();
     }
 }
