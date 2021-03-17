@@ -572,7 +572,7 @@
             <summary>
             Initializes a new instance of the <see cref="T:NBA.WPFApp.VM.EditorViewModel"/> class.
             </summary>
-            <param name="logic">Team logic ref.</param>
+            <param name="logic">Team logic reference.</param>
         </member>
         <member name="M:NBA.WPFApp.VM.EditorViewModel.#ctor">
             <summary>
@@ -629,7 +629,7 @@
             Initializes a new instance of the <see cref="T:NBA.WPFApp.VM.MainViewModel"/> class.
             </summary>
             <param name="logic">Player ui logic ref.</param>
-            <param name="teamUiLogic">Team ui logic ref.</param>
+            <param name="teamUiLogic">Team ui logic refer.</param>
         </member>
         <member name="M:NBA.WPFApp.VM.MainViewModel.#ctor">
             <summary>
@@ -685,36 +685,6 @@
         <member name="P:NBA.WPFApp.VM.MainViewModel.DelTeamCmd">
             <summary>
             Gets delete command.
-            </summary>
-        </member>
-        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
-            <summary>
-            GeneratedInternalTypeHelper
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
-            <summary>
-            CreateInstance
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            GetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            SetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
-            <summary>
-            CreateDelegate
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
-            <summary>
-            AddEventHandler
             </summary>
         </member>
     </members>
