@@ -77,22 +77,22 @@ namespace NBA.Data.Model
         /// <param name="modelBuilder">modelBuilder.</param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            Player p1 = new Player() { PlayerID = 1, Name = "Lebron James", Birth = new DateTime(1984, 12, 20), Height = 206, Weight = 113, Number = 23, Post = Data.Model.Player.PositionType.PowerForward, Salary = 37436858 };
-            Player p2 = new Player() { PlayerID = 2, Name = "Kevin Durant", Birth = new DateTime(1988, 09, 29), Height = 208, Weight = 109, Number = 35, Post = Data.Model.Player.PositionType.PowerForward, Salary = 37199000 };
-            Player p3 = new Player() { PlayerID = 3, Name = "Traeee Young", Birth = new DateTime(1998, 09, 19), Height = 185, Weight = 82, Number = 11, Post = Data.Model.Player.PositionType.PowerForward, Salary = 6273000 };
-            Player p4 = new Player() { PlayerID = 4, Name = "Kawhi Leonard", Birth = new DateTime(1991, 06, 29), Height = 201, Weight = 102, Number = 2, Post = Data.Model.Player.PositionType.PowerForward, Salary = 32742000 };
-            Player p5 = new Player() { PlayerID = 5, Name = "James Harden", Birth = new DateTime(1989, 08, 26), Height = 196, Weight = 100, Number = 13, Post = Data.Model.Player.PositionType.PowerForward, Salary = 38199000 };
+            Player p1 = new Player() { PlayerID = 1, Name = "Lebron James", Birth = new DateTime(1984, 12, 20), Height = 206, Weight = 113, Number = 23, Post = Data.Model.Player.PositionType.SmallForward, Salary = 37436858 };
+            Player p2 = new Player() { PlayerID = 2, Name = "Kevin Durant", Birth = new DateTime(1988, 09, 29), Height = 208, Weight = 109, Number = 35, Post = Data.Model.Player.PositionType.SmallForward, Salary = 37199000 };
+            Player p3 = new Player() { PlayerID = 3, Name = "Trae Young", Birth = new DateTime(1998, 09, 19), Height = 185, Weight = 82, Number = 11, Post = Data.Model.Player.PositionType.PointGuard, Salary = 6273000 };
+            Player p4 = new Player() { PlayerID = 4, Name = "Kawhi Leonard", Birth = new DateTime(1991, 06, 29), Height = 201, Weight = 102, Number = 2, Post = Data.Model.Player.PositionType.SmallForward, Salary = 32742000 };
+            Player p5 = new Player() { PlayerID = 5, Name = "James Harden", Birth = new DateTime(1989, 08, 26), Height = 196, Weight = 100, Number = 13, Post = Data.Model.Player.PositionType.ShootingGuard, Salary = 38199000 };
             Player p6 = new Player() { PlayerID = 6, Name = "Zion Williamson", Birth = new DateTime(2000, 07, 06), Height = 198, Weight = 129, Number = 1, Post = Data.Model.Player.PositionType.PowerForward, Salary = 9757440 };
-            Player p7 = new Player() { PlayerID = 7, Name = "Khris Middleton", Birth = new DateTime(1984, 12, 20), Height = 206, Weight = 113, Number = 23, Post = Data.Model.Player.PositionType.PowerForward, Salary = 30603448 };
-            Player p8 = new Player() { PlayerID = 8, Name = "Ben Simmons", Birth = new DateTime(1991, 08, 12), Height = 201, Weight = 101, Number = 22, Post = Data.Model.Player.PositionType.PowerForward, Salary = 8113929 };
-            Player p9 = new Player() { PlayerID = 9, Name = "Russell Westbrook", Birth = new DateTime(1988, 11, 12), Height = 191, Weight = 91, Number = 0, Post = Data.Model.Player.PositionType.PowerForward, Salary = 38506482 };
-            Player p10 = new Player() { PlayerID = 10, Name = "Paul George", Birth = new DateTime(1990, 05, 2), Height = 203, Weight = 100, Number = 13, Post = Data.Model.Player.PositionType.PowerForward, Salary = 33005556 };
-            Player p11 = new Player() { PlayerID = 11, Name = "Jayson Tatum", Birth = new DateTime(1998, 03, 3), Height = 203, Weight = 95, Number = 0, Post = Data.Model.Player.PositionType.PowerForward, Salary = 7830000 };
-            Player p12 = new Player() { PlayerID = 12, Name = "Jimmy Buttler", Birth = new DateTime(1989, 09, 14), Height = 201, Weight = 104, Number = 22, Post = Data.Model.Player.PositionType.PowerForward, Salary = 32742000 };
-            Player p13 = new Player() { PlayerID = 13, Name = "Damian Lillard", Birth = new DateTime(1990, 07, 15), Height = 188, Weight = 88, Number = 0, Post = Data.Model.Player.PositionType.PowerForward, Salary = 29802321 };
-            Player p14 = new Player() { PlayerID = 14, Name = "Luka Doncic", Birth = new DateTime(1999, 02, 28), Height = 201, Weight = 104, Number = 77, Post = Data.Model.Player.PositionType.PowerForward, Salary = 7683360 };
-            Player p15 = new Player() { PlayerID = 15, Name = "Nikola Jokic", Birth = new DateTime(1995, 02, 19), Height = 213, Weight = 129, Number = 15, Post = Data.Model.Player.PositionType.PowerForward, Salary = 27504630 };
-            Player p16 = new Player() { PlayerID = 16, Name = "Robert Covington", Birth = new DateTime(1990, 12, 4), Height = 201, Weight = 95, Number = 23, Post = Data.Model.Player.PositionType.PowerForward, Salary = 27504630 };
+            Player p7 = new Player() { PlayerID = 7, Name = "Khris Middleton", Birth = new DateTime(1984, 12, 20), Height = 206, Weight = 113, Number = 23, Post = Data.Model.Player.PositionType.SmallForward, Salary = 30603448 };
+            Player p8 = new Player() { PlayerID = 8, Name = "Ben Simmons", Birth = new DateTime(1991, 08, 12), Height = 201, Weight = 101, Number = 22, Post = Data.Model.Player.PositionType.PointGuard, Salary = 8113929 };
+            Player p9 = new Player() { PlayerID = 9, Name = "Russell Westbrook", Birth = new DateTime(1988, 11, 12), Height = 191, Weight = 91, Number = 0, Post = Data.Model.Player.PositionType.PointGuard, Salary = 38506482 };
+            Player p10 = new Player() { PlayerID = 10, Name = "Paul George", Birth = new DateTime(1990, 05, 2), Height = 203, Weight = 100, Number = 13, Post = Data.Model.Player.PositionType.SmallForward, Salary = 33005556 };
+            Player p11 = new Player() { PlayerID = 11, Name = "Jayson Tatum", Birth = new DateTime(1998, 03, 3), Height = 203, Weight = 95, Number = 0, Post = Data.Model.Player.PositionType.SmallForward, Salary = 7830000 };
+            Player p12 = new Player() { PlayerID = 12, Name = "Jimmy Buttler", Birth = new DateTime(1989, 09, 14), Height = 201, Weight = 104, Number = 22, Post = Data.Model.Player.PositionType.ShootingGuard, Salary = 32742000 };
+            Player p13 = new Player() { PlayerID = 13, Name = "Damian Lillard", Birth = new DateTime(1990, 07, 15), Height = 188, Weight = 88, Number = 0, Post = Data.Model.Player.PositionType.PointGuard, Salary = 29802321 };
+            Player p14 = new Player() { PlayerID = 14, Name = "Luka Doncic", Birth = new DateTime(1999, 02, 28), Height = 201, Weight = 104, Number = 77, Post = Data.Model.Player.PositionType.PointGuard, Salary = 7683360 };
+            Player p15 = new Player() { PlayerID = 15, Name = "Nikola Jokic", Birth = new DateTime(1995, 02, 19), Height = 213, Weight = 129, Number = 15, Post = Data.Model.Player.PositionType.Center, Salary = 27504630 };
+            Player p16 = new Player() { PlayerID = 16, Name = "Robert Covington", Birth = new DateTime(1990, 12, 4), Height = 201, Weight = 95, Number = 23, Post = Data.Model.Player.PositionType.SmallForward, Salary = 27504630 };
 
             Teams t1 = new Teams() { TeamID = 1, Name = "Boston Celtics", Coach = "Brad Stevens", Region = "Atlantic" };
             Teams t2 = new Teams() { TeamID = 2, Name = "Toronto Raptors", Coach = "Nick Nurse", Region = "Atlantic" };
