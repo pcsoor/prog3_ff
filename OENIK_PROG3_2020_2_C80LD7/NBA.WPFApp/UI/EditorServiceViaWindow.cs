@@ -22,5 +22,16 @@ namespace NBA.WPFApp.UI
             EditorWindow win = new EditorWindow(p);
             return win.ShowDialog() ?? false;
         }
+
+        /// <summary>
+        /// Returns team edit's result.
+        /// </summary>
+        /// <param name="t">Team ui entity.</param>
+        /// <returns>true or false, depends on result.</returns>
+        public bool EditTeam(TeamUI t)
+        {
+            EditorWindowTeam winTeam = new EditorWindowTeam(t);
+            return winTeam.ShowDialog() ?? false;
+        }
     }
 }

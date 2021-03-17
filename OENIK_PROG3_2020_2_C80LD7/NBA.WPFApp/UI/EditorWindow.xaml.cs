@@ -13,7 +13,7 @@ namespace NBA.WPFApp.UI
     /// </summary>
     public partial class EditorWindow : Window
     {
-        private EditorViewModel VM;
+        private readonly EditorViewModel VM;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="EditorWindow"/> class.
@@ -36,9 +36,24 @@ namespace NBA.WPFApp.UI
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="EditorWindow"/> class.
+        /// </summary>
+        /// <param name="oldTeam">Player ui entity.</param>
+        public EditorWindow(TeamUI oldTeam)
+            : this()
+        {
+            this.VM.TeamUi = oldTeam;
+        }
+
+        /// <summary>
         /// Gets player ui ref.
         /// </summary>
         public PlayerUI PlayerUI { get => this.VM.PlayerUi; }
+
+        /// <summary>
+        /// Gets team ui ref.
+        /// </summary>
+        public TeamUI TeamUI { get => this.VM.TeamUi; }
 
         private void OkClick(object sender, RoutedEventArgs e)
         {
