@@ -280,7 +280,7 @@
             <summary>
             Updates team properties.
             </summary>
-            <param name="id"></param>
+            <param name="id">teams id.</param>
         </member>
         <member name="T:NBA.Repository.TeamsStatsRepository">
             <summary>
