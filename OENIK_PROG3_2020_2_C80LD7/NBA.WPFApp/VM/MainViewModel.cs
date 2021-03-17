@@ -29,7 +29,7 @@ namespace NBA.WPFApp.VM
         /// Initializes a new instance of the <see cref="MainViewModel"/> class.
         /// </summary>
         /// <param name="logic">Player ui logic ref.</param>
-        /// <param name="teamUiLogic">Team ui logic ref.</param>
+        /// <param name="teamUiLogic">Team ui logic refer.</param>
         public MainViewModel(IPlayerUiLogic logic, ITeamUiLogic teamUiLogic)
         {
             this.logic = logic;

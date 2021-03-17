@@ -25,7 +25,7 @@ namespace NBA.WPFApp.VM
         /// <summary>
         /// Initializes a new instance of the <see cref="EditorViewModel"/> class.
         /// </summary>
-        /// <param name="logic">Team logic ref.</param>
+        /// <param name="logic">Team logic reference.</param>
         public EditorViewModel(ITeamLogic logic)
         {
             this.logic = logic;
