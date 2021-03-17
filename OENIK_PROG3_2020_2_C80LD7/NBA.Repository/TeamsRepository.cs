@@ -63,7 +63,7 @@ namespace NBA.Repository
         /// <summary>
         /// Updates team properties.
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">teams id.</param>
         public void UpdateTeam(int id)
         {
             var team = this.GetOne(id);
