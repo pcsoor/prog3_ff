@@ -140,6 +140,12 @@ namespace NBA.Logic
         void ChangeTeamStatAST(int id, double newassist);
 
         /// <summary>
+        /// Updates team entity.
+        /// </summary>
+        /// <param name="id">Team entity's id.</param>
+        void UpdateTeam(int id);
+
+        /// <summary>
         /// Gets average steals per games by teams from previous seasons.
         /// </summary>
         /// <returns>List.</returns>
