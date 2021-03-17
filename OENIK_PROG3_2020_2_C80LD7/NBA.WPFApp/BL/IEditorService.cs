@@ -17,5 +17,12 @@ namespace NBA.WPFApp.BL
         /// <param name="p">Player entity ref.</param>
         /// <returns>true or false.</returns>
         bool EditPlayer(PlayerUI p);
+
+        /// <summary>
+        /// Edit team.
+        /// </summary>
+        /// <param name="t">team reference.</param>
+        /// <returns>true or false.</returns>
+        bool EditTeam(TeamUI t);
     }
 }
