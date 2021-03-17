@@ -73,6 +73,7 @@ namespace NBA.Repository
                 player.Salary = player.Salary;
                 player.Team = player.Team;
                 player.Post = player.Post;
+                player.Birth = player.Birth;
 
                 this.ctx.SaveChanges();
             }
