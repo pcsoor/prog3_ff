@@ -13,7 +13,7 @@ namespace NBA.WPFApp.UI
     /// </summary>
     public partial class EditorWindowTeam : Window
     {
-        private readonly EditorViewModelTeam vM;
+        private readonly EditorViewModelTeam VM;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="EditorWindowTeam"/> class.
@@ -22,7 +22,7 @@ namespace NBA.WPFApp.UI
         {
             this.InitializeComponent();
 
-            this.vM = this.FindResource("VM") as EditorViewModelTeam;
+            this.VM = this.FindResource("VM") as EditorViewModelTeam;
         }
 
         /// <summary>
@@ -32,8 +32,13 @@ namespace NBA.WPFApp.UI
         public EditorWindowTeam(TeamUI oldTeam)
             : this()
         {
-            this.vM.TeamUi = oldTeam;
+            this.VM.TeamUi = oldTeam;
         }
+
+        /// <summary>
+        /// Gets team ui ref.
+        /// </summary>
+        public TeamUI TeamUI { get => this.VM.TeamUi; }
 
         private void OkClick(object sender, RoutedEventArgs e)
         {
