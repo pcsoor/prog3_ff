@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['onconfiguring_373',['OnConfiguring',['../class_n_b_a_1_1_data_1_1_model_1_1_n_b_a_db_context.html#ada5a2b8c71b907b23af76f941241f5ed',1,'NBA::Data::Model::NBADbContext']]],
-  ['onmodelcreating_374',['OnModelCreating',['../class_n_b_a_1_1_data_1_1_model_1_1_n_b_a_db_context.html#a6b6de3a17b87cb1de889d6cc49f92b2e',1,'NBA::Data::Model::NBADbContext']]]
+  ['nbadbcontext_445',['NBADbContext',['../class_n_b_a_1_1_data_1_1_model_1_1_n_b_a_db_context.html#a0111d134132c3d2dcf133c1a17d77a7d',1,'NBA.Data.Model.NBADbContext.NBADbContext()'],['../class_n_b_a_1_1_data_1_1_model_1_1_n_b_a_db_context.html#a7e23c1456318a3ec4a6d75dcd9b1940e',1,'NBA.Data.Model.NBADbContext.NBADbContext(DbContextOptions&lt; NBADbContext &gt; options)']]],
+  ['nbarepository_446',['NBARepository',['../class_n_b_a_1_1_repository_1_1_n_b_a_repository.html#a8ee084defba87127c87a998d00d485c9',1,'NBA::Repository::NBARepository']]]
 ];

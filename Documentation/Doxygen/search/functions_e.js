@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['seriesrepository_380',['SeriesRepository',['../class_n_b_a_1_1_repository_1_1_series_repository.html#a086b212f57cba6c5d7dd62d156776846',1,'NBA::Repository::SeriesRepository']]],
-  ['setpropertyvalue_381',['SetPropertyValue',['../class_xaml_generated_namespace_1_1_generated_internal_type_helper.html#ade0f04c0f7b18dd5b170e071d5534d38',1,'XamlGeneratedNamespace::GeneratedInternalTypeHelper']]],
-  ['setup_382',['Setup',['../class_n_b_a_1_1_logic_1_1_tests_1_1_player_tests.html#a49594e05627ba2b357f02ec821b42974',1,'NBA.Logic.Tests.PlayerTests.Setup()'],['../class_n_b_a_1_1_logic_1_1_tests_1_1_team_tests.html#a630bce1c83f81eb9aa6934008bccddf3',1,'NBA.Logic.Tests.TeamTests.Setup()']]]
+  ['remove_455',['Remove',['../interface_n_b_a_1_1_repository_1_1_i_repository.html#ae0d6a7072e235f97c5f73679c28ab653',1,'NBA.Repository.IRepository.Remove()'],['../class_n_b_a_1_1_repository_1_1_n_b_a_repository.html#a62fea61edb642099e1a5062ba2d9e5c2',1,'NBA.Repository.NBARepository.Remove()'],['../class_n_b_a_1_1_web_1_1_controllers_1_1_players_controller.html#aca38da1b79a828b7dc8b2cbb4cf6d9eb',1,'NBA.Web.Controllers.PlayersController.Remove()']]]
 ];

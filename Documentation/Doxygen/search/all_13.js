@@ -1,5 +1,14 @@
 var searchData=
 [
-  ['weight_211',['Weight',['../class_n_b_a_1_1_data_1_1_model_1_1_player.html#a8e61309b4479746884d6dc0be6d2e6b0',1,'NBA.Data.Model.Player.Weight()'],['../class_n_b_a_1_1_w_p_f_app_1_1_data_1_1_player_u_i.html#ab6440aead98dd8e611ba66db581cb30c',1,'NBA.WPFApp.Data.PlayerUI.Weight()']]],
-  ['winnerid_212',['WinnerID',['../class_n_b_a_1_1_data_1_1_model_1_1_series.html#a18097e3f8d75cdf51730ee11c03b5b1f',1,'NBA::Data::Model::Series']]]
+  ['views_5f_5fviewimports_240',['Views__ViewImports',['../class_asp_net_core_1_1_views_____view_imports.html',1,'AspNetCore']]],
+  ['views_5f_5fviewstart_241',['Views__ViewStart',['../class_asp_net_core_1_1_views_____view_start.html',1,'AspNetCore']]],
+  ['views_5fhome_5findex_242',['Views_Home_Index',['../class_asp_net_core_1_1_views___home___index.html',1,'AspNetCore']]],
+  ['views_5fhome_5fprivacy_243',['Views_Home_Privacy',['../class_asp_net_core_1_1_views___home___privacy.html',1,'AspNetCore']]],
+  ['views_5fplayers_5fplayersdetails_244',['Views_Players_PlayersDetails',['../class_asp_net_core_1_1_views___players___players_details.html',1,'AspNetCore']]],
+  ['views_5fplayers_5fplayersedit_245',['Views_Players_PlayersEdit',['../class_asp_net_core_1_1_views___players___players_edit.html',1,'AspNetCore']]],
+  ['views_5fplayers_5fplayersindex_246',['Views_Players_PlayersIndex',['../class_asp_net_core_1_1_views___players___players_index.html',1,'AspNetCore']]],
+  ['views_5fplayers_5fplayerslist_247',['Views_Players_PlayersList',['../class_asp_net_core_1_1_views___players___players_list.html',1,'AspNetCore']]],
+  ['views_5fshared_5f_5flayout_248',['Views_Shared__Layout',['../class_asp_net_core_1_1_views___shared_____layout.html',1,'AspNetCore']]],
+  ['views_5fshared_5f_5fvalidationscriptspartial_249',['Views_Shared__ValidationScriptsPartial',['../class_asp_net_core_1_1_views___shared_____validation_scripts_partial.html',1,'AspNetCore']]],
+  ['views_5fshared_5ferror_250',['Views_Shared_Error',['../class_asp_net_core_1_1_views___shared___error.html',1,'AspNetCore']]]
 ];

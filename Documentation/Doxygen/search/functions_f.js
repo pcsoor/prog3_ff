@@ -1,18 +1,7 @@
 var searchData=
 [
-  ['teamlogic_383',['TeamLogic',['../class_n_b_a_1_1_logic_1_1_team_logic.html#a246f44c4e271f8ff4991a4b7470f4204',1,'NBA::Logic::TeamLogic']]],
-  ['teams_384',['Teams',['../class_n_b_a_1_1_data_1_1_model_1_1_teams.html#ae6ffb5421fbb2b56fd6c65e2aadecd5e',1,'NBA::Data::Model::Teams']]],
-  ['teamsrepository_385',['TeamsRepository',['../class_n_b_a_1_1_repository_1_1_teams_repository.html#aa4efed4c18ef348a2b7d804a8907b8b4',1,'NBA::Repository::TeamsRepository']]],
-  ['teamsstatsrepository_386',['TeamsStatsRepository',['../class_n_b_a_1_1_repository_1_1_teams_stats_repository.html#adfb41bf9cac164e75d9b82854a962d0f',1,'NBA::Repository::TeamsStatsRepository']]],
-  ['teamuilogic_387',['TeamUiLogic',['../class_n_b_a_1_1_w_p_f_app_1_1_b_l_1_1_team_ui_logic.html#a3e97af502354e434b75fe69fba140e35',1,'NBA.WPFApp.BL.TeamUiLogic.TeamUiLogic(IEditorService editorService, IMessenger messengerService, ITeamLogic teamLogic, Factory factory, TeamUI teamuidata)'],['../class_n_b_a_1_1_w_p_f_app_1_1_b_l_1_1_team_ui_logic.html#a5da890bdff57c9a15ee8692fcb098ca7',1,'NBA.WPFApp.BL.TeamUiLogic.TeamUiLogic(ITeamLogic teamLogic)']]],
-  ['testdeleteplayer_388',['TestDeletePlayer',['../class_n_b_a_1_1_logic_1_1_tests_1_1_player_tests.html#a077b0dc788b5804e517711f4298b131e',1,'NBA::Logic::Tests::PlayerTests']]],
-  ['testgetplayerbyid_389',['TestGetPlayerById',['../class_n_b_a_1_1_logic_1_1_tests_1_1_player_tests.html#aa4925bfc8da3022f6c3f600274d87b75',1,'NBA::Logic::Tests::PlayerTests']]],
-  ['testgetplayerbyidexception_390',['TestGetPlayerByIdException',['../class_n_b_a_1_1_logic_1_1_tests_1_1_player_tests.html#a0b4f9a61a4bec219e7fbea72ecc1680d',1,'NBA::Logic::Tests::PlayerTests']]],
-  ['testgetplayerbyteam_391',['TestGetPlayerByTeam',['../class_n_b_a_1_1_logic_1_1_tests_1_1_player_tests.html#a971e34636ea16dec7e479950c045b547',1,'NBA::Logic::Tests::PlayerTests']]],
-  ['testgetplayerqtybyteams_392',['TestGetPlayerQtyByTeams',['../class_n_b_a_1_1_logic_1_1_tests_1_1_player_tests.html#a8bb624b0609f52d5b03a01fa4c9f9aeb',1,'NBA::Logic::Tests::PlayerTests']]],
-  ['testgetteamaveragestealpergame_393',['TestGetTeamAverageStealPerGame',['../class_n_b_a_1_1_logic_1_1_tests_1_1_team_tests.html#a8d51eb2b220ffe61af8015418608db77',1,'NBA::Logic::Tests::TeamTests']]],
-  ['testgetwinqtybyteams_394',['TestGetWinQtyByTeams',['../class_n_b_a_1_1_logic_1_1_tests_1_1_team_tests.html#a63e31cbdd19f6f8995f70edbb922b798',1,'NBA::Logic::Tests::TeamTests']]],
-  ['testinsertnewcustomer_395',['TestInsertNewCustomer',['../class_n_b_a_1_1_logic_1_1_tests_1_1_player_tests.html#a8f88e364e60448453dd66c42afba9493',1,'NBA::Logic::Tests::PlayerTests']]],
-  ['testupdatesalary_396',['TestUpdateSalary',['../class_n_b_a_1_1_logic_1_1_tests_1_1_player_tests.html#ad10b716cba3b4dbfa5deae218618f142',1,'NBA::Logic::Tests::PlayerTests']]],
-  ['tostring_397',['ToString',['../class_n_b_a_1_1_data_1_1_model_1_1_player.html#a0d4b09983397aaa44c3281d8b07f067a',1,'NBA.Data.Model.Player.ToString()'],['../class_n_b_a_1_1_data_1_1_model_1_1_series.html#ab379c57613b12bbf30043385aca920c0',1,'NBA.Data.Model.Series.ToString()'],['../class_n_b_a_1_1_data_1_1_model_1_1_teams.html#a0a60dc43b305b897835daefd5a572359',1,'NBA.Data.Model.Teams.ToString()'],['../class_n_b_a_1_1_data_1_1_model_1_1_team_stats.html#a75614b9a308a783cefa844e4bad2f42b',1,'NBA.Data.Model.TeamStats.ToString()'],['../class_n_b_a_1_1_logic_1_1_average.html#a446602fa22d0bca9c186dec8fb71b922',1,'NBA.Logic.Average.ToString()'],['../class_n_b_a_1_1_w_p_f_app_1_1_data_1_1_team_u_i.html#af31c96d6fd3fc751a323b65e0fa6753d',1,'NBA.WPFApp.Data.TeamUI.ToString()']]]
+  ['seriesrepository_456',['SeriesRepository',['../class_n_b_a_1_1_repository_1_1_series_repository.html#a086b212f57cba6c5d7dd62d156776846',1,'NBA::Repository::SeriesRepository']]],
+  ['setpropertyvalue_457',['SetPropertyValue',['../class_xaml_generated_namespace_1_1_generated_internal_type_helper.html#ade0f04c0f7b18dd5b170e071d5534d38',1,'XamlGeneratedNamespace::GeneratedInternalTypeHelper']]],
+  ['setup_458',['Setup',['../class_n_b_a_1_1_logic_1_1_tests_1_1_player_tests.html#a49594e05627ba2b357f02ec821b42974',1,'NBA.Logic.Tests.PlayerTests.Setup()'],['../class_n_b_a_1_1_logic_1_1_tests_1_1_team_tests.html#a630bce1c83f81eb9aa6934008bccddf3',1,'NBA.Logic.Tests.TeamTests.Setup()']]],
+  ['startup_459',['Startup',['../class_n_b_a_1_1_web_1_1_startup.html#a9b9162d6b4438c00ceec1b87c76282ef',1,'NBA::Web::Startup']]]
 ];
