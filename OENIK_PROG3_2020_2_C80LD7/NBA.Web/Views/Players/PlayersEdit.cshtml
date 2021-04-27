@@ -1,0 +1,41 @@
+﻿@model NBA.Web.Models.Player
+
+<h2>PlayersEdit</h2>
+
+@using (Html.BeginForm("Edit", "Players"))
+{
+    @Html.ValidationSummary()
+
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(m => m.PlayerID)
+    @Html.Hidden("editAction", ViewData["editAction"].ToString())
+
+    <div class="editor-label">@Html.LabelFor(m => m.TeamName)</div>
+    <div class="editor-field">@Html.EditorFor(m => m.TeamName)</div>
+
+    <div class="editor-label">@Html.LabelFor(m => m.Name)</div>
+    <div class="editor-field">@Html.EditorFor(m => m.Name)</div>
+
+    <div class="editor-label">@Html.LabelFor(m => m.Height)</div>
+    <div class="editor-field">@Html.EditorFor(m => m.Height)</div>
+
+    <div class="editor-label">@Html.LabelFor(m => m.Weight)</div>
+    <div class="editor-field">@Html.EditorFor(m => m.Weight)</div>
+
+    <div class="editor-label">@Html.LabelFor(m => m.Salary)</div>
+    <div class="editor-field">@Html.EditorFor(m => m.Salary)</div>
+
+    <div class="editor-label">@Html.LabelFor(m => m.Number)</div>
+    <div class="editor-field">@Html.EditorFor(m => m.Number)</div>
+
+    <div class="editor-label">@Html.LabelFor(m => m.Post)</div>
+    <div class="editor-field">
+        @Html.DropDownListFor(model => model.Post, Enum.GetNames(typeof(Player.PositionType)).Select(e => new SelectListItem { Text = e }))
+    </div>
+
+        <div class="editor-label">@Html.LabelFor(m => m.Birth)</div>
+        <div class="editor-field">@Html.EditorFor(m => m.Birth)</div>
+        <br />
+        <input type="submit" value="SEND" />
+    }

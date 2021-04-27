@@ -1,0 +1,298 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NBA.Web</name>
+    </assembly>
+    <members>
+        <member name="T:NBA.Web.Controllers.HomeController">
+            <summary>
+            Home controller.
+            </summary>
+        </member>
+        <member name="M:NBA.Web.Controllers.HomeController.#ctor(Microsoft.Extensions.Logging.ILogger{NBA.Web.Controllers.HomeController})">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.Web.Controllers.HomeController"/> class.
+            Home controller.
+            </summary>
+            <param name="logger">ilogger.</param>
+        </member>
+        <member name="M:NBA.Web.Controllers.HomeController.Index">
+            <summary>
+            index controller.
+            </summary>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:NBA.Web.Controllers.HomeController.Privacy">
+            <summary>
+            privacy controller.
+            </summary>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:NBA.Web.Controllers.HomeController.Error">
+            <summary>
+            Error controller.
+            </summary>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="T:NBA.Web.Controllers.PlayersController">
+            <summary>
+            Player controller class.
+            </summary>
+        </member>
+        <member name="M:NBA.Web.Controllers.PlayersController.#ctor(AutoMapper.IMapper,NBA.Logic.IPlayerLogic,NBA.Repository.IPlayerRepository,NBA.Repository.ITeamsRepository,NBA.Web.Models.Team)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.Web.Controllers.PlayersController"/> class.
+            </summary>
+            <param name="mapper">mapper reference.</param>
+            <param name="playerLogic">player logic reference.</param>
+            <param name="playerRepo">player repository reference.</param>
+            <param name="teamRepo">team repository reference.</param>
+            <param name="teamWeb">web type team reference.</param>
+        </member>
+        <member name="M:NBA.Web.Controllers.PlayersController.Index">
+            <summary>
+            Index controller.
+            </summary>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:NBA.Web.Controllers.PlayersController.Details(System.Int32)">
+            <summary>
+            Details controller.
+            </summary>
+            <param name="id">Player's id.</param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:NBA.Web.Controllers.PlayersController.Remove(System.Int32)">
+            <summary>
+            Remove Controller.
+            </summary>
+            <param name="id">Player's id.</param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:NBA.Web.Controllers.PlayersController.Edit(System.Int32)">
+            <summary>
+            Edit Controller.
+            </summary>
+            <param name="id">Player's id.</param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:NBA.Web.Controllers.PlayersController.Edit(NBA.Web.Models.Player,System.String)">
+            <summary>
+            Edit controller.
+            </summary>
+            <param name="player">Player.</param>
+            <param name="editAction">edit action.</param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:NBA.Web.Controllers.PlayersController.ConvertToTeamEntity(NBA.Web.Models.Team)">
+            <summary>
+            Converts PlayerUI entity to Player db entity.
+            </summary>
+            <param name="webType">Team ui entity.</param>
+            <returns>Player db entity.</returns>
+        </member>
+        <member name="T:NBA.Web.Models.ErrorViewModel">
+            <summary>
+            Error view model.
+            </summary>
+        </member>
+        <member name="P:NBA.Web.Models.ErrorViewModel.RequestId">
+            <summary>
+            Gets or sets request ID.
+            </summary>
+        </member>
+        <member name="P:NBA.Web.Models.ErrorViewModel.ShowRequestId">
+            <summary>
+            Gets a value indicating whether shows request id.
+            </summary>
+        </member>
+        <member name="T:NBA.Web.Models.MapperFactory">
+            <summary>
+            Mapper factory class.
+            </summary>
+        </member>
+        <member name="M:NBA.Web.Models.MapperFactory.CreateMapper">
+            <summary>
+            Creating mapper.
+            </summary>
+            <returns>IMapper.</returns>
+        </member>
+        <member name="T:NBA.Web.Models.Player">
+            <summary>
+            Player model class.
+            </summary>
+        </member>
+        <member name="T:NBA.Web.Models.Player.PositionType">
+            <summary>
+            Position types.
+            </summary>
+        </member>
+        <member name="F:NBA.Web.Models.Player.PositionType.PointGuard">
+            <summary>
+            Pointgurad position.
+            </summary>
+        </member>
+        <member name="F:NBA.Web.Models.Player.PositionType.ShootingGuard">
+            <summary>
+            Shooting guard position.
+            </summary>
+        </member>
+        <member name="F:NBA.Web.Models.Player.PositionType.SmallForward">
+            <summary>
+            Small forward position.
+            </summary>
+        </member>
+        <member name="F:NBA.Web.Models.Player.PositionType.PowerForward">
+            <summary>
+            Power Forward position.
+            </summary>
+        </member>
+        <member name="F:NBA.Web.Models.Player.PositionType.Center">
+            <summary>
+            Center position.
+            </summary>
+        </member>
+        <member name="P:NBA.Web.Models.Player.PlayerID">
+            <summary>
+            Gets or sets unique identitication of player.
+            </summary>
+        </member>
+        <member name="P:NBA.Web.Models.Player.TeamID">
+            <summary>
+            Gets or sets the team id where the player plays currently.
+            </summary>
+        </member>
+        <member name="P:NBA.Web.Models.Player.Name">
+            <summary>
+            Gets or sets the name of the player.
+            </summary>
+        </member>
+        <member name="P:NBA.Web.Models.Player.Birth">
+            <summary>
+            Gets or sets the player's date of birth.
+            </summary>
+        </member>
+        <member name="P:NBA.Web.Models.Player.Height">
+            <summary>
+            Gets or sets the height of the player.
+            </summary>
+        </member>
+        <member name="P:NBA.Web.Models.Player.Weight">
+            <summary>
+            Gets or sets the weight of the player.
+            </summary>
+        </member>
+        <member name="P:NBA.Web.Models.Player.Post">
+            <summary>
+            Gets or sets the position where the player plays.
+            </summary>
+        </member>
+        <member name="P:NBA.Web.Models.Player.Salary">
+            <summary>
+            Gets or sets the avarage salary.
+            </summary>
+        </member>
+        <member name="P:NBA.Web.Models.Player.Number">
+            <summary>
+            Gets or sets the player's number.
+            </summary>
+        </member>
+        <member name="P:NBA.Web.Models.Player.TeamName">
+            <summary>
+            Gets or sets one team.
+            </summary>
+        </member>
+        <member name="P:NBA.Web.Models.Player.TeamWeb">
+            <summary>
+            Gets or sets team model.
+            </summary>
+        </member>
+        <member name="T:NBA.Web.Models.PlayerListViewModel">
+            <summary>
+            List of players class.
+            </summary>
+        </member>
+        <member name="P:NBA.Web.Models.PlayerListViewModel.ListOfPlayers">
+            <summary>
+            Gets or sets list of players.
+            </summary>
+        </member>
+        <member name="P:NBA.Web.Models.PlayerListViewModel.EditedPlayer">
+            <summary>
+            Gets or sets player to edit.
+            </summary>
+        </member>
+        <member name="T:NBA.Web.Models.Team">
+            <summary>
+            Team model.
+            </summary>
+        </member>
+        <member name="P:NBA.Web.Models.Team.TeamID">
+            <summary>
+            Gets or sets the id of the team.
+            </summary>
+        </member>
+        <member name="P:NBA.Web.Models.Team.TeamName">
+            <summary>
+            Gets or sets the name of the team.
+            </summary>
+        </member>
+        <member name="P:NBA.Web.Models.Team.Coach">
+            <summary>
+            Gets or sets the team's coach.
+            </summary>
+        </member>
+        <member name="P:NBA.Web.Models.Team.Region">
+            <summary>
+            Gets or sets the team's region.
+            </summary>
+        </member>
+        <member name="T:NBA.Web.Program">
+            <summary>
+            Program class.
+            </summary>
+        </member>
+        <member name="M:NBA.Web.Program.Main(System.String[])">
+            <summary>
+            Main method.
+            </summary>
+            <param name="args">string array args.</param>
+        </member>
+        <member name="M:NBA.Web.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Creates host builder.
+            </summary>
+            <param name="args">args array.</param>
+            <returns>IHostBuilder.</returns>
+        </member>
+        <member name="T:NBA.Web.Startup">
+            <summary>
+            Startup class.
+            </summary>
+        </member>
+        <member name="M:NBA.Web.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.Web.Startup"/> class.
+            </summary>
+            <param name="configuration">configuration.</param>
+        </member>
+        <member name="P:NBA.Web.Startup.Configuration">
+            <summary>
+            Gets configuration.
+            </summary>
+        </member>
+        <member name="M:NBA.Web.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            IoC container.
+            </summary>
+            <param name="services">services.</param>
+        </member>
+        <member name="M:NBA.Web.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app">application builder.</param>
+            <param name="env">wehost environment.</param>
+        </member>
+    </members>
+</doc>

@@ -96,12 +96,26 @@
             <param name="id">player's id.</param>
             <returns>return true or false, depends on that it can be deleted or not.</returns>
         </member>
+        <member name="M:NBA.Logic.IPlayerLogic.ChangePlayer(NBA.Data.Model.Player)">
+            <summary>
+            Change player.
+            </summary>
+            <param name="player">player.</param>
+            <returns>true or false.</returns>
+        </member>
         <member name="M:NBA.Logic.IPlayerLogic.DeletePlayerStatistic(System.Int32)">
             <summary>
             Delete player's statistic with the given id.
             </summary>
             <param name="id">playerstat's id.</param>
             <returns>return true or false, depends on that it can be deleted or not.</returns>
+        </member>
+        <member name="M:NBA.Logic.IPlayerLogic.FindTeamByName(System.String)">
+            <summary>
+            Finds a team by its name.
+            </summary>
+            <param name="teamName">team's name.</param>
+            <returns>found team.</returns>
         </member>
         <member name="M:NBA.Logic.IPlayerLogic.ChangePlayerSalary(System.Int32,System.Int32)">
             <summary>
@@ -115,6 +129,7 @@
             Updates player entity.
             </summary>
             <param name="id">Player entity.</param>
+            <returns>bool.</returns>
         </member>
         <member name="M:NBA.Logic.IPlayerLogic.GetPlayerByTeam(System.Int32)">
             <summary>
@@ -303,6 +318,13 @@
         <member name="M:NBA.Logic.PlayerLogic.AddNewPlayer(NBA.Data.Model.Player)">
             <inheritdoc/>
         </member>
+        <member name="M:NBA.Logic.PlayerLogic.ChangePlayer(NBA.Data.Model.Player)">
+            <summary>
+            Changes given players properties.
+            </summary>
+            <param name="player">player to change.</param>
+            <returns>bool.</returns>
+        </member>
         <member name="M:NBA.Logic.PlayerLogic.GetOnePlayerById(System.Int32)">
             <summary>
             Gives you one player.
@@ -359,6 +381,7 @@
             Updates player entity.
             </summary>
             <param name="id">Player type entity.</param>
+            <returns>bool.</returns>
         </member>
         <member name="M:NBA.Logic.PlayerLogic.GetPlayerByTeam(System.Int32)">
             <summary>
@@ -392,6 +415,13 @@
             Adds new player statistic into the database.
             </summary>
             <param name="playerStatistic">player statistic entity that needs to be inserted.</param>
+        </member>
+        <member name="M:NBA.Logic.PlayerLogic.FindTeamByName(System.String)">
+            <summary>
+            Finds a team by its name.
+            </summary>
+            <param name="teamName">team's name.</param>
+            <returns>found team.</returns>
         </member>
         <member name="T:NBA.Logic.TeamLogic">
             <summary>

@@ -1,0 +1,48 @@
+﻿@model NBA.Web.Models.Player 
+
+@{ 
+    ViewData["Title"] = "PlayersDetails";
+}
+
+<h2>    Datasheet of one player</h2>
+
+@Html.ActionLink("Back to the list", "Index")
+
+<table border="1">
+    <tr>
+        <td>@Html.DisplayNameFor(m => m.PlayerID)</td>
+        <td>@Html.DisplayFor(m => m.PlayerID)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(m => m.Name)</td>
+        <td>@Html.DisplayFor(m => m.Name)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(m => m.Height)</td>
+        <td>@Html.DisplayFor(m => m.Height)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(m => m.Weight)</td>
+        <td>@Html.DisplayFor(m => m.Weight)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(m => m.Birth)</td>
+        <td>@Html.DisplayFor(m => m.Birth)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(m => m.Post)</td>
+        <td>@Html.DisplayFor(m => m.Post)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(m => m.Number)</td>
+        <td>@Html.DisplayFor(m => m.Number)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(m => m.TeamName)</td>
+        <td>@Html.DisplayFor(m => m.TeamName)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(m => m.Salary)</td>
+        <td>@Html.DisplayFor(m => m.Salary)</td>
+    </tr>
+</table>

@@ -4,6 +4,7 @@
 
 namespace NBA.Logic
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -78,11 +79,25 @@ namespace NBA.Logic
         bool DeletePlayer(int id);
 
         /// <summary>
+        /// Change player.
+        /// </summary>
+        /// <param name="player">player.</param>
+        /// <returns>true or false.</returns>
+        bool ChangePlayer(Player player);
+
+        /// <summary>
         /// Delete player's statistic with the given id.
         /// </summary>
         /// <param name="id">playerstat's id.</param>
         /// <returns>return true or false, depends on that it can be deleted or not.</returns>
         bool DeletePlayerStatistic(int id);
+
+        /// <summary>
+        /// Finds a team by its name.
+        /// </summary>
+        /// <param name="teamName">team's name.</param>
+        /// <returns>found team.</returns>
+        Teams FindTeamByName(string teamName);
 
         /// <summary>
         /// Changes player's salary.
@@ -95,7 +110,8 @@ namespace NBA.Logic
         /// Updates player entity.
         /// </summary>
         /// <param name="id">Player entity.</param>
-        void UpdatePlayer(int id);
+        /// <returns>bool.</returns>
+        bool UpdatePlayer(int id);
 
         /// <summary>
         /// Return player player from one team.

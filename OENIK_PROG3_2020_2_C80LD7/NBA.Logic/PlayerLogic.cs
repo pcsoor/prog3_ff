@@ -5,6 +5,7 @@
 
 namespace NBA.Logic
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -43,6 +44,25 @@ namespace NBA.Logic
         public void AddNewPlayer(Player player)
         {
             this.playerRepo.Insert(player);
+        }
+
+        /// <summary>
+        /// Changes given players properties.
+        /// </summary>
+        /// <param name="player">player to change.</param>
+        /// <returns>bool.</returns>
+        public bool ChangePlayer(Player player)
+        {
+            var team = this.teamRepo.GetAll().SingleOrDefault(x => x.Name == player.Team.Name);
+            if (team == null || player == null)
+            {
+                return false;
+            }
+            else
+            {
+                this.playerRepo.UpdatePlayer(player.PlayerID);
+                return true;
+            }
         }
 
         /// <summary>
@@ -168,9 +188,16 @@ namespace NBA.Logic
         /// Updates player entity.
         /// </summary>
         /// <param name="id">Player type entity.</param>
-        public void UpdatePlayer(int id)
+        /// <returns>bool.</returns>
+        public bool UpdatePlayer(int id)
         {
-            this.playerRepo.UpdatePlayer(id);
+            if (this.playerRepo.GetAll().ToList().Contains(this.GetOnePlayerById(id)))
+            {
+                this.playerRepo.UpdatePlayer(id);
+                return true;
+            }
+
+            return false;
         }
 
         /// <summary>
@@ -225,6 +252,24 @@ namespace NBA.Logic
         public void AddNewPlayerStat(PlayerStats playerStatistic)
         {
             this.playerStatsRepo.Insert(playerStatistic);
+        }
+
+        /// <summary>
+        /// Finds a team by its name.
+        /// </summary>
+        /// <param name="teamName">team's name.</param>
+        /// <returns>found team.</returns>
+        public Teams FindTeamByName(string teamName)
+        {
+            var team = this.teamRepo.GetAll().SingleOrDefault(x => x.Name == teamName);
+            if (team == null)
+            {
+                throw new ArgumentException("INVALID TEAM");
+            }
+            else
+            {
+                return team;
+            }
         }
     }
 }
