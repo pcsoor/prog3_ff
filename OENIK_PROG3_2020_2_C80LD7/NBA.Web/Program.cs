@@ -1,7 +1,6 @@
 // <copyright file="Program.cs" company="C80LD7">
 // Copyright (c) C80LD7. All rights reserved.
 // </copyright>
-
 namespace NBA.Web
 {
     using System;
@@ -16,7 +15,7 @@ namespace NBA.Web
     /// <summary>
     /// Program class.
     /// </summary>
-    public class Program
+    public static class Program
     {
         /// <summary>
         /// Main method.

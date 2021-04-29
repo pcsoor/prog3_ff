@@ -17,7 +17,7 @@ namespace NBA.Web.Models
         /// <summary>
         /// Gets or sets list of players.
         /// </summary>
-        public List<Player> ListOfPlayers { get; set; }
+        public IReadOnlyCollection<Player> ListOfPlayers { get; set; }
 
         /// <summary>
         /// Gets or sets player to edit.

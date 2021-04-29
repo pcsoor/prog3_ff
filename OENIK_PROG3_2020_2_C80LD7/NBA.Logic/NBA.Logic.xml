@@ -129,7 +129,7 @@
             Updates player entity.
             </summary>
             <param name="id">Player entity.</param>
-            <returns>bool.</returns>
+            <returns>true or false.</returns>
         </member>
         <member name="M:NBA.Logic.IPlayerLogic.GetPlayerByTeam(System.Int32)">
             <summary>
@@ -381,7 +381,7 @@
             Updates player entity.
             </summary>
             <param name="id">Player type entity.</param>
-            <returns>bool.</returns>
+            <returns>true or false.</returns>
         </member>
         <member name="M:NBA.Logic.PlayerLogic.GetPlayerByTeam(System.Int32)">
             <summary>

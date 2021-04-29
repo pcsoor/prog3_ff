@@ -110,7 +110,7 @@ namespace NBA.Logic
         /// Updates player entity.
         /// </summary>
         /// <param name="id">Player entity.</param>
-        /// <returns>bool.</returns>
+        /// <returns>true or false.</returns>
         bool UpdatePlayer(int id);
 
         /// <summary>

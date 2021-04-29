@@ -21,6 +21,7 @@
             Updates player properties.
             </summary>
             <param name="id">player entity id.</param>
+            <returns>true or false.</returns>
         </member>
         <member name="T:NBA.Repository.IPlayerStatsRepository">
             <summary>
@@ -186,6 +187,7 @@
             Updates player's properties.
             </summary>
             <param name="id">Player type entity id.</param>
+            <returns>true or false.</returns>
         </member>
         <member name="T:NBA.Repository.PlayerStatsRepository">
             <summary>

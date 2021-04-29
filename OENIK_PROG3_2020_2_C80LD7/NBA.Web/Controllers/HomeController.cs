@@ -16,6 +16,7 @@ namespace NBA.Web.Controllers
     /// <summary>
     /// Home controller.
     /// </summary>
+    [CLSCompliant(false)]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

@@ -9,7 +9,7 @@ namespace NBA.Web.Models
     /// <summary>
     /// Mapper factory class.
     /// </summary>
-    public class MapperFactory
+    public static class MapperFactory
     {
         /// <summary>
         /// Creating mapper.

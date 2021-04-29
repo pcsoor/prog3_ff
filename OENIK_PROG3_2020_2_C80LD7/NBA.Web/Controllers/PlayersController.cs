@@ -18,6 +18,8 @@ namespace NBA.Web.Controllers
     /// <summary>
     /// Player controller class.
     /// </summary>
+    // The following GUID is for the ID of the typelib if this project is exposed to COM.
+    [CLSCompliant(false)]
     public class PlayersController : Controller
     {
         private readonly IMapper mapper;
@@ -45,8 +47,8 @@ namespace NBA.Web.Controllers
             this.teamRepo = teamRepo;
             this.teamWeb = teamWeb;
 
-            var players = playerLogic.GetAllPlayers();
-            this.vm.ListOfPlayers = mapper.Map<IList<Data.Model.Player>, List<Models.Player>>(players);
+            var players = this.playerLogic.GetAllPlayers();
+            this.vm.ListOfPlayers = this.mapper.Map<IList<Data.Model.Player>, List<Models.Player>>(players);
         }
 
         /// <summary>
@@ -113,7 +115,6 @@ namespace NBA.Web.Controllers
                 {
                     try
                     {
-                        var team = this.teamRepo.GetAll().SingleOrDefault(x => x.Name == player.TeamName);
                         this.playerLogic.AddNewPlayer(this.ConvertToDataEntity(player));
                     }
                     catch (ArgumentException ex)
@@ -123,7 +124,7 @@ namespace NBA.Web.Controllers
                 }
                 else
                 {
-                    if (!this.playerLogic.UpdatePlayer(this.playerLogic.GetOnePlayerById(player.PlayerID).PlayerID))
+                    if (!this.playerLogic.ChangePlayer(this.ConvertToDataEntity(player)))
                     {
                         this.TempData["editResult"] = "Edit FAIL";
                     }
@@ -162,25 +163,6 @@ namespace NBA.Web.Controllers
         {
             Data.Model.Player onePlayer = this.playerLogic.GetOnePlayerById(id);
             return this.mapper.Map<Data.Model.Player, Models.Player>(onePlayer);
-        }
-
-        /// <summary>
-        /// Converts PlayerUI entity to Player db entity.
-        /// </summary>
-        /// <param name="webType">Team ui entity.</param>
-        /// <returns>Player db entity.</returns>
-        private Teams ConvertToTeamEntity(Team webType)
-        {
-            Teams team = new Teams();
-            if (webType != null)
-            {
-                team.TeamID = webType.TeamID;
-                team.Name = webType.TeamName;
-                team.Coach = webType.Coach;
-                team.Region = webType.Region;
-            }
-
-            return team;
         }
     }
 }

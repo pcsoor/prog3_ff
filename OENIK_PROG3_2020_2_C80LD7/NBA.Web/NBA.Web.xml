@@ -84,13 +84,6 @@
             <param name="editAction">edit action.</param>
             <returns>IActionResult.</returns>
         </member>
-        <member name="M:NBA.Web.Controllers.PlayersController.ConvertToTeamEntity(NBA.Web.Models.Team)">
-            <summary>
-            Converts PlayerUI entity to Player db entity.
-            </summary>
-            <param name="webType">Team ui entity.</param>
-            <returns>Player db entity.</returns>
-        </member>
         <member name="T:NBA.Web.Models.ErrorViewModel">
             <summary>
             Error view model.

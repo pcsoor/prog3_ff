@@ -188,16 +188,15 @@ namespace NBA.Logic
         /// Updates player entity.
         /// </summary>
         /// <param name="id">Player type entity.</param>
-        /// <returns>bool.</returns>
+        /// <returns>true or false.</returns>
         public bool UpdatePlayer(int id)
         {
-            if (this.playerRepo.GetAll().ToList().Contains(this.GetOnePlayerById(id)))
+            if (!this.playerRepo.GetAll().ToList().Contains(this.GetOnePlayerById(id)))
             {
-                this.playerRepo.UpdatePlayer(id);
-                return true;
+                return false;
             }
 
-            return false;
+            return this.playerRepo.UpdatePlayer(id);
         }
 
         /// <summary>

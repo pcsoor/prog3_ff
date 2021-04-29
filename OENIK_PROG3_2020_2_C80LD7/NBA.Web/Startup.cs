@@ -24,6 +24,7 @@ namespace NBA.Web
     /// <summary>
     /// Startup class.
     /// </summary>
+    [CLSCompliant(false)]
     public class Startup
     {
         /// <summary>
