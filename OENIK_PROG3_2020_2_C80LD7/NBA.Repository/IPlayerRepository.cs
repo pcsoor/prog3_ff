@@ -22,7 +22,8 @@ namespace NBA.Repository
         /// Updates player properties.
         /// </summary>
         /// <param name="id">player entity id.</param>
+        /// <param name="newPlayer">new player.</param>
         /// <returns>true or false.</returns>
-        bool UpdatePlayer(int id);
+        bool UpdatePlayer(int id, Player newPlayer);
     }
 }

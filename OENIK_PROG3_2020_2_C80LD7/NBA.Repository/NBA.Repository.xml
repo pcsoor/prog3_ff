@@ -16,11 +16,12 @@
             <param name="id">player's id.</param>
             <param name="newsalary">player's new salary to update.</param>
         </member>
-        <member name="M:NBA.Repository.IPlayerRepository.UpdatePlayer(System.Int32)">
+        <member name="M:NBA.Repository.IPlayerRepository.UpdatePlayer(System.Int32,NBA.Data.Model.Player)">
             <summary>
             Updates player properties.
             </summary>
             <param name="id">player entity id.</param>
+            <param name="newPlayer">new player.</param>
             <returns>true or false.</returns>
         </member>
         <member name="T:NBA.Repository.IPlayerStatsRepository">
@@ -182,11 +183,12 @@
             <param name="id">id of the player.</param>
             <param name="newsalary">player's new salary to update.</param>
         </member>
-        <member name="M:NBA.Repository.PlayerRepository.UpdatePlayer(System.Int32)">
+        <member name="M:NBA.Repository.PlayerRepository.UpdatePlayer(System.Int32,NBA.Data.Model.Player)">
             <summary>
             Updates player's properties.
             </summary>
             <param name="id">Player type entity id.</param>
+            <param name="newPlayer">new player.</param>
             <returns>true or false.</returns>
         </member>
         <member name="T:NBA.Repository.PlayerStatsRepository">

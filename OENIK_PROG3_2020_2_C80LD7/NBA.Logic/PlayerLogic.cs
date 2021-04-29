@@ -60,7 +60,7 @@ namespace NBA.Logic
             }
             else
             {
-                this.playerRepo.UpdatePlayer(player.PlayerID);
+                this.playerRepo.UpdatePlayer(player.PlayerID, player);
                 return true;
             }
         }
@@ -191,12 +191,13 @@ namespace NBA.Logic
         /// <returns>true or false.</returns>
         public bool UpdatePlayer(int id)
         {
+            var player = this.GetOnePlayerById(id);
             if (!this.playerRepo.GetAll().ToList().Contains(this.GetOnePlayerById(id)))
             {
                 return false;
             }
 
-            return this.playerRepo.UpdatePlayer(id);
+            return this.playerRepo.UpdatePlayer(id, player);
         }
 
         /// <summary>

@@ -60,24 +60,25 @@ namespace NBA.Repository
         /// Updates player's properties.
         /// </summary>
         /// <param name="id">Player type entity id.</param>
+        /// <param name="newPlayer">new player.</param>
         /// <returns>true or false.</returns>
-        public bool UpdatePlayer(int id)
+        public bool UpdatePlayer(int id, Player newPlayer)
         {
             var player = this.GetOne(id);
-            if (player == null)
+            if (player == null || newPlayer == null)
             {
                 return false;
             }
 
-            player.PlayerID = player.PlayerID;
-            player.Name = player.Name;
-            player.Number = player.Number;
-            player.Weight = player.Weight;
-            player.Height = player.Height;
-            player.Salary = player.Salary;
-            player.Team = player.Team;
-            player.Post = player.Post;
-            player.Birth = player.Birth;
+            player.PlayerID = newPlayer.PlayerID;
+            player.Name = newPlayer.Name;
+            player.Number = newPlayer.Number;
+            player.Weight = newPlayer.Weight;
+            player.Height = newPlayer.Height;
+            player.Salary = newPlayer.Salary;
+            player.Team = newPlayer.Team;
+            player.Post = newPlayer.Post;
+            player.Birth = newPlayer.Birth;
             this.ctx.SaveChanges();
 
             return true;
