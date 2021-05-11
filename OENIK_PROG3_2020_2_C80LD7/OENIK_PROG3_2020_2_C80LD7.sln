@@ -15,7 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NBA.Logic.Tests", "NBA.Logi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NBA.WPFApp", "NBA.WPFApp\NBA.WPFApp.csproj", "{E454EBC3-CB46-4ADE-91DE-DE3F3026C294}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NBA.Web", "NBA.Web\NBA.Web.csproj", "{FBFC0B3B-900F-4980-AC7F-684913325221}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NBA.Web", "NBA.Web\NBA.Web.csproj", "{FBFC0B3B-900F-4980-AC7F-684913325221}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NBA.ConsoleClient", "NBA.ConsoleClient\NBA.ConsoleClient.csproj", "{1AC6C0D9-C477-4768-8AB1-2872E1AAEF57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NBA.WpfClient", "NBA.WpfClient\NBA.WpfClient.csproj", "{F8A6E244-4405-4D43-8E71-D21C9C089BEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,14 @@ Global
 		{FBFC0B3B-900F-4980-AC7F-684913325221}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBFC0B3B-900F-4980-AC7F-684913325221}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBFC0B3B-900F-4980-AC7F-684913325221}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AC6C0D9-C477-4768-8AB1-2872E1AAEF57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AC6C0D9-C477-4768-8AB1-2872E1AAEF57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AC6C0D9-C477-4768-8AB1-2872E1AAEF57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AC6C0D9-C477-4768-8AB1-2872E1AAEF57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8A6E244-4405-4D43-8E71-D21C9C089BEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8A6E244-4405-4D43-8E71-D21C9C089BEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8A6E244-4405-4D43-8E71-D21C9C089BEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8A6E244-4405-4D43-8E71-D21C9C089BEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

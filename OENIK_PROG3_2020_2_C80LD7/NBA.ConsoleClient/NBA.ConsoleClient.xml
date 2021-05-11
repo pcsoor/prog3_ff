@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NBA.ConsoleClient</name>
+    </assembly>
+    <members>
+        <member name="T:NBA.ConsoleClient.PositionType">
+            <summary>
+            Position types.
+            </summary>
+        </member>
+        <member name="F:NBA.ConsoleClient.PositionType.PointGuard">
+            <summary>
+            Pointgurad position.
+            </summary>
+        </member>
+        <member name="F:NBA.ConsoleClient.PositionType.ShootingGuard">
+            <summary>
+            Shooting guard position.
+            </summary>
+        </member>
+        <member name="F:NBA.ConsoleClient.PositionType.SmallForward">
+            <summary>
+            Small forward position.
+            </summary>
+        </member>
+        <member name="F:NBA.ConsoleClient.PositionType.PowerForward">
+            <summary>
+            Power Forward position.
+            </summary>
+        </member>
+        <member name="F:NBA.ConsoleClient.PositionType.Center">
+            <summary>
+            Center position.
+            </summary>
+        </member>
+        <member name="T:NBA.ConsoleClient.Player">
+            <summary>
+            Player entity.
+            </summary>
+        </member>
+        <member name="P:NBA.ConsoleClient.Player.PlayerID">
+            <summary>
+            Gets or sets unique identitication of player.
+            </summary>
+        </member>
+        <member name="P:NBA.ConsoleClient.Player.Name">
+            <summary>
+            Gets or sets the name of the player.
+            </summary>
+        </member>
+        <member name="P:NBA.ConsoleClient.Player.Post">
+            <summary>
+            Gets or sets the position where the player plays.
+            </summary>
+        </member>
+        <member name="P:NBA.ConsoleClient.Player.TeamName">
+            <summary>
+            Gets or sets the team, where the player plays at.
+            </summary>
+        </member>
+        <member name="P:NBA.ConsoleClient.Player.Birth">
+            <summary>
+            Gets or sets the player's date of birth.
+            </summary>
+        </member>
+        <member name="P:NBA.ConsoleClient.Player.Height">
+            <summary>
+            Gets or sets the height of the player.
+            </summary>
+        </member>
+        <member name="P:NBA.ConsoleClient.Player.Weight">
+            <summary>
+            Gets or sets the weight of the player.
+            </summary>
+        </member>
+        <member name="P:NBA.ConsoleClient.Player.Salary">
+            <summary>
+            Gets or sets the avarage salary.
+            </summary>
+        </member>
+        <member name="P:NBA.ConsoleClient.Player.Number">
+            <summary>
+            Gets or sets the player's number.
+            </summary>
+        </member>
+        <member name="M:NBA.ConsoleClient.Player.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:NBA.ConsoleClient.Program">
+            <summary>
+            Program class.
+            </summary>
+        </member>
+        <member name="M:NBA.ConsoleClient.Program.Main">
+            <summary>
+            Main method.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -4,6 +4,16 @@
         <name>NBA.Web</name>
     </assembly>
     <members>
+        <member name="T:NBA.Web.ApiResult">
+            <summary>
+            Result of operation class.
+            </summary>
+        </member>
+        <member name="P:NBA.Web.ApiResult.OperationResult">
+            <summary>
+            Gets or sets a value indicating whether gets or sets the operation result.
+            </summary>
+        </member>
         <member name="T:NBA.Web.Controllers.HomeController">
             <summary>
             Home controller.
@@ -33,6 +43,45 @@
             Error controller.
             </summary>
             <returns>IActionResult.</returns>
+        </member>
+        <member name="T:NBA.Web.Controllers.PlayersApiController">
+            <summary>
+            Api controller class.
+            </summary>
+        </member>
+        <member name="M:NBA.Web.Controllers.PlayersApiController.#ctor(AutoMapper.IMapper,NBA.Logic.IPlayerLogic)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.Web.Controllers.PlayersApiController"/> class.
+            </summary>
+            <param name="mapper">mapper reference.</param>
+            <param name="playerLogic">reference to players's logic.</param>
+        </member>
+        <member name="M:NBA.Web.Controllers.PlayersApiController.GetAll">
+            <summary>
+            Get all players.
+            </summary>
+            <returns>list of players.</returns>
+        </member>
+        <member name="M:NBA.Web.Controllers.PlayersApiController.DelOnePlayer(System.Int32)">
+            <summary>
+            Delete one player method.
+            </summary>
+            <param name="id">Player's id.</param>
+            <returns>ApiResult.</returns>
+        </member>
+        <member name="M:NBA.Web.Controllers.PlayersApiController.AddOnePlayer(NBA.Web.Models.Player)">
+            <summary>
+            Add one player method.
+            </summary>
+            <param name="player">player to add.</param>
+            <returns>ApiResult.</returns>
+        </member>
+        <member name="M:NBA.Web.Controllers.PlayersApiController.ModOnePlayer(NBA.Web.Models.Player)">
+            <summary>
+            Mod one player method.
+            </summary>
+            <param name="player">player to modify.</param>
+            <returns>ApiResult.</returns>
         </member>
         <member name="T:NBA.Web.Controllers.PlayersController">
             <summary>

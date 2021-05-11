@@ -1,0 +1,263 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NBA.WpfClient</name>
+    </assembly>
+    <members>
+        <member name="T:NBA.WpfClient.App">
+            <summary>
+            Interaction logic for App.xaml.
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:NBA.WpfClient.App.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.WpfClient.App"/> class.
+            </summary>
+        </member>
+        <member name="M:NBA.WpfClient.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:NBA.WpfClient.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:NBA.WpfClient.ClientIoc">
+            <summary>
+            IoC container.
+            </summary>
+        </member>
+        <member name="P:NBA.WpfClient.ClientIoc.Instance">
+            <summary>
+            Gets ClientIoc instance.
+            </summary>
+        </member>
+        <member name="T:NBA.WpfClient.EditorWindow">
+            <summary>
+            Interaction logic for EditorWindow.xaml.
+            </summary>
+            <summary>
+            EditorWindow
+            </summary>
+        </member>
+        <member name="M:NBA.WpfClient.EditorWindow.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.WpfClient.EditorWindow"/> class.
+            </summary>
+        </member>
+        <member name="M:NBA.WpfClient.EditorWindow.#ctor(NBA.WpfClient.PlayerVM)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.WpfClient.EditorWindow"/> class.
+            </summary>
+            <param name="player">player to edit.</param>
+        </member>
+        <member name="M:NBA.WpfClient.EditorWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:NBA.WpfClient.MainLogic">
+            <summary>
+            Logic class.
+            </summary>
+        </member>
+        <member name="M:NBA.WpfClient.MainLogic.SendMessage(System.Boolean)">
+            <summary>
+            Sends result message.
+            </summary>
+            <param name="success">result.</param>
+        </member>
+        <member name="M:NBA.WpfClient.MainLogic.ApiGetPlayers">
+            <summary>
+            Get all players through api controller.
+            </summary>
+            <returns>list of players.</returns>
+        </member>
+        <member name="M:NBA.WpfClient.MainLogic.ApiDelPlayer(NBA.WpfClient.PlayerVM)">
+            <summary>
+            Delete one player through api controller.
+            </summary>
+            <param name="player">player to delete.</param>
+        </member>
+        <member name="M:NBA.WpfClient.MainLogic.ApiEditPlayer(NBA.WpfClient.PlayerVM,System.Boolean)">
+            <summary>
+            Edit one player through api controller.
+            </summary>
+            <param name="player">player to edit.</param>
+            <param name="isEditing">editing or not.</param>
+            <returns>bool.</returns>
+        </member>
+        <member name="M:NBA.WpfClient.MainLogic.EditPlayer(NBA.WpfClient.PlayerVM,System.Func{NBA.WpfClient.PlayerVM,System.Boolean})">
+            <summary>
+            Edit one player.
+            </summary>
+            <param name="player">Player to edit.</param>
+            <param name="editor">Editor function.</param>
+        </member>
+        <member name="T:NBA.WpfClient.MainVM">
+            <summary>
+            Main view model.
+            </summary>
+        </member>
+        <member name="M:NBA.WpfClient.MainVM.#ctor(NBA.WpfClient.MainLogic)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.WpfClient.MainVM"/> class.
+            </summary>
+            <param name="logic">logic reference.</param>
+        </member>
+        <member name="M:NBA.WpfClient.MainVM.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.WpfClient.MainVM"/> class.
+            </summary>
+        </member>
+        <member name="P:NBA.WpfClient.MainVM.AllPlayers">
+            <summary>
+            Gets or sets all players.
+            </summary>
+        </member>
+        <member name="P:NBA.WpfClient.MainVM.SelectedPlayer">
+            <summary>
+            Gets or sets selected player.
+            </summary>
+        </member>
+        <member name="P:NBA.WpfClient.MainVM.EditorFunc">
+            <summary>
+            Gets or sets editor function.
+            </summary>
+        </member>
+        <member name="P:NBA.WpfClient.MainVM.AddCmd">
+            <summary>
+            Gets add command.
+            </summary>
+        </member>
+        <member name="P:NBA.WpfClient.MainVM.DelCmd">
+            <summary>
+            Gets delete command.
+            </summary>
+        </member>
+        <member name="P:NBA.WpfClient.MainVM.ModCmd">
+            <summary>
+            Gets modify command.
+            </summary>
+        </member>
+        <member name="P:NBA.WpfClient.MainVM.LoadCmd">
+            <summary>
+            Gets load command.
+            </summary>
+        </member>
+        <member name="T:NBA.WpfClient.MainWindow">
+            <summary>
+            Interaction logic for MainWindow.xaml.
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="M:NBA.WpfClient.MainWindow.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:NBA.WpfClient.MainWindow"/> class.
+            </summary>
+        </member>
+        <member name="M:NBA.WpfClient.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:NBA.WpfClient.PositionType">
+            <summary>
+            Position types.
+            </summary>
+        </member>
+        <member name="F:NBA.WpfClient.PositionType.PointGuard">
+            <summary>
+            Pointgurad position.
+            </summary>
+        </member>
+        <member name="F:NBA.WpfClient.PositionType.ShootingGuard">
+            <summary>
+            Shooting guard position.
+            </summary>
+        </member>
+        <member name="F:NBA.WpfClient.PositionType.SmallForward">
+            <summary>
+            Small forward position.
+            </summary>
+        </member>
+        <member name="F:NBA.WpfClient.PositionType.PowerForward">
+            <summary>
+            Power Forward position.
+            </summary>
+        </member>
+        <member name="F:NBA.WpfClient.PositionType.Center">
+            <summary>
+            Center position.
+            </summary>
+        </member>
+        <member name="T:NBA.WpfClient.PlayerVM">
+            <summary>
+            Player model class.
+            </summary>
+        </member>
+        <member name="P:NBA.WpfClient.PlayerVM.Positions">
+            <summary>
+            Gets list of nba positions.
+            </summary>
+        </member>
+        <member name="P:NBA.WpfClient.PlayerVM.PlayerID">
+            <summary>
+            Gets or sets player's id.
+            </summary>
+        </member>
+        <member name="P:NBA.WpfClient.PlayerVM.Name">
+            <summary>
+            Gets or sets player's name.
+            </summary>
+        </member>
+        <member name="P:NBA.WpfClient.PlayerVM.TeamName">
+            <summary>
+            Gets or sets team where the player plays in.
+            </summary>
+        </member>
+        <member name="P:NBA.WpfClient.PlayerVM.Height">
+            <summary>
+            Gets or sets player's height.
+            </summary>
+        </member>
+        <member name="P:NBA.WpfClient.PlayerVM.Weight">
+            <summary>
+            Gets or sets player's weight.
+            </summary>
+        </member>
+        <member name="P:NBA.WpfClient.PlayerVM.Number">
+            <summary>
+            Gets or sets player's number.
+            </summary>
+        </member>
+        <member name="P:NBA.WpfClient.PlayerVM.Salary">
+            <summary>
+            Gets or sets player's salary.
+            </summary>
+        </member>
+        <member name="P:NBA.WpfClient.PlayerVM.Post">
+            <summary>
+            Gets or sets player's position.
+            </summary>
+        </member>
+        <member name="P:NBA.WpfClient.PlayerVM.Birth">
+            <summary>
+            Gets or sets player's date of birth.
+            </summary>
+        </member>
+        <member name="M:NBA.WpfClient.PlayerVM.CopyFrom(NBA.WpfClient.PlayerVM)">
+            <summary>
+            Copies one player.
+            </summary>
+            <param name="other">player to copy.</param>
+        </member>
+    </members>
+</doc>

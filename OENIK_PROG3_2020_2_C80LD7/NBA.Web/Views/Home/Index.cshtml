@@ -7,3 +7,81 @@
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
     <a href="/Players">Players List</a>
 </div>
+
+<h2>API test X</h2>
+
+<p id="message" style="color:red;font-weight:bold"></p>
+<ul id="players"></ul>
+Player ID:
+<input type="text" id="playerId" />
+<br />
+<br />
+<button onclick="doList()">LIST</button>
+<button onclick="doListNEW()">LIST NEW</button>
+<button onclick="doAdd()">ADD</button>
+<button onclick="doMod()">MOD</button>
+<button onclick="doDel()">DEL</button>
+
+@section scripts {
+    <script language="javascript">
+
+        var url = "https://localhost:44354/PlayersApi/";
+
+        // XSS = Cross Site Scripting
+        function htmlEncode(value) {
+            return $('<div />').text(value).html();
+        }
+
+        function doList() {
+            $.get(url + "all", null, function (data, status, jqxr) {
+                alert("ALL: " + data);
+            }, "html");
+        }
+
+        function doListNEW() {
+            $("#players").html("");
+            $.getJSON(url + "all").done(function (data) {
+                    $.each(data, function (key, item) {
+                        var html = "<li>#" +
+                            htmlEncode(item.playerID) + " -- " +
+                            htmlEncode(item.name) + " -- " +
+                            htmlEncode(item.birth) + " -- " +
+                            htmlEncode(item.height) + " -- " +
+                            htmlEncode(item.weight) + " -- " +
+                            htmlEncode(item.post) + " -- " +
+                            htmlEncode(item.salary) + " $ -- " +
+                            htmlEncode(item.number) + " -- " +
+                            htmlEncode(item.teamName) + " </li>";
+                        $("#players").append(html);
+                    });
+            });
+
+            $.getJSON(url + "all");
+        }
+
+        function doAdd() {
+            var newPlayer = {
+                "name": "Csoor Peter", "birth": "2000.09.01.", "height": "190", "weight" : "100", "post": "Center", "salary": "12121212", "number": "20", "teamname": "LA Clippers"
+            };
+            $.post(url + "add", newPlayer, function (data, status, jqxr) {
+                $("#message").html("ADD: " + data.operationResult);
+                doListNEW();
+            });
+        }
+        function doMod() {
+            var newPlayer = {
+                "playerID": $("#playerId").val(), "name": "Csoor Peter Frank", "birth": "2000.09.01.", "height": "189", "weight": "85", "post": "Center", "salary": "66121212", "number": "6", "teamname": "LA Clippers"
+            };
+            $.post(url + "mod", newPlayer, function (data, status, jqxr) {
+                $("#message").html("MOD: " + data.operationResult);
+                doListNEW();
+            });
+        }
+        function doDel() {
+            $.get(url + "del/" + $("#playerId").val(), null, function (data, status, jqxr) {
+                $("#message").html("DEL: " + data.operationResult);
+                doListNEW();
+            });
+        }
+    </script>
+}
