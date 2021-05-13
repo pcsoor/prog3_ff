@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "NBA semester project", "index.html", [
+  [ "Prog4hf", "index.html", [
     [ "The MIT License (MIT)", "md__c___users_csoor__one_drive__documents_oenik_prog4hf_2021_1_c80ld7__o_e_n_i_k__p_r_o_g3_2020_a8011c20117d1be049eaea02e6a94a4b.html", null ],
     [ "Packages", "namespaces.html", [
       [ "Packages", "namespaces.html", "namespaces_dup" ],
@@ -54,9 +54,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "___layout_8cshtml_8g_8cs_source.html",
-"class_n_b_a_1_1_data_1_1_model_1_1_teams.html#a5f4e0084074f3b45376bc9d769621447",
-"class_n_b_a_1_1_w_p_f_app_1_1_v_m_1_1_main_view_model.html#ae41d60778000af696737e4b5b7333d63",
-"namespace_n_b_a_1_1_logic_1_1_tests.html"
+"class_n_b_a_1_1_data_1_1_model_1_1_player.html#a761625b94b2ead4f79c7afdf1b807949a56ac5ab5fbaa49f3f60846054f2a205f",
+"class_n_b_a_1_1_w_p_f_app_1_1_main_window.html#ac71adf5cad62ac01c845a9a4c2d16adb",
+"functions_enum.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,19 +1,22 @@
 var hierarchy =
 [
+    [ "NBA.Web.ApiResult", "class_n_b_a_1_1_web_1_1_api_result.html", null ],
     [ "Application", null, [
-      [ "NBA.WPFApp.App", "class_n_b_a_1_1_w_p_f_app_1_1_app.html", null ]
+      [ "NBA.WPFApp.App", "class_n_b_a_1_1_w_p_f_app_1_1_app.html", null ],
+      [ "NBA.WpfClient.App", "class_n_b_a_1_1_wpf_client_1_1_app.html", null ]
     ] ],
     [ "NBA.Logic.Average", "class_n_b_a_1_1_logic_1_1_average.html", null ],
     [ "Controller", null, [
       [ "NBA.Web.Controllers.HomeController", "class_n_b_a_1_1_web_1_1_controllers_1_1_home_controller.html", null ],
+      [ "NBA.Web.Controllers.PlayersApiController", "class_n_b_a_1_1_web_1_1_controllers_1_1_players_api_controller.html", null ],
       [ "NBA.Web.Controllers.PlayersController", "class_n_b_a_1_1_web_1_1_controllers_1_1_players_controller.html", null ]
     ] ],
     [ "DbContext", null, [
       [ "NBA.Data.Model.NBADbContext", "class_n_b_a_1_1_data_1_1_model_1_1_n_b_a_db_context.html", null ]
     ] ],
     [ "NBA.Web.Models.ErrorViewModel", "class_n_b_a_1_1_web_1_1_models_1_1_error_view_model.html", null ],
-    [ "NBA.WPFApp.Factory", "class_n_b_a_1_1_w_p_f_app_1_1_factory.html", null ],
     [ "NBA.Program.Factory", "class_n_b_a_1_1_program_1_1_factory.html", null ],
+    [ "NBA.WPFApp.Factory", "class_n_b_a_1_1_w_p_f_app_1_1_factory.html", null ],
     [ "IComponentConnector", null, [
       [ "NBA.WPFApp.UI.EditorWindow", "class_n_b_a_1_1_w_p_f_app_1_1_u_i_1_1_editor_window.html", null ],
       [ "NBA.WPFApp.UI.EditorWindowTeam", "class_n_b_a_1_1_w_p_f_app_1_1_u_i_1_1_editor_window_team.html", null ]
@@ -59,7 +62,8 @@ var hierarchy =
       ] ]
     ] ],
     [ "IServiceLocator", null, [
-      [ "NBA.WPFApp.MyIoc", "class_n_b_a_1_1_w_p_f_app_1_1_my_ioc.html", null ]
+      [ "NBA.WPFApp.MyIoc", "class_n_b_a_1_1_w_p_f_app_1_1_my_ioc.html", null ],
+      [ "NBA.WpfClient.ClientIoc", "class_n_b_a_1_1_wpf_client_1_1_client_ioc.html", null ]
     ] ],
     [ "NBA.Logic.ITeamLogic", "interface_n_b_a_1_1_logic_1_1_i_team_logic.html", [
       [ "NBA.Logic.TeamLogic", "class_n_b_a_1_1_logic_1_1_team_logic.html", null ]
@@ -72,6 +76,7 @@ var hierarchy =
       [ "NBA.WPFApp.UI.HeightToStringConverter", "class_n_b_a_1_1_w_p_f_app_1_1_u_i_1_1_height_to_string_converter.html", null ],
       [ "NBA.WPFApp.UI.StatusToBrushConverter", "class_n_b_a_1_1_w_p_f_app_1_1_u_i_1_1_status_to_brush_converter.html", null ]
     ] ],
+    [ "NBA.WpfClient.MainLogic", "class_n_b_a_1_1_wpf_client_1_1_main_logic.html", null ],
     [ "NBA.Web.Models.MapperFactory", "class_n_b_a_1_1_web_1_1_models_1_1_mapper_factory.html", null ],
     [ "NBA.Program.NBAProgram", "class_n_b_a_1_1_program_1_1_n_b_a_program.html", null ],
     [ "NBA.Repository.NBARepository< Player >", "class_n_b_a_1_1_repository_1_1_n_b_a_repository.html", [
@@ -91,13 +96,16 @@ var hierarchy =
     ] ],
     [ "ObservableObject", null, [
       [ "NBA.WPFApp.Data.PlayerUI", "class_n_b_a_1_1_w_p_f_app_1_1_data_1_1_player_u_i.html", null ],
-      [ "NBA.WPFApp.Data.TeamUI", "class_n_b_a_1_1_w_p_f_app_1_1_data_1_1_team_u_i.html", null ]
+      [ "NBA.WPFApp.Data.TeamUI", "class_n_b_a_1_1_w_p_f_app_1_1_data_1_1_team_u_i.html", null ],
+      [ "NBA.WpfClient.PlayerVM", "class_n_b_a_1_1_wpf_client_1_1_player_v_m.html", null ]
     ] ],
-    [ "NBA.Web.Models.Player", "class_n_b_a_1_1_web_1_1_models_1_1_player.html", null ],
     [ "NBA.Data.Model.Player", "class_n_b_a_1_1_data_1_1_model_1_1_player.html", null ],
+    [ "NBA.Web.Models.Player", "class_n_b_a_1_1_web_1_1_models_1_1_player.html", null ],
+    [ "NBA.ConsoleClient.Player", "class_n_b_a_1_1_console_client_1_1_player.html", null ],
     [ "NBA.Web.Models.PlayerListViewModel", "class_n_b_a_1_1_web_1_1_models_1_1_player_list_view_model.html", null ],
     [ "NBA.Data.Model.PlayerStats", "class_n_b_a_1_1_data_1_1_model_1_1_player_stats.html", null ],
     [ "NBA.Logic.Tests.PlayerTests", "class_n_b_a_1_1_logic_1_1_tests_1_1_player_tests.html", null ],
+    [ "NBA.ConsoleClient.Program", "class_n_b_a_1_1_console_client_1_1_program.html", null ],
     [ "NBA.Web.Program", "class_n_b_a_1_1_web_1_1_program.html", null ],
     [ "RazorPage", null, [
       [ "AspNetCore.Views__ViewImports", "class_asp_net_core_1_1_views_____view_imports.html", null ],
@@ -116,7 +124,8 @@ var hierarchy =
     ] ],
     [ "NBA.Data.Model.Series", "class_n_b_a_1_1_data_1_1_model_1_1_series.html", null ],
     [ "SimpleIoc", null, [
-      [ "NBA.WPFApp.MyIoc", "class_n_b_a_1_1_w_p_f_app_1_1_my_ioc.html", null ]
+      [ "NBA.WPFApp.MyIoc", "class_n_b_a_1_1_w_p_f_app_1_1_my_ioc.html", null ],
+      [ "NBA.WpfClient.ClientIoc", "class_n_b_a_1_1_wpf_client_1_1_client_ioc.html", null ]
     ] ],
     [ "NBA.Program.SimpleMenu", "class_n_b_a_1_1_program_1_1_simple_menu.html", null ],
     [ "NBA.Web.Startup", "class_n_b_a_1_1_web_1_1_startup.html", null ],
@@ -127,11 +136,16 @@ var hierarchy =
     [ "ViewModelBase", null, [
       [ "NBA.WPFApp.VM.EditorViewModel", "class_n_b_a_1_1_w_p_f_app_1_1_v_m_1_1_editor_view_model.html", null ],
       [ "NBA.WPFApp.VM.EditorViewModelTeam", "class_n_b_a_1_1_w_p_f_app_1_1_v_m_1_1_editor_view_model_team.html", null ],
-      [ "NBA.WPFApp.VM.MainViewModel", "class_n_b_a_1_1_w_p_f_app_1_1_v_m_1_1_main_view_model.html", null ]
+      [ "NBA.WPFApp.VM.MainViewModel", "class_n_b_a_1_1_w_p_f_app_1_1_v_m_1_1_main_view_model.html", null ],
+      [ "NBA.WpfClient.MainVM", "class_n_b_a_1_1_wpf_client_1_1_main_v_m.html", null ]
     ] ],
     [ "Window", null, [
-      [ "NBA.WPFApp.MainWindow", "class_n_b_a_1_1_w_p_f_app_1_1_main_window.html", null ],
       [ "NBA.WPFApp.UI.EditorWindow", "class_n_b_a_1_1_w_p_f_app_1_1_u_i_1_1_editor_window.html", null ],
-      [ "NBA.WPFApp.UI.EditorWindowTeam", "class_n_b_a_1_1_w_p_f_app_1_1_u_i_1_1_editor_window_team.html", null ]
+      [ "NBA.WPFApp.UI.EditorWindowTeam", "class_n_b_a_1_1_w_p_f_app_1_1_u_i_1_1_editor_window_team.html", null ],
+      [ "NBA.WpfClient.EditorWindow", "class_n_b_a_1_1_wpf_client_1_1_editor_window.html", null ],
+      [ "NBA.WpfClient.MainWindow", "class_n_b_a_1_1_wpf_client_1_1_main_window.html", null ]
+    ] ],
+    [ "Window", null, [
+      [ "NBA.WPFApp.MainWindow", "class_n_b_a_1_1_w_p_f_app_1_1_main_window.html", null ]
     ] ]
 ];

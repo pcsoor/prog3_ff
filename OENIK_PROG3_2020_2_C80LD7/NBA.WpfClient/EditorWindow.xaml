@@ -19,7 +19,7 @@
         <Label Content="Team name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,232,0,0" />
 
         <TextBox Text="{Binding Path=Name}" HorizontalAlignment="Left" Height="23" Margin="108,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155"/>
-        <DatePicker HorizontalAlignment="Left" Margin="108,42,0,0" VerticalAlignment="Top" Width="155" SelectedDate="{x:Static sys:DateTime.Now}"/>
+        <DatePicker HorizontalAlignment="Left" Margin="108,42,0,0" VerticalAlignment="Top" Width="155" SelectedDate="{Binding Path=Birth}"/>
         <TextBox Text="{Binding Path=Height}" HorizontalAlignment="Left" Height="23" Margin="108,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155"/>
         <TextBox Text="{Binding Path=Weight}" HorizontalAlignment="Left" Height="23" Margin="108,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155"/>
         <ComboBox HorizontalAlignment="Left" Margin="108,138,0,0" VerticalAlignment="Top" Width="155" 

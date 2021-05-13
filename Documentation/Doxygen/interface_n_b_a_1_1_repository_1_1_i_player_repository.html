@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>NBA semester project: NBA.Repository.IPlayerRepository Interface Reference</title>
+<title>Prog4hf: NBA.Repository.IPlayerRepository Interface Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,9 +25,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">NBA semester project
-   &#160;<span id="projectnumber">v3</span>
+   <div id="projectname">Prog4hf
+   &#160;<span id="projectnumber">Prog4hf</span>
    </div>
+   <div id="projectbrief">Prog4hf</div>
   </td>
  </tr>
  </tbody>
@@ -108,9 +109,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac513cefcbf7a0045e257248f4bb6ca8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_n_b_a_1_1_repository_1_1_i_player_repository.html#ac513cefcbf7a0045e257248f4bb6ca8b">ChangeSalary</a> (int id, int newsalary)</td></tr>
 <tr class="memdesc:ac513cefcbf7a0045e257248f4bb6ca8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the player's number.  <a href="interface_n_b_a_1_1_repository_1_1_i_player_repository.html#ac513cefcbf7a0045e257248f4bb6ca8b">More...</a><br /></td></tr>
 <tr class="separator:ac513cefcbf7a0045e257248f4bb6ca8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1891282069092207593049ce09ef56a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_n_b_a_1_1_repository_1_1_i_player_repository.html#a1891282069092207593049ce09ef56a2">UpdatePlayer</a> (int id)</td></tr>
-<tr class="memdesc:a1891282069092207593049ce09ef56a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates player properties.  <a href="interface_n_b_a_1_1_repository_1_1_i_player_repository.html#a1891282069092207593049ce09ef56a2">More...</a><br /></td></tr>
-<tr class="separator:a1891282069092207593049ce09ef56a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac912f9e1eafcf0d46e45ffa166849db5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_n_b_a_1_1_repository_1_1_i_player_repository.html#ac912f9e1eafcf0d46e45ffa166849db5">UpdatePlayer</a> (int id, <a class="el" href="class_n_b_a_1_1_data_1_1_model_1_1_player.html">Player</a> newPlayer)</td></tr>
+<tr class="memdesc:ac912f9e1eafcf0d46e45ffa166849db5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates player properties.  <a href="interface_n_b_a_1_1_repository_1_1_i_player_repository.html#ac912f9e1eafcf0d46e45ffa166849db5">More...</a><br /></td></tr>
+<tr class="separator:ac912f9e1eafcf0d46e45ffa166849db5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_interface_n_b_a_1_1_repository_1_1_i_repository"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_interface_n_b_a_1_1_repository_1_1_i_repository')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="interface_n_b_a_1_1_repository_1_1_i_repository.html">NBA.Repository.IRepository&lt; Player &gt;</a></td></tr>
 <tr class="memitem:a38f6a315addb883a7f3c93670beb7e5a inherit pub_methods_interface_n_b_a_1_1_repository_1_1_i_repository"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_n_b_a_1_1_repository_1_1_i_repository.html#a38f6a315addb883a7f3c93670beb7e5a">GetOne</a> (int id)</td></tr>
 <tr class="memdesc:a38f6a315addb883a7f3c93670beb7e5a inherit pub_methods_interface_n_b_a_1_1_repository_1_1_i_repository"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns one entity.  <a href="interface_n_b_a_1_1_repository_1_1_i_repository.html#a38f6a315addb883a7f3c93670beb7e5a">More...</a><br /></td></tr>
@@ -169,18 +170,28 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a1891282069092207593049ce09ef56a2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1891282069092207593049ce09ef56a2">&#9670;&nbsp;</a></span>UpdatePlayer()</h2>
+<a id="ac912f9e1eafcf0d46e45ffa166849db5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac912f9e1eafcf0d46e45ffa166849db5">&#9670;&nbsp;</a></span>UpdatePlayer()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void NBA.Repository.IPlayerRepository.UpdatePlayer </td>
+          <td class="memname">bool NBA.Repository.IPlayerRepository.UpdatePlayer </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="class_n_b_a_1_1_data_1_1_model_1_1_player.html">Player</a>&#160;</td>
+          <td class="paramname"><em>newPlayer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -189,11 +200,13 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">id</td><td>player entity id.</td></tr>
+    <tr><td class="paramname">newPlayer</td><td>new player.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>true or false.</dd></dl>
 
-<p>Implemented in <a class="el" href="class_n_b_a_1_1_repository_1_1_player_repository.html#a2345598b4632c7825356a4609401f769">NBA.Repository.PlayerRepository</a>.</p>
+<p>Implemented in <a class="el" href="class_n_b_a_1_1_repository_1_1_player_repository.html#a857166ac17e63a1130871ab5eabf887f">NBA.Repository.PlayerRepository</a>.</p>
 
 </div>
 </div>

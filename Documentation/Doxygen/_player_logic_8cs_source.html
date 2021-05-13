@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>NBA semester project: C:/Users/csoor/OneDrive/Documents/oenik_prog4hf_2021_1_c80ld7/OENIK_PROG3_2020_2_C80LD7/NBA.Logic/PlayerLogic.cs Source File</title>
+<title>Prog4hf: C:/Users/csoor/OneDrive/Documents/oenik_prog4hf_2021_1_c80ld7/OENIK_PROG3_2020_2_C80LD7/NBA.Logic/PlayerLogic.cs Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,9 +25,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">NBA semester project
-   &#160;<span id="projectnumber">v3</span>
+   <div id="projectname">Prog4hf
+   &#160;<span id="projectnumber">Prog4hf</span>
    </div>
+   <div id="projectbrief">Prog4hf</div>
   </td>
  </tr>
  </tbody>
@@ -132,7 +133,7 @@ $(document).ready(function(){initNavTree('_player_logic_8cs_source.html',''); in
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            }</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                this.playerRepo.UpdatePlayer(player.<a class="code" href="class_n_b_a_1_1_data_1_1_model_1_1_player.html#a13d00db2ca583da15600c289e16e3b16">PlayerID</a>);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                this.playerRepo.UpdatePlayer(player.<a class="code" href="class_n_b_a_1_1_data_1_1_model_1_1_player.html#a13d00db2ca583da15600c289e16e3b16">PlayerID</a>, player);</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            }</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
@@ -223,13 +224,13 @@ $(document).ready(function(){initNavTree('_player_logic_8cs_source.html',''); in
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
 <div class="line"><a name="l00192"></a><span class="lineno"><a class="line" href="class_n_b_a_1_1_logic_1_1_player_logic.html#ad3f4c3b8f73d406d0f24be6f6003a206">  192</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">bool</span> <a class="code" href="class_n_b_a_1_1_logic_1_1_player_logic.html#ad3f4c3b8f73d406d0f24be6f6003a206">UpdatePlayer</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>)</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        {</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;            <span class="keywordflow">if</span> (this.playerRepo.GetAll().ToList().Contains(<span class="keyword">this</span>.GetOnePlayerById(<span class="keywordtype">id</span>)))</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            {</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                this.playerRepo.UpdatePlayer(<span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;            var player = this.<a class="code" href="class_n_b_a_1_1_logic_1_1_player_logic.html#a5b83497bd53fe538410f1943ebe4e6df">GetOnePlayerById</a>(<span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            <span class="keywordflow">if</span> (!this.playerRepo.GetAll().ToList().Contains(<span class="keyword">this</span>.GetOnePlayerById(<span class="keywordtype">id</span>)))</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;            {</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            }</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;            <span class="keywordflow">return</span> this.playerRepo.UpdatePlayer(<span class="keywordtype">id</span>, player);</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        }</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
 <div class="line"><a name="l00208"></a><span class="lineno"><a class="line" href="class_n_b_a_1_1_logic_1_1_player_logic.html#aef1c708b440401995db7bfff66f7578f">  208</a></span>&#160;        <span class="keyword">public</span> IList&lt;Player&gt; <a class="code" href="class_n_b_a_1_1_logic_1_1_player_logic.html#aef1c708b440401995db7bfff66f7578f">GetPlayerByTeam</a>(<span class="keywordtype">int</span> team)</div>
@@ -292,7 +293,7 @@ $(document).ready(function(){initNavTree('_player_logic_8cs_source.html',''); in
 <div class="ttc" id="aclass_n_b_a_1_1_logic_1_1_player_logic_html_a5b83497bd53fe538410f1943ebe4e6df"><div class="ttname"><a href="class_n_b_a_1_1_logic_1_1_player_logic.html#a5b83497bd53fe538410f1943ebe4e6df">NBA.Logic.PlayerLogic.GetOnePlayerById</a></div><div class="ttdeci">Player GetOnePlayerById(int id)</div><div class="ttdoc">Gives you one player.</div><div class="ttdef"><b>Definition:</b> <a href="_player_logic_8cs_source.html#l00073">PlayerLogic.cs:73</a></div></div>
 <div class="ttc" id="ainterface_n_b_a_1_1_logic_1_1_i_player_logic_html"><div class="ttname"><a href="interface_n_b_a_1_1_logic_1_1_i_player_logic.html">NBA.Logic.IPlayerLogic</a></div><div class="ttdoc">Describes player specific methods.</div><div class="ttdef"><b>Definition:</b> <a href="_i_player_logic_8cs_source.html#l00016">IPlayerLogic.cs:17</a></div></div>
 <div class="ttc" id="aclass_n_b_a_1_1_logic_1_1_player_logic_html_af28f224dcb41bc3b350a2837793b2c65"><div class="ttname"><a href="class_n_b_a_1_1_logic_1_1_player_logic.html#af28f224dcb41bc3b350a2837793b2c65">NBA.Logic.PlayerLogic.ChangePlayer</a></div><div class="ttdeci">bool ChangePlayer(Player player)</div><div class="ttdoc">Changes given players properties.</div><div class="ttdef"><b>Definition:</b> <a href="_player_logic_8cs_source.html#l00054">PlayerLogic.cs:54</a></div></div>
-<div class="ttc" id="anamespace_n_b_a_html"><div class="ttname"><a href="namespace_n_b_a.html">NBA</a></div><div class="ttdef"><b>Definition:</b> <a href="_n_b_a_db_context_8cs_source.html#l00006">NBADbContext.cs:7</a></div></div>
+<div class="ttc" id="anamespace_n_b_a_html"><div class="ttname"><a href="namespace_n_b_a.html">NBA</a></div><div class="ttdef"><b>Definition:</b> <a href="_n_b_a_8_console_client_2_player_8cs_source.html#l00005">Player.cs:6</a></div></div>
 <div class="ttc" id="aclass_n_b_a_1_1_logic_1_1_player_logic_html_a1e83b016c8767d1ee73a32c25a4379c6"><div class="ttname"><a href="class_n_b_a_1_1_logic_1_1_player_logic.html#a1e83b016c8767d1ee73a32c25a4379c6">NBA.Logic.PlayerLogic.GetAllPlayerStat</a></div><div class="ttdeci">IList&lt; PlayerStats &gt; GetAllPlayerStat()</div><div class="ttdoc">Returns a list of player statistics.</div><div class="ttdef"><b>Definition:</b> <a href="_player_logic_8cs_source.html#l00243">PlayerLogic.cs:243</a></div></div>
 <div class="ttc" id="aclass_n_b_a_1_1_data_1_1_model_1_1_teams_html_a547bc8f1f80285a6d828c248234a851a"><div class="ttname"><a href="class_n_b_a_1_1_data_1_1_model_1_1_teams.html#a547bc8f1f80285a6d828c248234a851a">NBA.Data.Model.Teams.Name</a></div><div class="ttdeci">string Name</div><div class="ttdoc">Gets or sets the name of the team.</div><div class="ttdef"><b>Definition:</b> <a href="_teams_8cs_source.html#l00036">Teams.cs:36</a></div></div>
 <div class="ttc" id="anamespace_n_b_a_1_1_data_html"><div class="ttname"><a href="namespace_n_b_a_1_1_data.html">NBA.Data</a></div><div class="ttdef"><b>Definition:</b> <a href="_n_b_a_db_context_8cs_source.html#l00006">NBADbContext.cs:7</a></div></div>
